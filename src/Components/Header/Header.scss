@@ -1,0 +1,55 @@
+$grey-border: solid 1px #373737;
+$grey-icons: #ACACAC;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    width: 40vw;
+    margin: 2vh;
+}
+
+header {
+    width: 100vw;
+    background-color: #13131D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: $grey-border;
+    .buttonsContainer {
+        min-width: 300px;
+        @include flex-center;
+        div {
+            @include flex-center;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.iconContainer {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 3px;
+    color: $grey-icons;
+    border: $grey-border;
+    border-radius: 50%;
+}
+
+button {
+    all: unset;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #212E48;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 7px;
+}
