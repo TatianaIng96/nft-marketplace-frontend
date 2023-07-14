@@ -1,10 +1,19 @@
 $grey-border: solid 1px #373737;
 $grey-icons: #ACACAC;
 
-@mixin flex-center {
+@mixin flex-base-conditions($direction: row) {
     display: flex;
-    justify-content: center;
+    flex-direction: $direction;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+@mixin button-and-input {
+    all: unset;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #212E48;
+    padding: 7px 12px;
 }
 
 * {
@@ -14,42 +23,61 @@ $grey-icons: #ACACAC;
 
 img {
     width: 40vw;
+    max-width: 175px;
     margin: 2vh;
 }
 
 header {
     width: 100vw;
     background-color: #13131D;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-base-conditions($direction: column);
     border: $grey-border;
     .buttonsContainer {
-        min-width: 300px;
-        @include flex-center;
-        div {
-            @include flex-center;
-            margin-bottom: 10px;
-        }
+        @include flex-base-conditions;
     }
 }
 
-.iconContainer {
+div.iconContainer {
+    @include flex-base-conditions;
     width: 40px;
     height: 40px;
     box-sizing: border-box;
-    margin: 3px;
+    margin: 3px 3px 10px 3px;
     color: $grey-icons;
     border: $grey-border;
     border-radius: 50%;
 }
 
 button {
-    all: unset;
-    font-size: 0.8rem;
-    font-weight: 500;
-    background-color: #212E48;
+    @include button-and-input;
     color: white;
-    padding: 7px 12px;
     border-radius: 7px;
+}
+
+.searchBarContainer {
+    margin: auto;
+    @include flex-base-conditions;
+    box-sizing: border-box;
+    border: solid 1px #242435;
+    width: 90vw;
+    padding: 20px;
+    background-color: #242435;
+    .searchInput{
+        @include button-and-input;
+        width: 70vw;
+        color: $grey-icons;
+    }
+    .searchButton{
+        @include button-and-input;
+        color: $grey-icons;
+    }
+}
+
+@media(min-width: 500px) {
+    img {
+        max-width: 150px;
+    }
+    header {
+        @include flex-base-conditions($direction: row);
+    }
 }
