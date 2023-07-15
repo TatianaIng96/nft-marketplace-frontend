@@ -25,6 +25,11 @@ img {
     width: 40vw;
     max-width: 175px;
     margin: 2vh;
+    cursor: pointer;
+}
+
+.menuInHeader {
+    display: none;
 }
 
 header {
@@ -46,12 +51,26 @@ div.iconContainer {
     color: $grey-icons;
     border: $grey-border;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.searchInHeaderContainer {
+    display: none;
 }
 
 button {
     @include button-and-input;
     color: white;
     border-radius: 7px;
+    cursor: pointer;
+}
+
+.homePagesList {
+    display: none;
+}
+
+div > header span.home:hover + ul#homePagesList.homePagesList {
+    display: inline;
 }
 
 .searchBarContainer {
@@ -70,6 +89,7 @@ button {
     .searchButton{
         @include button-and-input;
         color: $grey-icons;
+        cursor: pointer;
     }
 }
 
@@ -97,6 +117,7 @@ button {
             align-items: center;
             font-size: 24px;
             border-radius: 50%;
+            cursor: pointer;
         }
     }
     ul {
@@ -116,5 +137,35 @@ button {
     }
     header {
         @include flex-base-conditions($direction: row);
+    }
+}
+
+@media(min-width: 768px) {
+    #searchShower {
+        display: none;
+    }
+    .searchInHeaderContainer {
+        display: inline;
+        .searchInHeader {
+            @include button-and-input;
+            border-radius: 5px 0px 0px 5px;
+        }
+        .searchButtonInHeader {
+            @include button-and-input;
+            border-radius: 0px 5px 5px 0px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media(min-width: 1440px) {
+    #hamburgerIcon {
+        display: none;
+    }
+    .menuInHeader {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
     }
 }
