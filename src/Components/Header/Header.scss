@@ -73,6 +73,43 @@ button {
     }
 }
 
+.hamburgerMenu {
+    width: 80vw;
+    height: 100vh;
+    padding: 10px;
+    background-color: #13131D;
+    display: flex;
+    flex-direction: column;
+    div {
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: $grey-border;
+        .menuImg {
+            margin: 0px;
+            width: 35vw;
+        }
+        .xButton {
+            background-color: #373737;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border-radius: 50%;
+        }
+    }
+    ul {
+        list-style-type: none;
+        color: $grey-icons;
+        li {
+            margin: 15px 0px;
+            padding-bottom: 10px;
+            border-bottom: $grey-border;
+        }
+    }
+}
+
 @media(min-width: 500px) {
     img {
         max-width: 150px;
