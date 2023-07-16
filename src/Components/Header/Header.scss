@@ -16,6 +16,14 @@ $grey-icons: #ACACAC;
     padding: 7px 12px;
 }
 
+@mixin header-menus ($vw: 0vw) {
+    list-style-type: none;
+    display: inline-block;
+    background-color: #13131D;
+    padding: 10px;
+    margin-left: $vw;
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -26,6 +34,17 @@ img {
     max-width: 175px;
     margin: 2vh;
     cursor: pointer;
+}
+
+li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+li:hover {
+    color: #00A3FF;
+    background-color: black;
+    border-radius: 5px;
 }
 
 .menuInHeader {
@@ -65,12 +84,20 @@ button {
     cursor: pointer;
 }
 
-.homePagesList {
-    display: none;
+.homeList {
+    @include header-menus($vw: 20vw);
 }
 
-div > header span.home:hover + ul#homePagesList.homePagesList {
-    display: inline;
+.exploreList {
+    @include header-menus($vw: 35vw);
+}
+
+.pagesList {
+    @include header-menus($vw: 44vw);
+}
+
+.blogList {
+    @include header-menus($vw: 52vw);
 }
 
 .searchBarContainer {
@@ -159,13 +186,14 @@ div > header span.home:hover + ul#homePagesList.homePagesList {
     }
 }
 
-@media(min-width: 1440px) {
+@media(min-width: 1200px) {
     #hamburgerIcon {
         display: none;
     }
     .menuInHeader {
         display: flex;
         align-items: center;
+        height: 100%;
         cursor: pointer;
     }
 }
