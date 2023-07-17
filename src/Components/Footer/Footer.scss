@@ -246,7 +246,7 @@ a  {
 .align-items-center {
   align-items: center!important;
   display: flex;
-  margin-top: 20%;
+  margin-top: 430px;
 }
 
 .column-3{
@@ -351,12 +351,75 @@ a  {
 }
 
 
-@media(min-width:601px) {
-  .privacy{
-    flex-direction: row;
+@media(min-width:769px) and (max-width: 1200px) {
+ .copy-right{
+  position: static;
+  margin-top: 62%;
+ }
+
+  .column-3{
+    margin-left: -102px;
+  }
+ .container{
+  top: 27%;
+ }
+
+ .privacy{
+  flex-direction: column;
+  margin-left: 10%;
+  margin-left: -40%;
+ }
+
+ .footer-one{
+  margin-top: 80px!important;
+  padding: 80px 0;
+  }
+  footer{
+    margin-top: 80px!important;
+    padding: 80px 0;
+    height: auto;
+  }
+  .column-1{
+    margin-top: 10px!important;
+  }
+  .column-2{
+    margin-top: 10%;
+  }
+
+  .footer-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: -19%;
+  }
+  .div{
+    display: flex;
+    margin-top: -19%;
+    margin-left: 19%;
+  }
+  .div-1{
+  margin-left: 12%;
+  margin-top: -19%;
+  }
+  .column-1{
+    width: 300px;
+  }
+  .div-2{
+    display: flex;
+    margin-top: 10%;
+    width: 500px;
+    margin-left: 10px;
+  }
+  .div-3{
+    display: flex;
+    margin-top: 10%;
+  }
+
+  .align-items-center{
+    margin-top: 72%;
   }
 }
-@media (max-width: 600px){
+
+@media (max-width: 768px){
   .footer-one{
     margin-top: 80px!important;
     padding: 80px 0;
@@ -365,6 +428,30 @@ a  {
     margin-top: 80px!important;
     padding: 80px 0;
     height: auto;
+  }
+  .column-1{
+    margin-top: 10px!important;
+  }
+  .column-2{
+    margin-top: 10%;
+  }
+
+  .footer-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: -19%;
+  }
+  .div{
+    display: flex;
+    margin-top: 5%;
+  }
+  .div-2{
+    display: flex;
+    margin-top: 50%;
+  }
+  .div-3{
+    display: flex;
+    margin-top: 50%;
   }
   .container{
     margin-right: auto;
@@ -411,7 +498,7 @@ a  {
     margin-top: 409%;
     margin-left: -2%;
     margin-bottom: 37%;
-    position: relative;
+    position: static;
     height: -3%;
   }
 
@@ -438,6 +525,23 @@ a  {
     margin-top: 5%;
   }
   .align-items-center{
-    margin-top: 52%;
+    margin-top: 1643px;
+  }
+}
+
+@media (min-width:1201px) and (max-width:1470px){
+  .align-items-center{
+    margin-top: 430px;
+    position:sticky;
+  }
+}
+
+@media(min-width:1471px){
+  .align-items-center{
+    margin-top: 430px;
+  }
+
+  .column-3{
+    margin-left: -292px;
   }
 }

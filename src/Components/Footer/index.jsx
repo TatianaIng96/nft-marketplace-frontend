@@ -51,7 +51,7 @@ const FooterComponent = () => {
         <div className="footer-one">
           <div className="container">
            <div className="row">
-              <div>
+              <div className="div-1">
                 <div className="column-1 column-2">
                   <div className="logo">
                     <img src={logo}/>
