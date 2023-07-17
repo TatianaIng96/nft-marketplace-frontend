@@ -41,6 +41,11 @@ $dark-color-blue: #242435;
         .profiles {
           display: flex;
           align-items: center;
+          span {
+            @include flex-style;
+            border: 1px solid $silver-color;
+            border-radius: 50%;
+          }
         }
         a {
           color: $silver-color;
@@ -132,13 +137,30 @@ $dark-color-blue: #242435;
     .nft-info {
       .profiles-info {
         .profile-share {
-          width: 70%;
+          width: 75%;
           height: 30px;
           display: flex;
           align-items: center;
         }
       }
     }
+
+    .nft-info {
+      .nft-name {
+        a {
+          font-size: 20px;
+        }
+      }
+      .profiles-info {
+        .profile-share {
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 15rem;
 
     .nft-info {
       .nft-name {
