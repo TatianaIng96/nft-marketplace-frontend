@@ -1,10 +1,10 @@
 $grey-border: solid 1px #373737;
 $grey-icons: #ACACAC;
 
-@mixin flex-base-conditions($direction: row) {
+@mixin flex-base-conditions($direction: row,$space:space-evenly) {
     display: flex;
     flex-direction: $direction;
-    justify-content: space-evenly;
+    justify-content: $space;
     align-items: center;
 }
 
@@ -122,7 +122,7 @@ button {
 
 .hamburgerMenu {
     width: 80vw;
-    height: 100vh;
+    height: 100%;
     padding: 10px;
     background-color: #13131D;
     display: flex;
@@ -147,10 +147,11 @@ button {
             cursor: pointer;
         }
     }
-    ul {
+    .menuInMobile {
         list-style-type: none;
         color: $grey-icons;
         li {
+            @include flex-base-conditions($space:space-between);
             margin: 15px 0px;
             padding-bottom: 10px;
             border-bottom: $grey-border;
