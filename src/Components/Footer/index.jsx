@@ -1,4 +1,4 @@
-import {FaFacebookF} from "react-icons/fa";
+import {FaFacebookF,FaInstagram, FaTwitter,FaLinkedinIn} from "react-icons/fa";
 import './Footer.scss';
 import logo from '../../assets/logo-neuron.png'
 import List from "./list";
@@ -47,52 +47,44 @@ const FooterComponent = () => {
   ]
   return (
     <>
-      <footer className="footer ">
-        <div className="footer-one">
+      <footer className="footer">
+        <div className="footer-menu">
           <div className="container">
-           <div className="row">
-              <div className="div-1">
-                <div className="column-1 column-2">
-                  <div className="logo">
-                    <img src={logo}/>
-                  </div>
-                  <p className="footer-describe">
-                    Created with the collaboration of over 60 
-                    of the world's best Nuron Artists.
-                  </p>
-                </div>
+            <div className="col email-subscription">
+              <div className="header-subscription">
+                <img src={logo} alt="logo"/>
+                <p className="footer-describe">
+                  Created with the collaboration of over 60 
+                  of the world's best Nuron Artists.
+                </p>
+              </div>
+              <div className="form-subscription">
                 <div className="widget-botton">
-                  <h6 className="title"> Get The Latest Nuron Updates</h6>
+                  <h6 className="title">Get The Latest Nuron Updates</h6>
                 </div>
-                <div className="input-subscribe">
-                  <input type="text" className="form-control" 
-                  placeholder="Your username" aria-label="Recipient's username"/>
-                  <div className="form-control-append">
-                    <button className="btn-subscribe">
-                      Subscribe
-                    </button>
-                  </div>
-                  <div>
-                    <p>Email is safe. We don't spam.</p>
-                  </div>
+                <div className="">
+                  <input 
+                    type="text"
+                    className="form-control"
+                    placeholder="Your username"
+                    aria-label="Recipient's username"
+                  />
+                  <button className="btn-subscribe" type="button">
+                    Subscribe
+                  </button>
                 </div>
+                <p>Email is safe. We don't spam.</p>
               </div>
-              <div className="div">
-                <div className="column-1">
-                  <List list={neuron} title={'Neuron'}/>
-                </div>
-              </div>
-
-              <div className="div-2">
-                <div className="column-1">
-                  <List list={information} title={'Information'}/>
-                </div>
-              </div>
-
-              <div className="div-3">
-                <div className="column-1">
-                  <div className="footer-neuron">
-                    <h6 className="widget-title-2">Recent Sold Out</h6>
+            </div>
+          
+            <div className="col nuron-info">
+              <List list={neuron} title={'Neuron'}/>
+            </div>
+            <div className="col general-info">
+              <List list={information} title={'Information'}/>
+            </div>
+            <div className="col recent-sold-out">
+            <h6 className="widget-title-2">Recent Sold Out</h6>
                     <ul className="footer-recent">
                       {recent.map((item,index)=>(
                         <li className="recent" key={index}>
@@ -108,79 +100,64 @@ const FooterComponent = () => {
                             </h6>
                             <p className="p">{item.body}</p>
                             <span className="price">{item.price}</span>
-                          </div>
+                            </div>
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </div>
-              </div>
-           </div>
+            </div>
           </div>
         </div>
-        
         <div className="copy-right">
-          <div className="container">
-            <div className=" row align-items-center ">
-              <div className="column-3">
-                <div className="copyright-left">
-                  <ul className="privacy">
-                    <li>
-                     <span className="left">©2022 Nuron, Inc. All rights reserved</span>
-                    </li>
-                    <li className="">
-                       <a rel="preload" href="left"> Terms</a>
-                    </li>
-                    <li className="left"> 
-                      <a rel="preload" href=""> Privacy Policy </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="align-items-center">
+            <ul className="privacy">
+              <li>
+                <span className="aling">©2022 Nuron, Inc. All rights reserved</span>
+              </li>
+              <li className=" aling-term">
+                  <a rel="preload" href=""> Terms</a>
+                  <a rel="preload" href="" className="aling-policy"> Privacy Policy </a>
+              </li>
+            </ul>
           </div>
-          <div className="column-3">
-            <div className="copyright-right">
-              <ul className="social">
-                <li>
-                <a href="https://facebook.com" target="_blank" 
-                rel="noreferrer" 
-                aria-label="Facebook">
-                  <i className="facebook"> 
-                  {<FaFacebookF/>}
-                  </i></a>
-                </li>
-                <li>
-                <a href="https://facebook.com" target="_blank" 
-                rel="noreferrer" 
-                aria-label="Facebook">
-                  <i className="facebook"> 
-                  {<FaFacebookF/>}
-                  </i></a>
-                </li>
-                <li>
-                <a href="https://facebook.com" target="_blank" 
-                rel="noreferrer" 
-                aria-label="Facebook">
-                  <i className="facebook"> 
-                  {<FaFacebookF/>}
-                  </i></a>
-                </li>
-                <li>
-                <a href="https://facebook.com" target="_blank" 
-                rel="noreferrer" 
-                aria-label="Facebook">
-                  <i className="facebook"> 
-                  {<FaFacebookF/>}
-                  </i></a>
-                </li>
-              </ul>
-            </div>
+          <div>
+            <ul className="social">
+              <li>
+              <a href="https://facebook.com" target="_blank" 
+              rel="noreferrer" 
+              aria-label="Facebook">
+                <i className="facebook"> 
+                {<FaFacebookF/>}
+                </i></a>
+              </li>
+              <li className="left">
+              <a href="https://instagram.com" target="_blank" 
+              rel="noreferrer" 
+              aria-label="Instagram">
+                <i className="instagram"> 
+                {<FaInstagram/>}
+                </i></a>
+              </li>
+              <li className="left">
+              <a href="https://twitter.com" target="_blank" 
+              rel="noreferrer" 
+              aria-label="twiter">
+                <i className="twiter"> 
+                {<FaTwitter/>}
+                </i></a>
+              </li>
+              <li className="left">
+              <a href="https://linkending.com" target="_blank" 
+              rel="noreferrer" 
+              aria-label="linkending">
+                <i className="linkending"> 
+                {<FaLinkedinIn/>}
+                </i></a>
+              </li>
+            </ul>
           </div>
         </div>
       </footer>
-
-      <div className="rn-progress-parent rn-backto-top-active" role="button" tabIndex="-1"><svg className="rn-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style={{transition: 'stroke-dashoffset 10ms linear 0s', stroke: '307.919, 307.919'}}/></svg></div>
+      {/* <div className="rn-progress-parent" role="button" tabIndex="-1"><svg className="rn-back-circle svg-inner" width="5%" height="10%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style={{transition: 'stroke-dashoffset 10ms linear 0s', stroke: '307.919, 307.919'}}/></svg></div> */}
     </>
   )
 }
