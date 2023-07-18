@@ -99,54 +99,48 @@ const Header = () => {
         <div className='menuOption about'>About</div>
         <div className='menuOption explore' onMouseEnter={handleExploreHover}>
             <p>Explore <BiChevronDown/></p>
-            <div>
-              {showExplore &&
-              <ul className='explore__list' 
-                  onMouseEnter={handleExploreHover} 
-                  onMouseLeave={() => setShowExplore(false)}>
-                <li>Explore Filter</li>
-                <li>Explore Isotop</li>
-                <li>Explore Carousel</li>
-                <li>Explore Simple</li>
-                <li>Explore Place Bid</li>
-                <li>Place Bid With Filter</li>
-                <li>Place Bid With Isotop</li>
-                <li>Place Bid With Carousel</li>
-              </ul>}
-            </div>
+            {showExplore &&
+            <ul className='explore__list' 
+                onMouseEnter={handleExploreHover} 
+                onMouseLeave={() => setShowExplore(false)}>
+              <li>Explore Filter</li>
+              <li>Explore Isotop</li>
+              <li>Explore Carousel</li>
+              <li>Explore Simple</li>
+              <li>Explore Place Bid</li>
+              <li>Place Bid With Filter</li>
+              <li>Place Bid With Isotop</li>
+              <li>Place Bid With Carousel</li>
+            </ul>}
         </div>
         <div className='menuOption pages' onMouseEnter={handlePagesHover}>
             <p>Pages <BiChevronDown/></p>
-            <div>
-              {showPages &&
-              <ul className='pages__list' 
-                  onMouseEnter={handlePagesHover} 
-                  onMouseLeave={() => setShowPages(false)}>
-                <li>Create NFT</li>
-                <li>Product</li>
-                <li>Login</li>
-                <li>About Us</li>
-                <li>Upload Type</li>
-                <li>Registration</li>
-                <li>Product Details</li>
-                <li>Contact</li>
-              </ul>}
-            </div>
+            {showPages &&
+            <ul className='pages__list' 
+                onMouseEnter={handlePagesHover} 
+                onMouseLeave={() => setShowPages(false)}>
+              <li>Create NFT</li>
+              <li>Product</li>
+              <li>Login</li>
+              <li>About Us</li>
+              <li>Upload Type</li>
+              <li>Registration</li>
+              <li>Product Details</li>
+              <li>Contact</li>
+            </ul>}
         </div>
         <div className='menuOption blog' onMouseEnter={handleBlogHover}>
             <p>Blog <BiChevronDown/></p>
-            <div>
-              {showBlog &&
-              <ul className='blog__list' 
-                  onMouseEnter={handleBlogHover} 
-                  onMouseLeave={() => setShowBlog(false)}>
-                <li>Blog Single Column</li>
-                <li>Blog Two Column</li>
-                <li>Blog Three Column</li>
-                <li>Blog Four Column</li>
-                <li>Blog Details</li>
-              </ul>}
-            </div>
+            {showBlog &&
+            <ul className='blog__list' 
+                onMouseEnter={handleBlogHover} 
+                onMouseLeave={() => setShowBlog(false)}>
+              <li>Blog Single Column</li>
+              <li>Blog Two Column</li>
+              <li>Blog Three Column</li>
+              <li>Blog Four Column</li>
+              <li>Blog Details</li>
+            </ul>}
         </div>
         <span className='menuOption'>Contact</span>
         <section className='buttonsContainer'>
@@ -188,7 +182,7 @@ const Header = () => {
                 Home <BiChevronDown/>
               </li>
                 {showSideHome && 
-                <ul>
+                <ul className='sideMenuItems'>
                   <li>Home Page One</li>
                   <li>Home Page Two</li>
                   <li>Home Page Three</li>
@@ -200,7 +194,7 @@ const Header = () => {
                 Explore <BiChevronDown/>
               </li>
                 {showSideExplore && 
-                <ul>
+                <ul className='sideMenuItems'>
                   <li>Explore Filter</li>
                   <li>Explore Isotop</li>
                   <li>Explore Carousel</li>
@@ -214,7 +208,7 @@ const Header = () => {
                 Pages <BiChevronDown/>
               </li>
                 {showSidePages &&
-                  <ul>
+                  <ul className='sideMenuItems'>
                     <li>Create NFT</li>
                     <li>Product</li>
                     <li>Login</li>
@@ -228,7 +222,7 @@ const Header = () => {
                 Blog <BiChevronDown/>
               </li>
                 {showSideBlog &&
-                  <ul>
+                  <ul className='sideMenuItems'>
                     <li>Blog Single Column</li>
                     <li>Blog Two Column</li>
                     <li>Blog Three Column</li>
