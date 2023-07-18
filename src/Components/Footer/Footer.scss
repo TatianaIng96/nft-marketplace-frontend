@@ -1,0 +1,370 @@
+.footer {
+  // border-top: 1px solid rgba(50, 50, 50, 0.3);
+  background-color: #1b1a28;
+  width: 100%;
+  position: fixed;
+  clear: both;
+  margin-top: 80px 0;
+  bottom: 0;
+  background-color: #24243557;
+  margin: 0;
+  padding: 104px 0;
+  overflow: auto;
+  border-top: 1px solid #222;
+  height: auto;
+  font-size: 14px;
+
+  ul li{
+    list-style:none;
+    color: #acacac;
+    line-height: 1.5;
+  }
+  .footer-menu {
+    margin: 0 5%;
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      padding: 0 1em;
+      max-width: 720px;
+      height: 100%;
+
+      .col {
+        width: 300px;
+        padding: 0 1em;
+        margin: 0 auto;
+
+        .email-subscription{
+          margin: 0;
+        }
+        
+        .widget-botton{
+          border-top: 1px solid #13131d;
+        }
+        
+        .title{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1.25;
+          word-break: break-word;
+          color: #fff;
+          display: flex;
+          margin-top: 10%;
+        }
+        .form-control{
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          color: #acacac;
+          position: relative;
+          z-index: 1;
+          font-size: 16px;
+          border-radius: 5px 0 0 5px;
+          background: #13131d;
+          box-shadow: none;
+          font-weight: 400;
+          height: 40px;
+          padding: 0 15px;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+          border:  #ffffff14;
+          position: relative;
+          display: flex;
+          width: 50%;
+          display: flex;
+          margin-top: -5%;
+        }
+        
+        .form-control-append{
+          display: flex;
+          margin-left: 59%;
+          margin-top: -13%;
+        }
+        
+        .btn-subscribe{
+          border-radius: 0 5px 5px 0;
+          background: #212e48;
+          color: #fff;
+          cursor: pointer;
+          display: inline-block;
+          font-weight: 500;
+          text-align: center;
+          font-size: 16px;
+          padding: 10px 16px;
+          transition: 0.4s;
+          letter-spacing: .5px;
+          width: auto;
+          border: 0;
+          box-shadow: none;
+          outline: none;
+          display: flex;
+          margin-top: -2.5em;
+          margin-left: 10.8em;
+        }
+        
+        .footer-describe{
+          max-width: 17em;
+        }
+        .nuron-info, .general-info {
+          padding: 1rem;
+        }
+
+        .recent-sold-out{
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  .footer-recent {
+    display: flex;
+    flex-direction: column;
+    margin-left: -2.5em;
+  }
+
+  .recent{
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  .image-thumb{
+    margin-right: 12px;
+  }
+  .img-radius{
+    border-radius: 50%;
+  }
+
+  .widget-title-2{
+    word-break: break-word;
+    color: #fff;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+  }
+  .content{
+    margin-bottom: 4px;
+
+    .title-2{
+      font-size: 1em;
+      line-height: 1.25;
+      word-break: break-word;
+      color: #fff;
+      display: flex;
+      margin-top: 10%;
+      margin-bottom: -4px;
+    }
+    .p{
+      display: flex;
+      margin-top: 5%;
+    }
+    
+    .price{
+      color:#00a3ff;
+      font-weight: 700;
+      display: flex;
+      margin-top: -10%;
+    }
+  }
+  .copy-right {
+    border-top: 1px solid #ACACAC;
+    padding: 0 30%;
+    margin-left: -1.5em;
+    margin-bottom: -47%;
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  .align-items-center{
+    margin-left: -6rem;
+    align-items: center;
+  }
+  .privacy{
+    display: flex;
+    flex-direction: column;
+  }
+  .social{
+    display: flex;
+    flex-direction: row;
+    padding-left: 1em;
+
+    .left{
+      display: flex;
+      margin-left: 1em;
+    }
+  }
+
+  .aling{
+    display: flex;
+    margin-left: 2em;
+  }
+
+  .aling-term{
+    display: flex;
+    margin-left: 5em;
+  }
+  
+  .aling-policy{
+    display: flex;
+    margin-left: 2em;
+  }
+
+  .rn-posgres-parent{
+    width: 9em;
+  }
+  
+}
+
+@media (min-width: 768px){ //md
+  .footer {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){ //lg
+  .footer {
+    height: 48em;
+    font-size: 20px;
+    .footer-menu{
+      .container{
+        display: grid;
+        grid-template-columns:  
+        repeat(
+          auto-fit,
+          minmax(150px,1fr)
+        );
+        gap: 10em;
+        .general-info{
+          margin-top: -15em;
+        }
+
+        .nuron-info{
+          margin-top: -3em;
+        }
+        .recent-sold-out{
+          margin-top: -10em;
+          width: 400px;
+        }
+      }
+    }
+  } 
+  
+  .copy-right{
+    .privacy{
+      margin-left: 3em;
+    }
+
+    .social{
+      margin-left: 6em;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width:1440px){ //xl
+  .footer {
+    font-size: 20px;
+    height: 28em;
+
+    .footer-menu{
+      margin: 56px -1%;
+      margin-left: 8em;
+      .container{
+        flex-direction: row;
+        max-width: 90em;
+
+        .email-subscription{
+          margin: 0;
+          margin-top: -5em;
+          margin-left: -3em;
+        }
+        .nuron-info, .general-info {
+          margin-top: -9em;
+          margin-left: 2em;
+          margin-right: -3em;
+        }
+        .recent-sold-out{
+          margin-top: -4em;
+          margin-left: -3em;
+        }
+        .footer-recent{
+          margin-top: -1em;
+        }
+      }
+    }
+    
+  }
+
+  .copy-right{
+    .privacy{
+      flex-direction: row;
+      margin-top: 3em;
+    }
+
+    .social{
+      margin-left: 36em;
+      margin-top: -2em;
+    }
+    .align-items-center{
+      margin-left: -19rem;
+      align-items: center;
+      margin-top: -1em;
+    }
+  }
+}
+
+@media (min-width: 1441px){ //xl
+  .footer {
+    font-size: 20px;
+    height: 28em;
+
+    .footer-menu{
+      margin: 50px 7%;
+      margin-left: 17em;
+      .container{
+        flex-direction: row;
+        max-width: 66em;
+
+        .email-subscription{
+          margin: 0;
+          margin-top: -5em;
+          margin-left: -3em;
+        }
+        .header-subscription{
+          width: 500px;
+        }
+        .nuron-info, .general-info {
+          margin-top: -9em;
+          margin-left: 2em;
+          margin-right: -3em;
+        }
+        .recent-sold-out{
+          margin-top: -4em;
+          margin-left: -3em;
+        }
+        .footer-recent{
+          margin-top: -1em;
+        }
+
+      }
+    }
+    
+  }
+
+  .copy-right{
+    .privacy{
+      flex-direction: row;
+      margin-top: 3em;
+    }
+
+    .social{
+      margin-left: 36em;
+      margin-top: -2em;
+    }
+    .align-items-center{
+      margin-left: -16rem;
+      align-items: center;
+    }
+  }
+}
