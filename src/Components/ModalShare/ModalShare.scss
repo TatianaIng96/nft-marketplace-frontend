@@ -1,0 +1,241 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+.dark-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: opacity .15s linear;
+  
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    .modal {
+      width: 17rem;
+      background-color: $main-background;
+      padding: 20px 15px;
+      color: white;
+      z-index: 10;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+      
+      .modal-header {
+        height: 50px;
+        color: #fff;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        .modal-header-title {
+          margin: 0;
+          padding: 10px;
+          font-weight: 500;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .social-link {
+          color: $silver-color;
+          margin: 0 3px;
+
+          .social-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .social-logo {
+              width: 50px;
+              height: 50px;
+              border: 2px solid $silver-color;
+              display: flex;
+              border-radius: 100%;
+              align-items: center;
+              justify-content: center;
+              transition: .3s;
+              margin: 0 auto;
+            }
+
+            .social-name {
+              display: block;
+              margin-top: 8px;
+              transition: .3s;
+            }
+          }
+        }
+      }
+
+      .close-modal {
+        margin: 0;
+        position: fixed;
+        z-index: 99;
+        right: -15px;
+        top: -15px;
+        color: #fff;
+        background-color: $medium-color-blue;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        outline: none;
+      }
+
+      @media (min-width: 575px) {
+        width: 30rem;
+
+        .socials {
+          .social-link {
+            margin: 0 10px;
+          }
+        }
+      }
+
+      @media (min-width: 767px) {
+        .modal-header {
+          .modal-header-title {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+// Report Modal
+
+.dark-bg-report {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: opacity .15s linear;
+  text-align: left;
+  
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    .modal {
+      width: 17rem;
+      background-color: $main-background;
+      padding: 20px 15px;
+      color: white;
+      z-index: 10;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+      
+      .modal-header {
+        height: 50px;
+        color: #fff;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        .modal-header-title {
+          margin: 0;
+          padding: 10px;
+          font-weight: 500;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+
+      .form {
+        text-align: center;
+
+        .message {
+          background-color: $dark-color-blue;
+          width: 97%;
+        }
+
+        .buttons {
+          margin-top: 15px;
+          display: flex;
+          flex-direction: column;
+          
+          .buttons-report {
+            outline: none;
+          }
+
+          .button-report {
+            margin-bottom: 5px;
+            background-color: $blue-color;
+            &:hover {
+              background-color: $dark-color-blue;
+            }
+          }
+
+          .button-close {
+            margin-top: 5px;
+            background-color: $dark-color-blue;
+            &:hover {
+              background-color: $blue-color;
+            }
+          }
+        }
+      }
+
+      @media (min-width: 575px) {
+        width: 30rem;
+
+        .form {
+          .message {
+            background-color: $dark-color-blue;
+            width: 90%;
+          }
+
+          .buttons {
+            flex-direction: row;
+            justify-content: center;
+  
+            .button-report {
+              margin-bottom: 0px;
+              margin-right: 5px;
+            }
+            
+            .button-close {
+              margin-top: 0px;
+              margin-left: 5px;
+            }
+          }
+        }
+
+      }
+
+      @media (min-width: 767px) {
+        .modal-header {
+          .modal-header-title {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+  
+}
+

@@ -1,0 +1,193 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+
+@mixin flex-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  background-color: $dark-color-blue;
+  max-width: 350px;
+  width: 22rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 5px 5px $blue-color;
+  }
+
+  .image-section {
+    padding: 5px 5px 0;
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .nft-info {
+    padding: 15px 20px;
+    .profiles-info {
+      @include flex-style;
+      .profile-share {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 55%;
+        .profiles {
+          display: flex;
+          align-items: center;
+          span {
+            @include flex-style;
+            border: 1px solid $silver-color;
+            border-radius: 50%;
+          }
+        }
+        a {
+          color: $silver-color;
+        }
+      }
+      .show-more-options {
+        position: relative;
+        .show-more {
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
+          background-color: transparent;
+          outline: none;
+          &:hover {
+            border: none;
+            background-color: $blue-color;
+          }
+        }
+        .menu-options-show {
+          display: block;
+          position: absolute;
+          top: 20px;
+          right: 0;
+          button {
+            background-color: $medium-color-blue;
+            outline: none;
+            width: 7rem;
+            border: 1px solid $silver-color;
+            color: #fff;
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+            padding: 9px 10px;
+            letter-spacing: .5px;
+            transition-duration: 1.7s;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+        .menu-options-hide {
+          display: none;
+        }
+      }
+    }
+    
+    .nft-name {
+      a {
+        color: #fff;
+        margin: 0;
+        margin-top: 10px;
+        font-size: 22px;
+        &:hover {
+          color: $blue-color;
+        }
+      }
+      h4 {
+        margin: 0;
+        color: $silver-color;
+      }
+    }
+
+    .nft-price {
+      @include flex-style;
+      margin-top: 10px;
+      
+      .price {
+        color: $blue-color;
+      }
+      .like-button {
+        background-color: transparent;
+        color: $silver-color;
+        padding: 5px;
+        outline: none;
+        .like-icon-number {
+          width: 40px;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        &:hover {
+          border: none;
+          background-color: $blue-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 576px) {
+    width: 16rem;
+
+    .nft-info {
+      .profiles-info {
+        .profile-share {
+          width: 75%;
+          height: 30px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .nft-info {
+      .nft-name {
+        a {
+          font-size: 20px;
+        }
+      }
+      .profiles-info {
+        .profile-share {
+          width: 80%;
+        }
+        .show-more-options {
+          .menu-options-show {
+            button {
+              width: 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 15rem;
+
+    .nft-info {
+      .nft-name {
+        a {
+          font-size: 18px;
+        }
+      }
+      .profiles-info {
+        .show-more-options {
+          .menu-options-show {
+            button {
+              width: 4.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
