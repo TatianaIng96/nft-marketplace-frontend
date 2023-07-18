@@ -1,0 +1,229 @@
+$grey-border: solid 1px #373737;
+$grey-icons: #ACACAC;
+
+@mixin flex-base-conditions($direction: row,$space:space-evenly) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $space;
+    align-items: center;
+}
+
+@mixin button-and-input {
+    all: unset;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #212E48;
+    padding: 7px 12px;
+}
+
+@mixin header-menus {
+    list-style-type: none;
+    background-color: #13131D;
+    padding: 10px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    width: 175px;
+    margin: 2vh;
+    cursor: pointer;
+}
+
+li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+li:hover {
+    color: #00A3FF;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.sideMenuItems {
+    margin: auto;
+    border-radius: 10px;
+    opacity: 0.9;
+    font-size: 0.8rem;
+    width: 90%;
+}
+
+.menuOption {
+    display: none;
+}
+
+header {
+    position: relative;
+    width: 100vw;
+    height: 137px;
+    background-color: #13131D;
+    @include flex-base-conditions($direction: column);
+    border: $grey-border;
+    .buttonsContainer {
+        @include flex-base-conditions;
+    }
+    .searchBarContainer {
+        position: absolute;
+        bottom: -56%;
+        margin: auto;
+        @include flex-base-conditions;
+        box-sizing: border-box;
+        border: solid 1px #242435;
+        width: 90vw;
+        padding: 20px;
+        background-color: #242435;
+        .searchInput{
+            @include button-and-input;
+            width: 70vw;
+            color: $grey-icons;
+        }
+        .searchButton{
+            @include button-and-input;
+            color: $grey-icons;
+            cursor: pointer;
+        }
+    }
+}
+
+.sideMenu {
+    position: absolute;
+    top: 0px; left: 0px;
+    width: 80vw;
+    max-width: 350px;
+    padding: 10px;
+    background-color: #13131D;
+    display: flex;
+    flex-direction: column;
+    div {
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: $grey-border;
+        .menuImg {
+            margin: 0px;
+            width: 35vw;
+        }
+        .xButton {
+            background-color: #373737;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+    .menuInMobile {
+        list-style-type: none;
+        color: $grey-icons;
+        li {
+            @include flex-base-conditions($space:space-between);
+            margin: 15px 0px;
+            padding-bottom: 10px;
+            border-bottom: $grey-border;
+        }
+    }
+}
+
+div.iconContainer {
+    @include flex-base-conditions;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 3px 3px 10px 3px;
+    color: $grey-icons;
+    border: $grey-border;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.searchInHeaderContainer {
+    display: none;
+}
+
+button {
+    @include button-and-input;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media(min-width: 500px) {
+    img {
+        max-width: 150px;
+    }
+    header {
+        position: relative;
+        height: 75px;
+        @include flex-base-conditions($direction: row);
+        .searchBarContainer{
+            position: absolute;
+            bottom: -100%;
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    #searchShower {
+        display: none;
+    }
+    .searchInHeaderContainer {
+        display: inline;
+        .searchInHeader {
+            @include button-and-input;
+            border-radius: 5px 0px 0px 5px;
+        }
+        .searchButtonInHeader {
+            @include button-and-input;
+            border-radius: 0px 5px 5px 0px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media(min-width: 1200px) {
+    #hamburgerIcon {
+        display: none;
+    }
+    .menuOption {
+        display: inline-block;
+        cursor: pointer;
+    }
+    .home {
+        position: relative;
+        .home__list {
+            position: absolute;
+            @include header-menus;
+        }
+    }
+    .explore {
+        position: relative;
+        .explore__list {
+            position: absolute;
+            @include header-menus;
+        }
+    }
+    .pages {
+        position: relative;
+        .pages__list {
+            position: absolute;
+            @include header-menus;
+        }
+    }
+    .blog {
+        position: relative;
+        .blog__list {
+            position: absolute;
+            @include header-menus;
+        }
+    }
+    ul {
+        width: 8em;
+    }
+}
