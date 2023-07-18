@@ -1,5 +1,6 @@
 import React from 'react'
 import './Card.scss'
+import { ModalShare, ModalReport } from '../ModalShare';
 import { useState } from 'react';
 import { FaEllipsisH } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
@@ -7,6 +8,8 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs';
 const Card = (props) => {
   const [ likes, setLikes ] = useState(0)
   const [ showOptions, setShowOptions ] = useState(true)
+  const [ isOpen, setIsOpen ] = useState(false)
+  const [ openModalReport, setOpenModalReport ] = useState(false)
 
   const { nftName, price, nftImage, profileImage, placeBit, address } = props
 
@@ -54,11 +57,13 @@ const Card = (props) => {
               <FaEllipsisH />
             </button>
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button>Share</button>
-              <button>Report</button>
+              <button onClick={() => setIsOpen(true)}>Share</button>
+              <button onClick={() => setOpenModalReport(true)}>Report</button>
             </div>
           </div>
         </section>
+        {isOpen && <ModalShare setIsOpen={setIsOpen} />}
+        {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className='nft-name'>
           <a href={address}>{nftName}</a>
@@ -75,7 +80,6 @@ const Card = (props) => {
           </button>
         </section>
       </div>
-
     </div>
   )
 }

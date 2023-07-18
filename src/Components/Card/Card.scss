@@ -37,7 +37,7 @@ $dark-color-blue: #242435;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 50%;
+        width: 55%;
         .profiles {
           display: flex;
           align-items: center;
@@ -71,6 +71,7 @@ $dark-color-blue: #242435;
           right: 0;
           button {
             background-color: $medium-color-blue;
+            outline: none;
             width: 7rem;
             border: 1px solid $silver-color;
             color: #fff;
@@ -80,6 +81,9 @@ $dark-color-blue: #242435;
             padding: 9px 10px;
             letter-spacing: .5px;
             transition-duration: 1.7s;
+            &:hover {
+              opacity: 0.8;
+            }
           }
         }
         .menu-options-hide {
@@ -155,6 +159,13 @@ $dark-color-blue: #242435;
         .profile-share {
           width: 80%;
         }
+        .show-more-options {
+          .menu-options-show {
+            button {
+              width: 5rem;
+            }
+          }
+        }
       }
     }
   }
@@ -165,14 +176,14 @@ $dark-color-blue: #242435;
     .nft-info {
       .nft-name {
         a {
-          font-size: 20px;
+          font-size: 18px;
         }
       }
       .profiles-info {
         .show-more-options {
           .menu-options-show {
             button {
-              width: 5rem;
+              width: 4.5rem;
             }
           }
         }
