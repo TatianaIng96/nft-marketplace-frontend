@@ -2,6 +2,7 @@
   $grey-border: solid 1px #373737;
   $grey-icons: #ACACAC;
   position:fixed;
+  z-index: 9999;
   @mixin flex-base-conditions($direction: row,$space:space-evenly) {
       display: flex;
       flex-direction: $direction;

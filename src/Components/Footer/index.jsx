@@ -6,7 +6,7 @@ import logo from '../../assets/logo-neuron.png';
 import List from './List';
 
 function FooterComponent() {
-  const neuron = [
+  const nuron = [
     'Protocol Explore',
     'System Token',
     'Optimize Time',
@@ -80,7 +80,7 @@ function FooterComponent() {
             </div>
 
             <div className="col nuron-info">
-              <List list={neuron} title="Neuron" />
+              <List list={nuron} title="Nuron" />
             </div>
             <div className="col general-info">
               <List list={information} title="Information" />

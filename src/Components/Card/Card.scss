@@ -54,6 +54,8 @@ $dark-color-blue: #242435;
       .show-more-options {
         position: relative;
         .show-more {
+          color: white;
+          border: none;
           padding: 0 10px;
           display: flex;
           align-items: center;
@@ -116,6 +118,7 @@ $dark-color-blue: #242435;
         color: $blue-color;
       }
       .like-button {
+        border: none;
         background-color: transparent;
         color: $silver-color;
         padding: 5px;

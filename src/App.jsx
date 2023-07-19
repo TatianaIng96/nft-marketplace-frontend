@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import './App.scss';
 import { FaUserCircle } from 'react-icons/fa';
 import FooterComponent from './Components/Footer';

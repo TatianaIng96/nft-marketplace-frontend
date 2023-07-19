@@ -7,5 +7,16 @@
 }
 
 .main{
-    min-height: 54vh;
+  z-index: 1;
+  min-height: 44vh;
+  position: relative;
+  padding-top: 140px;
+  margin-bottom: 12em;
+}
+
+@media (min-width: 500px) {
+  .main {
+      top: 77px;
+      padding-top: 80px;
+  }
 }
