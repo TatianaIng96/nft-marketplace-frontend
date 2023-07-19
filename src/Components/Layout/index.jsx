@@ -1,10 +1,10 @@
 import './Layout.scss';
 
-const Layout = () => {
-    return(
-        <>
-        </>
-    )
+function Layout() {
+  return (
+    <>
+    </>
+  );
 }
 
-export default Layout
+export default Layout;

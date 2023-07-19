@@ -91,7 +91,7 @@ $dark-color-blue: #242435;
         }
       }
     }
-    
+
     .nft-name {
       a {
         color: #fff;
@@ -111,7 +111,7 @@ $dark-color-blue: #242435;
     .nft-price {
       @include flex-style;
       margin-top: 10px;
-      
+
       .price {
         color: $blue-color;
       }
