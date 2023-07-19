@@ -78,7 +78,7 @@ const Header = () => {
   }
 
   return (
-    <>
+    <div className='header-secction'>
       <header onMouseLeave={handleHideAllLists}>
         <img src="src/assets/logo-white.png" alt="Nuron logo" />
         <div className='menuOption home' onMouseEnter={handleHomeHover}>
@@ -239,7 +239,7 @@ const Header = () => {
 
 
 
-    </>
+    </div>
   )
 }
 
