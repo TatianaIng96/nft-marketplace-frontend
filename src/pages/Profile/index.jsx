@@ -1,14 +1,21 @@
 import './Profile.scss';
 import { useState } from 'react';
 import {
-  FaTwitter, FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
+  FaTwitter, FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit, FaUserCircle,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../../Components/ModalShare';
+import Card from '../../Components/Card';
 
 function Profile() {
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
+  const [isActive, setIsActive] = useState(null);
+
+  const handleClick = (buttonId) => {
+    setIsActive(buttonId);
+  };
+
   return (
     <div className="profile-secction">
       <div className="cover-secction">
@@ -125,6 +132,63 @@ function Profile() {
                 </div>
                 {isOpen && <ModalShare setIsOpen={setIsOpen} />}
                 {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="author-profile">
+        <div className="container">
+          <div className="row">
+            <div className="wrapper-option">
+              <nav className="button-option">
+                <div className="nav-button">
+                  <button
+                    type="button"
+                    className={isActive === 1 ? 'mi-boton active' : 'mi-boton'}
+                    onClick={() => handleClick(1)}
+                  >
+                    On Sale
+                  </button>
+                  <button
+                    type="button"
+                    className={isActive === 2 ? 'mi-boton active' : 'mi-boton'}
+                    onClick={() => handleClick(2)}
+                  >
+                    Owned
+                  </button>
+                  <button
+                    type="button"
+                    className={isActive === 3 ? 'mi-boton active' : 'mi-boton'}
+                    onClick={() => handleClick(3)}
+                  >
+                    Created
+                  </button>
+                  <button
+                    type="button"
+                    className={isActive === 4 ? 'mi-boton active' : 'mi-boton'}
+                    onClick={() => handleClick(4)}
+                  >
+                    Liked
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card-seccion">
+        <div className="container">
+          <div className="row">
+            <div className="wrapper-option">
+              <div className="cards">
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
               </div>
             </div>
           </div>
