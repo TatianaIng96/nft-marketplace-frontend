@@ -24,6 +24,11 @@ function CreateNFTForm() {
             <p>PNG, GIF, WEBBP, MP4 or MP3.</p>
             <p>Max 1GB.</p>
           </section>
+          <section className="noteSectionDesktop">
+            <p>Note:</p>
+            <p>Service fee: <strong>2.5%</strong></p>
+            <p>You will receive: <strong>25.00 ETH $50,000</strong></p>
+          </section>
         </div>
         <form className="form" action="">
           <div className="digitableInputsContainer">
@@ -70,7 +75,7 @@ function CreateNFTForm() {
           </div>
           <div className="buttonsContainer">
             <button type="button" className="previewButton">Preview</button>
-            <button type="submit" className="submitButton">Submit</button>
+            <button type="submit" className="submitButton">Submit Item</button>
           </div>
         </form>
       </div>
