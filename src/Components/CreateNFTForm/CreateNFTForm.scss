@@ -1,0 +1,201 @@
+@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-base-style {
+  all: unset;
+  border-radius: 10px;
+  padding: 10px 0 10px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.pageContainer {
+  box-sizing: border-box;
+  background-color: rgb(22,23,32);
+  @include flex-base($align:center);
+  .allImageContainer {
+    width: 100%;
+    @include flex-base($align:center)
+  }
+  .imgAndFormContainer {
+    width: 100%;
+    @include flex-base($align:center)
+  }
+}
+
+p {
+  all: unset;
+}
+
+.menuSection {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2vh 5vh 2vh 5vh;
+  border-bottom: solid 1px #373737;
+}
+
+.navigationMenu {
+  @include flex-base($justify:center);
+  >p:first-child {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1vh;
+  }
+  >p:last-child {
+    width: 95%;
+    @include flex-base($direction:row,$justify:space-evenly,$align:center);
+    :nth-child(1),:nth-child(2) {
+      color: #858585;
+    }
+  }
+}
+
+.imageInstructionsSection {
+  width: 95%;
+  max-width: 350px;
+  margin: 5vh 2vh 2vh 1vh;
+  @include flex-base($align:flex-start);
+  :last-child {
+    margin-top: 5px;
+    color: #858585;
+  }
+}
+
+.imageSection {
+  background-image: url('../../design3.webp');
+  background-size: cover;
+  width: 95%;
+  max-width: 350px;
+  height: 350px;
+  color: #858585;
+  margin: 2vh 1vh 2vh 1vh;
+  border: dashed 2px #858585;
+  border-radius: 5px;
+  @include flex-base($justify:center,$align:center);
+  cursor: pointer;
+  :first-child {
+    color: #00A3FF;
+  }
+}
+
+form {
+  box-sizing: border-box;
+  background-color: rgb(28,28,42);
+  width: 95%;
+  max-width: 360px;
+  margin: 2vh 1vh 2vh 1vh;
+  padding: 45px 35px;
+  border: solid 1px #858585;
+  border-radius: 10px;
+  color: #858585;
+  :nth-child(1) {
+    label {
+      @include flex-base;
+    }
+    input[type="text"],input[type="number"],input[type="textarea"] {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      background-color: rgb(36,36,54);
+      border: solid 2px rgb(56,57,72);
+      border-radius: 5px;
+      cursor: auto;
+    }
+    #description {
+      height: 60px;
+      text-align: unset;
+    }
+  }
+}
+
+.checkboxContainer {
+  margin-bottom: 2vh;
+  @include flex-base;
+  input[type="checkbox"] {
+    background-color: rgb(93,93,126);
+    margin-right: 10px;
+  }
+}
+
+.buttonsContainer {
+  @include flex-base;
+  color: white;
+  font-weight: bold;
+  .previewButton {
+    @include button-base-style;
+    background-color: rgb(33,46,73);
+    margin-bottom: 15px;
+  }
+  .submitButton {
+    @include button-base-style;
+    background-color: #00A3FF;
+  }
+}
+
+.noteSection {
+  width: 100%;
+  max-width: 360px;
+  margin: 2vh 1vh 2vh 1vh;
+  @include flex-base;
+  :first-child {
+    font-weight: bold;
+  }
+}
+
+@media(min-width: 500px) {
+  .navigationMenu {
+    max-width: 900px;
+    margin: auto;
+    @include flex-base($direction:row,$justify:space-between);
+    >p:first-child{
+      text-align: start;
+    }
+    >p:last-child {
+      max-width: 320px;
+      @include flex-base($direction:row,$justify:space-evenly)
+    }
+  }
+  .imageInstructionsSection {
+    max-width: 500px;
+  }
+  .imageSection {
+    max-width: 500px;
+    height: 500px;
+  }
+  form {
+    max-width: 500px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .pageContainer {
+    .imgAndFormContainer {
+      @include flex-base($direction:row);
+    }
+    .allImageContainer {
+      .imageInstructionsSection {
+        width: 350px;
+      }
+      .imageSection {
+        width: 350px;
+        height: 350px;
+      }
+    }
+    form {
+      .changeableInputs {
+        width: auto;
+        @include flex-base($direction:row,$justify:space-evenly);
+        label {
+          padding: 5px;
+          width: 32%;
+        }
+      }
+    }
+  }
+
+}
