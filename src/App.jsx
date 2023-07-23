@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <main className="main">
-
+        <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
       </main>
       <FooterComponent />
     </>
