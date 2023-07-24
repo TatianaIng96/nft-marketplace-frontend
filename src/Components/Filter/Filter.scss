@@ -34,6 +34,10 @@
           width: 50%;
     }
   }
+
+  .title{
+    margin-left: -0.5em;
+  }
   .product-area{
     padding: 50px;
     padding-left: 0em;
@@ -187,27 +191,6 @@
   @media(min-width:1025px)and (max-width:1440px){
 
     .container {
-      max-width: 40em
-    }
-
-    .filter{
-      justify-content: flex-end;
-    }
-
-    .wrapper{
-      .select{
-        width: 15em;
-      }
-      .filter-select{
-        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      }
-    }
-
-  }
-
-  @media(min-width:1025px)and (max-width:1440px){
-
-    .container {
       max-width: 61em
     }
 
@@ -216,10 +199,10 @@
     }
     .wrapper{
       .select{
-        width: 15em;
+        width: 11em;
       }
       .filter-select{
-        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
       }
     }
   }
@@ -235,10 +218,10 @@
 
     .wrapper{
       .select{
-        width: 15em;
+        width: 11em;
       }
       .filter-select{
-        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
       }
     }
   }
@@ -255,7 +238,7 @@
         width: 15em;
       }
       .filter-select{
-        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
       }
     }
   }

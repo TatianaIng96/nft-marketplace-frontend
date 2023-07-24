@@ -10,7 +10,7 @@ function Filter() {
         <div className="container">
           <div className="row align-items-center">
             <div className="column">
-              <h3> Explore Product</h3>
+              <h3 className="title"> Explore Product</h3>
             </div>
             <div className="column">
               <div className="filter">
@@ -31,6 +31,16 @@ function Filter() {
           <div className={filter === true ? 'closed' : 'wrapper'}>
             <div className="inner">
               <div className="filter-select">
+                <div className="select">
+                  <h6>Likes</h6>
+                  <select name="Likes" id="likes">
+                    <option value="" disabled selected>Sort By Likes</option>
+                    <option value="opcion1">Opción 1</option>
+                    <option value="opcion2">Opción 2</option>
+                    <option value="opcion3">Opción 3</option>
+                    <option value="opcion4">Opción 4</option>
+                  </select>
+                </div>
                 <div className="select">
                   <h6>Likes</h6>
                   <select name="Likes" id="likes">

@@ -143,7 +143,7 @@
       font-size: 1.4em;
     }
     .content{
-      margin-bottom: 4px;
+      margin-bottom: -1em;
 
       .title-2{
         font-size: 1em;
@@ -263,7 +263,6 @@
   @media (min-width: 1025px) and (max-width:1440px){ //xl
     .footer {
       font-size: 20px;
-      height: 28em;
 
       .footer-menu{
         margin: 56px -1%;
@@ -275,15 +274,15 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -3em;
+            margin-left: -8em;
           }
           .nuron-info, .general-info {
             margin-top: -9em;
-            margin-left: 2em;
+            margin-left: -1em;
             margin-right: -3em;
           }
           .recent-sold-out{
-            margin-top: -4em;
+            margin-top: -10em;
             margin-left: -3em;
           }
           .footer-recent{
@@ -312,10 +311,9 @@
     }
   }
 
-  @media (min-width: 1441px){ //xl
+  @media (min-width: 1441px) and (max-width:1700px){ //xl
     .footer {
       font-size: 20px;
-      height: 28em;
 
       .footer-menu{
         margin: 50px 7%;
@@ -327,7 +325,7 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -3em;
+            margin-left: -10em;
           }
           .header-subscription{
             width: 500px;
@@ -348,6 +346,23 @@
         }
       }
 
+      .copy-right{
+        .privacy{
+          flex-direction: row;
+          margin-top: 3em;
+        }
+
+        .social{
+          margin-left: 36em;
+          margin-top: -2em;
+        }
+        .align-items-center{
+          margin-left: -19rem;
+          align-items: center;
+          margin-top: -1em;
+        }
+      }
+
     }
 
     .copy-right{
@@ -364,6 +379,61 @@
         margin-left: -16rem;
         align-items: center;
       }
+    }
+  }
+
+  @media (min-width: 1701px) { //xl
+    .footer {
+      font-size: 20px;
+
+      .footer-menu{
+        margin: 50px 7%;
+        margin-left: 17em;
+        .container{
+          flex-direction: row;
+          max-width: 66em;
+
+          .email-subscription{
+            margin: 0;
+            margin-top: -5em;
+            margin-left: -4em;
+          }
+          .header-subscription{
+            width: 500px;
+          }
+          .nuron-info, .general-info {
+            margin-top: -9em;
+            margin-left: 5em;
+            margin-right: -10em;
+          }
+          .recent-sold-out{
+            margin-top: -8em;
+            margin-left: 4em;
+          }
+          .footer-recent{
+            margin-top: -1em;
+          }
+
+        }
+      }
+
+    }
+  }
+
+  .copy-right{
+    .privacy{
+      flex-direction: row;
+      margin-top: 3em;
+    }
+
+    .social{
+      margin-left: 36em;
+      margin-top: -2em;
+    }
+    .align-items-center{
+      margin-left: -19rem;
+      align-items: center;
+      margin-top: -1em;
     }
   }
 }

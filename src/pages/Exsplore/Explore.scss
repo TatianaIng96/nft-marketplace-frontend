@@ -56,18 +56,33 @@
       margin: 0px 0em;
     }
     @media(min-width:1025px) and (max-width:1200px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       margin: 0px 0em;
+      padding: 0px 6em;
+      padding-left: 2em;
     }
     @media(min-width: 1201px)and (max-width:1440px){
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       margin: 0px 8em;
+      gap: 14px;
+      padding: 0px 7em;
+      padding-left: 4em;
     }
 
-    @media(min-width: 1441px){
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin: 0px 0em;
-      gap: 15px;
+    @media(min-width: 1441px)and (max-width:1700px){
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px -15em;
+      gap: 23px;
+      padding: 0px 15em;
+      padding-left: 10em;
+    }
+
+    @media(min-width:1701px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px -15em;
+      gap: 23px;
+      padding: 0px 25em;
+      padding-left: 20em;
     }
   }
 }
