@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
 
-function Header() {
+const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
 
@@ -339,6 +339,6 @@ function Header() {
 
     </div>
   );
-}
+};
 
 export default Header;

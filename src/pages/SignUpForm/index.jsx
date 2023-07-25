@@ -1,40 +1,52 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import './LogInForm.scss';
+import './SignUpForm.scss';
 import { AiOutlineRight } from 'react-icons/ai';
 
-function LogInForm() {
-  return (
+const SignUpForm = () => {
+  <div className="signUpAll">
     <div className="pageContainer">
       <section className="menuSection">
         <div className="navigationMenu">
-          <p>Nuron Login</p>
-          <p><span>Home</span> <span><AiOutlineRight /></span> <span>Nuron Login</span></p>
+          <p>Sign Up</p>
+          <p><span>Home</span> <span><AiOutlineRight /></span> <span>Sign Up</span></p>
         </div>
       </section>
-      <div className="allLoginsContainer">
+      <div className="allSignUpsContainer">
         <section className="formSection">
           <form action="">
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
+            <label htmlFor="first-name">
+              First name
+              <input type="text" id="first-name" />
+            </label>
+            <label htmlFor="last-name">
+              Last name
+              <input type="text" id="last-name" />
+            </label>
             <label htmlFor="email-address">
               Email address
               <input type="email" id="email-address" />
             </label>
             <label htmlFor="password">
-              Password
+              Create Password
               <input type="password" id="password" />
+            </label>
+            <label htmlFor="re-password">
+              Re Password
+              <input type="password" id="re-password" />
             </label>
             <label htmlFor="checkbox">
               <input type="checkbox" id="checkbox" />
-              Remember me later
+              Agree to all terms and conditions
             </label>
             <div className="buttonsSection">
-              <button type="submit" className="loginButton">Login</button>
-              <button type="button" className="signUpButton">Sign Up</button>
+              <button type="submit" className="signUpButton">Sign Up</button>
+              <button type="button" className="logInButton">Login</button>
             </div>
           </form>
         </section>
-        <section className="otherLoginSection">
-          <article className="otherLoginContainer">
+        <section className="otherSignUpSection">
+          <article className="otherSignUpContainer">
             <h1>Another way to log in</h1>
             <p>Use your other accounts to log in</p>
             <div className="otherLogin">
@@ -57,7 +69,7 @@ function LogInForm() {
         </section>
       </div>
     </div>
-  );
-}
+  </div>;
+};
 
-export default LogInForm;
+export default SignUpForm;
