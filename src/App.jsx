@@ -4,13 +4,17 @@ import { FaUserCircle } from 'react-icons/fa';
 import FooterComponent from './Components/Footer';
 import Header from './Components/Header';
 import Card from './Components/Card';
+import EditPersonalInformation from './pages/EditPersonalInformation';
+import CreateNFTForm from './pages/CreateNFTForm';
+import LogInForm from './pages/LogInForm';
+import SignUpForm from './pages/SignUpForm';
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
       <main className="main">
-        <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+        <EditPersonalInformation />
       </main>
       <FooterComponent />
     </>

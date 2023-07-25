@@ -16,170 +16,172 @@
   cursor: pointer;
 }
 
-.pageContainer {
-  box-sizing: border-box;
-  background-color: rgb(22,23,32);
-  @include flex-base($align:center);
-  .menuSection {
-    width: 100%;
+.logInFormContainer {
+  .pageContainer {
     box-sizing: border-box;
-    padding: 2vh 5vh 2vh 5vh;
-    border-bottom: solid 1px #373737;
-  }
-  .navigationMenu {
-    @include flex-base($justify:center);
-    >p:first-child {
+    background-color: rgb(22,23,32);
+    @include flex-base($align:center);
+    .menuSection {
       width: 100%;
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 1vh;
+      box-sizing: border-box;
+      padding: 2vh 5vh 2vh 5vh;
+      border-bottom: solid 1px #373737;
     }
-    >p:last-child {
-      width: 95%;
-      @include flex-base($direction:row,$justify:space-evenly,$align:center);
-      :nth-child(1),:nth-child(2) {
-        color: #858585;
-        cursor: pointer;
+    .navigationMenu {
+      @include flex-base($justify:center);
+      >p:first-child {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1vh;
+      }
+      >p:last-child {
+        width: 95%;
+        @include flex-base($direction:row,$justify:space-evenly,$align:center);
+        :nth-child(1),:nth-child(2) {
+          color: #858585;
+          cursor: pointer;
+        }
+      }
+    }
+    .allLoginsContainer {
+      width: 100%;
+      @include flex-base($align:center);
+    }
+  }
+
+  .formSection {
+    width: 95%;
+    max-width: 360px;
+    form {
+      @include flex-base;
+      box-sizing: border-box;
+      background-color: rgb(28,28,42);
+      margin: 2vh 1vh 2vh 1vh;
+      padding: 45px 35px;
+      border: solid 1px #858585;
+      border-radius: 10px;
+      color: #858585;
+      h1 {
+        color: white;
+      }
+      label {
+        @include flex-base;
+        input[type="email"],input[type="password"] {
+          box-sizing: border-box;
+          width: 100%;
+          margin-top: 5px;
+          margin-bottom: 10px;
+          padding: 5px 10px;
+          background-color: rgb(36,36,54);
+          border: solid 2px rgb(56,57,72);
+          border-radius: 5px;
+          color: white;
+          cursor: auto;
+        }
+        input[type="checkbox"] {
+          accent-color: rgb(93,93,126);
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      :nth-child(4) {
+        @include flex-base($direction:row);
+        margin-bottom: 10px;
       }
     }
   }
-  .allLoginsContainer {
-    width: 100%;
-    @include flex-base($align:center);
-  }
-}
 
-.formSection {
-  width: 95%;
-  max-width: 360px;
-  form {
-    @include flex-base;
-    box-sizing: border-box;
-    background-color: rgb(28,28,42);
-    margin: 2vh 1vh 2vh 1vh;
-    padding: 45px 35px;
-    border: solid 1px #858585;
-    border-radius: 10px;
-    color: #858585;
-    h1 {
-      color: white;
+  .buttonsSection {
+    .loginButton {
+      @include button-base-style;
+      background-color: #00A3FF;
     }
-    label {
+    .signUpButton {
+      @include button-base-style;
+      background-color: rgb(33,46,73);
+    }
+  }
+
+  .otherLoginSection {
+    width: 95%;
+    max-width: 360px;
+    .otherLoginContainer {
       @include flex-base;
-      input[type="email"],input[type="password"] {
+      box-sizing: border-box;
+      background-color: rgb(28,28,42);
+      margin: 2vh 1vh 2vh 1vh;
+      padding: 45px 35px;
+      border: solid 1px #858585;
+      border-radius: 10px;
+      color: #858585;
+      h1 {
+        color: white;
+      }
+      .otherLogin {
+        @include flex-base($direction:row,$align:center);
         box-sizing: border-box;
+        line-height: normal;
+        margin: 10px 0 10px 0;
+        padding: 0 10px 0 10px;
         width: 100%;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        padding: 5px 10px;
         background-color: rgb(36,36,54);
         border: solid 2px rgb(56,57,72);
         border-radius: 5px;
         color: white;
-        cursor: auto;
-      }
-      input[type="checkbox"] {
-        accent-color: rgb(93,93,126);
-        margin-right: 10px;
         cursor: pointer;
-      }
-    }
-    :nth-child(4) {
-      @include flex-base($direction:row);
-      margin-bottom: 10px;
-    }
-  }
-}
-
-.buttonsSection {
-  .loginButton {
-    @include button-base-style;
-    background-color: #00A3FF;
-  }
-  .signUpButton {
-    @include button-base-style;
-    background-color: rgb(33,46,73);
-  }
-}
-
-.otherLoginSection {
-  width: 95%;
-  max-width: 360px;
-  .otherLoginContainer {
-    @include flex-base;
-    box-sizing: border-box;
-    background-color: rgb(28,28,42);
-    margin: 2vh 1vh 2vh 1vh;
-    padding: 45px 35px;
-    border: solid 1px #858585;
-    border-radius: 10px;
-    color: #858585;
-    h1 {
-      color: white;
-    }
-    .otherLogin {
-      @include flex-base($direction:row,$align:center);
-      box-sizing: border-box;
-      line-height: normal;
-      margin: 10px 0 10px 0;
-      padding: 0 10px 0 10px;
-      width: 100%;
-      background-color: rgb(36,36,54);
-      border: solid 2px rgb(56,57,72);
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      img {
-        width: 20px;
-        margin-right: 10px;
+        img {
+          width: 20px;
+          margin-right: 10px;
+        }
       }
     }
   }
-}
 
-@media(min-width: 500px) {
-  .menuSection {
-    .navigationMenu {
-      max-width: 900px;
-      margin: auto;
-      @include flex-base($direction:row,$justify:space-between);
-      >p:first-child{
-        text-align: start;
-      }
-      >p:last-child {
-        max-width: 320px;
-        @include flex-base($direction:row,$justify:space-evenly)
-      }
-    }
-  }
-}
-
-@media(min-width: 768px) {
-  .formSection {
-    max-width: 450px;
-    form {
-      input[type="email"],input[type="password"] {
-        height: 55px;
+  @media(min-width: 500px) {
+    .menuSection {
+      .navigationMenu {
+        max-width: 900px;
+        margin: auto;
+        @include flex-base($direction:row,$justify:space-between);
+        >p:first-child{
+          text-align: start;
+        }
+        >p:last-child {
+          max-width: 320px;
+          @include flex-base($direction:row,$justify:space-evenly)
+        }
       }
     }
   }
-  .otherLoginSection {
-    max-width: 450px;
-  }
-}
 
-@media (min-width: 1200px) {
-  .pageContainer {
-    .allLoginsContainer {
-      @include flex-base($direction: row,$justify:center);
+  @media(min-width: 768px) {
+    .formSection {
+      max-width: 450px;
+      form {
+        input[type="email"],input[type="password"] {
+          height: 55px;
+        }
+      }
+    }
+    .otherLoginSection {
+      max-width: 450px;
     }
   }
-  .formSection {
-    form {
-      @include flex-base($justify:space-evenly);
-      height: 95.5%;
-      input[type="email"],input[type="password"] {
-        height: 55px;
+
+  @media (min-width: 1200px) {
+    .pageContainer {
+      .allLoginsContainer {
+        @include flex-base($direction: row,$justify:center);
+      }
+    }
+    .formSection {
+      form {
+        @include flex-base($justify:space-evenly);
+        height: 95.5%;
+        input[type="email"],input[type="password"] {
+          height: 55px;
+        }
       }
     }
   }

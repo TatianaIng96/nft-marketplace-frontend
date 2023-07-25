@@ -6,7 +6,8 @@ import { FiUnlock } from 'react-icons/fi';
 import { MdOutlineNotifications } from 'react-icons/md';
 
 const EditProfileMenu = () => {
-  <div className="wholeContainer">
+  return (
+    <div className="wholeContainer">
     <div className="menuContainer">
       <div className="optionContainer">
         <LuEdit /> Edit Profile Image
@@ -21,7 +22,8 @@ const EditProfileMenu = () => {
         <MdOutlineNotifications /> Notification Settings
       </div>
     </div>
-  </div>;
+  </div>
+  );
 };
 
 export default EditProfileMenu;

@@ -103,7 +103,7 @@
       label {
         @include flex-base;
       }
-      input[type="text"],input[type="number"],input[type="textarea"] {
+      input[type="text"],input[type="number"],textarea {
         margin-top: 5px;
         margin-bottom: 10px;
         padding: 5px 10px;
@@ -123,7 +123,7 @@
   .checkboxContainer {
     margin-bottom: 2vh;
     @include flex-base;
-    input[type="checkbox"] {
+    input[type="checkbox"],input[type="checkbox"]:checked:before {
       accent-color: rgb(93,93,126);
       margin-right: 10px;
       cursor: pointer;
