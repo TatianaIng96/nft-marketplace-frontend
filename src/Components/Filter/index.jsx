@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import './Filter.scss';
 
-function Filter() {
+const Filter = () => {
   const [filter, setFilter] = useState(false);
   return (
     <div className="filter-secction">
@@ -32,54 +32,59 @@ function Filter() {
             <div className="inner">
               <div className="filter-select">
                 <div className="select">
-                  <h6>Likes</h6>
-                  <select name="Likes" id="likes">
-                    <option value="" disabled selected>Sort By Likes</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                    <option value="opcion4">Opción 4</option>
+                  <h6>LIKES</h6>
+                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                    <option value="DEFAULT" disabled>Sort By Likes</option>
+                    <option value="opcion1">Most Liked</option>
+                    <option value="opcion2">Least Liked</option>
                   </select>
                 </div>
                 <div className="select">
-                  <h6>Likes</h6>
-                  <select name="Likes" id="likes">
-                    <option value="" disabled selected>Sort By Likes</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                    <option value="opcion4">Opción 4</option>
+                  <h6>CATEGORY</h6>
+                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                    <option value="DEFAULT" disabled>Category</option>
+                    <option value="opcion1">All Category</option>
+                    <option value="opcion2">Art</option>
+                    <option value="opcion3">Music</option>
+                    <option value="opcion4">Video</option>
+                    <option value="opcion4">Collectionable</option>
                   </select>
                 </div>
                 <div className="select">
-                  <h6>Likes</h6>
-                  <select name="Likes" id="likes">
-                    <option value="" disabled selected>Sort By Likes</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                    <option value="opcion4">Opción 4</option>
+                  <h6>COLLECTION</h6>
+                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                    <option value="DEFAULT" disabled>Collection</option>
+                    <option value="opcion1">All Collection</option>
+                    <option value="opcion2">Art Decco</option>
+                    <option value="opcion3">BoredApeYachtClub</option>
+                    <option value="opcion4">MutantApeYachtClub</option>
+                    <option value="opcion4">Art Blocks Factory</option>
                   </select>
                 </div>
                 <div className="select">
-                  <h6>Likes</h6>
-                  <select name="Likes" id="likes">
-                    <option value="" disabled selected>Sort By Likes</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                    <option value="opcion4">Opción 4</option>
+                  <h6>SALE TYPE</h6>
+                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                    <option value="DEFAULT" disabled>Sale tipe</option>
+                    <option value="opcion1">All Type</option>
+                    <option value="opcion2">Fixed price</option>
+                    <option value="opcion3">Timed auction</option>
+                    <option value="opcion4">Not for sale</option>
+                    <option value="opcion4">Open for offers</option>
                   </select>
                 </div>
                 <div className="select">
-                  <h6>Likes</h6>
-                  <select name="Likes" id="likes">
-                    <option value="" disabled selected>Sort By Likes</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                    <option value="opcion4">Opción 4</option>
-                  </select>
+                  <h6>
+                    {' '}
+                    {' '}
+                    PRICE RANGE
+                  </h6>
+                  <div className="slider-wrapper ">
+                    <input type="range" min="0" max="3.14" step="any" className="h6 sliderBlue range" />
+                  </div>
+                  <span className="span">
+                    Price: $0- $100
+                    <span className="spanB">FILTER</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -89,6 +94,6 @@ function Filter() {
 
     </div>
   );
-}
+};
 
 export default Filter;
