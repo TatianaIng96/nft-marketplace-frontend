@@ -12,7 +12,7 @@ $dark-color-blue: #242435;
 .card {
   background-color: $dark-color-blue;
   max-width: 350px;
-  width: 22rem;
+  width: 18rem;
   margin: 0 auto;
   border-radius: 10px;
   transition-duration: 0.5s;
@@ -37,14 +37,18 @@ $dark-color-blue: #242435;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 55%;
+        width: 65%;
         .profiles {
           display: flex;
           align-items: center;
-          span {
-            @include flex-style;
-            border: 1px solid $silver-color;
-            border-radius: 50%;
+          a {
+            margin-left: -12px;
+            img {
+              @include flex-style;
+              max-width: 30px;
+              border: 1px solid $silver-color;
+              border-radius: 50%;
+            }
           }
         }
         a {
@@ -138,6 +142,10 @@ $dark-color-blue: #242435;
     }
   }
 
+  @media (min-width: 375px) {
+    width: 20rem;
+  }
+
   @media (min-width: 576px) {
     width: 16rem;
 
@@ -183,6 +191,18 @@ $dark-color-blue: #242435;
         }
       }
       .profiles-info {
+        .profile-share {
+          .profiles {
+            a {
+              img {
+                max-width: 25px;
+              }
+            }
+          }
+          a {
+            color: $silver-color;
+          }
+        }
         .show-more-options {
           .menu-options-show {
             button {

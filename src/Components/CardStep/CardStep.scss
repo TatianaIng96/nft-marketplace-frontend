@@ -1,0 +1,77 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+
+@mixin transition-style {
+  transition: 0.7s;
+}
+
+.card-step {
+  background-color: $dark-color-blue;
+  width: 14rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  padding: 70px 30px 40px;
+  position: relative;
+  cursor: pointer;
+  color: $silver-color;
+
+  .step-number {
+    position: absolute;
+    top: -50px;
+    left: 0;
+  }
+
+  .content {
+    .title {
+      @include transition-style;
+      font-weight: 400;
+      color: #fff;
+      &:hover {
+        color: $blue-color;
+      }
+    }
+    .row {
+      @include transition-style;
+      font-size: 22px;
+      &:hover {
+        color: $blue-color;
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: -90px;
+    right: -30px;
+    img {
+      width: 7rem;
+    }
+  }
+
+  @media (min-width: 376px) {
+    width: 17rem;
+  }
+
+  @media (min-width: 576px) {
+    width: 11rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 17rem;
+  }
+
+  @media (min-width: 992px) {
+    width: 14rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 18rem;
+  }
+
+  @media (min-width: 1400px) {
+    width: 16rem;
+  }
+}

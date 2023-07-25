@@ -4,18 +4,24 @@ import { FaEllipsisH } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { ModalShare, ModalReport } from '../ModalShare';
 
-function Card(props) {
-  const [likes, setLikes] = useState(0);
+const Card = ({
+  totalLikes,
+  nftName,
+  price,
+  nftImage,
+  profileImage1,
+  profileImage2,
+  profileImage3,
+  placeBit,
+  address = '#',
+}) => {
+  const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
 
-  const {
-    nftName, price, nftImage, profileImage, placeBit, address,
-  } = props;
-
   const handleLikes = () => {
-    if (likes === 0) {
+    if (likes === totalLikes) {
       setLikes(likes + 1);
     } else {
       setLikes(likes - 1);
@@ -33,22 +39,13 @@ function Card(props) {
           <div className="profile-share">
             <div className="profiles">
               <a href="#top">
-                <span>
-                  {' '}
-                  {/* At least while i can decide img or icon */}
-                  {profileImage}
-                </span>
-                {/* <img src={profileImage} alt="nft" /> */}
+                <img src={profileImage1} alt="nft" />
               </a>
               <a href="#top">
-                <span>
-                  {profileImage}
-                </span>
+                <img src={profileImage2} alt="nft" />
               </a>
               <a href="#top">
-                <span>
-                  {profileImage}
-                </span>
+                <img src={profileImage3} alt="nft" />
               </a>
             </div>
 
@@ -91,6 +88,6 @@ function Card(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
