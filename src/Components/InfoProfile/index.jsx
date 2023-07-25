@@ -9,7 +9,7 @@ function InfoProfile() {
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
   return (
-    <>
+    <div>
       <h4 className="title"> MRS SUNAYRA AHSAN</h4>
       <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social">
         <i className="i-twitter">
@@ -85,7 +85,7 @@ function InfoProfile() {
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
-    </>
+    </div>
   );
 }
 

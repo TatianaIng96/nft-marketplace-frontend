@@ -8,9 +8,10 @@ import InfoProfile from '../../Components/InfoProfile';
 
 function Profile() {
   const [isActive, setIsActive] = useState(null);
-
-  const handleClick = (buttonId) => {
+  const [button, SetButton] = useState('OnSale');
+  const handleClick = (buttonId, name) => {
     setIsActive(buttonId);
+    SetButton(name);
   };
 
   return (
@@ -43,7 +44,7 @@ function Profile() {
                   <button
                     type="button"
                     className={isActive === 1 ? 'mi-boton active' : 'mi-boton'}
-                    onClick={() => handleClick(1)}
+                    onClick={() => handleClick(1, 'OnSale')}
                   >
                     On Sale
                   </button>
