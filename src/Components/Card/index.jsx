@@ -80,7 +80,7 @@ const Card = ({
           </span>
           <button type="button" className="like-button" onClick={handleLikes}>
             <span className="like-icon-number">
-              {likes === 0 ? <BsHeart /> : <BsHeartFill />}
+              {likes === totalLikes ? <BsHeart /> : <BsHeartFill />}
               {likes}
             </span>
           </button>
