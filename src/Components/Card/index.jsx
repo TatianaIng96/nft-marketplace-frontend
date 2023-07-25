@@ -79,7 +79,7 @@ const Card = ({
             wETH
           </span>
           <button type="button" className="like-button" onClick={handleLikes}>
-            <span className="like-icon-number">
+            <span className={likes === totalLikes ? 'like-icon-number' : 'like-icon-number-selected'}>
               {likes === totalLikes ? <BsHeart /> : <BsHeartFill />}
               {likes}
             </span>
