@@ -56,6 +56,34 @@ const cardData = [
   },
 ];
 
+const stepData = [
+  {
+    stepNum: 1,
+    stepTitle: 'Set up your wallet',
+    stepText: 'Powerful features and inclusions, which makes Nuron standout, easily customizable and scalable.',
+    stepImage: 'https://nuron-nextjs.vercel.app/images/icons/shape-7.png',
+  },
+  {
+    stepNum: 2,
+    stepTitle: 'Create your collection',
+    stepText: 'A great collection of beautiful website templates for your need. Choose the best suitable template.',
+    stepImage: 'https://nuron-nextjs.vercel.app/images/icons/shape-1.png',
+  },
+  {
+    stepNum: 3,
+    stepTitle: 'Add your NFT',
+    stepText: 'We have made the template fully responsive, so it looks great on all devices: desktop, tablets and.',
+    stepImage: 'https://nuron-nextjs.vercel.app/images/icons/shape-5.png',
+  },
+  {
+    stepNum: 4,
+    stepTitle: 'Sell Your NFT',
+    stepText: 'I throw myself down among the tall grass by the stream as I lie close to the earth NFT.',
+    stepImage: 'https://nuron-nextjs.vercel.app/images/icons/shape-6.png',
+  },
+];
+
 export {
   cardData,
+  stepData,
 };

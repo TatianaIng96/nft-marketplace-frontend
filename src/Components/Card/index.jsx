@@ -56,12 +56,12 @@ const Card = ({
           </div>
 
           <div className="show-more-options">
-            <button type="button" onClick={() => setShowOptions(!showOptions)} className="show-more">
+            <button type="button" onClick={() => { return setShowOptions(!showOptions); }} className="show-more">
               <FaEllipsisH />
             </button>
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => setIsOpen(true)}>Share</button>
-              <button type="button" onClick={() => setOpenModalReport(true)}>Report</button>
+              <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
+              <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
             </div>
           </div>
         </section>

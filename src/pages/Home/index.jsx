@@ -4,6 +4,7 @@ import Carousel from 'better-react-carousel';
 import Button from '../../Components/Button';
 import Card from '../../Components/Card';
 import { cardData } from '../../assets/data';
+import ListOfStepCards from '../../Components/CardStep';
 
 const Home = () => {
   const [dataNft, setDataNft] = useState([]);
@@ -46,6 +47,7 @@ const Home = () => {
           <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fslider%2Fslider-1.png&w=1200&q=75" alt="main" />
         </div>
       </div>
+
       <div className="live-nft">
         <div className="title">
           <span className="loader" />
@@ -56,36 +58,49 @@ const Home = () => {
             ? (
               <Carousel rows={1} showDots dotColorActive="#00A3FF">
                 {
-                  dataNft.map((nft) => (
-                    <Carousel.Item key={nft.id}>
-                      <Card
-                        totalLikes={nft.totalLikes}
-                        nftName={nft.nftName}
-                        price={nft.price}
-                        nftImage={nft.nftImage}
-                        profileImage1={nft.profileImage1}
-                        profileImage2={nft.profileImage2}
-                        profileImage3={nft.profileImage3}
-                        placeBit={nft.placeBit}
-                      />
-                    </Carousel.Item>
-                  ))
+                  dataNft.map((nft) => {
+                    return (
+                      <Carousel.Item key={nft.id}>
+                        <Card
+                          totalLikes={nft.totalLikes}
+                          nftName={nft.nftName}
+                          price={nft.price}
+                          nftImage={nft.nftImage}
+                          profileImage1={nft.profileImage1}
+                          profileImage2={nft.profileImage2}
+                          profileImage3={nft.profileImage3}
+                          placeBit={nft.placeBit}
+                        />
+                      </Carousel.Item>
+                    );
+                  })
                 }
               </Carousel>
             )
-            : dataNft.map((nft) => (
-              <Card
-                key={nft.id}
-                totalLikes={nft.totalLikes}
-                nftName={nft.nftName}
-                price={nft.price}
-                nftImage={nft.nftImage}
-                profileImage1={nft.profileImage1}
-                profileImage2={nft.profileImage2}
-                profileImage3={nft.profileImage3}
-                placeBit={nft.placeBit}
-              />
-            ))}
+            : dataNft.map((nft) => {
+              return (
+                <Card
+                  key={nft.id}
+                  totalLikes={nft.totalLikes}
+                  nftName={nft.nftName}
+                  price={nft.price}
+                  nftImage={nft.nftImage}
+                  profileImage1={nft.profileImage1}
+                  profileImage2={nft.profileImage2}
+                  profileImage3={nft.profileImage3}
+                  placeBit={nft.placeBit}
+                />
+              );
+            })}
+        </div>
+      </div>
+
+      <div className="step-cards">
+        <div className="step-cards__title">
+          <h3>Create and sell your NFTs</h3>
+        </div>
+        <div className="step-cards__section">
+          <ListOfStepCards />
         </div>
       </div>
     </div>

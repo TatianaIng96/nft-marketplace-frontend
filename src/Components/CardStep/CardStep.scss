@@ -11,6 +11,7 @@ $dark-color-blue: #242435;
   background-color: $dark-color-blue;
   width: 14rem;
   margin: 0 auto;
+  margin-bottom: 30px;
   border-radius: 10px;
   transition-duration: 0.5s;
   padding: 70px 30px 40px;
@@ -20,8 +21,8 @@ $dark-color-blue: #242435;
 
   .step-number {
     position: absolute;
-    top: -50px;
-    left: 0;
+    top: 0;
+    left: 30px;
   }
 
   .content {
@@ -44,10 +45,12 @@ $dark-color-blue: #242435;
 
   .icon {
     position: absolute;
-    top: -90px;
-    right: -30px;
-    img {
-      width: 7rem;
+    top: -20px;
+    right: 0;
+    a {
+      img {
+        width: 7rem;
+      }
     }
   }
 
@@ -72,6 +75,18 @@ $dark-color-blue: #242435;
   }
 
   @media (min-width: 1400px) {
-    width: 16rem;
+    width: 15.5rem;
+  }
+}
+
+// List of cards
+
+.step-flex {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

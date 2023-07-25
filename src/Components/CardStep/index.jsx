@@ -1,31 +1,65 @@
+import { useState, useEffect } from 'react';
 import './CardStep.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { stepData } from '../../assets/data';
 
-const CardStep = () => (
-  <div className="card-step">
-    <a href="#top">
+const CardStep = ({
+  stepNum,
+  stepTitle,
+  stepText,
+  stepImage,
+}) => {
+  return (
+    <div className="card-step">
       <div className="step-number">
         <h4>
-          STEP-01
+          STEP-
+          0
+          {stepNum}
         </h4>
       </div>
 
       <div className="content">
-        <h2 className="title">Set up your wallet</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Perspiciatis velit blanditiis sunt modi illo quisquam
-        </p>
+        <h2 className="title">{stepTitle}</h2>
+        <p>{stepText}</p>
         <a className="row" href="#top">
           <AiOutlineArrowRight />
         </a>
       </div>
 
       <div className="icon">
-        <img src="https://nuron-nextjs.vercel.app/images/icons/shape-7.png" alt="icon card" />
+        <a href="#top">
+          <img src={stepImage} alt="icon card" />
+        </a>
       </div>
-    </a>
-  </div>
-);
+    </div>
+  );
+};
 
-export default CardStep;
+const ListOfStepCards = () => {
+  const [step, setStep] = useState([]);
+
+  useEffect(() => {
+    setStep(stepData);
+  }, []);
+
+  return (
+    <div className="step-flex">
+      {
+        step.map((card) => {
+          return (
+            <CardStep
+              key={card.stepNum}
+              stepNum={card.stepNum}
+              stepTitle={card.stepTitle}
+              stepText={card.stepText}
+              stepImage={card.stepImage}
+            />
+          );
+        })
+      }
+    </div>
+  );
+};
+
+export default ListOfStepCards;

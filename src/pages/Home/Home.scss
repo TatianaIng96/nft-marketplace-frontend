@@ -5,7 +5,7 @@ $dark-color-blue: #242435;
 $main-background: #13131d;
 
 .main-container {
-  padding: 0 16px 10px;
+  padding: 0 30px 10px;
   .container {
     display: flex;
     flex-direction: column-reverse;
@@ -77,6 +77,14 @@ $main-background: #13131d;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+    }
+  }
+
+  .step-cards {
+    margin-top: 50px;
+    .step-cards__title {
+      font-size: 24px;
+      margin-bottom: 40px;
     }
   }
 
