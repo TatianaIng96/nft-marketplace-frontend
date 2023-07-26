@@ -1,0 +1,92 @@
+.card-secction{
+  .container-2{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2px 16px;
+  }
+  .row-1{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+  }
+  .row-1>*{
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * -0.5);
+    margin-top: 1.5em;
+
+    @media(min-width: 1441px) and (max-width: 1999px){
+      padding-right: calc(var(--bs-gutter-x) * 10.5);
+      padding-left: calc(var(--bs-gutter-x) * 10.5);
+    }
+
+    @media(min-width:1999px){
+      padding-right: calc(var(--bs-gutter-x) * 14.5);
+      padding-left: calc(var(--bs-gutter-x) * 14.5);
+    }
+  }
+
+  .wrapper-option{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 32px;
+    margin: 0px -1em;
+    @media(min-width:520px) and (max-width:781px) {
+      margin: 0px 0em;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin: 0px 0em;
+      padding: 0px 2em;
+      padding-left: 2em;
+    }
+    @media(min-width:782px) and (max-width:1024px) {
+      margin: 0px 0em;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px 0em;
+      padding: 0px 6em;
+      padding-left: 2em;
+    }
+    @media(min-width:1025px) and (max-width:1200px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin: 0px 0em;
+      padding: 0px 6em;
+      padding-left: 2em;
+    }
+    @media(min-width: 1201px)and (max-width:1440px){
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px 8em;
+      gap: 14px;
+      padding: 0px 7em;
+      padding-left: 4em;
+    }
+
+    @media(min-width: 1441px)and (max-width:1700px){
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px -15em;
+      gap: 23px;
+      padding: 0px 15em;
+      padding-left: 10em;
+    }
+
+    @media(min-width:1701px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0px -15em;
+      gap: 23px;
+      padding: 0px 25em;
+      padding-left: 20em;
+    }
+  }
+}

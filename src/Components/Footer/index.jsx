@@ -5,7 +5,7 @@ import './Footer.scss';
 import logo from '../../assets/logo-neuron.png';
 import List from './List';
 
-function FooterComponent() {
+const FooterComponent = () => {
   const nuron = [
     'Protocol Explore',
     'System Token',
@@ -186,6 +186,6 @@ function FooterComponent() {
        stroke: '307.919, 307.919'}}/></svg></div> */}
     </div>
   );
-}
+};
 
 export default FooterComponent;

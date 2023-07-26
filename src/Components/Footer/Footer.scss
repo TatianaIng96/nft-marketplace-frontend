@@ -139,11 +139,11 @@
       word-break: break-word;
       color: #fff;
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: -1em;
       font-size: 1.4em;
     }
     .content{
-      margin-bottom: 4px;
+      margin-bottom: -1em;
 
       .title-2{
         font-size: 1em;
@@ -215,15 +215,15 @@
 
   }
 
-  @media (min-width: 768px){ //md
+  @media (min-width: 500px){ //md
     .footer {
       font-size: 16px;
     }
   }
 
-  @media (min-width: 769px) and (max-width: 1024px){ //lg
+  @media (min-width: 600px) and (max-width: 1024px){ //lg
     .footer {
-      height: 48em;
+      height: 38em;
       font-size: 20px;
       .footer-menu{
         .container{
@@ -235,14 +235,17 @@
           );
           gap: 10em;
           .general-info{
-            margin-top: -15em;
+            margin-top: -14em;
+            margin-left: 1em;
           }
 
           .nuron-info{
-            margin-top: -3em;
+            margin-top: -4em;
+            margin-left: -1em;
           }
           .recent-sold-out{
-            margin-top: -10em;
+            margin-top: -13em;
+            margin-left: -3em;
             width: 400px;
           }
         }
@@ -262,12 +265,11 @@
 
   @media (min-width: 1025px) and (max-width:1440px){ //xl
     .footer {
+      height: 17em;
       font-size: 20px;
-      height: 28em;
-
       .footer-menu{
         margin: 56px -1%;
-        margin-left: 8em;
+        margin-left: 10em;
         .container{
           flex-direction: row;
           max-width: 90em;
@@ -275,19 +277,19 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -3em;
+            margin-left: -8em;
           }
           .nuron-info, .general-info {
             margin-top: -9em;
-            margin-left: 2em;
+            margin-left: -1em;
             margin-right: -3em;
           }
           .recent-sold-out{
-            margin-top: -4em;
+            margin-top: -8em;
             margin-left: -3em;
           }
           .footer-recent{
-            margin-top: -1em;
+            margin-top: 1em;
           }
         }
       }
@@ -312,11 +314,10 @@
     }
   }
 
-  @media (min-width: 1441px){ //xl
+  @media (min-width: 1441px) and (max-width:1700px){ //xl
     .footer {
       font-size: 20px;
-      height: 28em;
-
+      height: 18em;
       .footer-menu{
         margin: 50px 7%;
         margin-left: 17em;
@@ -327,7 +328,7 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -3em;
+            margin-left: -10em;
           }
           .header-subscription{
             width: 500px;
@@ -338,13 +339,30 @@
             margin-right: -3em;
           }
           .recent-sold-out{
-            margin-top: -4em;
+            margin-top: -8em;
             margin-left: -3em;
           }
           .footer-recent{
-            margin-top: -1em;
+            margin-top: 1em;
           }
 
+        }
+      }
+
+      .copy-right{
+        .privacy{
+          flex-direction: row;
+          margin-top: 3em;
+        }
+
+        .social{
+          margin-left: 36em;
+          margin-top: -2em;
+        }
+        .align-items-center{
+          margin-left: -19rem;
+          align-items: center;
+          margin-top: -1em;
         }
       }
 
@@ -364,6 +382,61 @@
         margin-left: -16rem;
         align-items: center;
       }
+    }
+  }
+
+  @media (min-width: 1701px) { //xl
+    .footer {
+      font-size: 17px;
+      height: 20em;
+      .footer-menu{
+        margin: 50px 7%;
+        margin-left: 17em;
+        .container{
+          flex-direction: row;
+          max-width: 66em;
+
+          .email-subscription{
+            margin: 0;
+            margin-top: -5em;
+            margin-left: -7em;
+          }
+          .header-subscription{
+            width: 500px;
+          }
+          .nuron-info, .general-info {
+            margin-top: -9em;
+            margin-left: 5em;
+            margin-right: -10em;
+          }
+          .recent-sold-out{
+            margin-top: -8em;
+            margin-left: 4em;
+          }
+          .footer-recent{
+            margin-top: 1em;
+          }
+
+        }
+      }
+
+    }
+  }
+
+  .copy-right{
+    .privacy{
+      flex-direction: row;
+      margin-top: 3em;
+    }
+
+    .social{
+      margin-left: 46em;
+      margin-top: -2em;
+    }
+    .align-items-center{
+      margin-left: -13.5rem;
+      align-items: center;
+      margin-top: -1em;
     }
   }
 }
