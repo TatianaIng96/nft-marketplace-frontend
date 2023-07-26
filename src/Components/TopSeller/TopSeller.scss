@@ -1,0 +1,103 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+
+.seller {
+  position: relative;
+  width: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  .seller__image {
+    width: 3rem;
+    border-radius: 50%;
+    border: 3px solid $medium-color-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .seller__info {
+    text-align: center;
+
+    a {
+      color: #fff;
+      .seller__info-title {
+        font-weight: 400;
+        margin: 0;
+        margin-top: 10px;
+      }
+      &:hover {
+        color: $blue-color;
+      }
+    }
+
+    .seller__info-number {
+      margin: 0;
+      color: $silver-color;
+    }
+  }
+
+  .seller__top-number {
+    color: $silver-color;
+    position: absolute;
+    h2 {
+      font-size: 40px;
+      opacity: 0.2;
+      margin: 0;
+      position: absolute;
+      top: 30px;
+      right: -80px;
+    }
+  }
+
+  @media (min-width: 576px) {
+    width: 15rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .seller__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      margin-left: 15px;
+
+      a {
+        font-size: 20px;
+      }
+    }
+
+    .seller__top-number {
+      top: 0;
+      right: 0;
+      h2 {
+        font-size: 50px;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 13rem;
+    .seller__info {
+      margin-left: 12px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    width: 15rem;
+    .seller__info {
+      margin-left: 18px;
+    }
+  }
+}

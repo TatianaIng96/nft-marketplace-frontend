@@ -1,0 +1,23 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  width: 100%;
+}
+
+.main{
+  z-index: 1;
+  min-height: 44vh;
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 12em;
+  background-color: #13131d;
+}
+
+@media (min-width: 500px) {
+  .main {
+    top: 77px;
+    padding-top: 80px;
+  }
+}

@@ -9,11 +9,24 @@ $dark-color-blue: #242435;
   align-items: center;
 }
 
+@mixin like-button-style {
+  width: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin hover-like-button {
+  border-radius: 3px;
+  padding: 5px;
+}
+
 .card {
   background-color: $dark-color-blue;
   max-width: 350px;
-  width: 22rem;
+  width: 18rem;
   margin: 0 auto;
+  margin-bottom: 30px;
   border-radius: 10px;
   transition-duration: 0.5s;
   &:hover {
@@ -37,14 +50,18 @@ $dark-color-blue: #242435;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 55%;
+        width: 65%;
         .profiles {
           display: flex;
           align-items: center;
-          span {
-            @include flex-style;
-            border: 1px solid $silver-color;
-            border-radius: 50%;
+          a {
+            margin-left: -12px;
+            img {
+              @include flex-style;
+              max-width: 30px;
+              border: 1px solid $silver-color;
+              border-radius: 50%;
+            }
           }
         }
         a {
@@ -121,21 +138,31 @@ $dark-color-blue: #242435;
         border: none;
         background-color: transparent;
         color: $silver-color;
-        padding: 5px;
         outline: none;
         .like-icon-number {
-          width: 40px;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
+          @include like-button-style;
+          &:hover {
+            @include hover-like-button;
+            background-color: $blue-color;
+            color: #fff;
+          }
         }
-        &:hover {
-          border: none;
-          background-color: $blue-color;
-          color: #fff;
+        .like-icon-number-selected {
+          @include like-button-style;
+          color: $blue-color;
+          &:hover {
+            @include hover-like-button;
+            background-color: #fff;
+            color: $blue-color;
+          }
         }
+
       }
     }
+  }
+
+  @media (min-width: 375px) {
+    width: 20rem;
   }
 
   @media (min-width: 576px) {
@@ -183,6 +210,18 @@ $dark-color-blue: #242435;
         }
       }
       .profiles-info {
+        .profile-share {
+          .profiles {
+            a {
+              img {
+                max-width: 25px;
+              }
+            }
+          }
+          a {
+            color: $silver-color;
+          }
+        }
         .show-more-options {
           .menu-options-show {
             button {

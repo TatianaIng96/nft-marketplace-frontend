@@ -1,0 +1,29 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+@mixin button-style {
+  border-radius: 10px;
+  border: none;
+  margin: 7px;
+  padding: 15px 34px;
+  color: #fff
+}
+
+.button-blue {
+  @include button-style;
+  background-color: $blue-color;
+  &:hover {
+    background-color: $dark-color-blue;
+  }
+}
+
+.button-gray {
+  @include button-style;
+  background-color: $dark-color-blue;
+  &:hover {
+    background-color: $blue-color;
+  }
+}
