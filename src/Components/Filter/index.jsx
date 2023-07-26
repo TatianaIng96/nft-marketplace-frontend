@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import './Filter.scss';
 
-const Filter = () => {
+const Filter = ({ handleFilter }) => {
   const [filter, setFilter] = useState(false);
   return (
     <div className="filter-secction">
@@ -19,7 +19,7 @@ const Filter = () => {
                   // eslint-disable-next-line quotes
                   className={filter === true ? "buttonfilter" : "buttonfilter_open"}
                   // eslint-disable-next-line no-undef
-                  onClick={() => setFilter(!filter)}
+                  onClick={() => { return setFilter(!filter); }}
                 >
                   Filter
                   {' '}
@@ -33,43 +33,67 @@ const Filter = () => {
               <div className="filter-select">
                 <div className="select">
                   <h6>LIKES</h6>
-                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                  <select
+                    name="likes"
+                    id="likes"
+                    defaultValue="DEFAULT"
+                    className="h6"
+                    onChange={handleFilter}
+                  >
                     <option value="DEFAULT" disabled>Sort By Likes</option>
-                    <option value="opcion1">Most Liked</option>
-                    <option value="opcion2">Least Liked</option>
+                    <option value="most">Most Liked</option>
+                    <option value="least">Least Liked</option>
                   </select>
                 </div>
                 <div className="select">
                   <h6>CATEGORY</h6>
-                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                  <select
+                    name="category"
+                    id="likes"
+                    defaultValue="DEFAULT"
+                    className="h6"
+                    onChange={handleFilter}
+                  >
                     <option value="DEFAULT" disabled>Category</option>
-                    <option value="opcion1">All Category</option>
-                    <option value="opcion2">Art</option>
-                    <option value="opcion3">Music</option>
-                    <option value="opcion4">Video</option>
-                    <option value="opcion4">Collectionable</option>
+                    <option value="all-category">All Category</option>
+                    <option value="art">Art</option>
+                    <option value="music">Music</option>
+                    <option value="video">Video</option>
+                    <option value="collectionable">Collectionable</option>
                   </select>
                 </div>
                 <div className="select">
                   <h6>COLLECTION</h6>
-                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                  <select
+                    name="collection"
+                    id="likes"
+                    defaultValue="DEFAULT"
+                    className="h6"
+                    onChange={handleFilter}
+                  >
                     <option value="DEFAULT" disabled>Collection</option>
-                    <option value="opcion1">All Collection</option>
-                    <option value="opcion2">Art Decco</option>
-                    <option value="opcion3">BoredApeYachtClub</option>
-                    <option value="opcion4">MutantApeYachtClub</option>
-                    <option value="opcion4">Art Blocks Factory</option>
+                    <option value="all-collection">All Collection</option>
+                    <option value="art-decco">Art Decco</option>
+                    <option value="bore">BoredApeYachtClub</option>
+                    <option value="mutan">MutantApeYachtClub</option>
+                    <option value="art-block">Art Blocks Factory</option>
                   </select>
                 </div>
                 <div className="select">
                   <h6>SALE TYPE</h6>
-                  <select name="Likes" id="likes" defaultValue="DEFAULT" className="h6">
+                  <select
+                    name="type"
+                    id="likes"
+                    defaultValue="DEFAULT"
+                    className="h6"
+                    onChange={handleFilter}
+                  >
                     <option value="DEFAULT" disabled>Sale tipe</option>
-                    <option value="opcion1">All Type</option>
-                    <option value="opcion2">Fixed price</option>
-                    <option value="opcion3">Timed auction</option>
-                    <option value="opcion4">Not for sale</option>
-                    <option value="opcion4">Open for offers</option>
+                    <option value="all-type">All Type</option>
+                    <option value="fixed-price">Fixed price</option>
+                    <option value="timed">Timed auction</option>
+                    <option value="no-sale">Not for sale</option>
+                    <option value="oppen-offer">Open for offers</option>
                   </select>
                 </div>
                 <div className="select">
@@ -79,7 +103,15 @@ const Filter = () => {
                     PRICE RANGE
                   </h6>
                   <div className="slider-wrapper ">
-                    <input type="range" min="0" max="3.14" step="any" className="h6 sliderBlue range" />
+                    <input
+                      name="price"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="any"
+                      className="h6 sliderBlue range"
+                      onChange={handleFilter}
+                    />
                   </div>
                   <span className="span">
                     Price: $0- $100
