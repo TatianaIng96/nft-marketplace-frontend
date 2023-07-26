@@ -1,17 +1,13 @@
 /* eslint-disable react/jsx-one-expression-per-line */
+import Inner from '../../Components/Inner';
 import './LogInForm.scss';
 import { AiOutlineRight } from 'react-icons/ai';
 
 const LogInForm = () => {
   return (
     <div className="logInFormContainer">
+      <Inner page = "Login"/>
       <div className="pageContainer">
-        <section className="menuSection">
-          <div className="navigationMenu">
-            <p>Nuron Login</p>
-            <p><span>Home</span> <span><AiOutlineRight /></span> <span>Nuron Login</span></p>
-          </div>
-        </section>
         <div className="allLoginsContainer">
           <section className="formSection">
             <form action="">

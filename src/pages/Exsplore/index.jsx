@@ -13,7 +13,7 @@ const Explore = () => {
 
   return (
     <div className="explore-secction">
-      <Inner />
+      <Inner page="Explore Filter" />
       <Filter handleFilter={handleFilter} />
       <CardExplore />
     </div>
