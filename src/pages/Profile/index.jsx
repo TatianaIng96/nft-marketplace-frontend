@@ -1,17 +1,30 @@
 import './Profile.scss';
-import { useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 import Card from '../../Components/Card';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
+import cardData from '../../assets/data';
 
-function Profile() {
-  const [isActive, setIsActive] = useState(null);
-  const [button, SetButton] = useState('OnSale');
-  const handleClick = (buttonId, name) => {
+const Profile = () => {
+  const [isActive, setIsActive] = useState(0);
+  const [dataSale, setDataSale] = useState([]);
+  const [dataOwed, setDataOwed] = useState([]);
+  const [dataCreated, setDataCreated] = useState([]);
+  const [dataLiked, setDataLiked] = useState([]);
+
+  const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
+  const data = [dataSale, dataOwed, dataCreated, dataLiked];
+
+  useEffect(() => {
+    setDataSale(cardData);
+    setDataOwed(cardData);
+    setDataCreated(cardData);
+    setDataLiked(cardData);
+  }, []);
+
+  const handleClick = (buttonId) => {
     setIsActive(buttonId);
-    SetButton(name);
   };
 
   return (
@@ -41,34 +54,19 @@ function Profile() {
             <div className="wrapper-option">
               <nav className="button-option">
                 <div className="nav-button">
-                  <button
-                    type="button"
-                    className={isActive === 1 ? 'mi-boton active' : 'mi-boton'}
-                    onClick={() => handleClick(1, 'OnSale')}
-                  >
-                    On Sale
-                  </button>
-                  <button
-                    type="button"
-                    className={isActive === 2 ? 'mi-boton active' : 'mi-boton'}
-                    onClick={() => handleClick(2)}
-                  >
-                    Owned
-                  </button>
-                  <button
-                    type="button"
-                    className={isActive === 3 ? 'mi-boton active' : 'mi-boton'}
-                    onClick={() => handleClick(3)}
-                  >
-                    Created
-                  </button>
-                  <button
-                    type="button"
-                    className={isActive === 4 ? 'mi-boton active' : 'mi-boton'}
-                    onClick={() => handleClick(4)}
-                  >
-                    Liked
-                  </button>
+                  {buton.map((element, index) => {
+                    return (
+                      <button
+                        type="button"
+                      // eslint-disable-next-line react/no-array-index-key
+                        key={index}
+                        className={isActive === index ? 'mi-boton active' : 'mi-boton'}
+                        onClick={() => { return handleClick(index); }}
+                      >
+                        {element}
+                      </button>
+                    );
+                  })}
                 </div>
               </nav>
             </div>
@@ -80,13 +78,27 @@ function Profile() {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
-                <Card nftName="Juan" price={1234} nftImage="../public/design2.webp" profileImage={<FaUserCircle />} placeBit={89} address="#" />
+                {
+                  data.map((dato, index) => {
+                    return (
+                      isActive === index && (dato.map((nft) => {
+                        return (
+                          <Card
+                            key={nft.id}
+                            totalLikes={nft.totalLikes}
+                            nftName={nft.nftName}
+                            price={nft.price}
+                            nftImage={nft.nftImage}
+                            profileImage1={nft.profileImage1}
+                            profileImage2={nft.profileImage2}
+                            profileImage3={nft.profileImage3}
+                            placeBit={nft.placeBit}
+                          />
+                        );
+                      }))
+                    );
+                  })
+                }
               </div>
             </div>
           </div>
@@ -94,6 +106,6 @@ function Profile() {
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
