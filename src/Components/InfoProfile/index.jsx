@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
 
-function InfoProfile() {
+const InfoProfile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
@@ -56,7 +56,7 @@ function InfoProfile() {
             Follow
           </i>
         </span>
-        <button type="button" className="btn at-fell f-button" onClick={() => setIsOpen(true)}>
+        <button type="button" className="btn at-fell f-button" onClick={() => { return setIsOpen(true); }}>
           <i>
             {' '}
             <FaShareAlt />
@@ -64,19 +64,19 @@ function InfoProfile() {
         </button>
         <div className="mn">
           <div className="show-more-options btn at-fell f-button">
-            <button type="button" onClick={() => setShowOptions(!showOptions)} className="show-more">
+            <button type="button" onClick={() => { return setShowOptions(!showOptions); }} className="show-more">
               <i>
                 <FaEllipsisH />
               </i>
             </button>
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => setIsOpen(true)}>Share</button>
-              <button type="button" onClick={() => setOpenModalReport(true)}>Report</button>
+              <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
+              <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
             </div>
           </div>
         </div>
 
-        <button type="button" className="btn at-fell f-button" onClick={() => setIsOpen(true)}>
+        <button type="button" className="btn at-fell f-button" onClick={() => { return setIsOpen(true); }}>
           <i>
             {' '}
             <FaEdit />
@@ -87,6 +87,6 @@ function InfoProfile() {
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
     </div>
   );
-}
+};
 
 export default InfoProfile;

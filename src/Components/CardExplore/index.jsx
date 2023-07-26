@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from '../Card';
 import './CardExplore.scss';
-import cardData from '../../assets/data';
+import { cardData } from '../../assets/data';
 
 const CardExplore = () => {
   const [dataNft, setDataNft] = useState([]);
