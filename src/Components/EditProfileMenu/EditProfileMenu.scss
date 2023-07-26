@@ -1,0 +1,24 @@
+.wholeContainer {
+  .menuContainer {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(28,28,42);
+    border: solid 1px #858585;
+    border-radius: 10px;
+    color: white;
+    .optionContainer {
+      margin: 5px;
+      padding: 15px 10px 15px 10px;
+      border: dashed 1px #858585;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  div.optionContainer:hover {
+    border: none;
+    background-color: rgb(33,46,73);
+  }
+}

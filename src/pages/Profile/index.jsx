@@ -4,7 +4,7 @@ import Card from '../../Components/Card';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
-import cardData from '../../assets/data';
+import { cardData } from '../../assets/data';
 
 const Profile = () => {
   const [isActive, setIsActive] = useState(0);
