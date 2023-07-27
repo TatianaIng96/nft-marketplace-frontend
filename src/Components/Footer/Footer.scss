@@ -1,16 +1,18 @@
 .footer-secction{
+  background: #13131d;
   .footer {
-    background-color: #1b1a28;
+    background:rgba(36, 36, 53, 0.3411764706);
     width: 100%;
     clear: both;
-    margin-top: 80px 0;
+    margin-top: 80px 0px;
     bottom: 0;
-    background-color: #24243557;
     margin: 0;
-    padding: 104px 0;
+    padding: 64px -1px;
     border-top: 1px solid #222;
-    height: auto;
+    height: 100em;
     font-size: 14px;
+    padding-top: 6em;
+
 
     ul li{
       list-style:none;
@@ -68,7 +70,7 @@
             border:  #ffffff14;
             position: relative;
             display: flex;
-            width: 50%;
+            width: 30%;
             display: flex;
             margin-top: -5%;
           }
@@ -97,7 +99,7 @@
             outline: none;
             display: flex;
             margin-top: -2.5em;
-            margin-left: 10.8em;
+            margin-left: 6.8em;
           }
 
           .footer-describe{
@@ -176,12 +178,15 @@
     }
 
     .align-items-center{
-      margin-left: -6rem;
+      margin-left: -15rem;
       align-items: center;
+      margin-top: -2em;
     }
     .privacy{
       display: flex;
       flex-direction: column;
+      margin-top: 3em;
+      margin-left: 9em;
     }
     .social{
       display: flex;
@@ -218,13 +223,16 @@
   @media (min-width: 500px){ //md
     .footer {
       font-size: 16px;
+      .footer-menu .container .col .form-control{
+        width: 50%;
+      }
     }
   }
 
   @media (min-width: 600px) and (max-width: 1024px){ //lg
     .footer {
-      height: 38em;
-      font-size: 20px;
+      height: 48em;
+      font-size: 17px;
       .footer-menu{
         .container{
           display: grid;
@@ -234,6 +242,14 @@
             minmax(150px,1fr)
           );
           gap: 10em;
+          .col{
+            .form-control{
+              width: 40%;
+            }
+            .btn-subscribe{
+              margin-left: 9em;
+            }
+          }
           .general-info{
             margin-top: -14em;
             margin-left: 1em;
@@ -254,19 +270,19 @@
 
     .copy-right{
       .privacy{
-        margin-left: 3em;
+        margin-left: 10em;
       }
 
       .social{
-        margin-left: 6em;
+        margin-left: 3em;
       }
     }
   }
 
   @media (min-width: 1025px) and (max-width:1440px){ //xl
     .footer {
-      height: 17em;
-      font-size: 20px;
+      height: 25em;
+      font-size: 18px;
       .footer-menu{
         margin: 56px -1%;
         margin-left: 10em;
@@ -300,11 +316,12 @@
       .privacy{
         flex-direction: row;
         margin-top: 3em;
+        margin-left: -5em;
       }
 
       .social{
-        margin-left: 36em;
-        margin-top: -2em;
+        margin-left: 30em;
+        margin-top: -2.5em;
       }
       .align-items-center{
         margin-left: -19rem;
@@ -317,7 +334,7 @@
   @media (min-width: 1441px) and (max-width:1700px){ //xl
     .footer {
       font-size: 20px;
-      height: 18em;
+      height: 24em;
       .footer-menu{
         margin: 50px 7%;
         margin-left: 17em;
@@ -325,6 +342,11 @@
           flex-direction: row;
           max-width: 66em;
 
+          .col{
+            .btn-subscribe{
+              margin-left: 11em;
+            }
+          }
           .email-subscription{
             margin: 0;
             margin-top: -5em;
@@ -353,11 +375,12 @@
         .privacy{
           flex-direction: row;
           margin-top: 3em;
+          margin-left: 0.5em;
         }
 
         .social{
-          margin-left: 36em;
-          margin-top: -2em;
+          margin-left: 30em;
+          margin-top: -2.5em;
         }
         .align-items-center{
           margin-left: -19rem;
@@ -367,35 +390,24 @@
       }
 
     }
-
-    .copy-right{
-      .privacy{
-        flex-direction: row;
-        margin-top: 3em;
-      }
-
-      .social{
-        margin-left: 36em;
-        margin-top: -2em;
-      }
-      .align-items-center{
-        margin-left: -16rem;
-        align-items: center;
-      }
-    }
   }
 
   @media (min-width: 1701px) { //xl
     .footer {
-      font-size: 17px;
-      height: 20em;
+      font-size: 20px;
+      height: 24em;
       .footer-menu{
         margin: 50px 7%;
-        margin-left: 17em;
+        margin-left: 26em;
         .container{
           flex-direction: row;
           max-width: 66em;
 
+          .col{
+            .btn-subscribe{
+              margin-left: 11em;
+            }
+          }
           .email-subscription{
             margin: 0;
             margin-top: -5em;
@@ -411,7 +423,7 @@
           }
           .recent-sold-out{
             margin-top: -8em;
-            margin-left: 4em;
+            margin-left: 5em;
           }
           .footer-recent{
             margin-top: 1em;
@@ -420,23 +432,24 @@
         }
       }
 
-    }
-  }
+      .copy-right{
+        .privacy{
+          flex-direction: row;
+          margin-top: 3em;
+          margin-left: -1em;
+        }
 
-  .copy-right{
-    .privacy{
-      flex-direction: row;
-      margin-top: 3em;
-    }
+        .social{
+          margin-left: 40em;
+          margin-top: -2.5em;
+        }
+        .align-items-center{
+          margin-left: -13.5rem;
+          align-items: center;
+          margin-top: -1em;
+        }
+      }
 
-    .social{
-      margin-left: 46em;
-      margin-top: -2em;
-    }
-    .align-items-center{
-      margin-left: -13.5rem;
-      align-items: center;
-      margin-top: -1em;
     }
   }
 }
