@@ -1,18 +1,18 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
-import { AiOutlineRight } from 'react-icons/ai';
 import { FiUpload } from 'react-icons/fi';
+import Inner from '../../Components/Inner';
+import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
+  const { object, handleChange } = useForm({});
+
+  // object es el objeto formado para pasarle al handleSubmit cuando lo tengamos
+
   return (
     <div className="createNFTFormSection">
+      <Inner page="Create NFT" />
       <div className="pageContainer">
-        <section className="menuSection">
-          <div className="navigationMenu">
-            <p>Create a New File</p>
-            <p><span>Home</span> <span><AiOutlineRight /></span> <span>Create a New File</span></p>
-          </div>
-        </section>
         <div className="imgAndFormContainer">
           <div className="allImageContainer">
             <section className="imageInstructionsSection">
@@ -35,29 +35,29 @@ const CreateNFTForm = () => {
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
-                <input type="text" id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
+                <input type="text" name="product-name" onChange={handleChange} id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
               </label>
               <label htmlFor="description">
                 Description
-                <textarea type="textarea" id="description" placeholder="e.g. 'After purchasing the product...'" />
+                <textarea type="textarea" onChange={handleChange} name="description" id="description" placeholder="e.g. 'After purchasing the product...'" />
               </label>
               <div className="changeableInputs">
-                <label htmlFor="item-price">
+                <label htmlFor="price">
                   Item Price in $
-                  <input type="number" id="item-price" placeholder="e.g. '$20'" />
+                  <input type="number" onChange={handleChange} name="price" id="price" placeholder="e.g. '$20'" />
                 </label>
                 <label htmlFor="size">
                   Size
-                  <input type="number" id="size" placeholder="e.g. 'Size'" />
+                  <input type="number" onChange={handleChange} name="size" id="size" placeholder="e.g. 'Size'" />
                 </label>
                 <label htmlFor="property">
                   Property
-                  <input type="text" id="property" placeholder="e.g. 'Property'" />
+                  <input type="text" onChange={handleChange} name="property" id="property" placeholder="e.g. 'Property'" />
                 </label>
               </div>
               <label htmlFor="royalty">
                 Royalty
-                <input type="number" id="royalty" placeholder="e.g. '20%'" />
+                <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
               </label>
             </div>
             <div className="checkboxContainer">

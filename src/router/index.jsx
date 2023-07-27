@@ -7,6 +7,7 @@ import LogInForm from '../pages/LogInForm';
 import CreateNFTForm from '../pages/CreateNFTForm';
 import Profile from '../pages/Profile';
 import Explore from '../pages/Exsplore';
+import EditPersonalInformation from '../pages/EditPersonalInformation';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path: '/explore',
         element: <Explore />,
       },
+      {
+        path: '/edit-personal-info',
+        element: <EditPersonalInformation />,
+      }
     ],
   },
 ]);
