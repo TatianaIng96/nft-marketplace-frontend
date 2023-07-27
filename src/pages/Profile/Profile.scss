@@ -1,6 +1,8 @@
 .profile-secction{
+  background: #13131d;
   *{
     box-sizing: border-box;
+
   }
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -223,7 +225,6 @@
   }
   .author{
     margin-top: -120px;
-    margin-bottom: 30px;
     .user{
       display: flex;
       justify-content: center;
@@ -333,9 +334,11 @@
     }
 
     @media(min-width: 1441px)and (max-width:1750px){
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin: 0px 0em;
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin: 0px -15em;
+      gap: 23px;
+      padding: 0px 12em;
+      padding-left: 13em;
     }
 
     @media (min-width:1751px) {
