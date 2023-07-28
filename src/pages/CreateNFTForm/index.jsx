@@ -1,13 +1,21 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
 import { FiUpload } from 'react-icons/fi';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
+  const { fakeData, setFakeData } = useContext(UsersAndNFTsContext);
+
   const { object, handleChange } = useForm({});
 
-  // object es el objeto formado para pasarle al handleSubmit cuando lo tengamos
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFakeData([...fakeData, object]);
+    console.log(fakeData);
+  };
 
   return (
     <div className="createNFTFormSection">
@@ -31,7 +39,7 @@ const CreateNFTForm = () => {
               <p>You will receive: <strong>25.00 ETH $50,000</strong></p>
             </section>
           </div>
-          <form className="form" action="">
+          <form className="form" onSubmit={ handleSubmit } action="">
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
