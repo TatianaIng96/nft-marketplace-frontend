@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import Inner from '../../Components/Inner';
 import './LogInForm.scss';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const LogInForm = () => {

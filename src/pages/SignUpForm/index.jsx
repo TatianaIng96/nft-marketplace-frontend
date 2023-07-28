@@ -1,12 +1,19 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './SignUpForm.scss';
-import useForm from '../../hooks/useForm';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
+import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
+  const { users, setUsers } = useContext(UsersAndNFTsContext);
+
   const { object, handleChange } = useForm({});
 
-  // object es el objeto formado para pasarle al handleSubmit cuando lo tengamos
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUsers([...users, object]);
+  };
 
   return (
     <div className="signUpAll">
@@ -14,7 +21,7 @@ const SignUpForm = () => {
       <div className="pageContainer">
         <div className="allSignUpsContainer">
           <section className="formSection">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               <h1>Sign Up</h1>
               <label htmlFor="first-name">
                 First name

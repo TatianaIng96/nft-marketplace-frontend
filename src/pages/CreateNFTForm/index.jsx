@@ -39,7 +39,7 @@ const CreateNFTForm = () => {
               <p>You will receive: <strong>25.00 ETH $50,000</strong></p>
             </section>
           </div>
-          <form className="form" onSubmit={ handleSubmit } action="">
+          <form className="form" onSubmit={handleSubmit} action="">
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
