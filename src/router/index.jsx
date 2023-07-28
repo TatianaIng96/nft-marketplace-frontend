@@ -7,6 +7,7 @@ import LogInForm from '../pages/LogInForm';
 import CreateNFTForm from '../pages/CreateNFTForm';
 import Profile from '../pages/Profile';
 import Explore from '../pages/Explore';
+import ProductDetails from '../pages/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/explore',
         element: <Explore />,
+      },
+      {
+        path: 'product-details',
+        element: <ProductDetails />,
       },
     ],
   },

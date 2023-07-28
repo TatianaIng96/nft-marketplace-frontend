@@ -1,0 +1,64 @@
+.heart-secction{
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  $silver-color: #ACACAC;
+  $blue-color: #00A3FF;
+  $medium-color-blue: #212E48;
+  $dark-color-blue: #242435;
+  $silver-color: #ACACAC;
+
+@mixin flex-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin like-button-style {
+  width: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@mixin hover-like-button {
+  border-radius: 3px;
+  padding: 5px;
+}
+  .heart {
+    display: flex;
+    margin-left: 2em;
+    background: #212e48;
+    padding: 7px 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 3em;
+    transition: 0.4;
+    height: fit-content;
+    .like-button {
+      border: none;
+      background-color: transparent;
+      color: $silver-color;
+      outline: none;
+      .like-icon-number {
+        @include like-button-style;
+        &:hover {
+          @include hover-like-button;
+          background-color: $blue-color;
+          color: #fff;
+        }
+      }
+      .like-icon-number-selected {
+        @include like-button-style;
+        color: $blue-color;
+        &:hover {
+          @include hover-like-button;
+          background-color: #fff;
+          color: $blue-color;
+        }
+      }
+
+    }
+  }
+}

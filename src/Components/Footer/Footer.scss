@@ -2,7 +2,7 @@
   background: #13131d;
   .footer {
     background:rgba(36, 36, 53, 0.3411764706);
-    width: 100%;
+    width: auto;
     clear: both;
     margin-top: 80px 0px;
     bottom: 0;
@@ -32,7 +32,7 @@
         height: 100%;
 
         .col {
-          width: 300px;
+          width: 250px;
           padding: 0 1em;
           margin: 0 auto;
 
@@ -42,6 +42,7 @@
 
           .widget-botton{
             border-top: 1px solid #13131d;
+            padding-right: 2em;
           }
 
           .title{
@@ -174,7 +175,7 @@
       margin-left: -1.5em;
       margin-bottom: -47%;
       margin-top: 25px;
-      width: 100%;
+      width: auto;
     }
 
     .align-items-center{
@@ -191,7 +192,7 @@
     .social{
       display: flex;
       flex-direction: row;
-      padding-left: 1em;
+      padding-left: 2.5em;
 
       .left{
         display: flex;
@@ -201,17 +202,20 @@
 
     .aling{
       display: flex;
-      margin-left: 2em;
+      margin-left: 4em;
+      width: 20em;
+      align-items: center;
     }
 
     .aling-term{
       display: flex;
-      margin-left: 5em;
+      margin-left: 7em;
     }
 
     .aling-policy{
       display: flex;
-      margin-left: 2em;
+      margin-left: 1em;
+      margin-right: -3em;
     }
 
     .rn-posgres-parent{
@@ -220,7 +224,7 @@
 
   }
 
-  @media (min-width: 500px){ //md
+  @media (min-width: 388px)and (max-width:589px){ //md
     .footer {
       font-size: 16px;
       .footer-menu .container .col .form-control{
@@ -262,19 +266,18 @@
           .recent-sold-out{
             margin-top: -13em;
             margin-left: -3em;
-            width: 400px;
+            width: 210px;
           }
         }
       }
-    }
+      .copy-right{
+        .privacy{
+          margin-left: 10em;
+        }
 
-    .copy-right{
-      .privacy{
-        margin-left: 10em;
-      }
-
-      .social{
-        margin-left: 3em;
+        .social{
+          margin-left: 3em;
+        }
       }
     }
   }
@@ -293,16 +296,16 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -8em;
+            margin-left: -5em;
           }
           .nuron-info, .general-info {
             margin-top: -9em;
-            margin-left: -1em;
+            margin-left: 1em;
             margin-right: -3em;
           }
           .recent-sold-out{
             margin-top: -8em;
-            margin-left: -3em;
+            margin-left: -1em;
           }
           .footer-recent{
             margin-top: 1em;
@@ -350,15 +353,21 @@
           .email-subscription{
             margin: 0;
             margin-top: -5em;
-            margin-left: -10em;
+            margin-left: -8em;
           }
           .header-subscription{
             width: 500px;
           }
           .nuron-info, .general-info {
             margin-top: -9em;
-            margin-left: 2em;
-            margin-right: -3em;
+            margin-left: 5em;
+            margin-right: -6em;
+          }
+
+          .general-info {
+            margin-top: -9em;
+            margin-left: 5em;
+            margin-right: -1em;
           }
           .recent-sold-out{
             margin-top: -8em;
@@ -404,6 +413,9 @@
           max-width: 66em;
 
           .col{
+            .form-control{
+              width: 60%;
+            }
             .btn-subscribe{
               margin-left: 11em;
             }
@@ -418,8 +430,14 @@
           }
           .nuron-info, .general-info {
             margin-top: -9em;
-            margin-left: 5em;
+            margin-left: 6em;
             margin-right: -10em;
+          }
+
+          .general-info {
+            margin-top: -9em;
+            margin-left: 10em;
+            margin-right: -6em;
           }
           .recent-sold-out{
             margin-top: -8em;

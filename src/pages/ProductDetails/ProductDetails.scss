@@ -1,0 +1,181 @@
+.product-secction{
+  background: #13131d;
+
+  *{
+    box-sizing: border-box;
+    margin-bottom: 0;
+  }
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  $silver-color: #ACACAC;
+  $blue-color: #00A3FF;
+  $medium-color-blue: #212E48;
+  $dark-color-blue: #242435;
+  $silver-color: #ACACAC;
+
+
+  //ProductDetails
+  .product-details{
+    padding-top: 80px;
+    .container{
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      .row{
+        --bs-gutter-y: 3rem;
+        --bs-gutter-x: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-top: calc(var(--bs-gutter-y) * -1);
+        margin-right: calc(var(--bs-gutter-x) * 2.5);
+        margin-left: calc(var(--bs-gutter-x) * 0);
+      }
+
+      .row>* {
+        flex-shrink: 0;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+      }
+    }
+
+    .column{
+      display: flex;
+      margin-left:-2em
+    }
+
+    .content-area{
+      display: flex;;
+    }
+
+    .title-area{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      width: 2em;
+      margin-bottom: -6em;
+    }
+
+    .title{
+      display: flex;
+      margin-left: 2em;
+      margin-top: -3em;
+      font-size: 20px;
+    }
+    .rew{
+      display: flex;
+      margin-top: -2em;
+      margin-left: -0.5em;
+    }
+
+    .span-bid {
+      font-size: 12px;
+      display: flex;
+      margin-left: 3em;
+      margin-bottom: -7em;
+      .price{
+        color: $blue-color;
+        margin-left: 1em;
+      }
+    }
+    .title-name{
+      display: flex;
+      margin-top: -3em;
+      margin-left: 2.5em;
+      font-size: 15px;
+      margin-bottom: -5em;
+    }
+
+    .a-btn{
+      display: flex;
+      font-weight: 500;
+      text-align: center;
+      font-size: 12px;
+      padding: 10px 34px;
+      min-width: 160px;
+      border-radius: 10px;
+      background-color: #212e48;
+      letter-spacing: .5px;
+      justify-content: center;
+      width: 20em;
+      height: 3em;
+      margin-left: 5em;
+      margin-right: 1em;
+      border: 0;
+      box-shadow: none;
+      outline: none;
+      top: -11em;
+      align-items: center;
+      &:hover {
+        background: $blue-color;
+        color: $silver-color;
+      }
+    }
+
+    .button-option{
+      display: block;
+      border-radius: 5px;
+      margin-top: -12em;
+
+      .nav-button{
+        border-bottom: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+        transition: 0.4s;
+        background: #24243557;
+        border: 1px solid #ffffff14;
+        border-radius: 6px;
+        width: 16em;
+
+        @media(min-width:520px) and (max-width:781px) {
+          width: 25em;
+        }
+        @media(min-width:782px) and (max-width:1024px) {
+          flex-wrap: nowrap;
+          width: 25em;
+        }
+        @media(min-width:1025px) and (max-width:1200px){
+          display: flex;
+          flex-wrap: wrap;
+          width: 25em;
+        }
+        @media(min-width:1201px){
+          display: flex;
+          flex-wrap: wrap;
+           width: 25em;
+        }
+      }
+
+      button{
+        width: 18em;
+        height: 3em;
+        border: none;
+        color: #fff;
+        position: relative;
+        margin: 6px;
+        border-radius: 6px;
+        border: 1px dashed #ffffff14;
+        transition: .3s;
+        background: 0;
+        cursor: pointer;
+        &:hover{
+          background: #212e48;
+          color:#fff;
+          border-radius: 5px;
+          border: transparent;
+        }
+
+        @media(min-width:1025px)  {
+          width: 5em;
+        }
+      }
+
+      button.active {
+        background-color: #212e48;
+      }
+
+    }
+  }
+
+}
