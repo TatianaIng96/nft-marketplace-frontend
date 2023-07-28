@@ -1,40 +1,47 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './SignUpForm.scss';
-import { AiOutlineRight } from 'react-icons/ai';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import Inner from '../../Components/Inner';
+import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
+  const { users, setUsers } = useContext(UsersAndNFTsContext);
+
+  const { object, handleChange } = useForm({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUsers([...users, object]);
+  };
+
   return (
     <div className="signUpAll">
+      <Inner page="Sign Up" />
       <div className="pageContainer">
-        <section className="menuSection">
-          <div className="navigationMenu">
-            <p>Sign Up</p>
-            <p><span>Home</span> <span><AiOutlineRight /></span> <span>Sign Up</span></p>
-          </div>
-        </section>
         <div className="allSignUpsContainer">
           <section className="formSection">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               <h1>Sign Up</h1>
               <label htmlFor="first-name">
                 First name
-                <input type="text" id="first-name" />
+                <input type="text" onChange={handleChange} name="first-name" id="first-name" />
               </label>
               <label htmlFor="last-name">
                 Last name
-                <input type="text" id="last-name" />
+                <input type="text" onChange={handleChange} name="last-name" id="last-name" />
               </label>
-              <label htmlFor="email-address">
+              <label htmlFor="email">
                 Email address
-                <input type="email" id="email-address" />
+                <input type="email" onChange={handleChange} name="email" id="email" />
               </label>
               <label htmlFor="password">
                 Create Password
-                <input type="password" id="password" />
+                <input type="password" onChange={handleChange} name="password" id="password" />
               </label>
               <label htmlFor="re-password">
                 Re Password
-                <input type="password" id="re-password" />
+                <input type="password" onChange={handleChange} name="password-check" id="re-password" />
               </label>
               <label htmlFor="checkbox">
                 <input type="checkbox" id="checkbox" />

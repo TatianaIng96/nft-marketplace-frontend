@@ -1,18 +1,26 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
-import { AiOutlineRight } from 'react-icons/ai';
 import { FiUpload } from 'react-icons/fi';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import Inner from '../../Components/Inner';
+import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
+  const { fakeData, setFakeData } = useContext(UsersAndNFTsContext);
+
+  const { object, handleChange } = useForm({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFakeData([...fakeData, object]);
+    console.log(fakeData);
+  };
+
   return (
     <div className="createNFTFormSection">
+      <Inner page="Create NFT" />
       <div className="pageContainer">
-        <section className="menuSection">
-          <div className="navigationMenu">
-            <p>Create a New File</p>
-            <p><span>Home</span> <span><AiOutlineRight /></span> <span>Create a New File</span></p>
-          </div>
-        </section>
         <div className="imgAndFormContainer">
           <div className="allImageContainer">
             <section className="imageInstructionsSection">
@@ -31,33 +39,33 @@ const CreateNFTForm = () => {
               <p>You will receive: <strong>25.00 ETH $50,000</strong></p>
             </section>
           </div>
-          <form className="form" action="">
+          <form className="form" onSubmit={handleSubmit} action="">
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
-                <input type="text" id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
+                <input type="text" name="product-name" onChange={handleChange} id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
               </label>
               <label htmlFor="description">
                 Description
-                <textarea type="textarea" id="description" placeholder="e.g. 'After purchasing the product...'" />
+                <textarea type="textarea" onChange={handleChange} name="description" id="description" placeholder="e.g. 'After purchasing the product...'" />
               </label>
               <div className="changeableInputs">
-                <label htmlFor="item-price">
+                <label htmlFor="price">
                   Item Price in $
-                  <input type="number" id="item-price" placeholder="e.g. '$20'" />
+                  <input type="number" onChange={handleChange} name="price" id="price" placeholder="e.g. '$20'" />
                 </label>
                 <label htmlFor="size">
                   Size
-                  <input type="number" id="size" placeholder="e.g. 'Size'" />
+                  <input type="number" onChange={handleChange} name="size" id="size" placeholder="e.g. 'Size'" />
                 </label>
                 <label htmlFor="property">
                   Property
-                  <input type="text" id="property" placeholder="e.g. 'Property'" />
+                  <input type="text" onChange={handleChange} name="property" id="property" placeholder="e.g. 'Property'" />
                 </label>
               </div>
               <label htmlFor="royalty">
                 Royalty
-                <input type="number" id="royalty" placeholder="e.g. '20%'" />
+                <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
               </label>
             </div>
             <div className="checkboxContainer">

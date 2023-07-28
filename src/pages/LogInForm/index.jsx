@@ -1,24 +1,30 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import Inner from '../../Components/Inner';
 import './LogInForm.scss';
-import { AiOutlineRight } from 'react-icons/ai';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import Inner from '../../Components/Inner';
+import useForm from '../../hooks/useForm';
 
 const LogInForm = () => {
+  const { object, handleChange } = useForm({});
+
+  // object es el objeto formado para pasarle al handleSubmit cuando lo tengamos
+
   return (
     <div className="logInFormContainer">
-      <Inner page = "Login"/>
+      <Inner page="Login" />
       <div className="pageContainer">
         <div className="allLoginsContainer">
           <section className="formSection">
             <form action="">
               <h1>Login</h1>
-              <label htmlFor="email-address">
+              <label htmlFor="email">
                 Email address
-                <input type="email" id="email-address" />
+                <input type="email" onChange={handleChange} name="email" id="email" />
               </label>
               <label htmlFor="password">
                 Password
-                <input type="password" id="password" />
+                <input type="password" onChange={handleChange} name="password" id="password" />
               </label>
               <label htmlFor="checkbox">
                 <input type="checkbox" id="checkbox" />

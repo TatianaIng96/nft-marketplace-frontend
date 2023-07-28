@@ -8,6 +8,7 @@ import CreateNFTForm from '../pages/CreateNFTForm';
 import Profile from '../pages/Profile';
 import Explore from '../pages/Explore';
 import ProductDetails from '../pages/ProductDetails';
+import EditPersonalInformation from '../pages/EditPersonalInformation';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: 'product-details',
         element: <ProductDetails />,
+      },
+      {
+        path: '/edit-personal-info',
+        element: <EditPersonalInformation />,
       },
     ],
   },

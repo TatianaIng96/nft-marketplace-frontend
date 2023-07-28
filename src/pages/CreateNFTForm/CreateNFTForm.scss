@@ -17,7 +17,7 @@
 .createNFTFormSection {
   .pageContainer {
     box-sizing: border-box;
-    background-color: rgb(22,23,32);
+    background-color: #13131d;
     @include flex-base($align:center);
     .allImageContainer {
       width: 100%;
@@ -34,31 +34,6 @@
 
   p {
     all: unset;
-  }
-
-  .menuSection {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 2vh 5vh 2vh 5vh;
-    border-bottom: solid 1px #373737;
-  }
-
-  .navigationMenu {
-    @include flex-base($justify:center);
-    >p:first-child {
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 1vh;
-    }
-    >p:last-child {
-      width: 95%;
-      @include flex-base($direction:row,$justify:space-evenly,$align:center);
-      :nth-child(1),:nth-child(2) {
-        color: #858585;
-        cursor: pointer;
-      }
-    }
   }
 
   .imageInstructionsSection {
@@ -156,18 +131,6 @@
   }
 
   @media(min-width: 500px) {
-    .navigationMenu {
-      max-width: 900px;
-      margin: auto;
-      @include flex-base($direction:row,$justify:space-between);
-      >p:first-child{
-        text-align: start;
-      }
-      >p:last-child {
-        max-width: 320px;
-        @include flex-base($direction:row,$justify:space-evenly)
-      }
-    }
     .imageInstructionsSection {
       max-width: 500px;
     }

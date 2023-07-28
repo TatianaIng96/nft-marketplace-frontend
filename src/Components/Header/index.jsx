@@ -1,5 +1,6 @@
 import './Header.scss';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FiBell, FiSun } from 'react-icons/fi';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -79,7 +80,9 @@ const Header = () => {
   return (
     <div className="header-secction">
       <header onMouseLeave={handleHideAllLists}>
-        <img src="src/assets/logo-white.png" alt="Nuron logo" />
+        <NavLink to="/">
+          <img src="src/assets/logo-white.png" alt="Nuron logo" />
+        </NavLink>
         <div className="menuOption home" onMouseEnter={handleHomeHover}>
           <p>
             Home
@@ -93,7 +96,9 @@ const Header = () => {
                 onMouseEnter={handleHomeHover}
                 onMouseLeave={() => setShowHome(false)}
               >
-                <li>Home Page One</li>
+                <NavLink to="/">
+                  <li>Home Page One</li>
+                </NavLink>
                 <li>Home Page Two</li>
                 <li>Home Page Three</li>
                 <li>Home Page Four</li>
@@ -118,7 +123,9 @@ const Header = () => {
               <li>Explore Filter</li>
               <li>Explore Isotop</li>
               <li>Explore Carousel</li>
-              <li>Explore Simple</li>
+              <NavLink to="/explore">
+                <li>Explore Simple</li>
+              </NavLink>
               <li>Explore Place Bid</li>
               <li>Place Bid With Filter</li>
               <li>Place Bid With Isotop</li>
@@ -138,12 +145,18 @@ const Header = () => {
               onMouseEnter={handlePagesHover}
               onMouseLeave={() => setShowPages(false)}
             >
-              <li>Create NFT</li>
+              <NavLink to="/create-nft">
+                <li>Create NFT</li>
+              </NavLink>
               <li>Product</li>
-              <li>Login</li>
+              <NavLink to="/login">
+                <li>Login</li>
+              </NavLink>
               <li>About Us</li>
               <li>Upload Type</li>
-              <li>Registration</li>
+              <NavLink to="/sign-up">
+                <li>Registration</li>
+              </NavLink>
               <li>Product Details</li>
               <li>Contact</li>
             </ul>
@@ -245,7 +258,24 @@ const Header = () => {
             {showSideHome
                 && (
                 <ul className="sideMenuItems">
-                  <li>Home Page One</li>
+                  <NavLink to="/">
+                    <li
+                      onClick={() => {
+                        setShowSideMenu(false);
+                        setShowSideHome(false);
+                      }}
+                      role="menuitem"
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          setShowSideMenu(false);
+                        }
+                      }}
+                      tabIndex={0}
+                    >
+                      Home Page One
+                      {' '}
+                    </li>
+                  </NavLink>
                   <li>Home Page Two</li>
                   <li>Home Page Three</li>
                   <li>Home Page Four</li>
@@ -273,7 +303,24 @@ const Header = () => {
                   <li>Explore Filter</li>
                   <li>Explore Isotop</li>
                   <li>Explore Carousel</li>
-                  <li>Explore Simple</li>
+                  <NavLink to="/explore">
+                    <li
+                      onClick={() => {
+                        setShowSideMenu(false);
+                        setShowSideExplore(false);
+                      }}
+                      role="menuitem"
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          setShowSideMenu(false);
+                        }
+                      }}
+                      tabIndex={0}
+                    >
+                      Explore Simple
+                      {' '}
+                    </li>
+                  </NavLink>
                   <li>Explore Place Bid</li>
                   <li>Place Bid With Filter</li>
                   <li>Place Bid With Isotop</li>
@@ -297,12 +344,63 @@ const Header = () => {
             {showSidePages
                   && (
                   <ul className="sideMenuItems">
-                    <li>Create NFT</li>
+                    <NavLink to="/create-nft">
+                      <li
+                        onClick={() => {
+                          setShowSideMenu(false);
+                          setShowSidePages(false);
+                        }}
+                        role="menuitem"
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            setShowSideMenu(false);
+                          }
+                        }}
+                        tabIndex={0}
+                      >
+                        Create NFT
+                        {' '}
+                      </li>
+                    </NavLink>
                     <li>Product</li>
-                    <li>Login</li>
+                    <NavLink to="/login">
+                      <li
+                        onClick={() => {
+                          setShowSideMenu(false);
+                          setShowSidePages(false);
+                        }}
+                        role="menuitem"
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            setShowSideMenu(false);
+                          }
+                        }}
+                        tabIndex={0}
+                      >
+                        Login
+                        {' '}
+                      </li>
+                    </NavLink>
                     <li>About Us</li>
                     <li>Upload Type</li>
-                    <li>Registration</li>
+                    <NavLink to="/sign-up">
+                      <li
+                        onClick={() => {
+                          setShowSideMenu(false);
+                          setShowSidePages(false);
+                        }}
+                        role="menuitem"
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            setShowSideMenu(false);
+                          }
+                        }}
+                        tabIndex={0}
+                      >
+                        Registration
+                        {' '}
+                      </li>
+                    </NavLink>
                     <li>Product Details</li>
                     <li>Contact</li>
                   </ul>
