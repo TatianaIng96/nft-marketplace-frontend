@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import './Header.scss';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
