@@ -6,7 +6,7 @@ import SignUpForm from '../pages/SignUpForm';
 import LogInForm from '../pages/LogInForm';
 import CreateNFTForm from '../pages/CreateNFTForm';
 import Profile from '../pages/Profile';
-import Explore from '../pages/Exsplore';
+import Explore from '../pages/Explore';
 
 const router = createBrowserRouter([
   {

@@ -1,29 +1,35 @@
 import './CardCollection.scss';
 
-const CardColection = () => {
+const CardColection = ({
+  mainImage,
+  littleImage1,
+  littleImage2,
+  littleImage3,
+  profileImage,
+}) => {
   return (
     <div className="card-collection">
       <a href="#top">
         <div className="main-image">
-          <img className="hover-image" src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75" alt="main" />
+          <img className="hover-image" src={mainImage} alt="main" />
         </div>
 
         <div className="gallery-images">
           <div className="single-image">
-            <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75" alt="gallery" />
+            <img src={littleImage1} alt="gallery" />
           </div>
 
           <div className="single-image">
-            <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75" alt="gallery" />
+            <img src={littleImage2} alt="gallery" />
           </div>
 
           <div className="single-image">
-            <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75" alt="gallery" />
+            <img src={littleImage3} alt="gallery" />
           </div>
         </div>
 
         <div className="profile-image">
-          <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75" alt="profile" />
+          <img src={profileImage} alt="profile" />
         </div>
 
         <div className="text">

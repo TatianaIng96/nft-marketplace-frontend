@@ -146,8 +146,44 @@ const sellerData = [
   },
 ];
 
+const collectionData = [
+  {
+    id: 1,
+    mainImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-01.jpg&w=1080&q=75',
+    profileImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-15.png&w=256&q=75',
+    littleImage1: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-01.jpg&w=384&q=75',
+    littleImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-02.jpg&w=384&q=75',
+    littleImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-03.jpg&w=384&q=75',
+  },
+  {
+    id: 2,
+    mainImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-02.jpg&w=1080&q=75',
+    profileImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-12.png&w=256&q=75',
+    littleImage1: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-04.jpg&w=384&q=75',
+    littleImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-05.jpg&w=384&q=75',
+    littleImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-06.jpg&w=384&q=75',
+  },
+  {
+    id: 3,
+    mainImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-03.jpg&w=1080&q=75',
+    profileImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-13.png&w=256&q=75',
+    littleImage1: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-07.jpg&w=384&q=75',
+    littleImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-08.jpg&w=384&q=75',
+    littleImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-09.jpg&w=384&q=75',
+  },
+  {
+    id: 4,
+    mainImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-lg-03.jpg&w=1080&q=75',
+    profileImage: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-14.png&w=256&q=75',
+    littleImage1: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-10.jpg&w=384&q=75',
+    littleImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-11.jpg&w=384&q=75',
+    littleImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcollection%2Fcollection-sm-12.jpg&w=384&q=75',
+  },
+];
+
 export {
   cardData,
   stepData,
   sellerData,
+  collectionData,
 };
