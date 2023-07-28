@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import './Header.scss';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -157,7 +158,9 @@ const Header = () => {
               <NavLink to="/sign-up">
                 <li>Registration</li>
               </NavLink>
-              <li>Product Details</li>
+              <NavLink to="/product-details">
+                <li>Product Details</li>
+              </NavLink>
               <li>Contact</li>
             </ul>
             )}
