@@ -7,7 +7,7 @@ const Filter = ({ handleFilter }) => {
   return (
     <div className="filter-secction">
       <div className="product-area">
-        <div className="container">
+        <div className="container-filter">
           <div className="row align-items-center">
             <div className="column">
               <h3 className="title"> Explore Product</h3>

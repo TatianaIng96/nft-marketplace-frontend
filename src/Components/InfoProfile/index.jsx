@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaTwitter, FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
@@ -75,13 +76,14 @@ const InfoProfile = () => {
             </div>
           </div>
         </div>
-
-        <button type="button" className="btn at-fell f-button" onClick={() => { return setIsOpen(true); }}>
-          <i>
-            {' '}
-            <FaEdit />
-          </i>
-        </button>
+        <Link to="/edit-personal-info">
+          <button type="button" className="btn at-fell f-button">
+            <i>
+              {' '}
+              <FaEdit />
+            </i>
+          </button>
+        </Link>
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
