@@ -8,6 +8,9 @@ import ListOfStepCards from '../../Components/CardStep';
 import ListOfNftCards from '../../Components/ListOfNftCards';
 import { cardData } from '../../assets/data';
 import ListOfTopSellers from '../../Components/ListOfTopSellers';
+import Filter from '../../Components/Filter';
+import ListOfCardCollection from '../../Components/ListOfCardCollection';
+import TopArrow from '../../Components/TopArrow';
 
 const Home = () => {
   const [dataNft, setDataNft] = useState([]);
@@ -120,6 +123,28 @@ const Home = () => {
           <ListOfTopSellers />
         </div>
       </div>
+
+      <div className="explore-section-home">
+        <Filter />
+        <div className="cards">
+          <ListOfNftCards />
+        </div>
+      </div>
+
+      <div className="collection">
+        <div className="collection__title">
+          <h3>Top collection</h3>
+          <a href="#top">
+            VIEW ALL
+            <AiOutlineArrowRight />
+          </a>
+        </div>
+        <div className="collection__content">
+          <ListOfCardCollection />
+        </div>
+      </div>
+
+      <TopArrow />
     </div>
   );
 };
