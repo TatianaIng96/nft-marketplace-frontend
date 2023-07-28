@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './EditPersonalInformation.scss';
+import { AiOutlineEye } from 'react-icons/ai';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 
@@ -8,6 +9,10 @@ const EditPersonalInformation = () => {
     <div>
       <Inner page="Edit Profile" />
       <div className="pageContainer">
+        <section className="topSection">
+          <span>Edit your profile</span>
+          <button type="button" className="previewButton"> <AiOutlineEye /> Preview</button>
+        </section>
         <div className="menuAndForm">
           <div className="editMenuContainer">
             <EditProfileMenu />

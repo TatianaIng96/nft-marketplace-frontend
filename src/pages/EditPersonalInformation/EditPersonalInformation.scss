@@ -19,7 +19,7 @@
   width: 100%;
   padding-top: 20px;
   box-sizing: border-box;
-  background-color: rgb(22,23,32);
+  background-color: #13131d;
   @include flex-base;
   .topSection {
     margin: auto;
@@ -126,5 +126,49 @@
         }
       }
     }
+  }
+}
+
+@media(min-width:1200px) {
+  .pageContainer {
+    .topSection {
+      max-width: 1000px;
+    }
+  }
+  .menuAndForm {
+    margin-bottom: 20px;
+    @include flex-base($direction:row,$justify:center);
+    .editMenuContainer {
+      margin: 0;
+      max-width: 350px;
+    }
+    .formSection {
+      margin: 0;
+      max-width: 630px;
+      form {
+        margin: 0;
+      }
+      .nameSection {
+        width: 100%;
+        @include flex-base($direction:row,$justify:space-between);
+        label {
+          input {
+            width: 265px;
+          }
+        }
+      }
+      .movingLabels {
+        @include flex-base($direction:row,$justify:space-between);
+        flex-wrap: wrap;
+        label {
+          input,select {
+            width: 265px;
+          }
+        }
+      }
+    }
+  }
+  #bio {
+    height: 120px;
   }
 }
