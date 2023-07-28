@@ -1,0 +1,63 @@
+.more{
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  $silver-color: #ACACAC;
+  $blue-color: #00A3FF;
+  $medium-color-blue: #212E48;
+  $dark-color-blue: #242435;
+  $silver-color: #ACACAC;
+  .mn{
+    padding: 7px 13px;
+    background: #212e48;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 15px;
+    transition: 0.4;
+    height: fit-content;
+    .show-more-options {
+      position: relative;
+      .show-more {
+        color: white;
+        border: none;
+        padding: 1px 4px;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        outline: none;
+        &:hover {
+          border: none;
+          background-color: $blue-color;
+        }
+      }
+      .menu-options-show {
+        display: block;
+        position: absolute;
+        top: 39px;
+        right: -6em;
+        margin-left: 6em;
+        button {
+          background-color:#212e48;
+          outline: none;
+          width: 7rem;
+          color: #fff;
+          font-weight: 400;
+          font-size: 14px;
+          text-align: center;
+          padding: 9px 10px;
+          letter-spacing: .5px;
+          transition-duration: 1.7s;
+          &:hover {
+            opacity: 0.8;
+            background-color: $blue-color;
+          }
+        }
+      }
+      .menu-options-hide {
+        display: none;
+      }
+    }
+  }
+}

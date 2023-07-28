@@ -13,23 +13,7 @@
   $dark-color-blue: #242435;
   $silver-color: #ACACAC;
 
-@mixin flex-style {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-@mixin like-button-style {
-  width: 40px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-@mixin hover-like-button {
-  border-radius: 3px;
-  padding: 5px;
-}
   //ProductDetails
   .product-details{
     padding-top: 80px;
@@ -45,8 +29,8 @@
         gap: 32px;
         flex-wrap: wrap;
         margin-top: calc(var(--bs-gutter-y) * -1);
-        margin-right: calc(var(--bs-gutter-x) * -.5);
-        margin-left: calc(var(--bs-gutter-x) * -.5);
+        margin-right: calc(var(--bs-gutter-x) * 2.5);
+        margin-left: calc(var(--bs-gutter-x) * 0);
       }
 
       .row>* {
@@ -57,86 +41,9 @@
       }
     }
 
-
-    .product-tab{
-      .wrapper{
-        position: sticky;
-        z-index: 10;
-        top: 100px;
-      }
-
-      .tab-inner{
-        display: flex;
-        flex-direction: row;
-      }
-
-      .content{
-        max-width: 100%;
-        height: auto;
-        padding-left: 0em;
-        padding-right: 3em;
-        .tap-pane{
-          height: 100%;
-        }
-
-        .tum{
-          background: #24243557;
-          border-radius: 7px;
-          border: 2px solid transparent;
-          padding: 5px;
-        }
-        .img{
-          color: transparent;
-          width: 12em;
-          height: 12em;
-        }
-      }
-      .nav{
-        max-width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-basis: 25%;
-        flex-direction: column;
-        margin: -10px;
-        padding-right: 20px;
-        flex-wrap: wrap;
-        padding-left: 3em;
-        list-style: none;
-        .link{
-          background: none;
-          padding: 0;
-          border: 0;
-          border-radius: 5px;
-          transition: 0.4s;
-          height: auto;
-          width: 3em;
-          margin: 10px;
-          cursor: pointer;
-          display: block;
-          color: #0d6efd;
-          text-decoration: none;
-          transition: color .15s ease-in-out,
-                      background-color .15s ease-in-out,
-                      border-color .15s ease-in-out;
-        }
-        .tumb{
-          padding: 5px;
-          background:#24243557;
-          border-radius: 5px;
-          border: 2px solid transparent;
-          display: block;
-          .image{
-            color: transparent;
-            width: 2em;
-            height: 2em;
-          }
-        }
-      }
-      position: sticky;
-    }
-
     .column{
       display: flex;
+      margin-left:-2em
     }
 
     .content-area{
@@ -152,109 +59,20 @@
 
     .title{
       display: flex;
-      margin-left: 2.5em;
+      margin-left: 2em;
       margin-top: -3em;
       font-size: 20px;
     }
     .rew{
       display: flex;
       margin-top: -2em;
+      margin-left: -0.5em;
     }
-    .heart {
-      display: flex;
-      margin-left: 2em;
-      background: #212e48;
-      padding: 7px 5px;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 6px;
-      margin-left: 3em;
-      transition: 0.4;
-      height: fit-content;
-      .like-button {
-        border: none;
-        background-color: transparent;
-        color: $silver-color;
-        outline: none;
-        .like-icon-number {
-          @include like-button-style;
-          &:hover {
-            @include hover-like-button;
-            background-color: $blue-color;
-            color: #fff;
-          }
-        }
-        .like-icon-number-selected {
-          @include like-button-style;
-          color: $blue-color;
-          &:hover {
-            @include hover-like-button;
-            background-color: #fff;
-            color: $blue-color;
-          }
-        }
 
-      }
-    }
-    .mn{
-      padding: 7px 13px;
-      background: #212e48;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 6px;
-      margin-left: 15px;
-      transition: 0.4;
-      height: fit-content;
-      .show-more-options {
-        position: relative;
-        .show-more {
-          color: white;
-          border: none;
-          padding: 1px 4px;
-          display: flex;
-          align-items: center;
-          background-color: transparent;
-          outline: none;
-          &:hover {
-            border: none;
-            background-color: $blue-color;
-          }
-        }
-        .menu-options-show {
-          display: block;
-          position: absolute;
-          top: 39px;
-          right: -6em;
-          margin-left: 6em;
-          button {
-            background-color:#212e48;
-            outline: none;
-            width: 7rem;
-            color: #fff;
-            font-weight: 400;
-            font-size: 14px;
-            text-align: center;
-            padding: 9px 10px;
-            letter-spacing: .5px;
-            transition-duration: 1.7s;
-            &:hover {
-              opacity: 0.8;
-              background-color: $blue-color;
-            }
-          }
-        }
-        .menu-options-hide {
-          display: none;
-        }
-      }
-    }
     .span-bid {
       font-size: 12px;
       display: flex;
-      margin-left: 4em;
+      margin-left: 3em;
       margin-bottom: -7em;
       .price{
         color: $blue-color;
@@ -264,83 +82,99 @@
     .title-name{
       display: flex;
       margin-top: -3em;
-      margin-left: 3em;
+      margin-left: 2.5em;
       font-size: 15px;
       margin-bottom: -5em;
     }
-    .category-collection{
-      display: flex;
-      margin-bottom: 4.5em;
-      .category{
-        margin-right: 50px;
-        font-size: 12px;
-        margin-left: 4em;
-      }
 
-      .collection{
-        text-align: center;
-        font-size: 12px;
-        margin-left: -6em;
-      }
-      .color-body {
-        color: $silver-color;
-        margin-left: 1em;
-        font-size: 12px;
-      }
-    }
-
-    .top-seller {
-      display: flex;
-      margin-top: -2em;
-      .top-seller__title {
-        font-size: 14px;
-        text-align: center;
-        .select-option{
-          border: none;
-          margin-left: 10px;
-          background-color: transparent;
-          font-size: 14px;
-          outline: none;
-          color: $blue-color;
-          .option {
-            &:hover {
-              border: none;
-              margin-left: 20px;
-              background-color: transparent;
-              font-size: 24px;
-              outline: none;
-              color: $blue-color;
-            }
-          }
-        }
-      }
-      .top-seller__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
-    }
     .a-btn{
       display: flex;
       font-weight: 500;
       text-align: center;
       font-size: 12px;
-      padding: 15px 34px;
+      padding: 10px 34px;
       min-width: 160px;
       border-radius: 10px;
       background-color: #212e48;
       letter-spacing: .5px;
-      width: 18em;
-      margin-left: 4em;
+      justify-content: center;
+      width: 20em;
+      height: 3em;
+      margin-left: 5em;
       margin-right: 1em;
       border: 0;
       box-shadow: none;
       outline: none;
       top: -11em;
+      align-items: center;
       &:hover {
         background: $blue-color;
         color: $silver-color;
       }
+    }
+
+    .button-option{
+      display: block;
+      border-radius: 5px;
+      margin-top: -12em;
+
+      .nav-button{
+        border-bottom: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+        transition: 0.4s;
+        background: #24243557;
+        border: 1px solid #ffffff14;
+        border-radius: 6px;
+        width: 16em;
+
+        @media(min-width:520px) and (max-width:781px) {
+          width: 25em;
+        }
+        @media(min-width:782px) and (max-width:1024px) {
+          flex-wrap: nowrap;
+          width: 25em;
+        }
+        @media(min-width:1025px) and (max-width:1200px){
+          display: flex;
+          flex-wrap: wrap;
+          width: 25em;
+        }
+        @media(min-width:1201px){
+          display: flex;
+          flex-wrap: wrap;
+           width: 25em;
+        }
+      }
+
+      button{
+        width: 18em;
+        height: 3em;
+        border: none;
+        color: #fff;
+        position: relative;
+        margin: 6px;
+        border-radius: 6px;
+        border: 1px dashed #ffffff14;
+        transition: .3s;
+        background: 0;
+        cursor: pointer;
+        &:hover{
+          background: #212e48;
+          color:#fff;
+          border-radius: 5px;
+          border: transparent;
+        }
+
+        @media(min-width:1025px)  {
+          width: 5em;
+        }
+      }
+
+      button.active {
+        background-color: #212e48;
+      }
+
     }
   }
 
