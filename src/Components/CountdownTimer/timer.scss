@@ -1,0 +1,43 @@
+/* Estilos para el contenedor principal */
+.countdown-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para el título */
+.countdown-title {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de las cajitas */
+.countdown-boxes {
+  display: flex;
+  justify-content: center;
+  margin-left: 5em;
+  margin-top: 1em;
+}
+
+/* Estilos para cada cajita */
+.countdown-box {
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #212e48;
+}
+
+/* Estilos para el valor numérico */
+.countdown-value {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Estilos para la etiqueta de días, horas, minutos y segundos */
+.countdown-label {
+  font-size: 12px;
+  color: #acacac;
+}

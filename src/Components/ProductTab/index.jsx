@@ -1,6 +1,13 @@
+import { useState, useEffect } from 'react';
+import { cardData } from '../../assets/data';
 import './ProductTab.scss';
 
 const ProductTab = () => {
+  const [dataNft, setDataNft] = useState([]);
+
+  useEffect(() => {
+    setDataNft(cardData[0]);
+  }, []);
   return (
     <div className="tab-secction">
       <div className="product-tab">
@@ -10,7 +17,7 @@ const ProductTab = () => {
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Flg%2Fportfolio-02.jpg&amp;w=384&amp;q=75"
+                  src={dataNft.nftImage}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -22,7 +29,7 @@ const ProductTab = () => {
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Flg%2Fportfolio-02.jpg&amp;w=384&amp;q=75"
+                  src={dataNft.profileImage1}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -34,7 +41,7 @@ const ProductTab = () => {
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Flg%2Fportfolio-02.jpg&amp;w=384&amp;q=75"
+                  src={dataNft.profileImage2}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -48,7 +55,7 @@ const ProductTab = () => {
               <div className="tum">
                 <img
                   alt="Product"
-                  src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Flg%2Fportfolio-02.jpg&amp;w=384&amp;q=75"
+                  src={dataNft.nftImage}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
