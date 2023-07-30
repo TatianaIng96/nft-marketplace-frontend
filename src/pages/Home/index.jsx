@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -146,10 +147,10 @@ const Home = () => {
       <div className="collection">
         <div className="collection__title">
           <h3>Top collection</h3>
-          <a href="#top">
+          <Link to="/our-collection">
             VIEW ALL
             <AiOutlineArrowRight />
-          </a>
+          </Link>
         </div>
         <div className="collection__content">
           <ListOfCardCollection />

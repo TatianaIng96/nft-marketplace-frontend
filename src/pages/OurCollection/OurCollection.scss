@@ -1,0 +1,15 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+.collection-container {
+  background-color: $main-background;
+
+  .cards-collection-container {
+    padding: 100px 50px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
