@@ -9,6 +9,7 @@ import Profile from '../pages/Profile';
 import Explore from '../pages/Explore';
 import ProductDetails from '../pages/ProductDetails';
 import EditPersonalInformation from '../pages/EditPersonalInformation';
+import EditProfileImage from '../pages/EditProfileImage';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/edit-personal-info',
         element: <EditPersonalInformation />,
+      },
+      {
+        path: 'edit-profile-image',
+        element: <EditProfileImage />,
       },
     ],
   },
