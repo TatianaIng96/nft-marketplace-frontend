@@ -10,6 +10,8 @@ import Explore from '../pages/Explore';
 import ProductDetails from '../pages/ProductDetails';
 import EditPersonalInformation from '../pages/EditPersonalInformation';
 
+import ChangePassword from '../pages/ChangePassword';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/edit-personal-info',
         element: <EditPersonalInformation />,
+      },
+      {
+        path: '/change-password',
+        element: <ChangePassword />,
       },
     ],
   },
