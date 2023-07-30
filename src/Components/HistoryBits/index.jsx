@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import BitArea from '../BitArea';
-import './Bids.scss';
+import '../Bids/Bids.scss';
 import { cardData, sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
-const Bids = () => {
+const HistoryBids = () => {
   const [sellers, setSellers] = useState(sellerData);
   const [dataNft, setDataNft] = useState(cardData[0]);
 
@@ -18,7 +18,7 @@ const Bids = () => {
         <div className="top-seller__title">
           <div className="top-seller__content">
             {
-              dataNft.bits.slice(0, 7).map((bit) => {
+              dataNft.bits.slice(0, 5).map((bit) => {
                 return (
                   sellers.map((seller) => {
                     return (
@@ -45,4 +45,4 @@ const Bids = () => {
   );
 };
 
-export default Bids;
+export default HistoryBids;

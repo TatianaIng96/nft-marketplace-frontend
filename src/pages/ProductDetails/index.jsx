@@ -1,23 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Inner from '../../Components/Inner';
 import './ProductDetails.scss';
 import ProductTab from '../../Components/ProductTab';
 import Heart from '../../Components/Heart';
 import MoreOption from '../../Components/MoreOption';
 import CategoryCollection from '../../Components/CategoyCollection';
-import { cardData } from '../../assets/data';
 import Bids from '../../Components/Bids';
+import HistoryBids from '../../Components/HistoryBits';
+import RecentCard from '../../Components/RecentCard';
 
 const ProductDetails = () => {
   const [isActive, setIsActive] = useState(0);
-  const [dataBirds, setDataBirds] = useState([]);
-  const [dataDetails, setDataDetails] = useState([]);
-  const [dataHistory, setDataHistory] = useState([]);
   const buton = ['Birds', 'Details', 'History'];
-  const data = [dataBirds, dataDetails, dataHistory];
-
-  useEffect(() => {
-  }, []);
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);
@@ -93,12 +87,18 @@ const ProductDetails = () => {
                   <div>
                     { isActive === 0 && <Bids />}
                     { isActive === 1 && <h4>otra</h4>}
-                    { isActive === 2 && <h3>Mudo</h3>}
+                    { isActive === 2 && <HistoryBids />}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <RecentCard title="Recent View" />
+        </div>
+        <div>
+          <RecentCard title="Related Item" />
         </div>
       </div>
       <div id="modal" hidden>

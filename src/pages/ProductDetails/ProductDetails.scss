@@ -1,6 +1,7 @@
 .product-secction{
   background: #13131d;
 
+
   *{
     box-sizing: border-box;
     margin-bottom: 0;
@@ -99,7 +100,7 @@
       letter-spacing: .5px;
       justify-content: center;
       width: 24em;
-      height: 3em;
+      height: 4em;
       margin-left: 4em;
       margin-right: 1em;
       border: 0;
@@ -107,9 +108,10 @@
       outline: none;
       top: -10em;
       align-items: center;
+      margin-bottom: 2em;
       &:hover {
         background: $blue-color;
-        color: $silver-color;
+        color: #fff;
       }
     }
 
@@ -176,7 +178,6 @@
       }
 
     }
-
     #modal {
       background-color: #242435;
       position: relative;

@@ -1,0 +1,54 @@
+.bit-area{
+  $blue-color: #00A3FF;
+  background: #24243557;
+  padding: 30px;
+  border-radius: 6px;
+  height: auto;
+  width: 20em;
+  border: 1px solid #ffffff14;
+  margin-left: 0.5em;
+  margin-top: 5em;
+  .bet-create{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(-19%);
+    text-align: center;
+    margin-top: -3em;
+  }
+  .winning{
+    padding: 15px;
+  }
+  .title2{
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 5em;
+  }
+  .title1{
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 2em;
+  }
+  .bid-list{
+    margin-top: -3em;
+    width: 20em;
+    margin-left: -1em;
+  }
+  .place-bit{
+    min-width: max-content;
+    background: #212e48;
+    color: #fff;
+    border: none;
+    width: 16em;
+    margin-left: 6em;
+    margin-top: 1.5em;
+    height: 3em;
+    border-radius: 10px;
+    &:hover {
+      background: $blue-color;
+      color: #fff;
+    }
+  }
+}
