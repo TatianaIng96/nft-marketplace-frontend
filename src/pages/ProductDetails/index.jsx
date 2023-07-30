@@ -8,6 +8,7 @@ import CategoryCollection from '../../Components/CategoyCollection';
 import Bids from '../../Components/Bids';
 import HistoryBids from '../../Components/HistoryBits';
 import RecentCard from '../../Components/RecentCard';
+import Details from '../../Components/Details';
 
 const ProductDetails = () => {
   const [isActive, setIsActive] = useState(0);
@@ -86,7 +87,7 @@ const ProductDetails = () => {
                   </div>
                   <div>
                     { isActive === 0 && <Bids />}
-                    { isActive === 1 && <h4>otra</h4>}
+                    { isActive === 1 && <Details />}
                     { isActive === 2 && <HistoryBids />}
                   </div>
                 </div>
