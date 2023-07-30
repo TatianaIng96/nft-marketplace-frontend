@@ -8,7 +8,6 @@ const ListOfCardCollection = () => {
   useEffect(() => {
     setCollections(collectionData);
   }, []);
-  console.log(collections);
 
   return (
     <>

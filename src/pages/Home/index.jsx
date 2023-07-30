@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './Home.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import Carousel from 'better-react-carousel';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Carousel } from '@mantine/carousel';
 import Button from '../../Components/Button';
 import Card from '../../Components/Card';
 import ListOfStepCards from '../../Components/CardStep';
@@ -22,6 +23,7 @@ const Home = () => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1199);
     };
+
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -62,11 +64,21 @@ const Home = () => {
         <div className="card-gallery">
           {isSmallScreen
             ? (
-              <Carousel rows={1} showDots dotColorActive="#00A3FF">
+              <Carousel
+                maw={320}
+                mx="auto"
+                withIndicators
+                withControls={false}
+                loop
+                breakpoints={[
+                  { maxWidth: '767px', slideSize: '50%' },
+                  { maxWidth: '575', slideSize: '100%', slideGap: 0 },
+                ]}
+              >
                 {
                   dataNft.map((nft) => {
                     return (
-                      <Carousel.Item key={nft.id}>
+                      <Carousel.Slide key={nft.id}>
                         <Card
                           totalLikes={nft.totalLikes}
                           nftName={nft.nftName}
@@ -77,7 +89,7 @@ const Home = () => {
                           profileImage3={nft.profileImage3}
                           placeBit={nft.placeBit}
                         />
-                      </Carousel.Item>
+                      </Carousel.Slide>
                     );
                   })
                 }

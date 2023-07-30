@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Card.scss';
 import { FaEllipsisH } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
@@ -13,7 +14,6 @@ const Card = ({
   profileImage2,
   profileImage3,
   placeBit,
-  address = '#',
 }) => {
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
@@ -38,30 +38,30 @@ const Card = ({
         <section className="profiles-info">
           <div className="profile-share">
             <div className="profiles">
-              <a href="#top">
+              <Link to="/profile">
                 <img src={profileImage1} alt="nft" />
-              </a>
-              <a href="#top">
+              </Link>
+              <Link to="/profile">
                 <img src={profileImage2} alt="nft" />
-              </a>
-              <a href="#top">
+              </Link>
+              <Link to="/profile">
                 <img src={profileImage3} alt="nft" />
-              </a>
+              </Link>
             </div>
 
-            <a href="#top">
+            <Link to="/profile">
               {placeBit}
               + place Bit.
-            </a>
+            </Link>
           </div>
 
           <div className="show-more-options">
-            <button type="button" onClick={() => { return setShowOptions(!showOptions); }} className="show-more">
+            <button type="button" onClick={() => { setShowOptions(!showOptions); }} className="show-more">
               <FaEllipsisH />
             </button>
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
-              <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
+              <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>
+              <button type="button" onClick={() => { setOpenModalReport(true); }}>Report</button>
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <a href={address}>{nftName}</a>
+          <Link to="/profile">{nftName}</Link>
           <h4>Highest bid 1/20</h4>
         </article>
 
