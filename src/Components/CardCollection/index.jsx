@@ -1,4 +1,5 @@
 import './CardCollection.scss';
+import { Link } from 'react-router-dom';
 
 const CardColection = ({
   mainImage,
@@ -9,7 +10,7 @@ const CardColection = ({
 }) => {
   return (
     <div className="card-collection">
-      <a href="#top">
+      <Link to="our-collection">
         <div className="main-image">
           <img className="hover-image" src={mainImage} alt="main" />
         </div>
@@ -36,7 +37,7 @@ const CardColection = ({
           <h3 className="title">Cubic Trad</h3>
           <button type="button" className="items">27 items</button>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

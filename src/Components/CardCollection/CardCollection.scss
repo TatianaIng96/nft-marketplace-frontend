@@ -19,6 +19,10 @@ $dark-color-blue: #242435;
   overflow: hidden;
   cursor: pointer;
 
+  button {
+    cursor: pointer;
+  }
+
   .main-image {
     overflow: hidden;
     @include transition-style;

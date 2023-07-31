@@ -17,7 +17,7 @@ $dark-color-blue: #242435;
 }
 
 @mixin hover-like-button {
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 5px;
 }
 
@@ -29,6 +29,10 @@ $dark-color-blue: #242435;
   margin-bottom: 30px;
   border-radius: 10px;
   transition-duration: 0.5s;
+
+  button {
+    cursor: pointer;
+  }
   &:hover {
     transform: translateY(-5px);
     box-shadow: 8px 8px 5px 5px $blue-color;
@@ -81,6 +85,8 @@ $dark-color-blue: #242435;
           &:hover {
             border: none;
             background-color: $blue-color;
+            padding: 5px 10px;
+            border-radius: 5px;
           }
         }
         .menu-options-show {
