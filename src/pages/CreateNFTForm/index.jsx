@@ -14,7 +14,6 @@ const CreateNFTForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setFakeData([...fakeData, object]);
-    console.log(fakeData);
   };
 
   return (

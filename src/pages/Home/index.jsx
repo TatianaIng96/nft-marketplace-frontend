@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Carousel } from '@mantine/carousel';
 import Button from '../../Components/Button';
 import Card from '../../Components/Card';
@@ -24,7 +23,6 @@ const Home = () => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1199);
     };
-
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

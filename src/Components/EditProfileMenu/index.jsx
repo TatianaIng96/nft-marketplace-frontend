@@ -8,21 +8,21 @@ import { MdOutlineNotifications } from 'react-icons/md';
 const EditProfileMenu = () => {
   return (
     <div className="wholeContainer">
-    <div className="menuContainer">
-      <div className="optionContainer">
-        <LuEdit /> Edit Profile Image
-      </div>
-      <div className="optionContainer">
-        <BsFillPersonFill /> Personal Information
-      </div>
-      <div className="optionContainer">
-        <FiUnlock /> Change Password
-      </div>
-      <div className="optionContainer">
-        <MdOutlineNotifications /> Notification Settings
+      <div className="menuContainer">
+        <div className="optionContainer">
+          <LuEdit /> Edit Profile Image
+        </div>
+        <div className="optionContainer">
+          <BsFillPersonFill /> Personal Information
+        </div>
+        <div className="optionContainer">
+          <FiUnlock /> Change Password
+        </div>
+        <div className="optionContainer">
+          <MdOutlineNotifications /> Notification Settings
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
