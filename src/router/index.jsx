@@ -11,6 +11,7 @@ import ProductDetails from '../pages/ProductDetails';
 import EditPersonalInformation from '../pages/EditPersonalInformation';
 import OurCollection from '../pages/OurCollection';
 import ChangePassword from '../pages/ChangePassword';
+import EditProfileImage from '../pages/EditProfileImage';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: '/change-password',
         element: <ChangePassword />,
+      },
+      {
+        path: '/edit-profile-image',
+        element: <EditProfileImage />,
       },
     ],
   },
