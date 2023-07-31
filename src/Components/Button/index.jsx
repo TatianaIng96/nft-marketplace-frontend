@@ -1,10 +1,11 @@
 import './Button.scss';
+import { Link } from 'react-router-dom';
 
-const Button = ({ value, className = 'button-blue', href = '#top' }) => {
+const Button = ({ value, className = 'button-blue', to = '#top' }) => {
   return (
-    <a className={className} href={href}>
+    <Link className={className} to={to}>
       {value}
-    </a>
+    </Link>
   );
 };
 

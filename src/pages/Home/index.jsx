@@ -48,6 +48,7 @@ const Home = () => {
             <Button
               className="button-gray"
               value="Create"
+              to="/create-nft"
             />
           </div>
         </div>

@@ -4,12 +4,79 @@ $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
 $main-background: #13131d;
 
+@mixin pagination-button-style {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+}
+
 .collection-container {
   background-color: $main-background;
+  padding: 80px 30px;
 
   .cards-collection-container {
-    padding: 100px 50px;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .pagination {
+    width: 17rem;
+    padding: 3px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 10px;
+    margin-top: 50px;
+
+    .pagination__button {
+      @include pagination-button-style;
+      padding: 10px 15px;
+      background-color: $dark-color-blue;
+      &:hover {
+        background-color: $blue-color
+      }
+    }
+
+    .pagination__button-selected {
+      @include pagination-button-style;
+      padding: 10px 15px;
+      background-color: $blue-color;
+      &:hover {
+        background-color: $dark-color-blue;
+      }
+    }
+  }
+
+  @media (min-width: 376px) {
+    .pagination {
+      width: 20rem;
+
+      .pagination__button {
+        padding: 15px 20px;
+      }
+
+      .pagination__button-selected {
+        padding: 15px 20px;
+      }
+    }
+  }
+  @media (min-width: 576px) {
+    .pagination {
+      padding: 5px;
+      width: 25rem;
+
+      .pagination__button {
+        padding: 15px 25px;
+      }
+
+      .pagination__button-selected {
+        padding: 15px 25px;
+      }
+    }
   }
 }
