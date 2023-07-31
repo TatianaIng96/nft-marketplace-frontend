@@ -10,6 +10,7 @@ import Explore from '../pages/Explore';
 import ProductDetails from '../pages/ProductDetails';
 import EditPersonalInformation from '../pages/EditPersonalInformation';
 import OurCollection from '../pages/OurCollection';
+import ChangePassword from '../pages/ChangePassword';
 
 const router = createBrowserRouter([
   {
@@ -50,8 +51,12 @@ const router = createBrowserRouter([
         element: <EditPersonalInformation />,
       },
       {
-        path: 'our-collection',
+        path: '/our-collection',
         element: <OurCollection />,
+      },
+      {
+        path: '/change-password',
+        element: <ChangePassword />,
       },
     ],
   },

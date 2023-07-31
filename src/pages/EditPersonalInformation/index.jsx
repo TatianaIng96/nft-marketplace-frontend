@@ -6,7 +6,7 @@ import EditProfileMenu from '../../Components/EditProfileMenu';
 
 const EditPersonalInformation = () => {
   return (
-    <div>
+    <div className="editPersonalInformation">
       <Inner page="Edit Profile" />
       <div className="pageContainer">
         <section className="topSection">
