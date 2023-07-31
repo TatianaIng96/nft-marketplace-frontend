@@ -9,6 +9,50 @@ const cardData = [
     profileImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-4.png&w=64&q=75',
     profileImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-9.png&w=64&q=75',
     placeBit: 30,
+    bits: [
+      {
+        id: 1,
+        sellerId: 1,
+        bit: 0.234,
+        hours: 1,
+      },
+      {
+        id: 2,
+        sellerId: 2,
+        bit: 0.234,
+        hours: 1.30,
+      },
+      {
+        id: 3,
+        sellerId: 3,
+        bit: 0.234,
+        hours: 1.50,
+      },
+      {
+        id: 4,
+        sellerId: 4,
+        bit: 0.234,
+        hours: 1.33,
+      },
+      {
+        id: 5,
+        sellerId: 5,
+        bit: 0.234,
+        hours: 1.56,
+      },
+      {
+        id: 6,
+        sellerId: 6,
+        bit: 0.234,
+        hours: 2.33,
+      },
+      {
+        id: 7,
+        sellerId: 7,
+        bit: 0.234,
+        hours: 2.56,
+      },
+    ],
   },
   {
     id: 2,
@@ -20,6 +64,50 @@ const cardData = [
     profileImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-4.png&w=64&q=75',
     profileImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-8.png&w=64&q=75',
     placeBit: 17,
+    bits: [
+      {
+        id: 1,
+        sellerId: 1,
+        bit: 0.234,
+        hours: 1,
+      },
+      {
+        id: 2,
+        sellerId: 2,
+        bit: 0.234,
+        hours: 1.30,
+      },
+      {
+        id: 3,
+        sellerId: 3,
+        bit: 0.234,
+        hours: 1.50,
+      },
+      {
+        id: 4,
+        sellerId: 4,
+        bit: 0.234,
+        hours: 1.33,
+      },
+      {
+        id: 5,
+        sellerId: 5,
+        bit: 0.234,
+        hours: 1.56,
+      },
+      {
+        id: 6,
+        sellerId: 6,
+        bit: 0.234,
+        hours: 2.33,
+      },
+      {
+        id: 7,
+        sellerId: 7,
+        bit: 0.234,
+        hours: 2.56,
+      },
+    ],
   },
   {
     id: 3,
@@ -31,6 +119,50 @@ const cardData = [
     profileImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-1.png&w=64&q=75',
     profileImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-8.png&w=64&q=75',
     placeBit: 17,
+    bits: [
+      {
+        id: 1,
+        sellerId: 1,
+        bit: 0.234,
+        hours: 1,
+      },
+      {
+        id: 2,
+        sellerId: 2,
+        bit: 0.234,
+        hours: 1.30,
+      },
+      {
+        id: 3,
+        sellerId: 3,
+        bit: 0.234,
+        hours: 1.50,
+      },
+      {
+        id: 4,
+        sellerId: 4,
+        bit: 0.234,
+        hours: 1.33,
+      },
+      {
+        id: 5,
+        sellerId: 5,
+        bit: 0.234,
+        hours: 1.56,
+      },
+      {
+        id: 6,
+        sellerId: 6,
+        bit: 0.234,
+        hours: 2.33,
+      },
+      {
+        id: 7,
+        sellerId: 7,
+        bit: 0.234,
+        hours: 2.56,
+      },
+    ],
   },
   {
     id: 4,
@@ -42,6 +174,50 @@ const cardData = [
     profileImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-8.png&w=64&q=75',
     profileImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-2.png&w=64&q=75',
     placeBit: 17,
+    bits: [
+      {
+        id: 1,
+        sellerId: 1,
+        bit: 0.234,
+        hours: 1,
+      },
+      {
+        id: 2,
+        sellerId: 2,
+        bit: 0.234,
+        hours: 1.30,
+      },
+      {
+        id: 3,
+        sellerId: 3,
+        bit: 0.234,
+        hours: 1.50,
+      },
+      {
+        id: 4,
+        sellerId: 4,
+        bit: 0.234,
+        hours: 1.33,
+      },
+      {
+        id: 5,
+        sellerId: 5,
+        bit: 0.234,
+        hours: 1.56,
+      },
+      {
+        id: 6,
+        sellerId: 6,
+        bit: 0.234,
+        hours: 2.33,
+      },
+      {
+        id: 7,
+        sellerId: 7,
+        bit: 0.234,
+        hours: 2.56,
+      },
+    ],
   },
   {
     id: 5,
@@ -53,6 +229,50 @@ const cardData = [
     profileImage2: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-1.png&w=64&q=75',
     profileImage3: 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fclient%2Fclient-6.png&w=64&q=75',
     placeBit: 17,
+    bits: [
+      {
+        id: 1,
+        sellerId: 1,
+        bit: 0.234,
+        hours: 1,
+      },
+      {
+        id: 2,
+        sellerId: 2,
+        bit: 0.234,
+        hours: 1.30,
+      },
+      {
+        id: 3,
+        sellerId: 3,
+        bit: 0.234,
+        hours: 1.50,
+      },
+      {
+        id: 4,
+        sellerId: 4,
+        bit: 0.234,
+        hours: 1.33,
+      },
+      {
+        id: 5,
+        sellerId: 5,
+        bit: 0.234,
+        hours: 1.56,
+      },
+      {
+        id: 6,
+        sellerId: 6,
+        bit: 0.234,
+        hours: 2.33,
+      },
+      {
+        id: 7,
+        sellerId: 7,
+        bit: 0.234,
+        hours: 2.56,
+      },
+    ],
   },
 ];
 

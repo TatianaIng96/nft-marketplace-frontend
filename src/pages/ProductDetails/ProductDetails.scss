@@ -1,6 +1,7 @@
 .product-secction{
   background: #13131d;
 
+
   *{
     box-sizing: border-box;
     margin-bottom: 0;
@@ -98,18 +99,19 @@
       background-color: #212e48;
       letter-spacing: .5px;
       justify-content: center;
-      width: 20em;
-      height: 3em;
-      margin-left: 5em;
+      width: 24em;
+      height: 4em;
+      margin-left: 4em;
       margin-right: 1em;
       border: 0;
       box-shadow: none;
       outline: none;
-      top: -11em;
+      top: -10em;
       align-items: center;
+      margin-bottom: 2em;
       &:hover {
         background: $blue-color;
-        color: $silver-color;
+        color: #fff;
       }
     }
 
@@ -126,7 +128,7 @@
         background: #24243557;
         border: 1px solid #ffffff14;
         border-radius: 6px;
-        width: 16em;
+        width: 18em;
 
         @media(min-width:520px) and (max-width:781px) {
           width: 25em;
@@ -148,7 +150,7 @@
       }
 
       button{
-        width: 18em;
+        width: 20em;
         height: 3em;
         border: none;
         color: #fff;
@@ -175,6 +177,58 @@
         background-color: #212e48;
       }
 
+    }
+    #modal {
+      background-color: #242435;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 300px;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+
+      .header{
+        text-align: center;
+        color: white;
+        font-weight: bolder;
+        text-transform: capitalize;
+        width: auto;
+        height: 50px;
+      }
+      .content{
+        display: flex;
+        text-align: center;
+        color: white;
+        width: auto;
+        height: 200px;
+      }
+      .footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-transform: capitalize;
+        width: auto;
+        height: 50px;
+      }
+
+      button .onHide{
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        background-color: rgb(0,0,0);
+        color: white;
+      }
+    }
+
+    #modal.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 
