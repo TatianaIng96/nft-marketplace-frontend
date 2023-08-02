@@ -76,7 +76,7 @@ const InfoProfile = () => {
             </div>
           </div>
         </div>
-        <Link to="/edit-personal-info">
+        <Link to="/edit-profile-image">
           <button type="button" className="btn at-fell f-button">
             <i>
               {' '}

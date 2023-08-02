@@ -1,10 +1,22 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './ChangePassword.scss';
+import { useContext } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
+import useForm from '../../hooks/useForm';
 
 const ChangePassword = () => {
+  const { fakeData, setFakeData } = useContext(UsersAndNFTsContext);
+
+  const { object, handleChange } = useForm({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFakeData([...fakeData, object]);
+  };
+
   return (
     <div className="changePassword">
       <Inner page="Edit Your Profile" />
@@ -18,7 +30,7 @@ const ChangePassword = () => {
             <EditProfileMenu />
           </div>
           <section className="formSection">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               <div className="textContainer">
                 <h2>Change your password</h2>
                 <p>
@@ -29,21 +41,21 @@ const ChangePassword = () => {
               </div>
               <label htmlFor="email">
                 Enter email
-                <input type="email" name="email" id="email" />
+                <input type="email" onChange={handleChange} name="email" id="email" />
               </label>
               <div className="changingInputs">
                 <label htmlFor="old-password">
                   Enter old password
-                  <input type="password" name="old-password" id="old-password" />
+                  <input type="password" onChange={handleChange} name="old-password" id="old-password" />
                 </label>
                 <label htmlFor="new-password">
                   Create new password
-                  <input type="password" name="new-password" id="new-password" />
+                  <input type="password" onChange={handleChange} name="new-password" id="new-password" />
                 </label>
               </div>
               <label htmlFor="confirm-password">
                 Confirm password
-                <input type="password" name="confirm-password" id="confirm-password" />
+                <input type="password" onChange={handleChange} name="confirm-password" id="confirm-password" />
               </label>
               <div className="buttonContainer">
                 <button type="submit" className="saveButton">Save</button>
