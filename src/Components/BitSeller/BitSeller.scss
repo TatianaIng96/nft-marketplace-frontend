@@ -41,6 +41,9 @@ $dark-color-blue: #242435;
     @media (min-width:1280px) and (max-width:1440px){
       margin-left: -9em;
     }
+    @media (min-width:1441px){
+      margin-left: -9em;
+    }
   }
 
   .sellerb__image {
@@ -73,6 +76,9 @@ $dark-color-blue: #242435;
         width: 3em;
       }
       @media (min-width:1280px) and (max-width:1440px){
+        width: 3em;
+      }
+      @media (min-width:1441px){
         width: 3em;
       }
     }
@@ -155,6 +161,16 @@ $dark-color-blue: #242435;
       margin-left: -9em;
     }
   }
+  @media (min-width:1441px){
+    width: 28rem;
+    margin-left: 5em;
+    .seller__info {
+      margin-left: 12px;
+    }
+    .info-title{
+      margin-left: -9em;
+    }
+  }
 
 
 }
@@ -181,6 +197,12 @@ $dark-color-blue: #242435;
     margin-left: 3em;
   }
   @media (min-width:1280px) and (max-width:1440px){
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+    gap: -1em;
+    margin-left: 3em;
+  }
+  @media (min-width:1441px){
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
     gap: -1em;

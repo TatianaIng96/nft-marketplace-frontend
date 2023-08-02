@@ -1,6 +1,7 @@
 .product-secction{
   background: #13131d;
   overflow-x: hidden;
+  padding-bottom: 2em;
 
   *{
     box-sizing: border-box;
@@ -47,6 +48,11 @@
           grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
           gap: 32px;
         }
+        @media (min-width:1441px){
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+          gap: 32px;
+        }
       }
 
       .row>* {
@@ -64,9 +70,12 @@
           margin-left: 0em;
       }
       @media (min-width:1280px) and (max-width:1360px){
-        margin-left: -1em;
+        margin-left: 0em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+      @media (min-width:1361px) and (max-width:1440px){
+        margin-left: 7em;
+      }
+      @media (min-width:1441px){
         margin-left: 7em;
       }
     }
@@ -91,6 +100,10 @@
         width: 68em;
         padding-top: 2em;
       }
+      @media (min-width:1441px){
+        width: 68em;
+        padding-top: 2em;
+      }
     }
 
     .title{
@@ -112,6 +125,11 @@
         margin-top: -1.2em;
         margin-bottom: 0.5em;
       }
+      @media (min-width:1441px){
+        font-size: 32px;
+        margin-top: -1.2em;
+        margin-bottom: 0.5em;
+      }
     }
     .rew{
       display: flex;
@@ -121,6 +139,9 @@
         margin-left: -15.5em;
       }
       @media (min-width:1280px) and (max-width:1440px){
+        margin-left: -10.5em;
+      }
+      @media (min-width:1441px){
         margin-left: -10.5em;
       }
     }
@@ -146,6 +167,10 @@
         font-size: 16px;
         margin-left: 4em;
       }
+      @media (min-width:1441px){
+        font-size: 16px;
+        margin-left: 4em;
+      }
     }
     .title-name{
       display: flex;
@@ -162,6 +187,10 @@
         margin-left: 3.5em;
       }
       @media (min-width:1280px) and (max-width:1440px){
+        font-size: 18px;
+        margin-left: 3.5em;
+      }
+      @media (min-width:1441px){
         font-size: 18px;
         margin-left: 3.5em;
       }
@@ -204,7 +233,13 @@
         margin-left: 5em;
         margin-bottom: 10em;
       }
+
       @media (min-width:1280px) and (max-width:1440px){
+        margin-left: 7em;
+        margin-bottom: 10em;
+        margin-bottom: 12em;
+      }
+      @media (min-width:1441px){
         margin-left: 7em;
         margin-bottom: 10em;
         margin-bottom: 12em;
@@ -247,6 +282,12 @@
           width: 29em;
 
         }
+        @media (min-width:1441px){
+          display: flex;
+          flex-wrap: wrap;
+          width: 29em;
+
+        }
 
       }
 
@@ -279,6 +320,9 @@
         @media (min-width:1280px) and (max-width:1440px) {
           width: 10em;
         }
+        @media (min-width:1441px) {
+          width: 10em;
+        }
       }
 
       button.active {
@@ -288,6 +332,9 @@
         margin-left: 2em;
       }
       @media (min-width:1280px) and (max-width:1440px) {
+        margin-left: 2em;
+      }
+      @media (min-width:1441px){
         margin-left: 2em;
       }
     }

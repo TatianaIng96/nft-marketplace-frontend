@@ -113,7 +113,13 @@ $dark-color-blue: #242435;
     }
   }
 
-  @media (min-width: 1400px) {
+  @media (min-width: 1440px) {
+    width: 15rem;
+    .sellerb__info {
+      margin-left: 18px;
+    }
+  }
+  @media (min-width: 1441px) {
     width: 15rem;
     .sellerb__info {
       margin-left: 18px;

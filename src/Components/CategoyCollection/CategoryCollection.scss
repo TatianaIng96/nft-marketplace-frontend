@@ -73,6 +73,22 @@
         margin-left: -10em;
       }
     }
+    @media (min-width:1441px){
+      margin-left: 0em;
+      margin-top: 1em;
+      .category{
+        font-size: 16px;
+      }
+      .collection{
+        font-size: 16px;
+      }
+      .color-body{
+        font-size: 16px;
+      }
+      .title-collection{
+        margin-left: -10em;
+      }
+    }
 
   }
 
@@ -120,6 +136,12 @@
       }
     }
     @media (min-width:1280px) and (max-width:1440px){
+      margin-right: 1em;
+      .title-collection{
+        margin-left: 1em;
+      }
+    }
+    @media (min-width:1441px){
       margin-right: 1em;
       .title-collection{
         margin-left: 1em;

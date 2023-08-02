@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import './ModalShop.scss';
 
 const ModalShop = ({ isOpen, onClose }) => {
@@ -16,7 +17,7 @@ const ModalShop = ({ isOpen, onClose }) => {
                 <h3 className="modal-title">Place a bid</h3>
               </div>
               <div className="modal-body">
-                <p>You are about to purchase This Product Form Nuron</p>
+                <p className="parraf">You are about to purchase This Product Form Nuron</p>
                 <div className="placebid">
                   <h5 className="bit-title">Your bid</h5>
                   <div className="bid-content">

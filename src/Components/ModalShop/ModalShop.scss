@@ -16,20 +16,20 @@
   .modal {
     position: fixed;
     top: 17em;
-    left: 12.5em;
+    left: 11.7em;
     transform: translate(-50%, -50%);
     background-color: #13131d;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     width: 20em;
-    height: 26em;
+    height: 27em;
     overflow: hidden;
-    pointer-events: auto; /* Habilita la interacción con el modal */
+    pointer-events: auto;
+    border: 1px solid #acacac;
   }
 
   .modal-content-background {
     width: 17rem;
-    /* Asegura que el contenido de fondo esté detrás del modal */
   }
 
   .modal-close{
@@ -37,12 +37,12 @@
     background: hsla(0,0%,100%,.08);
     border: none;
     position: relative;
-    margin-left: 26em;
-    margin-top: 2em;
+    margin-left: 25em;
+    margin-top: 1em;
     width: 2em;
     height: 2em;
   }
-  /* Resto de los estilos se mantienen igual como en el ejemplo anterior */
+
   .bit-title{
     font-size: 16px;
     display: flex;
@@ -87,9 +87,10 @@
     background-color: #00a3ff;
     width: 18em;
     display: flex;
-    height: 2em;
+    height: 2.5em;
     margin-left: 1em;
     border-radius: 10px;
+    align-items: center;
     .place{
       color: white;
       font-weight: 500;
@@ -98,7 +99,7 @@
   }
   .cancel{
     display: flex;
-    margin-top: 3em;
+    margin-top: 8em;
     height: 3em;
     width: 5em;
     align-items: center;
@@ -109,6 +110,211 @@
     margin-left: -13em;
     &:hover{
       background: #00a3ff;
+    }
+  }
+  @media(min-width:768px) and (max-width:1023px){
+    .modal-overlay{
+      margin-left: 11em;
+      margin-top: -9em;
+    }
+    .modal{
+      margin-top: 14em;
+      margin-left: 12em;
+    }
+    .modal-close{
+      margin-top: 17em;
+      margin-left: 40em;
+    }
+  }
+  @media (min-width:1024px) and (max-width:1279px){
+    .modal-overlay{
+      margin-left: -14em;
+      margin-top: -13em;
+    }
+    .modal{
+      margin-top: 3em;
+      margin-left: 20em;
+    }
+    .modal-close{
+      margin-top: 3em;
+      margin-left: 71em;
+    }
+  }
+  @media (min-width:1280px) and (max-width:1360px){
+    .modal-overlay{
+      margin-left: -12em;
+      margin-top: -19em;
+    }
+    .modal{
+      margin-top: 9em;
+      margin-left: 30em;
+      width: 32em;
+      height: 33em;
+    }
+    .modal-close{
+      margin-top: 7em;
+      margin-left: 89em;
+    }
+    .cancel{
+      margin-left: -16em;
+      font-size: 16px;
+    }
+    .bit-button{
+      width: 27em;
+      height: 3em;
+      margin-left: 2.5em;
+      margin-top: 0em;
+      .place{
+        font-size: 20px;
+        margin-left: 8em;
+      }
+    }
+    .bid-content-mid{
+      margin-top: 1em;
+      width: 27em;
+      margin-left: 2em;
+      .left{
+        font-size: 16px;
+      }
+    }
+    .left-t{
+      font-size: 16px;
+    }
+    .modal-title{
+      margin-top: 2em;
+      font-size: 25px;
+    }
+    .parraf{
+      font-size: 18px;
+    }
+    .bit-title{
+      margin-left: 2em;
+      font-size: 25px;
+    }
+    .input{
+      width: 32em;
+      height: 45px;
+    }
+    .span-bit{
+      margin-left: 26em;
+    }
+  }
+  @media (min-width:1361px) and (max-width:1440px){
+    .modal-overlay{
+      margin-left: -12em;
+      margin-top: -19em;
+    }
+    .modal{
+      margin-top: 9em;
+      margin-left: 30em;
+      width: 32em;
+      height: 33em;
+    }
+    .modal-close{
+      margin-top: 7em;
+      margin-left: 89em;
+    }
+    .cancel{
+      margin-left: -16em;
+      font-size: 16px;
+    }
+    .bit-button{
+      width: 27em;
+      height: 3em;
+      margin-left: 2.5em;
+      margin-top: 0em;
+      .place{
+        font-size: 20px;
+        margin-left: 8em;
+      }
+    }
+    .bid-content-mid{
+      margin-top: 1em;
+      width: 27em;
+      margin-left: 2em;
+      .left{
+        font-size: 16px;
+      }
+    }
+    .left-t{
+      font-size: 16px;
+    }
+    .modal-title{
+      margin-top: 2em;
+      font-size: 25px;
+    }
+    .parraf{
+      font-size: 18px;
+    }
+    .bit-title{
+      margin-left: 2em;
+      font-size: 25px;
+    }
+    .input{
+      width: 32em;
+      height: 45px;
+    }
+    .span-bit{
+      margin-left: 26em;
+    }
+  }
+  @media (min-width:1441px){
+    .modal-overlay{
+      margin-left: -18em;
+      margin-top: -13em;
+    }
+    .modal{
+      margin-top: 6em;
+      margin-left: 36em;
+      width: 32em;
+      height: 33em;
+    }
+    .modal-close{
+      margin-top: 6em;
+      margin-left: 103em;
+    }
+    .cancel{
+      margin-left: -16em;
+      font-size: 16px;
+    }
+    .bit-button{
+      width: 27em;
+      height: 3em;
+      margin-left: 2.5em;
+      margin-top: 0em;
+      .place{
+        font-size: 20px;
+        margin-left: 8em;
+      }
+    }
+    .bid-content-mid{
+      margin-top: 1em;
+      width: 27em;
+      margin-left: 2em;
+      .left{
+        font-size: 16px;
+      }
+    }
+    .left-t{
+      font-size: 16px;
+    }
+    .modal-title{
+      margin-top: 2em;
+      font-size: 25px;
+    }
+    .parraf{
+      font-size: 18px;
+    }
+    .bit-title{
+      margin-left: 2em;
+      font-size: 25px;
+    }
+    .input{
+      width: 32em;
+      height: 45px;
+    }
+    .span-bit{
+      margin-left: 26em;
     }
   }
 
