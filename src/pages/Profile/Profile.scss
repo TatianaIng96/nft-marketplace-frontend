@@ -1,5 +1,6 @@
 .profile-secction{
   background: #13131d;
+  overflow-x: hidden;
   *{
     box-sizing: border-box;
 
@@ -279,12 +280,12 @@
           grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
           padding-left: 2em;
         }
-        @media(min-width:1024px) and (max-width:1200px){
+        @media(min-width:1024px) and (max-width:1279px){
           display: flex;
           flex-wrap: wrap;
-          width: 62em;
+          width: 58em;
         }
-        @media(min-width:1201px){
+        @media(min-width:1280px){
           display: flex;
           flex-wrap: wrap;
           width: 70em;
@@ -328,20 +329,24 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 32px;
-    margin: 0px 3em;
-    @media(min-width:520px) and (max-width:781px) {
+    margin-left: 0em;
+    @media(min-width:520px) and (max-width:767px) {
       margin: 0px 0em;
     }
-    @media(min-width:782px) and (max-width:1024px) {
+    @media(min-width:768px) and (max-width:1023px) {
       margin: 0px 0em;
     }
-    @media(min-width:1025px) and (max-width:1200px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin: 0px 0em;
-    }
-    @media(min-width: 1201px)and (max-width:1440px){
+    @media(min-width:1024px) and (max-width:1279px) {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      margin: 0px 8em;
+      margin: 0px 3em;
+    }
+    @media(min-width: 1280px)and (max-width:1360px){
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin: 0px 6em;
+    }
+    @media(min-width: 1361px)and (max-width:1440px){
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin: 0px 10em;
     }
 
     @media(min-width: 1441px)and (max-width:1750px){
@@ -349,7 +354,7 @@
       margin: 0px -15em;
       gap: 23px;
       padding: 0px 12em;
-      padding-left: 13em;
+      padding-left: 12em;
     }
 
     @media (min-width:1751px) {

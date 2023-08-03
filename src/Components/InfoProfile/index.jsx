@@ -5,7 +5,7 @@ import {
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
 
-const InfoProfile = () => {
+const InfoProfile = ({ admin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
@@ -76,14 +76,29 @@ const InfoProfile = () => {
             </div>
           </div>
         </div>
-        <Link to="/edit-profile-image">
-          <button type="button" className="btn at-fell f-button">
-            <i>
-              {' '}
-              <FaEdit />
-            </i>
-          </button>
-        </Link>
+        {
+         admin === false ? (
+           <Link to="/edit-profile-image">
+             <button type="button" className="btn at-fell f-button">
+               <i>
+                 {' '}
+                 <FaEdit />
+               </i>
+             </button>
+           </Link>
+         )
+           : (
+             <Link to="/edit-personal-info">
+               <button type="button" className="btn at-fell f-button">
+                 <i>
+                   {' '}
+                   <FaEdit />
+                 </i>
+               </button>
+             </Link>
+           )
+
+        }
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}

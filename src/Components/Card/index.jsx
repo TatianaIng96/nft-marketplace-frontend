@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
-import { FaEllipsisH } from 'react-icons/fa';
+import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { ModalShare, ModalReport } from '../ModalShare';
 
@@ -14,6 +14,7 @@ const Card = ({
   profileImage2,
   profileImage3,
   placeBit,
+  admin,
 }) => {
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
@@ -56,9 +57,16 @@ const Card = ({
           </div>
 
           <div className="show-more-options">
+            {admin === false && (
             <button type="button" onClick={() => { setShowOptions(!showOptions); }} className="show-more">
               <FaEllipsisH />
             </button>
+            )}
+            {admin === true && (
+            <button type="button" onClick={() => { alert('está seguro'); }} className="show-more">
+              <FaTrash />
+            </button>
+            )}
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
               <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>
               <button type="button" onClick={() => { setOpenModalReport(true); }}>Report</button>
