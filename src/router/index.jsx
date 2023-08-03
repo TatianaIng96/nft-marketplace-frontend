@@ -13,6 +13,9 @@ import OurCollection from '../pages/OurCollection';
 import ChangePassword from '../pages/ChangePassword';
 import EditProfileImage from '../pages/EditProfileImage';
 
+import AdminCreateUser from '../pages/AdminCreateUser';
+import AdminEditUser from '../pages/AdminEditUser';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -62,6 +65,14 @@ const router = createBrowserRouter([
       {
         path: '/edit-profile-image',
         element: <EditProfileImage />,
+      },
+      {
+        path: '/admin-create-user',
+        element: <AdminCreateUser />,
+      },
+      {
+        path: '/admin-edit-user',
+        element: <AdminEditUser />,
       },
     ],
   },

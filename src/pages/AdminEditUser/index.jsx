@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import './EditPersonalInformation.scss';
+import './AdminEditUser.scss';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useContext } from 'react';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
@@ -8,7 +8,7 @@ import EditProfileMenu from '../../Components/EditProfileMenu';
 import UserInfoForm from '../../Components/UserInfoForm';
 import useForm from '../../hooks/useForm';
 
-const EditPersonalInformation = () => {
+const AdminEditUser = () => {
   const { users, setUsers } = useContext(UsersAndNFTsContext);
 
   const { object, handleChange } = useForm({});
@@ -19,11 +19,11 @@ const EditPersonalInformation = () => {
   };
 
   return (
-    <div className="editPersonalInformation">
-      <Inner page="Edit Profile" />
+    <div className="adminEditUser">
+      <Inner page="Edit User" />
       <div className="pageContainer">
         <section className="topSection">
-          <span>Edit your profile</span>
+          <span>Edit User</span>
           <button type="button" className="previewButton"> <AiOutlineEye /> Preview</button>
         </section>
         <div className="menuAndForm">
@@ -50,4 +50,4 @@ const EditPersonalInformation = () => {
   );
 };
 
-export default EditPersonalInformation;
+export default AdminEditUser;
