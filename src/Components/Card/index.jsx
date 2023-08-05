@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
@@ -21,7 +22,6 @@ const Card = ({
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
-  const [swalProps, setSwalProps] = useState({});
 
   const handleLikes = () => {
     if (likes === totalLikes) {
@@ -31,7 +31,7 @@ const Card = ({
     }
   };
 
-  function handleDelete() {
+  const handleDelete = () => {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -50,7 +50,6 @@ const Card = ({
           'success',
         );
       } else if (
-        /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
         Swal.fire(
@@ -60,7 +59,7 @@ const Card = ({
         );
       }
     });
-  }
+  };
 
   return (
     <div className="card">
