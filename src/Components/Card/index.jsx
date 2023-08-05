@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Card.scss';
 import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
 
 const Card = ({
@@ -20,6 +21,7 @@ const Card = ({
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
+  const [swalProps, setSwalProps] = useState({});
 
   const handleLikes = () => {
     if (likes === totalLikes) {
@@ -28,6 +30,37 @@ const Card = ({
       setLikes(likes - 1);
     }
   };
+
+  function handleDelete() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success',
+        );
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error',
+        );
+      }
+    });
+  }
 
   return (
     <div className="card">
@@ -63,7 +96,11 @@ const Card = ({
             </button>
             )}
             {admin === true && (
-            <button type="button" onClick={() => { alert('está seguro'); }} className="show-more">
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="show-more"
+            >
               <FaTrash />
             </button>
             )}
