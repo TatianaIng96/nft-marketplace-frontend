@@ -1,0 +1,47 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+.ranking-container {
+  background-color: $main-background;
+
+  .ranking-padding-container {
+    padding: 80px 30px 30px;
+
+    .ranking-title {
+      margin-bottom: 50px;
+
+      h4 {
+        margin: 0;
+        font-size: 24px;
+      }
+    }
+
+    .ranking-table {
+      overflow-y: hidden;
+      white-space: nowrap;
+      border-radius: 10px;
+      width: 100%;
+
+      .table {
+        background-color: $dark-color-blue;
+        border-collapse: collapse;
+
+        .table-head {
+          tr {
+            .table-head-section {
+              padding: 25px 20px;
+
+              span {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
