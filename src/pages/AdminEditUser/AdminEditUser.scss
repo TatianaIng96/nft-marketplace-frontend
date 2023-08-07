@@ -1,4 +1,4 @@
-@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -22,6 +22,7 @@
     box-sizing: border-box;
     background-color: #13131d;
     @include flex-base;
+
     .topSection {
       margin: auto;
       box-sizing: border-box;
@@ -30,8 +31,9 @@
       padding: 10px;
       font-size: 20px;
       font-weight: bold;
-      @include flex-base($direction:row,$justify:space-between,$align:center);
+      @include flex-base($direction: row, $justify: space-between, $align: center);
     }
+
     .previewButton {
       @include button-base-style;
       font-size: 16px;
@@ -40,11 +42,16 @@
   }
 
   .menuAndForm {
-    @include flex-base($align:center);
+    @include flex-base($align: center);
+
     .editMenuContainer {
       margin: auto;
       width: 95%;
       max-width: 360px;
+    }
+
+    .userInfoFormContainer {
+      width: 100%;
     }
   }
 
@@ -62,12 +69,18 @@
         max-width: 1000px;
       }
     }
+
     .menuAndForm {
       margin-bottom: 20px;
-      @include flex-base($direction:row,$justify:center);
+      @include flex-base($direction: row, $justify: center);
+
       .editMenuContainer {
         margin: 0;
         max-width: 350px;
+      }
+
+      .userInfoFormContainer {
+        width: auto;
       }
     }
   }

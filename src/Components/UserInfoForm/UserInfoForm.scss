@@ -1,4 +1,4 @@
-@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -16,6 +16,7 @@
 }
 
 .userInfoForm {
+
   .formSection {
     margin: auto;
     width: 95%;
@@ -26,7 +27,7 @@
     @include flex-base;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(28,28,42);
+    background-color: rgb(28, 28, 42);
     margin: 20px 0 20px 0;
     padding: 40px 30px;
     border: solid 1px #858585;
@@ -37,14 +38,20 @@
   label {
     @include flex-base;
     box-sizing: border-box;
-    select,textarea,input[type="number"],input[type="text"],input[type="email"],input[type="password"] {
+
+    select,
+    textarea,
+    input[type="number"],
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       box-sizing: border-box;
       width: 100%;
       margin-top: 5px;
       margin-bottom: 10px;
       padding: 5px 10px;
-      background-color: rgb(36,36,54);
-      border: solid 2px rgb(56,57,72);
+      background-color: rgb(36, 36, 54);
+      border: solid 2px rgb(56, 57, 72);
       border-radius: 5px;
       color: white;
       cursor: auto;
@@ -61,12 +68,14 @@
 
   .buttonSection {
     margin-top: 20px;
-    @include flex-base($direction:row,$justify:flex-end);
+    @include flex-base($direction: row, $justify: flex-end);
+
     .cancelButton {
       @include button-base-style;
       margin-right: 10px;
-      background-color: rgb(33,46,73);
+      background-color: rgb(33, 46, 73);
     }
+
     .saveButton {
       @include button-base-style;
       background-color: #00A3FF;
@@ -82,9 +91,15 @@
   @media(min-width:768px) {
     .formSection {
       label {
-        select,input[type="number"],input[type="text"],input[type="email"],input[type="password"] {
+
+        select,
+        input[type="number"],
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
           height: 55px;
         }
+
         textarea {
           height: 80px;
         }
@@ -96,32 +111,38 @@
     .formSection {
       margin: 0;
       max-width: 630px;
+
       form {
         margin: 0;
       }
+
       .nameSection {
         width: 100%;
-        @include flex-base($direction:row,$justify:space-between);
+        @include flex-base($direction: row, $justify: space-between);
+
         label {
           input {
             width: 265px;
           }
         }
       }
+
       .movingLabels {
-        @include flex-base($direction:row,$justify:space-between);
+        @include flex-base($direction: row, $justify: space-between);
         flex-wrap: wrap;
+
         label {
-          input,select {
+
+          input,
+          select {
             width: 265px;
           }
         }
       }
     }
+
     #bio {
       height: 120px;
     }
   }
 }
-
-

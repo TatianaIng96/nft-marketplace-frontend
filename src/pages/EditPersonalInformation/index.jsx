@@ -30,9 +30,10 @@ const EditPersonalInformation = () => {
           <div className="editMenuContainer">
             <EditProfileMenu />
           </div>
-          <UserInfoForm
-            onEdit={handleChange}
-            onSubmit={handleSubmit}
+          <div className="userInfoFormContainer">
+            <UserInfoForm
+              onEdit={handleChange}
+              onSubmit={handleSubmit}
             /* firstNameValue=""
             lastNameValue=""
             emailValue=""
@@ -43,7 +44,8 @@ const EditPersonalInformation = () => {
             phoneNumberValue=""
             locationValue="none"
             addressValue="" */
-          />
+            />
+          </div>
         </div>
       </div>
     </div>
