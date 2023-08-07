@@ -24,15 +24,18 @@ $main-background: #13131d;
       white-space: nowrap;
       border-radius: 10px;
       width: 100%;
+      border: 3px solid $dark-color-blue;
 
       .table {
-        background-color: $dark-color-blue;
+        background-color: $main-background;
         border-collapse: collapse;
 
         .table-head {
+          background-color: $dark-color-blue;
+
           tr {
             .table-head-section {
-              padding: 25px 20px;
+              padding: 25px 10px;
 
               span {
                 font-weight: 300;
@@ -40,8 +43,83 @@ $main-background: #13131d;
             }
           }
         }
+
+        .table-body {
+          tr {
+            .table-body-section {
+              padding: 10px;
+              text-align: center;
+            }
+
+            .table-img-section {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                width: 50px;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 576px) {
+      .ranking-table {
+        .table {
+          .table-head {
+            tr {
+              .table-head-section {
+                padding: 25px 20px;
+              }
+            }
+          }
+
+          .table-body {
+            tr {
+              .table-body-section {
+                padding: 15px 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .ranking-table {
+        .table {
+          width: 100%;
+
+          .table-head {
+            tr {
+              .table-head-section {
+                span {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 992px) {
+      .ranking-table {
+        .table {
+          .table-head {
+            tr {
+              .table-head-section {
+                span {
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
-
 }

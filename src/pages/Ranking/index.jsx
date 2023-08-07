@@ -1,4 +1,5 @@
 import './Ranking.scss';
+import { Link } from 'react-router-dom';
 import { FiBriefcase } from 'react-icons/fi';
 import Inner from '../../Components/Inner';
 
@@ -44,16 +45,21 @@ const Ranking = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="table-body">
               <tr>
-                <td>1.</td>
-                <td>Secure 25</td>
-                <td>7,50,000</td>
-                <td> -310.63%</td>
-                <td>+62.21%</td>
-                <td>33.02</td>
-                <td>3k</td>
-                <td>10k</td>
+                <td className="table-body-section"><span>1.</span></td>
+                <td className="table-body-section table-img-section">
+                  <Link to="/our-collection">
+                    <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Fportfolio-05.jpg&w=128&q=75" alt="ranking" />
+                  </Link>
+                  <span>Secure 25</span>
+                </td>
+                <td className="table-body-section"><span>7,50,000</span></td>
+                <td className="table-body-section"><span> -310.63%</span></td>
+                <td className="table-body-section"><span>+62.21%</span></td>
+                <td className="table-body-section"><span> 33.02</span></td>
+                <td className="table-body-section"><span>3k</span></td>
+                <td className="table-body-section"><span>10k</span></td>
               </tr>
             </tbody>
           </table>
