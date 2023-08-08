@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
-import { FaEllipsisH } from 'react-icons/fa';
+import 'sweetalert2/dist/sweetalert2.min.css';
+import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
 
 const Card = ({
@@ -14,6 +16,7 @@ const Card = ({
   profileImage2,
   profileImage3,
   placeBit,
+  admin,
 }) => {
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
@@ -26,6 +29,36 @@ const Card = ({
     } else {
       setLikes(likes - 1);
     }
+  };
+
+  const handleDelete = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success',
+        );
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error',
+        );
+      }
+    });
   };
 
   return (
@@ -56,9 +89,20 @@ const Card = ({
           </div>
 
           <div className="show-more-options">
+            {admin === false && (
             <button type="button" onClick={() => { setShowOptions(!showOptions); }} className="show-more">
               <FaEllipsisH />
             </button>
+            )}
+            {admin === true && (
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="show-more"
+            >
+              <FaTrash />
+            </button>
+            )}
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
               <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>
               <button type="button" onClick={() => { setOpenModalReport(true); }}>Report</button>

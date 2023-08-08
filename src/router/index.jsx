@@ -12,6 +12,7 @@ import EditPersonalInformation from '../pages/EditPersonalInformation';
 import OurCollection from '../pages/OurCollection';
 import ChangePassword from '../pages/ChangePassword';
 import EditProfileImage from '../pages/EditProfileImage';
+import ListNftAdmin from '../pages/ListNftAdmin';
 import Ranking from '../pages/Ranking';
 import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: '/edit-profile-image',
         element: <EditProfileImage />,
+      },
+      {
+        path: '/list-nft-admin',
+        element: <ListNftAdmin />,
       },
       {
         path: '/ranking',

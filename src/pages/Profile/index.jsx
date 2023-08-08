@@ -6,13 +6,13 @@ import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
 import { cardData } from '../../assets/data';
 
-const Profile = () => {
+const Profile = ({ admin }) => {
   const [isActive, setIsActive] = useState(0);
   const [dataSale, setDataSale] = useState([]);
   const [dataOwed, setDataOwed] = useState([]);
   const [dataCreated, setDataCreated] = useState([]);
   const [dataLiked, setDataLiked] = useState([]);
-
+  const admi = admin || false;
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
   const data = [dataSale, dataOwed, dataCreated, dataLiked];
 
@@ -41,7 +41,7 @@ const Profile = () => {
                   <AuthorInner />
                 </div>
                 <div className="info-profile">
-                  <InfoProfile />
+                  <InfoProfile admin={admi} />
                 </div>
               </div>
             </div>
@@ -93,6 +93,7 @@ const Profile = () => {
                             profileImage2={nft.profileImage2}
                             profileImage3={nft.profileImage3}
                             placeBit={nft.placeBit}
+                            admin={admi}
                           />
                         );
                       }))
