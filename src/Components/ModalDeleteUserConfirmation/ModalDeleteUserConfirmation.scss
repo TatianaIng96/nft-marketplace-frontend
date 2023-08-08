@@ -1,0 +1,58 @@
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-base-style {
+  all: unset;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modalDeleteUserConfirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  z-index: 9990;
+
+  .mainContainer {
+    @include flex-base($justify: space-between, $align: center);
+    box-sizing: border-box;
+    width: 300px;
+    height: 200px;
+    background-color: rgb(28, 28, 42);
+    padding: 45px 35px;
+    border: solid 1px #858585;
+    border-radius: 10px;
+    color: #858585;
+  }
+
+  .questionContainer {
+    text-align: center;
+  }
+
+  .buttonsContainer {
+    width: 100%;
+    @include flex-base($direction: row, $justify: space-between);
+
+    button {
+      @include button-base-style;
+    }
+
+    .cancelButton {
+      background-color: rgb(33, 46, 73);
+    }
+
+    .deleteButton {
+      background-color: #00A3FF;
+    }
+  }
+}
