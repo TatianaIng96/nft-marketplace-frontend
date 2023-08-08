@@ -1,0 +1,87 @@
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-base-style {
+  all: unset;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adminCreateUser {
+  .pageContainer {
+    width: 100%;
+    padding-top: 20px;
+    box-sizing: border-box;
+    background-color: #13131d;
+    @include flex-base;
+
+    .topSection {
+      margin: auto;
+      box-sizing: border-box;
+      width: 95%;
+      max-width: 360px;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      @include flex-base($direction: row, $justify: space-between, $align: center);
+    }
+
+    .previewButton {
+      @include button-base-style;
+      font-size: 16px;
+      background-color: #00A3FF;
+    }
+  }
+
+  .menuAndForm {
+    @include flex-base($align: center);
+
+    .editMenuContainer {
+      margin: auto;
+      width: 95%;
+      max-width: 360px;
+    }
+
+    .userInfoFormContainer {
+      width: 100%;
+    }
+  }
+
+  @media(min-width:500px) {
+    .pageContainer {
+      .topSection {
+        max-width: 500px;
+      }
+    }
+  }
+
+  @media(min-width:1200px) {
+    .pageContainer {
+      .topSection {
+        max-width: 1000px;
+      }
+    }
+
+    .menuAndForm {
+      margin-bottom: 20px;
+      @include flex-base($direction: row, $justify: center);
+
+      .editMenuContainer {
+        margin: 0;
+        max-width: 350px;
+      }
+
+      .userInfoFormContainer {
+        width: auto;
+      }
+    }
+  }
+}

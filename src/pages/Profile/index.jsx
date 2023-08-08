@@ -12,7 +12,6 @@ const Profile = () => {
   const [dataOwed, setDataOwed] = useState([]);
   const [dataCreated, setDataCreated] = useState([]);
   const [dataLiked, setDataLiked] = useState([]);
-
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
   const data = [dataSale, dataOwed, dataCreated, dataLiked];
 
@@ -58,7 +57,7 @@ const Profile = () => {
                     return (
                       <button
                         type="button"
-                      // eslint-disable-next-line react/no-array-index-key
+                        // eslint-disable-next-line react/no-array-index-key
                         key={index}
                         className={isActive === index ? 'mi-boton active' : 'mi-boton'}
                         onClick={() => { return handleClick(index); }}

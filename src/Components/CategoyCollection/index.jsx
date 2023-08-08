@@ -38,7 +38,7 @@ const CategoryCollection = () => {
           </div>
         </div>
         <div className="collection">
-          <span>
+          <span className="title-collection">
             Collection
           </span>
           <div className="top-seller">
@@ -62,7 +62,7 @@ const CategoryCollection = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
 export default CategoryCollection;

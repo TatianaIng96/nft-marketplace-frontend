@@ -17,7 +17,7 @@ const MoreOption = () => {
               <FaEllipsisH />
             </i>
           </button>
-          <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
+          <div className={showOptions ? 'menu-options-hide' :'menu-options-show'}>
             <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
             <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
           </div>

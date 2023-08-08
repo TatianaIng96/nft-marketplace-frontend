@@ -4,9 +4,10 @@
 
 #root {
   width: 100%;
+  overflow-x: hidden;
 }
 
-.main{
+.main {
   z-index: 1;
   min-height: 44vh;
   position: relative;

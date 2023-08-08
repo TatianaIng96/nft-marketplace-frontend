@@ -78,4 +78,57 @@
   .winning-bit{
     margin-left: -1.5em;
   }
+
+  @media(min-width:768px) and (max-width:1023px){
+    margin-top: -14em;
+    .top-seller-inner{
+      margin-left: -3em;
+    }
+    .property-wrapper{
+      margin-left: 1.5em;
+      width: 25em;
+    }
+    .property-title{
+      margin-left: 1.5em;
+    }
+  }
+  @media (min-width:1024px) and (max-width:1279px){
+    margin-top: -11em;
+    .top-seller-inner{
+      margin-left: -3em;
+    }
+    .property-wrapper{
+      margin-left: 1.5em;
+      width: 25em;
+    }
+    .property-title{
+      margin-left: 1.5em;
+    }
+  }
+  @media (min-width:1280px) and (max-width:1440px){
+    margin-top: -13em;
+    .top-seller-inner{
+      margin-left: -3em;
+    }
+    .property-wrapper{
+      margin-left: 1.5em;
+      width: 25em;
+    }
+    .property-title{
+      margin-left: 1.5em;
+    }
+  }
+  @media (min-width:1441px){
+    margin-top: -13em;
+    .top-seller-inner{
+      margin-left: -3em;
+    }
+    .property-wrapper{
+      margin-left: 1.5em;
+      width: 25em;
+    }
+    .property-title{
+      margin-left: 1.5em;
+    }
+  }
 }

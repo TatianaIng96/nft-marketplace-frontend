@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaTwitter, FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const InfoProfile = () => {
+  const { isAdmin } = useContext(UsersAndNFTsContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
@@ -76,14 +79,28 @@ const InfoProfile = () => {
             </div>
           </div>
         </div>
-        <Link to="/edit-personal-info">
-          <button type="button" className="btn at-fell f-button">
-            <i>
-              {' '}
-              <FaEdit />
-            </i>
-          </button>
-        </Link>
+        {
+          !isAdmin ? (
+            <Link to="/edit-profile-image">
+              <button type="button" className="btn at-fell f-button">
+                <i>
+                  {' '}
+                  <FaEdit />
+                </i>
+              </button>
+            </Link>
+          )
+            : (
+              <Link to="/admin-edit-user">
+                <button type="button" className="btn at-fell f-button">
+                  <i>
+                    {' '}
+                    <FaEdit />
+                  </i>
+                </button>
+              </Link>
+            )
+        }
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}

@@ -12,14 +12,16 @@
   },
   "dependencies": {
     "@mantine/carousel": "^6.0.17",
+    "@sweetalert2/theme-dark": "^5.0.15",
     "better-react-carousel": "^1.1.1",
     "date-fns": "^2.30.0",
-    "embla-carousel-react": "^8.0.0-rc11",
+    "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "sweetalert2": "^11.7.20"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
