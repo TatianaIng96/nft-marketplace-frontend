@@ -28,8 +28,21 @@
     }
     .top-seller__content {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      flex-direction: column;
       justify-content: space-evenly;
     }
+  }
+  @media(min-width:768px) and (max-width:1023px){
+    margin-top: -13em;
+  }
+  @media (min-width:1024px) and (max-width:1279px){
+    margin-top: -10em;
+  }
+  @media (min-width:1280px) and (max-width:1440px){
+    margin-top: -13em;
+  }
+  @media (min-width:1441px){
+    margin-top: -13em;
   }
 }

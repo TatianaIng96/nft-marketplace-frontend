@@ -6,6 +6,8 @@ export const UsersAndNFTsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [fakeData, setFakeData] = useState([]);
 
+  console.log(users);
+
   return (
     <UsersAndNFTsContext.Provider
       value={{

@@ -1,0 +1,141 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+.ranking-container {
+  background-color: $main-background;
+
+  .padding-btn-pagination {
+    padding-bottom: 50px;
+  }
+
+  .ranking-padding-container {
+    padding: 60px 30px 30px;
+
+    .ranking-title {
+      margin-bottom: 50px;
+
+      h4 {
+        margin: 0;
+        font-size: 24px;
+      }
+    }
+
+    .ranking-table {
+      overflow-y: hidden;
+      white-space: nowrap;
+      border-radius: 10px;
+      width: 100%;
+      border: 3px solid $dark-color-blue;
+
+      .table {
+        background-color: $main-background;
+        border-collapse: collapse;
+
+        .table-head {
+          background-color: $dark-color-blue;
+
+          tr {
+            .table-head-section {
+              padding: 25px 10px;
+
+              span {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+
+        .table-body {
+          tr {
+            border: 3px solid $dark-color-blue;
+
+            .table-body-section {
+              padding: 10px;
+              text-align: center;
+
+              .red-letter {
+                color: #ff0000;
+              }
+
+              .green-letter {
+                color: #008000;
+              }
+            }
+
+            .table-img-section {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+
+              img {
+                width: 50px;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 576px) {
+      .ranking-table {
+        .table {
+          .table-head {
+            tr {
+              .table-head-section {
+                padding: 25px 20px;
+              }
+            }
+          }
+
+          .table-body {
+            tr {
+              .table-body-section {
+                padding: 15px 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .ranking-table {
+        .table {
+          width: 100%;
+
+          .table-head {
+            tr {
+              .table-head-section {
+                span {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 992px) {
+      padding: 60px 50px 30px;
+
+      .ranking-table {
+        .table {
+          .table-head {
+            tr {
+              .table-head-section {
+                span {
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
