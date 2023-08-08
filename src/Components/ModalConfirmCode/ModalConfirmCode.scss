@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.modalDeleteUserConfirmation {
+.modalConfirmCode {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -23,11 +23,14 @@
   margin-left: -150px;
   z-index: 9990;
 
-  .mainContainer {
+  h3 {
+    color: white;
+  }
+
+  form {
     @include flex-base($justify: space-between, $align: center);
     box-sizing: border-box;
     width: 300px;
-    height: 200px;
     background-color: rgb(28, 28, 42);
     padding: 45px 35px;
     border: solid 1px #858585;
@@ -35,13 +38,22 @@
     color: #858585;
   }
 
-  .questionContainer {
-    text-align: center;
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: rgb(36, 36, 54);
+    border: solid 2px rgb(56, 57, 72);
+    border-radius: 5px;
+    color: white;
+    cursor: auto;
   }
 
   .buttonsContainer {
     width: 100%;
-    @include flex-base($direction: row, $justify: space-between);
+    @include flex-base($direction: row, $justify: space-evenly);
 
     button {
       @include button-base-style;
@@ -51,7 +63,7 @@
       background-color: rgb(33, 46, 73);
     }
 
-    .deleteButton {
+    .confirmButton {
       background-color: #00A3FF;
     }
   }
