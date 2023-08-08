@@ -1,9 +1,17 @@
+import { useState, useEffect } from 'react';
 import './Ranking.scss';
 import { Link } from 'react-router-dom';
 import { FiBriefcase } from 'react-icons/fi';
+import { rankingData } from '../../assets/data';
 import Inner from '../../Components/Inner';
 
 const Ranking = () => {
+  const [dataOfRannking, setDataOfRanking] = useState([]);
+
+  useEffect(() => {
+    setDataOfRanking(rankingData);
+  }, []);
+
   return (
     <div className="ranking-container">
       <Inner page="Ranking" />
@@ -46,21 +54,41 @@ const Ranking = () => {
               </tr>
             </thead>
             <tbody className="table-body">
-              <tr>
-                <td className="table-body-section"><span>1.</span></td>
-                <td className="table-body-section table-img-section">
-                  <Link to="/our-collection">
-                    <img src="https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fportfolio%2Fportfolio-05.jpg&w=128&q=75" alt="ranking" />
-                  </Link>
-                  <span>Secure 25</span>
-                </td>
-                <td className="table-body-section"><span>7,50,000</span></td>
-                <td className="table-body-section"><span> -310.63%</span></td>
-                <td className="table-body-section"><span>+62.21%</span></td>
-                <td className="table-body-section"><span> 33.02</span></td>
-                <td className="table-body-section"><span>3k</span></td>
-                <td className="table-body-section"><span>10k</span></td>
-              </tr>
+              {
+                dataOfRannking.map((ranking, index) => {
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <tr key={index}>
+                      <td className="table-body-section">
+                        <span>
+                          {index + 1}
+                          .
+                        </span>
+                      </td>
+                      <td className="table-body-section table-img-section">
+                        <Link to="/our-collection">
+                          <img src={ranking.productImg} alt="ranking" />
+                        </Link>
+                        <span>Secure 25</span>
+                      </td>
+                      <td className="table-body-section"><span>{ranking.volume}</span></td>
+                      <td className="table-body-section">
+                        <span className={ranking.firstPercentage.startsWith('-') ? 'red-letter' : 'green-letter'}>
+                          {ranking.firstPercentage}
+                        </span>
+                      </td>
+                      <td className="table-body-section">
+                        <span className={ranking.secondPercentage.startsWith('-') ? 'red-letter' : 'green-letter'}>
+                          {ranking.secondPercentage}
+                        </span>
+                      </td>
+                      <td className="table-body-section"><span>{ranking.price}</span></td>
+                      <td className="table-body-section"><span>{ranking.owners}</span></td>
+                      <td className="table-body-section"><span>{ranking.items}</span></td>
+                    </tr>
+                  );
+                })
+              }
             </tbody>
           </table>
         </div>

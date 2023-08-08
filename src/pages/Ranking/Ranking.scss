@@ -8,7 +8,7 @@ $main-background: #13131d;
   background-color: $main-background;
 
   .ranking-padding-container {
-    padding: 80px 30px 30px;
+    padding: 60px 30px 30px;
 
     .ranking-title {
       margin-bottom: 50px;
@@ -46,14 +46,24 @@ $main-background: #13131d;
 
         .table-body {
           tr {
+            border: 3px solid $dark-color-blue;
+
             .table-body-section {
               padding: 10px;
               text-align: center;
+
+              .red-letter {
+                color: #ff0000;
+              }
+
+              .green-letter {
+                color: #008000;
+              }
             }
 
             .table-img-section {
               display: flex;
-              justify-content: center;
+              justify-content: space-evenly;
               align-items: center;
 
               img {
@@ -107,6 +117,8 @@ $main-background: #13131d;
     }
 
     @media (min-width: 992px) {
+      padding: 60px 50px 30px;
+
       .ranking-table {
         .table {
           .table-head {
