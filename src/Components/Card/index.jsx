@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -6,6 +6,7 @@ import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
   totalLikes,
@@ -16,8 +17,9 @@ const Card = ({
   profileImage2,
   profileImage3,
   placeBit,
-  admin,
 }) => {
+  const { isAdmin } = useContext(UsersAndNFTsContext);
+
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -89,19 +91,19 @@ const Card = ({
           </div>
 
           <div className="show-more-options">
-            {admin === false && (
-            <button type="button" onClick={() => { setShowOptions(!showOptions); }} className="show-more">
-              <FaEllipsisH />
-            </button>
+            {!isAdmin && (
+              <button type="button" onClick={() => { setShowOptions(!showOptions); }} className="show-more">
+                <FaEllipsisH />
+              </button>
             )}
-            {admin === true && (
-            <button
-              type="button"
-              onClick={handleDelete}
-              className="show-more"
-            >
-              <FaTrash />
-            </button>
+            {isAdmin && (
+              <button
+                type="button"
+                onClick={handleDelete}
+                className="show-more"
+              >
+                <FaTrash />
+              </button>
             )}
             <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
               <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>

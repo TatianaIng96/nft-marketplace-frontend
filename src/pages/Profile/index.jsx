@@ -6,13 +6,12 @@ import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
 import { cardData } from '../../assets/data';
 
-const Profile = ({ admin }) => {
+const Profile = () => {
   const [isActive, setIsActive] = useState(0);
   const [dataSale, setDataSale] = useState([]);
   const [dataOwed, setDataOwed] = useState([]);
   const [dataCreated, setDataCreated] = useState([]);
   const [dataLiked, setDataLiked] = useState([]);
-  const admi = admin || false;
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
   const data = [dataSale, dataOwed, dataCreated, dataLiked];
 
@@ -41,7 +40,7 @@ const Profile = ({ admin }) => {
                   <AuthorInner />
                 </div>
                 <div className="info-profile">
-                  <InfoProfile admin={admi} />
+                  <InfoProfile />
                 </div>
               </div>
             </div>
@@ -58,7 +57,7 @@ const Profile = ({ admin }) => {
                     return (
                       <button
                         type="button"
-                      // eslint-disable-next-line react/no-array-index-key
+                        // eslint-disable-next-line react/no-array-index-key
                         key={index}
                         className={isActive === index ? 'mi-boton active' : 'mi-boton'}
                         onClick={() => { return handleClick(index); }}
@@ -93,7 +92,6 @@ const Profile = ({ admin }) => {
                             profileImage2={nft.profileImage2}
                             profileImage3={nft.profileImage3}
                             placeBit={nft.placeBit}
-                            admin={admi}
                           />
                         );
                       }))

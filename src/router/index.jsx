@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../Layout/Root';
+import PrivateRoute from '../Components/PrivateRoute';
 import Home from '../pages/Home';
 import SignUpForm from '../pages/SignUpForm';
 import LogInForm from '../pages/LogInForm';
@@ -69,19 +70,35 @@ const router = createBrowserRouter([
       },
       {
         path: '/list-nft-admin',
-        element: <ListNftAdmin />,
+        element:
+          // eslint-disable-next-line react/jsx-indent
+          <PrivateRoute>
+            <ListNftAdmin />
+          </PrivateRoute>,
       },
       {
         path: '/ranking',
-        element: <Ranking />,
+        element:
+          // eslint-disable-next-line react/jsx-indent
+          <PrivateRoute>
+            <Ranking />
+          </PrivateRoute>,
       },
       {
         path: '/admin-create-user',
-        element: <AdminCreateUser />,
+        element:
+          // eslint-disable-next-line react/jsx-indent
+          <PrivateRoute>
+            <AdminCreateUser />
+          </PrivateRoute>,
       },
       {
         path: '/admin-edit-user',
-        element: <AdminEditUser />,
+        element:
+          // eslint-disable-next-line react/jsx-indent
+          <PrivateRoute>
+            <AdminEditUser />
+          </PrivateRoute>,
       },
     ],
   },
