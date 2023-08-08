@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiBriefcase } from 'react-icons/fi';
 import { rankingData } from '../../assets/data';
 import Inner from '../../Components/Inner';
+import Pagination from '../../Components/Pagination';
 
 const Ranking = () => {
   const [dataOfRannking, setDataOfRanking] = useState([]);
@@ -92,6 +93,10 @@ const Ranking = () => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div className="padding-btn-pagination">
+        <Pagination />
       </div>
     </div>
   );
