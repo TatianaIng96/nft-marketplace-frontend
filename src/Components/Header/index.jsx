@@ -1,5 +1,6 @@
 /* eslint-disable arrow-body-style */
 import './Header.scss';
+import logo from '../../assets/logo-neuron.png';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -82,7 +83,7 @@ const Header = () => {
     <div className="header-secction">
       <header onMouseLeave={handleHideAllLists}>
         <NavLink to="/">
-          <img src="./src/assets/logo-white.png" alt="Nuron logo" />
+          <img src={logo} alt="Nuron logo" />
         </NavLink>
         <div className="menuOption home" onMouseEnter={handleHomeHover}>
           <p>
