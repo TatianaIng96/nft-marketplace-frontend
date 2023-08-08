@@ -6,6 +6,7 @@
   $medium-color-blue: #212E48;
   $dark-color-blue: #242435;
   $silver-color: #ACACAC;
+  z-index: 9999;
   .mn{
     padding: 7px 13px;
     background: #212e48;
@@ -54,10 +55,81 @@
             background-color: $blue-color;
           }
         }
+        @media (min-width:768px) and (max-width:1023px){
+          right: -3em;
+        }
+        @media (min-width:1023px) and (max-width:1279px){
+          right: -3em;
+        }
+        @media (min-width:1280px) and (max-width:1360px){
+          right: -5em;
+        }
+        @media (min-width:1361px) and (max-width:1440px){
+          right: -5em;
+        }
+        @media (min-width:1441px){
+          right: -5em;
+        }
       }
       .menu-options-hide {
         display: none;
       }
+    }
+  }
+  .dark-bg{
+    top: 8%;
+    left: 12em;
+  }
+  .modal{
+    margin-top: 0em;
+    left: 0em;
+  }
+  .dark-bg-report{
+    margin-top:-241em
+  }
+  @media (min-width:768px) and (max-width:1023px){
+    .dark-bg{
+      top: 13%;
+      left: 25em;
+    }
+    .dark-bg-report{
+      margin-top: -129em;
+    }
+  }
+  @media (min-width:1023px) and (max-width:1279px){
+    .dark-bg{
+      top: 8%;
+      left: 32em;
+    }
+    .dark-bg-report{
+      margin-top: -125em;
+    }
+  }
+  @media (min-width:1280px) and (max-width:1360px){
+    .dark-bg{
+      top: 11%;
+      left: 40em;
+    }
+    .dark-bg-report{
+      margin-top: -100em;
+    }
+  }
+  @media (min-width:1361px) and (max-width:1440px){
+    .dark-bg{
+      top: 14%;
+      left: 45em;
+    }
+    .dark-bg-report{
+      margin-top: -93em;
+    }
+  }
+  @media (min-width:1441px){
+    .dark-bg{
+      top: 10%;
+      left: 47em;
+    }
+    .dark-bg-report{
+      margin-top: -99em;
     }
   }
 }

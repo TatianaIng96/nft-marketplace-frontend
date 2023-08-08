@@ -102,22 +102,6 @@ const ProductDetails = () => {
           <RecentCard title="Related Item" />
         </div>
       </div>
-      <div id="modal" hidden>
-        <button type="button" onClick={() => { return handleModal('modal', true); }} className="onHide">X</button>
-        <div className="header">
-          <h3>Cabecera</h3>
-        </div>
-        <div className="content">
-          <p>
-            Contenido
-          </p>
-        </div>
-        <div className="footer">
-          <p>
-            Footer
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

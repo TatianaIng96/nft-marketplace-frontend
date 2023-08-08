@@ -4,7 +4,7 @@ $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
 
 .seller {
-  position: relative;
+  position:inherit;
   width: 9rem;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ $dark-color-blue: #242435;
 
   .seller__info {
     text-align: center;
-
+    position:inherit;
     a {
       color: #fff;
       .seller__info-title {

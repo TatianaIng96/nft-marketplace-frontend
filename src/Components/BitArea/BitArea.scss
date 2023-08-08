@@ -17,6 +17,10 @@
     transform: translateX(-19%);
     text-align: center;
     margin-top: -3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap:32px;
+    margin-left:1em;
   }
   .winning{
     padding: 15px;
@@ -29,12 +33,28 @@
   .title1{
     font-weight: 400;
     font-size: 18px;
-    margin-left: 2em;
+    margin-left: 4em;
   }
   .bid-list{
     margin-top: -3em;
     width: 20em;
     margin-left: -1em;
+    @media(min-width:768px) and (max-width:1023px){
+      margin-top: 1em;
+      margin-left: 1.5em;
+    }
+    @media (min-width:1024px) and (max-width:1279px){
+      margin-top: 1em;
+      margin-left: -6.5em;
+    }
+    @media (min-width:1280px) and (max-width:1440px){
+      margin-top: 1em;
+      margin-left: -3.5em;
+    }
+    @media (min-width:1441px){
+      margin-top: 1em;
+      margin-left: -3.5em;
+    }
   }
   .place-bit{
     min-width: max-content;
@@ -49,6 +69,73 @@
     &:hover {
       background: $blue-color;
       color: #fff;
+    }
+    @media(min-width:768px) and (max-width:1023px){
+      width: 35em;
+      margin-left: -15em;
+      font-size: 16px;
+    }
+    @media (min-width:1024px) and (max-width:1279px){
+      width: 20em;
+      margin-left: -7em;
+      font-size: 16px;
+      margin-top: 5em;
+    }
+    @media (min-width:1280px) and (max-width:1440px){
+      width: 27em;
+      margin-left: -9em;
+      font-size: 16px;
+      margin-top: 2em;
+    }
+    @media (min-width:1441px){
+      width: 27em;
+      margin-left: -9em;
+      font-size: 16px;
+      margin-top: 3em;
+    }
+  }
+  @media(min-width:768px) and (max-width:1023px){
+    width: 40em;
+    margin-left: 3em;
+    .bet-create{
+      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+      margin-left: 3em;
+    }
+    .winning{
+      margin-left: 2em;
+    }
+  }
+  @media (min-width:1024px) and (max-width:1279px){
+    width: 25em;
+    margin-left: 3em;
+    .bet-create{
+      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+      margin-left: 3em;
+    }
+    .winning{
+      margin-left: -2em;
+    }
+  }
+  @media (min-width:1280px) and (max-width:1440px){
+    width: 31em;
+    margin-left: 2em;
+    .bet-create{
+      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+      margin-left: 3em;
+    }
+    .winning{
+      margin-left: -2em;
+    }
+  }
+  @media (min-width:1441px){
+    width: 31em;
+    margin-left: 2em;
+    .bet-create{
+      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+      margin-left: 3em;
+    }
+    .winning{
+      margin-left: -2em;
     }
   }
 }
