@@ -5,12 +5,12 @@
     background-color: rgba(0, 0, 0, 0.2);
     height: 100vh;
     width: 100vw;
-    z-index: 0;
-    top: 18em;
+    top: 15em;
     left: 10em;
     transform: translate(-50%, -50%);
     position: absolute;
     transition: opacity .15s linear;
+    z-index: 0;
   }
 
   .modal {
@@ -23,7 +23,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     width: 20em;
     height: 27em;
-    overflow: hidden;
+    z-index: 10;
     pointer-events: auto;
     border: 1px solid #acacac;
   }
@@ -129,7 +129,7 @@
   @media (min-width:1024px) and (max-width:1279px){
     .modal-overlay{
       margin-left: -14em;
-      margin-top: -9em;
+      margin-top: -6em;
     }
     .modal{
       margin-top: 3em;
@@ -143,7 +143,7 @@
   @media (min-width:1280px) and (max-width:1360px){
     .modal-overlay{
       margin-left: -12em;
-      margin-top: -19em;
+      margin-top: 0em;
     }
     .modal{
       margin-top: 9em;
