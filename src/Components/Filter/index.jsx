@@ -55,7 +55,7 @@ const Filter = ({ handleFilter }) => {
                     onChange={handleFilter}
                   >
                     <option value="DEFAULT" disabled>Category</option>
-                    <option value="all-category">All Category</option>
+                    <option value="all-categories">All Categories</option>
                     <option value="art">Art</option>
                     <option value="music">Music</option>
                     <option value="video">Video</option>
@@ -72,11 +72,11 @@ const Filter = ({ handleFilter }) => {
                     onChange={handleFilter}
                   >
                     <option value="DEFAULT" disabled>Collection</option>
-                    <option value="all-collection">All Collection</option>
+                    <option value="all-collections">All Collections</option>
                     <option value="art-decco">Art Decco</option>
-                    <option value="bore">BoredApeYachtClub</option>
-                    <option value="mutan">MutantApeYachtClub</option>
-                    <option value="art-block">Art Blocks Factory</option>
+                    <option value="bored-ape-yacht-club">BoredApeYachtClub</option>
+                    <option value="mutant-ape-yacht-club">MutantApeYachtClub</option>
+                    <option value="art-blocks-factory">Art Blocks Factory</option>
                   </select>
                 </div>
                 <div className="select">

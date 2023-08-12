@@ -6,9 +6,9 @@ export const UsersAndNFTsContext = createContext();
 export const UsersAndNFTsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [fakeData, setFakeData] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const isAdmin = true;
 
-  // console.log(users);
+  // console.log(fakeData);
 
   return (
     <UsersAndNFTsContext.Provider

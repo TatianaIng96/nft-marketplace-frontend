@@ -1,22 +1,16 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './AdminEditUser.scss';
 import { AiOutlineEye } from 'react-icons/ai';
-import { useContext } from 'react';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import { useState } from 'react';
+import ModalDeleteUserConfirmation from '../../Components/ModalDeleteUserConfirmation';
+import ModalConfirmAdminRole from '../../Components/ModalConfirmAdminRole';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 import UserInfoForm from '../../Components/UserInfoForm';
-import useForm from '../../hooks/useForm';
 
 const AdminEditUser = () => {
-  const { users, setUsers } = useContext(UsersAndNFTsContext);
-
-  const { object, handleChange } = useForm({});
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setUsers([...users, object]);
-  };
+  const [deleteUserQuestion, setDeleteUserQuestion] = useState(false);
+  const [confirmAdmin, setConfirmAdmin] = useState(false);
 
   return (
     <div className="adminEditUser">
@@ -29,25 +23,27 @@ const AdminEditUser = () => {
         <div className="menuAndForm">
           <div className="editMenuContainer">
             <EditProfileMenu />
+            <div className="deleteUserContainer">
+              <button type="button" onClick={() => { return setDeleteUserQuestion(true); }} className="deleteUserButton">Delete user</button>
+            </div>
           </div>
           <div className="userInfoFormContainer">
-            <UserInfoForm
-              onEdit={handleChange}
-              onSubmit={handleSubmit}
-            /* firstNameValue=""
-            lastNameValue=""
-            emailValue=""
-            bioValue=""
-            roleValue=""
-            genderValue="none"
-            currencyValue="none"
-            phoneNumberValue=""
-            locationValue="none"
-            addressValue="" */
-            />
+            <UserInfoForm />
           </div>
         </div>
+        <div className="deleteUserContainer">
+          <button type="button" className="deleteUserButton">Delete user</button>
+        </div>
       </div>
+      {deleteUserQuestion
+        && (
+          <ModalDeleteUserConfirmation
+            onCancel={setDeleteUserQuestion}
+            onDelete={setConfirmAdmin}
+          />
+        )}
+      {confirmAdmin
+        && <ModalConfirmAdminRole onCancel={setConfirmAdmin} />}
     </div>
   );
 };

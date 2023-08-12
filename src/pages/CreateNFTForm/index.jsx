@@ -61,11 +61,31 @@ const CreateNFTForm = () => {
                   Property
                   <input type="text" onChange={handleChange} name="property" id="property" placeholder="e.g. 'Property'" />
                 </label>
+                <label htmlFor="royalty">
+                  Royalty
+                  <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
+                </label>
+                <label htmlFor="category">
+                  Category
+                  <select name="category" id="category">
+                    <option value="all-categories">All Categories</option>
+                    <option value="art">Art</option>
+                    <option value="music">Music</option>
+                    <option value="video">Video</option>
+                    <option value="collectionable">Collectionable</option>
+                  </select>
+                </label>
+                <label htmlFor="collection">
+                  Collection
+                  <select name="collection" id="collection">
+                    <option value="all-collections">All Collections</option>
+                    <option value="art-decco">Art Decco</option>
+                    <option value="bored-ape-yacht-club">BoredApeYachtClub</option>
+                    <option value="mutant-ape-yacht-club">MutantApeYachtClub</option>
+                    <option value="art-blocks-factory">Art Blocks Factory</option>
+                  </select>
+                </label>
               </div>
-              <label htmlFor="royalty">
-                Royalty
-                <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
-              </label>
             </div>
             <div className="checkboxContainer">
               <label htmlFor="put-on-sale">
