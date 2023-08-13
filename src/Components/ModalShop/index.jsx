@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './ModalShop.scss';
 
@@ -7,7 +8,7 @@ const ModalShop = ({ isOpen, onClose }) => {
   return (
     <div className="shop-secction">
       <div className="modal-overlay">
-        <div className="modal-content-background" onClick={onClose} >
+        <div className="modal-content-background" onClick={onClose}>
           <button type="button" className="modal-close" onClick={onClose}>
             X
           </button>
@@ -23,7 +24,7 @@ const ModalShop = ({ isOpen, onClose }) => {
                   <div className="bid-content">
                     <div className="">
                       <div className="bid-content-left">
-                        <input className="input" id="value" type="text" name="value"/>
+                        <input className="input" id="value" type="text" name="value" />
                         <span className="span-bit">wETH</span>
                       </div>
                     </div>
@@ -42,7 +43,7 @@ const ModalShop = ({ isOpen, onClose }) => {
                   </div>
                 </div>
                 <div className="bit-button">
-                  <a rel="preload"  href="/connect">
+                  <a href="/connect">
                     <span className="place">Place a bid</span>
                   </a>
                   <button className="cancel" type="button" onClick={onClose}>

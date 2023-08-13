@@ -12,7 +12,7 @@ import Details from '../../Components/Details';
 
 const ProductDetails = () => {
   const [isActive, setIsActive] = useState(0);
-  const buton = ['Birds', 'Details', 'History'];
+  const buton = ['Bids', 'Details', 'History'];
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);
@@ -70,7 +70,7 @@ const ProductDetails = () => {
                                 return (
                                   <button
                                     type="button"
-                                  // eslint-disable-next-line react/no-array-index-key
+                                    // eslint-disable-next-line react/no-array-index-key
                                     key={index}
                                     className={isActive === index ? 'mi-boton active' : 'mi-boton'}
                                     onClick={() => { return handleClick(index); }}
@@ -86,9 +86,9 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div>
-                    { isActive === 0 && <Bids />}
-                    { isActive === 1 && <Details />}
-                    { isActive === 2 && <HistoryBids />}
+                    {isActive === 0 && <Bids />}
+                    {isActive === 1 && <Details />}
+                    {isActive === 2 && <HistoryBids />}
                   </div>
                 </div>
               </div>
