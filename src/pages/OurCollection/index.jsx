@@ -2,6 +2,7 @@ import './OurCollection.scss';
 import Inner from '../../Components/Inner';
 import ListOfCardCollection from '../../Components/ListOfCardCollection';
 import Pagination from '../../Components/Pagination';
+import TopArrow from '../../Components/TopArrow';
 
 const OurCollection = () => {
   return (
@@ -13,6 +14,7 @@ const OurCollection = () => {
       <div className="padding-btn-pagination">
         <Pagination />
       </div>
+      <TopArrow />
     </div>
   );
 };
