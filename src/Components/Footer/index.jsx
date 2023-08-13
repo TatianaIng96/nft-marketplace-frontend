@@ -88,27 +88,29 @@ const FooterComponent = () => {
             <div className="col recent-sold-out">
               <h6 className="widget-title-2">Recent Sold Out</h6>
               <ul className="footer-recent">
-                {recent.map((item, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <li className="recent" key={index}>
-                    <div className="image-thumb">
-                      <a href="preload">
-                        <img
-                          src={item.image}
-                          className="img-radius"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div className="content">
-                      <h6 className="title-2">
-                        <a href="#top">{item.title}</a>
-                      </h6>
-                      <p className="p">{item.body}</p>
-                      <span className="price">{item.price}</span>
-                    </div>
-                  </li>
-                ))}
+                {recent.map((item, index) => {
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <li className="recent" key={index}>
+                      <div className="image-thumb">
+                        <a href="preload">
+                          <img
+                            src={item.image}
+                            className="img-radius"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div className="content">
+                        <h6 className="title-2">
+                          <a href="#top">{item.title}</a>
+                        </h6>
+                        <p className="p">{item.body}</p>
+                        <span className="price">{item.price}</span>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

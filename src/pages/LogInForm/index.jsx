@@ -1,13 +1,19 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './LogInForm.scss';
-// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import { useContext } from 'react';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const LogInForm = () => {
+  const { users, setUsers } = useContext(UsersAndNFTsContext);
+
   const { object, handleChange } = useForm({});
 
-  // object es el objeto formado para pasarle al handleSubmit cuando lo tengamos
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setUsers([...users, object]);
+  };
 
   return (
     <div className="logInFormContainer">
@@ -15,7 +21,7 @@ const LogInForm = () => {
       <div className="pageContainer">
         <div className="allLoginsContainer">
           <section className="formSection">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               <h1>Login</h1>
               <label htmlFor="email">
                 Email address

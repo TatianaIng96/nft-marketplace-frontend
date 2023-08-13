@@ -1,16 +1,17 @@
-.shop-secction{
+.shop-secction {
   /* Modal.css */
   $main-background: #13131d;
+
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.2);
     height: 100vh;
     width: 100vw;
-    z-index: 0;
-    top: 18em;
+    top: 15em;
     left: 10em;
     transform: translate(-50%, -50%);
     position: absolute;
     transition: opacity .15s linear;
+    z-index: 0;
   }
 
   .modal {
@@ -23,7 +24,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     width: 20em;
     height: 27em;
-    overflow: hidden;
+    z-index: 10;
     pointer-events: auto;
     border: 1px solid #acacac;
   }
@@ -32,9 +33,9 @@
     width: 17rem;
   }
 
-  .modal-close{
+  .modal-close {
     border-radius: 30px;
-    background: hsla(0,0%,100%,.08);
+    background: hsla(0, 0%, 100%, .08);
     border: none;
     position: relative;
     margin-left: 25em;
@@ -43,33 +44,37 @@
     height: 2em;
   }
 
-  .bit-title{
+  .bit-title {
     font-size: 16px;
     display: flex;
     justify-content: flex-start;
     margin-left: 1.5em;
     margin-bottom: 1em;
   }
-  .input{
+
+  .input {
     background: #24243557;
     height: 35px;
     width: 22em;
     border-radius: 5px;
     border: 2px solid transparent;
   }
-  .span-bit{
+
+  .span-bit {
     display: flex;
     margin-top: -2em;
     margin-left: 16em;
     margin-bottom: 1em;
   }
-  .bid-content-mid{
+
+  .bid-content-mid {
     padding: 20px 17px;
     display: flex;
     justify-content: space-between;
     width: 20em;
     gap: 80px;
-    .left{
+
+    .left {
       display: flex;
       font-size: 12px;
       color: #acacac;
@@ -77,13 +82,13 @@
 
   }
 
-  .left-t{
+  .left-t {
     display: flex;
     font-size: 12px;
     color: #00a3ff;
   }
 
-  .bit-button{
+  .bit-button {
     background-color: #00a3ff;
     width: 18em;
     display: flex;
@@ -91,13 +96,15 @@
     margin-left: 1em;
     border-radius: 10px;
     align-items: center;
-    .place{
+
+    .place {
       color: white;
       font-weight: 500;
       margin-left: 6em;
     }
   }
-  .cancel{
+
+  .cancel {
     display: flex;
     margin-top: 8em;
     height: 3em;
@@ -108,208 +115,256 @@
     border: none;
     background: #212e48;
     margin-left: -13em;
-    &:hover{
+
+    &:hover {
       background: #00a3ff;
     }
   }
-  @media(min-width:768px) and (max-width:1023px){
-    .modal-overlay{
+
+  @media(min-width:768px) and (max-width:1023px) {
+    .modal-overlay {
       margin-left: 11em;
       margin-top: -9em;
     }
-    .modal{
+
+    .modal {
       margin-top: 14em;
       margin-left: 12em;
     }
-    .modal-close{
+
+    .modal-close {
       margin-top: 17em;
       margin-left: 40em;
     }
   }
-  @media (min-width:1024px) and (max-width:1279px){
-    .modal-overlay{
+
+  @media (min-width:1024px) and (max-width:1279px) {
+    .modal-overlay {
       margin-left: -14em;
-      margin-top: -9em;
+      margin-top: -6em;
     }
-    .modal{
+
+    .modal {
       margin-top: 3em;
       margin-left: 20em;
     }
-    .modal-close{
+
+    .modal-close {
       margin-top: 4em;
       margin-left: 71em;
     }
   }
-  @media (min-width:1280px) and (max-width:1360px){
-    .modal-overlay{
+
+  @media (min-width:1280px) and (max-width:1360px) {
+    .modal-overlay {
       margin-left: -12em;
-      margin-top: -19em;
+      margin-top: 0em;
     }
-    .modal{
+
+    .modal {
       margin-top: 9em;
       margin-left: 30em;
       width: 32em;
       height: 33em;
     }
-    .modal-close{
+
+    .modal-close {
       margin-top: 7em;
       margin-left: 89em;
     }
-    .cancel{
+
+    .cancel {
       margin-left: -16em;
       font-size: 16px;
     }
-    .bit-button{
+
+    .bit-button {
       width: 27em;
       height: 3em;
       margin-left: 2.5em;
       margin-top: 0em;
-      .place{
+
+      .place {
         font-size: 20px;
         margin-left: 8em;
       }
     }
-    .bid-content-mid{
+
+    .bid-content-mid {
       margin-top: 1em;
       width: 27em;
       margin-left: 2em;
-      .left{
+
+      .left {
         font-size: 16px;
       }
     }
-    .left-t{
+
+    .left-t {
       font-size: 16px;
     }
-    .modal-title{
+
+    .modal-title {
       margin-top: 2em;
       font-size: 25px;
     }
-    .parraf{
+
+    .parraf {
       font-size: 18px;
     }
-    .bit-title{
+
+    .bit-title {
       margin-left: 2em;
       font-size: 25px;
     }
-    .input{
+
+    .input {
       width: 32em;
       height: 45px;
     }
-    .span-bit{
+
+    .span-bit {
       margin-left: 26em;
     }
   }
-  @media (min-width:1361px) and (max-width:1440px){
-    .modal-overlay{
+
+  @media (min-width:1361px) and (max-width:1440px) {
+    .modal-overlay {
       margin-left: -20em;
       margin-top: 6em;
     }
-    .modal{
+
+    .modal {
       margin-top: 9em;
       margin-left: 34em;
       width: 32em;
       height: 33em;
     }
-    .modal-close{
+
+    .modal-close {
       margin-top: 7em;
       margin-left: 101em;
     }
-    .cancel{
+
+    .cancel {
       margin-left: -16em;
       font-size: 16px;
     }
-    .bit-button{
+
+    .bit-button {
       width: 27em;
       height: 3em;
       margin-left: 2.5em;
       margin-top: 0em;
-      .place{
+
+      .place {
         font-size: 20px;
         margin-left: 8em;
       }
     }
-    .bid-content-mid{
+
+    .bid-content-mid {
       margin-top: 1em;
       width: 27em;
       margin-left: 2em;
-      .left{
+
+      .left {
         font-size: 16px;
       }
     }
-    .left-t{
+
+    .left-t {
       font-size: 16px;
     }
-    .modal-title{
+
+    .modal-title {
       margin-top: 2em;
       font-size: 25px;
     }
-    .parraf{
+
+    .parraf {
       font-size: 18px;
     }
-    .bit-title{
+
+    .bit-title {
       margin-left: 2em;
       font-size: 25px;
     }
-    .input{
+
+    .input {
       width: 32em;
       height: 45px;
     }
-    .span-bit{
+
+    .span-bit {
       margin-left: 26em;
     }
   }
-  @media (min-width:1441px){
-    .modal-overlay{
+
+  @media (min-width:1441px) {
+    .modal-overlay {
       margin-left: -16em;
       margin-top: -1em;
     }
-    .modal{
+
+    .modal {
       margin-top: 9em;
       margin-left: 34em;
       width: 32em;
       height: 33em;
     }
-    .modal-close{
+
+    .modal-close {
       margin-top: 7em;
       margin-left: 101em;
     }
-    .bit-button{
+
+    .bit-button {
       width: 27em;
       height: 3em;
       margin-left: 2.5em;
       margin-top: 0em;
-      .place{
+
+      .place {
         font-size: 20px;
         margin-left: 8em;
       }
     }
-    .bid-content-mid{
+
+    .bid-content-mid {
       margin-top: 1em;
       width: 27em;
       margin-left: 2em;
-      .left{
+
+      .left {
         font-size: 16px;
       }
     }
-    .left-t{
+
+    .left-t {
       font-size: 16px;
     }
-    .modal-title{
+
+    .modal-title {
       margin-top: 2em;
       font-size: 25px;
     }
-    .parraf{
+
+    .parraf {
       font-size: 18px;
     }
-    .bit-title{
+
+    .bit-title {
       margin-left: 2em;
       font-size: 25px;
     }
-    .input{
+
+    .input {
       width: 32em;
       height: 45px;
     }
-    .span-bit{
+
+    .span-bit {
       margin-left: 26em;
     }
   }

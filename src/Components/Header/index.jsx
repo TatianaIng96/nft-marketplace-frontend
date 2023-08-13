@@ -1,6 +1,5 @@
 /* eslint-disable arrow-body-style */
 import './Header.scss';
-import logo from '../../assets/logo-neuron.png';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -8,6 +7,7 @@ import { FiBell, FiSun } from 'react-icons/fi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
+import logo from '../../assets/logo-neuron.png';
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);

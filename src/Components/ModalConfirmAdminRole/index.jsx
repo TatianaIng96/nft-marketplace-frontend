@@ -1,6 +1,6 @@
 import './ModalConfirmAdminRole.scss';
 
-const ModalConfirmAdminRole = () => {
+const ModalConfirmAdminRole = ({ onCancel }) => {
   return (
     <div className="modalConfirmAdminRole">
       <form action="">
@@ -9,7 +9,7 @@ const ModalConfirmAdminRole = () => {
           <input type="password" name="password" id="password" />
         </label>
         <div className="buttonsContainer">
-          <button type="button" className="cancelButton">Cancel</button>
+          <button type="button" onClick={() => { return onCancel(false); }} className="cancelButton">Cancel</button>
           <button type="submit" className="confirmButton">Confirm</button>
         </div>
       </form>

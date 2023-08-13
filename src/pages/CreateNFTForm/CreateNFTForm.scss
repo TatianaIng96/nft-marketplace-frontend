@@ -1,4 +1,4 @@
-@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -18,14 +18,17 @@
   .pageContainer {
     box-sizing: border-box;
     background-color: #13131d;
-    @include flex-base($align:center);
+    @include flex-base($align: center);
+
     .allImageContainer {
       width: 100%;
-      @include flex-base($align:center)
+      @include flex-base($align: center)
     }
+
     .imgAndFormContainer {
       width: 100%;
-      @include flex-base($align:center);
+      @include flex-base($align: center);
+
       .noteSectionDesktop {
         display: none;
       }
@@ -40,7 +43,8 @@
     width: 95%;
     max-width: 350px;
     margin: 5vh 2vh 2vh 1vh;
-    @include flex-base($align:flex-start);
+    @include flex-base($align: flex-start);
+
     :last-child {
       margin-top: 5px;
       color: #858585;
@@ -57,8 +61,9 @@
     margin: 2vh 1vh 2vh 1vh;
     border: dashed 2px #858585;
     border-radius: 5px;
-    @include flex-base($justify:center,$align:center);
+    @include flex-base($justify: center, $align: center);
     cursor: pointer;
+
     :first-child {
       color: #00A3FF;
     }
@@ -66,7 +71,7 @@
 
   form {
     box-sizing: border-box;
-    background-color: rgb(28,28,42);
+    background-color: rgb(28, 28, 42);
     width: 95%;
     max-width: 360px;
     margin: 2vh 1vh 2vh 1vh;
@@ -74,20 +79,34 @@
     border: solid 1px #858585;
     border-radius: 10px;
     color: #858585;
+
     :nth-child(1) {
       label {
         @include flex-base;
       }
-      input[type="text"],input[type="number"],textarea {
+
+      input[type="text"],
+      input[type="number"],
+      textarea,
+      select {
         margin-top: 5px;
         margin-bottom: 10px;
         padding: 5px 10px;
-        background-color: rgb(36,36,54);
-        border: solid 2px rgb(56,57,72);
+        background-color: rgb(36, 36, 54);
+        border: solid 2px rgb(56, 57, 72);
         border-radius: 5px;
         color: white;
         cursor: auto;
       }
+
+      select {
+        color: #858585;
+      }
+
+      select:focus {
+        color: white;
+      }
+
       #description {
         height: 60px;
         text-align: unset;
@@ -98,8 +117,10 @@
   .checkboxContainer {
     margin-bottom: 2vh;
     @include flex-base;
-    input[type="checkbox"],input[type="checkbox"]:checked:before {
-      accent-color: rgb(93,93,126);
+
+    input[type="checkbox"],
+    input[type="checkbox"]:checked:before {
+      accent-color: rgb(93, 93, 126);
       margin-right: 10px;
       cursor: pointer;
     }
@@ -109,11 +130,13 @@
     @include flex-base;
     color: white;
     font-weight: bold;
+
     .previewButton {
       @include button-base-style;
-      background-color: rgb(33,46,73);
+      background-color: rgb(33, 46, 73);
       margin-bottom: 15px;
     }
+
     .submitButton {
       @include button-base-style;
       background-color: #00A3FF;
@@ -125,6 +148,7 @@
     max-width: 360px;
     margin: 2vh 1vh 2vh 1vh;
     @include flex-base;
+
     :first-child {
       font-weight: bold;
     }
@@ -134,10 +158,12 @@
     .imageInstructionsSection {
       max-width: 500px;
     }
+
     .imageSection {
       max-width: 500px;
       height: 500px;
     }
+
     form {
       max-width: 500px;
     }
@@ -147,59 +173,72 @@
     .pageContainer {
       .imgAndFormContainer {
         padding: 50px 100px;
-        @include flex-base($direction:row,$justify:center);
+        @include flex-base($direction: row, $justify: center);
       }
+
       .allImageContainer {
         position: relative;
         width: 355px;
+
         .imageInstructionsSection {
           width: 300px;
         }
+
         .imageSection {
           width: 300px;
           height: 300px;
         }
+
         .noteSectionDesktop {
           display: block;
           margin: 2vh 1vh 2vh 1vh;
           @include flex-base;
+
           :first-child {
             font-weight: bold;
           }
         }
       }
+
       form {
         max-width: 700px;
+
         .changeableInputs {
           width: auto;
-          @include flex-base($direction:row,$justify:space-evenly);
+          @include flex-base($direction: row, $justify: space-between);
+          flex-wrap: wrap;
+
           label {
             padding: 5px;
-            width: 32%;
+            width: 45%;
           }
         }
+
         .checkboxContainer {
-          @include flex-base($direction:row,$justify:space-between);
+          @include flex-base($direction: row, $justify: space-between);
+
           .checkbox {
             margin-right: 5px;
           }
         }
+
         .buttonsContainer {
-          @include flex-base($direction:row);
+          @include flex-base($direction: row);
+
           button {
             height: 100%;
             margin: 10px;
           }
+
           .previewButton {
             width: 33%;
           }
         }
       }
+
       .noteSection {
         display: none;
       }
     }
   }
 }
-
-

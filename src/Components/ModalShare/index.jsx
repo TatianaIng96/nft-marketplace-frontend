@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 
-export function ModalShare({ setIsOpen }) {
+export const ModalShare = ({ setIsOpen }) => {
   return (
     <div className="dark-bg">
       <div className="centered">
@@ -59,16 +59,16 @@ export function ModalShare({ setIsOpen }) {
               </div>
             </a>
           </div>
-          <button type="button" className="close-modal" onClick={() => setIsOpen(false)}>
+          <button type="button" className="close-modal" onClick={() => { return setIsOpen(false); }}>
             <AiOutlineClose style={{ marginBottom: '-3px' }} />
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export function ModalReport({ setOpenModalReport }) {
+export const ModalReport = ({ setOpenModalReport }) => {
   return (
     <div className="dark-bg-report">
       <div className="centered">
@@ -81,11 +81,11 @@ export function ModalReport({ setOpenModalReport }) {
             <textarea className="message" name="message" id="" cols="30" rows="10" placeholder="Write your report" />
             <div className="buttons">
               <button type="button" className="buttons-report button-report">Report</button>
-              <button type="button" className="buttons-report button-close" onClick={() => setOpenModalReport(false)}>Close</button>
+              <button type="button" className="buttons-report button-close" onClick={() => { return setOpenModalReport(false); }}>Close</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
