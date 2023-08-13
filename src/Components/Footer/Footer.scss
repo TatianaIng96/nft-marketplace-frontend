@@ -10,7 +10,7 @@
     margin: 0;
     padding: 64px -1px;
     border-top: 1px solid #222;
-    height: 100em;
+    height: 102em;
     font-size: 14px;
     padding-top: 6em;
 
@@ -31,7 +31,7 @@
         padding: 0 1em;
         max-width: 720px;
         height: 100%;
-
+        margin-top: 3em;
         .col {
           width: 250px;
           padding: 0 1em;
@@ -72,7 +72,7 @@
             border:  #ffffff14;
             position: relative;
             display: flex;
-            width: 30%;
+            width: 45%;
             display: flex;
             margin-top: -5%;
           }
@@ -101,7 +101,7 @@
             outline: none;
             display: flex;
             margin-top: -2.5em;
-            margin-left: 6.8em;
+            margin-left: 8.8em;
           }
 
           .footer-describe{
@@ -277,7 +277,11 @@
 
   @media (min-width: 768px) and (max-width: 1023px){ //lg
     .footer {
+<<<<<<< HEAD
       height: 48em;
+=======
+      height: 51em;
+>>>>>>> fix-details
       font-size: 17px;
       .footer-menu{
         .container{
@@ -288,6 +292,10 @@
             minmax(150px,1fr)
           );
           gap: 10em;
+<<<<<<< HEAD
+=======
+          margin-left: 2em;
+>>>>>>> fix-details
           .col{
             .form-control{
               width: 47%;
@@ -326,7 +334,11 @@
 
   @media (min-width: 1024px) and (max-width:1279px){ //xl
     .footer {
+<<<<<<< HEAD
       height: 28em;
+=======
+      height: 30em;
+>>>>>>> fix-details
       font-size: 18px;
       .footer-menu{
         margin: 56px -1%;
@@ -335,6 +347,10 @@
           flex-direction: row;
           max-width: 90em;
           margin-left: -4em;
+<<<<<<< HEAD
+=======
+          margin-top: 7em;
+>>>>>>> fix-details
           .col{
             .form-control{
               width: 47%;
@@ -389,7 +405,11 @@
 
   @media (min-width: 1280px) and (max-width:1360px){ //xl
     .footer {
+<<<<<<< HEAD
       height: 28em;
+=======
+      height: 30em;
+>>>>>>> fix-details
       font-size: 18px;
       .footer-menu{
         margin: 56px -1%;
@@ -398,6 +418,10 @@
           flex-direction: row;
           max-width: 100em;
           margin-left: -1em;
+<<<<<<< HEAD
+=======
+          margin-top: 7em;
+>>>>>>> fix-details
           .col{
             .form-control{
               width: 47%;
@@ -452,7 +476,11 @@
 
   @media (min-width: 1361px) and (max-width:1440px){ //xl
     .footer {
+<<<<<<< HEAD
       height: 28em;
+=======
+      height: 30em;
+>>>>>>> fix-details
       font-size: 18px;
       .footer-menu{
         margin: 56px -1%;
@@ -461,13 +489,21 @@
           flex-direction: row;
           max-width: 90em;
           margin-left: -1em;
+<<<<<<< HEAD
+=======
+          margin-top: 7em;
+>>>>>>> fix-details
           .col{
             width: 301px;
             .form-control{
               width: 47%;
             }
             .btn-subscribe{
+<<<<<<< HEAD
               margin-left: 9em;
+=======
+              margin-left: 10em;
+>>>>>>> fix-details
             }
           }
           .email-subscription{
@@ -516,7 +552,11 @@
 
   @media (min-width: 1441px) and (max-width:1700px){ //xl
     .footer {
+<<<<<<< HEAD
       height: 28em;
+=======
+      height: 30em;
+>>>>>>> fix-details
       font-size: 18px;
       .footer-menu{
         margin: 56px -1%;
@@ -525,6 +565,10 @@
           flex-direction: row;
           max-width: 90em;
           margin-left: 2em;
+<<<<<<< HEAD
+=======
+          margin-top: 7em;
+>>>>>>> fix-details
           .col{
             width: 301px;
             .form-control{

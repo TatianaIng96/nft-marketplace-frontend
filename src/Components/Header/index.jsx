@@ -1,5 +1,6 @@
 /* eslint-disable arrow-body-style */
 import './Header.scss';
+import logo from '../../assets/logo-neuron.png';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -82,7 +83,7 @@ const Header = () => {
     <div className="header-secction">
       <header onMouseLeave={handleHideAllLists}>
         <NavLink to="/">
-          <img src="src/assets/logo-white.png" alt="Nuron logo" />
+          <img src={logo} alt="Nuron logo" />
         </NavLink>
         <div className="menuOption home" onMouseEnter={handleHomeHover}>
           <p>
@@ -92,19 +93,19 @@ const Header = () => {
           <div>
             {showHome
               && (
-              <ul
-                className="home__list"
-                onMouseEnter={handleHomeHover}
-                onMouseLeave={() => setShowHome(false)}
-              >
-                <NavLink to="/">
-                  <li>Home Page One</li>
-                </NavLink>
-                <li>Home Page Two</li>
-                <li>Home Page Three</li>
-                <li>Home Page Four</li>
-                <li>Home Page Five</li>
-              </ul>
+                <ul
+                  className="home__list"
+                  onMouseEnter={handleHomeHover}
+                  onMouseLeave={() => setShowHome(false)}
+                >
+                  <NavLink to="/">
+                    <li>Home Page One</li>
+                  </NavLink>
+                  <li>Home Page Two</li>
+                  <li>Home Page Three</li>
+                  <li>Home Page Four</li>
+                  <li>Home Page Five</li>
+                </ul>
               )}
           </div>
         </div>
@@ -116,22 +117,22 @@ const Header = () => {
           </p>
           {showExplore
             && (
-            <ul
-              className="explore__list"
-              onMouseEnter={handleExploreHover}
-              onMouseLeave={() => setShowExplore(false)}
-            >
-              <li>Explore Filter</li>
-              <li>Explore Isotop</li>
-              <li>Explore Carousel</li>
-              <NavLink to="/explore">
-                <li>Explore Simple</li>
-              </NavLink>
-              <li>Explore Place Bid</li>
-              <li>Place Bid With Filter</li>
-              <li>Place Bid With Isotop</li>
-              <li>Place Bid With Carousel</li>
-            </ul>
+              <ul
+                className="explore__list"
+                onMouseEnter={handleExploreHover}
+                onMouseLeave={() => setShowExplore(false)}
+              >
+                <li>Explore Filter</li>
+                <li>Explore Isotop</li>
+                <li>Explore Carousel</li>
+                <NavLink to="/explore">
+                  <li>Explore Simple</li>
+                </NavLink>
+                <li>Explore Place Bid</li>
+                <li>Place Bid With Filter</li>
+                <li>Place Bid With Isotop</li>
+                <li>Place Bid With Carousel</li>
+              </ul>
             )}
         </div>
         <div className="menuOption pages" onMouseEnter={handlePagesHover}>
@@ -141,28 +142,28 @@ const Header = () => {
           </p>
           {showPages
             && (
-            <ul
-              className="pages__list"
-              onMouseEnter={handlePagesHover}
-              onMouseLeave={() => setShowPages(false)}
-            >
-              <NavLink to="/create-nft">
-                <li>Create NFT</li>
-              </NavLink>
-              <li>Product</li>
-              <NavLink to="/login">
-                <li>Login</li>
-              </NavLink>
-              <li>About Us</li>
-              <li>Upload Type</li>
-              <NavLink to="/sign-up">
-                <li>Registration</li>
-              </NavLink>
-              <NavLink to="/product-details">
-                <li>Product Details</li>
-              </NavLink>
-              <li>Contact</li>
-            </ul>
+              <ul
+                className="pages__list"
+                onMouseEnter={handlePagesHover}
+                onMouseLeave={() => setShowPages(false)}
+              >
+                <NavLink to="/create-nft">
+                  <li>Create NFT</li>
+                </NavLink>
+                <li>Product</li>
+                <NavLink to="/login">
+                  <li>Login</li>
+                </NavLink>
+                <li>About Us</li>
+                <li>Upload Type</li>
+                <NavLink to="/sign-up">
+                  <li>Registration</li>
+                </NavLink>
+                <NavLink to="/product-details">
+                  <li>Product Details</li>
+                </NavLink>
+                <li>Contact</li>
+              </ul>
             )}
         </div>
         <div className="menuOption blog" onMouseEnter={handleBlogHover}>
@@ -172,17 +173,17 @@ const Header = () => {
           </p>
           {showBlog
             && (
-            <ul
-              className="blog__list"
-              onMouseEnter={handleBlogHover}
-              onMouseLeave={() => setShowBlog(false)}
-            >
-              <li>Blog Single Column</li>
-              <li>Blog Two Column</li>
-              <li>Blog Three Column</li>
-              <li>Blog Four Column</li>
-              <li>Blog Details</li>
-            </ul>
+              <ul
+                className="blog__list"
+                onMouseEnter={handleBlogHover}
+                onMouseLeave={() => setShowBlog(false)}
+              >
+                <li>Blog Single Column</li>
+                <li>Blog Two Column</li>
+                <li>Blog Three Column</li>
+                <li>Blog Four Column</li>
+                <li>Blog Details</li>
+              </ul>
             )}
         </div>
         <span className="menuOption">Contact</span>
@@ -226,216 +227,233 @@ const Header = () => {
         </section>
 
         {showSearchBar
-        && (
-        <div className="searchBarContainer">
-          <input type="text" placeholder="Search..." className="searchInput" />
-          {/* eslint-disable-next-line */}
-          <button type="button" className="searchButton"><AiOutlineSearch /></button>
-        </div>
-        )}
+          && (
+            <div className="searchBarContainer">
+              <input type="text" placeholder="Search..." className="searchInput" />
+              {/* eslint-disable-next-line */}
+              <button type="button" className="searchButton"><AiOutlineSearch /></button>
+            </div>
+          )}
 
         {showSideMenu
-        && (
-        <section className="sideMenu">
-          <div>
-            <img src="src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
-            <button type="button" className="xButton" onClick={() => setShowSideMenu(false)}>
-              <HiOutlineX />
-            </button>
-          </div>
-          <ul className="menuInMobile">
-            <li
-              onClick={toggleHomeList}
-              role="menuitem"
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  setShowSideMenu(false);
-                }
-              }}
-              tabIndex={0}
-            >
-              Home
-              {' '}
-              <BiChevronDown />
-            </li>
-            {showSideHome
-                && (
-                <ul className="sideMenuItems">
-                  <NavLink to="/">
-                    <li
-                      onClick={() => {
-                        setShowSideMenu(false);
-                        setShowSideHome(false);
-                      }}
-                      role="menuitem"
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' || event.key === ' ') {
-                          setShowSideMenu(false);
-                        }
-                      }}
-                      tabIndex={0}
-                    >
-                      Home Page One
-                      {' '}
-                    </li>
-                  </NavLink>
-                  <li>Home Page Two</li>
-                  <li>Home Page Three</li>
-                  <li>Home Page Four</li>
-                  <li>Home Page Five</li>
-                </ul>
-                )}
-            <li>About</li>
-            <li
-              onClick={toggleExploreList}
-              role="menuitem"
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  setShowSideMenu(false);
-                }
-              }}
-              tabIndex={0}
-            >
-              Explore
-              {' '}
-              <BiChevronDown />
-            </li>
-            {showSideExplore
-                && (
-                <ul className="sideMenuItems">
-                  <li>Explore Filter</li>
-                  <li>Explore Isotop</li>
-                  <li>Explore Carousel</li>
-                  <NavLink to="/explore">
-                    <li
-                      onClick={() => {
-                        setShowSideMenu(false);
-                        setShowSideExplore(false);
-                      }}
-                      role="menuitem"
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' || event.key === ' ') {
-                          setShowSideMenu(false);
-                        }
-                      }}
-                      tabIndex={0}
-                    >
-                      Explore Simple
-                      {' '}
-                    </li>
-                  </NavLink>
-                  <li>Explore Place Bid</li>
-                  <li>Place Bid With Filter</li>
-                  <li>Place Bid With Isotop</li>
-                  <li>Place Bid With Carousel</li>
-                </ul>
-                )}
-            <li
-              onClick={togglePagesList}
-              role="menuitem"
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  setShowSideMenu(false);
-                }
-              }}
-              tabIndex={0}
-            >
-              Pages
-              {' '}
-              <BiChevronDown />
-            </li>
-            {showSidePages
+          && (
+            <section className="sideMenu">
+              <div>
+                <img src="src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
+                <button type="button" className="xButton" onClick={() => setShowSideMenu(false)}>
+                  <HiOutlineX />
+                </button>
+              </div>
+              <ul className="menuInMobile">
+                <li
+                  onClick={toggleHomeList}
+                  role="menuitem"
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      setShowSideMenu(false);
+                    }
+                  }}
+                  tabIndex={0}
+                >
+                  Home
+                  {' '}
+                  <BiChevronDown />
+                </li>
+                {showSideHome
                   && (
-                  <ul className="sideMenuItems">
-                    <NavLink to="/create-nft">
-                      <li
-                        onClick={() => {
-                          setShowSideMenu(false);
-                          setShowSidePages(false);
-                        }}
-                        role="menuitem"
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
+                    <ul className="sideMenuItems">
+                      <NavLink to="/">
+                        <li
+                          onClick={() => {
                             setShowSideMenu(false);
-                          }
-                        }}
-                        tabIndex={0}
-                      >
-                        Create NFT
-                        {' '}
-                      </li>
-                    </NavLink>
-                    <li>Product</li>
-                    <NavLink to="/login">
-                      <li
-                        onClick={() => {
-                          setShowSideMenu(false);
-                          setShowSidePages(false);
-                        }}
-                        role="menuitem"
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
-                            setShowSideMenu(false);
-                          }
-                        }}
-                        tabIndex={0}
-                      >
-                        Login
-                        {' '}
-                      </li>
-                    </NavLink>
-                    <li>About Us</li>
-                    <li>Upload Type</li>
-                    <NavLink to="/sign-up">
-                      <li
-                        onClick={() => {
-                          setShowSideMenu(false);
-                          setShowSidePages(false);
-                        }}
-                        role="menuitem"
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
-                            setShowSideMenu(false);
-                          }
-                        }}
-                        tabIndex={0}
-                      >
-                        Registration
-                        {' '}
-                      </li>
-                    </NavLink>
-                    <li>Product Details</li>
-                    <li>Contact</li>
-                  </ul>
+                            setShowSideHome(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Home Page One
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <li>Home Page Two</li>
+                      <li>Home Page Three</li>
+                      <li>Home Page Four</li>
+                      <li>Home Page Five</li>
+                    </ul>
                   )}
-            <li
-              onClick={toggleBlogList}
-              role="menuitem"
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  setShowSideMenu(false);
-                }
-              }}
-              tabIndex={0}
-            >
-              Blog
-              {' '}
-              <BiChevronDown />
-            </li>
-            {showSideBlog
+                <li>About</li>
+                <li
+                  onClick={toggleExploreList}
+                  role="menuitem"
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      setShowSideMenu(false);
+                    }
+                  }}
+                  tabIndex={0}
+                >
+                  Explore
+                  {' '}
+                  <BiChevronDown />
+                </li>
+                {showSideExplore
                   && (
-                  <ul className="sideMenuItems">
-                    <li>Blog Single Column</li>
-                    <li>Blog Two Column</li>
-                    <li>Blog Three Column</li>
-                    <li>Blog Four Column</li>
-                    <li>Blog Details</li>
-                  </ul>
+                    <ul className="sideMenuItems">
+                      <li>Explore Filter</li>
+                      <li>Explore Isotop</li>
+                      <li>Explore Carousel</li>
+                      <NavLink to="/explore">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSideExplore(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Explore Simple
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <li>Explore Place Bid</li>
+                      <li>Place Bid With Filter</li>
+                      <li>Place Bid With Isotop</li>
+                      <li>Place Bid With Carousel</li>
+                    </ul>
                   )}
-            <li>Contact</li>
-          </ul>
-        </section>
-        )}
+                <li
+                  onClick={togglePagesList}
+                  role="menuitem"
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      setShowSideMenu(false);
+                    }
+                  }}
+                  tabIndex={0}
+                >
+                  Pages
+                  {' '}
+                  <BiChevronDown />
+                </li>
+                {showSidePages
+                  && (
+                    <ul className="sideMenuItems">
+                      <NavLink to="/create-nft">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSidePages(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Create NFT
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <li>Product</li>
+                      <NavLink to="/login">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSidePages(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Login
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <li>About Us</li>
+                      <li>Upload Type</li>
+                      <NavLink to="/sign-up">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSidePages(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Registration
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <NavLink to="/product-details">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSidePages(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Product details
+                          {' '}
+                        </li>
+                      </NavLink>
+                      <li>Contact</li>
+                    </ul>
+                  )}
+                <li
+                  onClick={toggleBlogList}
+                  role="menuitem"
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      setShowSideMenu(false);
+                    }
+                  }}
+                  tabIndex={0}
+                >
+                  Blog
+                  {' '}
+                  <BiChevronDown />
+                </li>
+                {showSideBlog
+                  && (
+                    <ul className="sideMenuItems">
+                      <li>Blog Single Column</li>
+                      <li>Blog Two Column</li>
+                      <li>Blog Three Column</li>
+                      <li>Blog Four Column</li>
+                      <li>Blog Details</li>
+                    </ul>
+                  )}
+                <li>Contact</li>
+              </ul>
+            </section>
+          )}
       </header>
 
     </div>
