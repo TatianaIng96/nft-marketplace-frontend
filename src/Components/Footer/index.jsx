@@ -4,6 +4,7 @@ import {
 import './Footer.scss';
 import logo from '../../assets/logo-neuron.png';
 import List from './List';
+import TopArrow from '../TopArrow';
 
 const FooterComponent = () => {
   const nuron = [
@@ -181,11 +182,7 @@ const FooterComponent = () => {
           </div>
         </div>
       </footer>
-      {/* <div className="rn-progress-parent" role="button" tabIndex="-1">
-      <svg className="rn-back-circle svg-inner" width="5%" height="10%"
-       viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-       style={{transition: 'stroke-dashoffset 10ms linear 0s',
-       stroke: '307.919, 307.919'}}/></svg></div> */}
+      <TopArrow />
     </div>
   );
 };

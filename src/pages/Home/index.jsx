@@ -11,7 +11,6 @@ import { cardData } from '../../assets/data';
 import ListOfTopSellers from '../../Components/ListOfTopSellers';
 import Filter from '../../Components/Filter';
 import ListOfCardCollection from '../../Components/ListOfCardCollection';
-import TopArrow from '../../Components/TopArrow';
 
 const Home = () => {
   const [dataNft, setDataNft] = useState([]);
@@ -155,8 +154,6 @@ const Home = () => {
           <ListOfCardCollection />
         </div>
       </div>
-
-      <TopArrow />
     </div>
   );
 };
