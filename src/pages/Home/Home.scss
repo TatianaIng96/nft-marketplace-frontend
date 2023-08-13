@@ -5,7 +5,7 @@ $dark-color-blue: #242435;
 $main-background: #13131d;
 
 .main-container {
-  padding: 160px 30px 50px;
+  padding: 160px 20px 50px;
   background-color: $main-background;
 
   .container {
@@ -171,6 +171,27 @@ $main-background: #13131d;
     }
 
     .filter-secction {
+      .container-filter {
+        width: auto;
+      }
+
+      .column {
+        width: 50%;
+      }
+
+      .title {
+        margin-left: 0;
+      }
+
+      .filter {
+        margin-left: 0;
+        justify-content: flex-end;
+      }
+
+      .row {
+        margin: 0;
+      }
+
       .product-area {
         padding: 50px 0;
       }
@@ -178,9 +199,18 @@ $main-background: #13131d;
       .wrapper {
         margin-left: 0;
 
-        #likes {
-          width: 95%;
+        .select {
+          width: 100%;
         }
+
+        .filter-select {
+          display: block;
+
+          #likes {
+            width: 100%;
+          }
+        }
+
 
         .inner {
           overflow: hidden;
@@ -216,6 +246,22 @@ $main-background: #13131d;
     }
   }
 
+  @media (min-width: 500px) {
+    .main-container {
+      .explore-section-home {
+        .filter-secction {
+          .column {
+            width: 100%;
+          }
+
+          .filter {
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+
   @media (min-width: 576px) {
     .container {
       .main-image {
@@ -236,6 +282,16 @@ $main-background: #13131d;
     .top-seller {
       .top-seller__title {
         text-align: left;
+      }
+    }
+
+    .explore-section-home {
+      .filter-secction {
+        .wrapper {
+          .filter-select {
+            display: grid;
+          }
+        }
       }
     }
 
@@ -285,7 +341,7 @@ $main-background: #13131d;
   }
 
   @media (min-width: 1200px) {
-    padding: 100px 30px 50px;
+    padding: 100px 40px 50px;
 
     .container {
       .main-text {

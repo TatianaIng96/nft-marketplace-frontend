@@ -88,7 +88,7 @@ const Filter = ({ handleFilter }) => {
                     className="h6"
                     onChange={handleFilter}
                   >
-                    <option value="DEFAULT" disabled>Sale tipe</option>
+                    <option value="DEFAULT" disabled>Sale type</option>
                     <option value="all-type">All Type</option>
                     <option value="fixed-price">Fixed price</option>
                     <option value="timed">Timed auction</option>

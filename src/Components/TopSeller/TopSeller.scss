@@ -4,8 +4,8 @@ $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
 
 .seller {
-  position:inherit;
-  width: 9rem;
+  position: inherit;
+  width: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +18,7 @@ $dark-color-blue: #242435;
     display: flex;
     align-items: center;
     justify-content: center;
+
     img {
       width: 100%;
       border-radius: 50%;
@@ -26,14 +27,17 @@ $dark-color-blue: #242435;
 
   .seller__info {
     text-align: center;
-    position:inherit;
+    position: inherit;
+
     a {
       color: #fff;
+
       .seller__info-title {
         font-weight: 400;
         margin: 0;
         margin-top: 10px;
       }
+
       &:hover {
         color: $blue-color;
       }
@@ -48,6 +52,7 @@ $dark-color-blue: #242435;
   .seller__top-number {
     color: $silver-color;
     position: absolute;
+
     h2 {
       font-size: 40px;
       opacity: 0.2;
@@ -79,6 +84,7 @@ $dark-color-blue: #242435;
     .seller__top-number {
       top: 0;
       right: 0;
+
       h2 {
         font-size: 50px;
         top: 0;
@@ -89,6 +95,7 @@ $dark-color-blue: #242435;
 
   @media (min-width: 768px) {
     width: 13rem;
+
     .seller__info {
       margin-left: 12px;
     }
@@ -96,6 +103,7 @@ $dark-color-blue: #242435;
 
   @media (min-width: 1400px) {
     width: 15rem;
+
     .seller__info {
       margin-left: 18px;
     }
