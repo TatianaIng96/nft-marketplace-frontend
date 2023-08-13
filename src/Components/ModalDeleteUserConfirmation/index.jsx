@@ -1,6 +1,11 @@
 import './ModalDeleteUserConfirmation.scss';
 
-const ModalDeleteUserConfirmation = () => {
+const ModalDeleteUserConfirmation = ({ onCancel, onDelete }) => {
+  const handleDelete = () => {
+    onCancel(false);
+    onDelete(true);
+  };
+
   return (
     <div className="modalDeleteUserConfirmation">
       <div className="mainContainer">
@@ -8,8 +13,8 @@ const ModalDeleteUserConfirmation = () => {
           Are you sure you want to delete this user?
         </div>
         <div className="buttonsContainer">
-          <button type="button" className="cancelButton">Cancel</button>
-          <button type="button" className="deleteButton">Yes, delete</button>
+          <button type="button" onClick={() => { return onCancel(false); }} className="cancelButton">Cancel</button>
+          <button type="button" onClick={handleDelete} className="deleteButton">Yes, delete</button>
         </div>
       </div>
     </div>

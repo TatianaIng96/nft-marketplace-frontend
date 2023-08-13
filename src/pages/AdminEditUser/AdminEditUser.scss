@@ -48,10 +48,28 @@
       margin: auto;
       width: 95%;
       max-width: 360px;
+
+      .deleteUserContainer {
+        display: none;
+      }
     }
 
     .userInfoFormContainer {
       width: 100%;
+    }
+  }
+
+  .deleteUserContainer {
+    @include flex-base($align: center);
+    margin: auto;
+    width: 95%;
+    max-width: 360px;
+
+    button {
+      box-sizing: border-box;
+      @include button-base-style;
+      width: 90%;
+      background-color: red;
     }
   }
 
@@ -61,12 +79,20 @@
         max-width: 500px;
       }
     }
+
+    .deleteUserContainer {
+      max-width: 500px;
+    }
   }
 
   @media(min-width:1200px) {
     .pageContainer {
       .topSection {
         max-width: 1000px;
+      }
+
+      .deleteUserContainer {
+        display: none;
       }
     }
 
@@ -77,6 +103,12 @@
       .editMenuContainer {
         margin: 0;
         max-width: 350px;
+
+        .deleteUserContainer {
+          display: block;
+          margin-top: 2vh;
+          width: 320px;
+        }
       }
 
       .userInfoFormContainer {
