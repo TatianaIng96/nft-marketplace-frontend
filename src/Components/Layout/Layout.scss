@@ -6,18 +6,15 @@
   width: 100%;
 }
 
-.main{
+.main {
   z-index: 1;
   min-height: 44vh;
   position: relative;
-  padding-top: 140px;
-  padding-bottom: 12em;
+  padding-top: 170px;
+  padding-bottom: 70px;
   background-color: #13131d;
-}
 
-@media (min-width: 500px) {
-  .main {
-    top: 77px;
-    padding-top: 80px;
+  @media (min-width: 500px) {
+    padding-top: 50px;
   }
 }

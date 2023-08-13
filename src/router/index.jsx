@@ -17,12 +17,13 @@ import ListNftAdmin from '../pages/ListNftAdmin';
 import Ranking from '../pages/Ranking';
 import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
+import NotFound from '../pages/NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         path: '/',
