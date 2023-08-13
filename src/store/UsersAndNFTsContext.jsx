@@ -7,8 +7,6 @@ export const UsersAndNFTsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [fakeData, setFakeData] = useState([]);
   const isAdmin = true;
-
-
   // console.log(fakeData);
 
   return (
