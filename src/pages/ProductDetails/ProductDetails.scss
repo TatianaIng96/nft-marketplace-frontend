@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-$silver-color: #ACACAC;
-$blue-color: #00A3FF;
-$medium-color-blue: #212E48;
-$dark-color-blue: #242435;
-$silver-color: #ACACAC;
-
-.product-secction {
-=======
 
 .product-secction {
   $silver-color: #ACACAC;
@@ -14,18 +5,17 @@ $silver-color: #ACACAC;
   $medium-color-blue: #212E48;
   $dark-color-blue: #242435;
   $silver-color: #ACACAC;
->>>>>>> main
   --bs-gutter-x: 1.5rem;
- --bs-gutter-y: 0;
+  --bs-gutter-y: 0;
 
   background: #13131d;
   overflow-x: hidden;
-
+  padding-bottom: 2em;
 
   *{
     box-sizing: border-box;
     margin-bottom: 0;
-    padding-bottom: 2em;
+
   }
 
   //ProductDetails
