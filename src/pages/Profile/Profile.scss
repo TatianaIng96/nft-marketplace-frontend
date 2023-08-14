@@ -133,6 +133,7 @@
         .mn{
           .show-more-options {
             position: relative;
+            z-index: 9999;
             .show-more {
               color: white;
               border: none;
