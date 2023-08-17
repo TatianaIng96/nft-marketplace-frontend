@@ -1,91 +1,116 @@
-.category-secction{
+.category-secction {
   $silver-color: #ACACAC;
   $blue-color: #00A3FF;
   $medium-color-blue: #212E48;
   $dark-color-blue: #242435;
   $silver-color: #ACACAC;
-  .category-collection{
+
+  .category-collection {
     display: flex;
     margin-bottom: -3.5em;
     margin-left: -0.5em;
-    .category{
+
+    .category {
       margin-right: 50px;
       font-size: 12px;
       margin-left: 4em;
     }
 
-    .collection{
+    .collection {
       text-align: center;
       font-size: 12px;
-      margin-left: -3em;
-
+      margin-left: -9em;
     }
+
     .color-body {
       color: $silver-color;
       margin-left: 1em;
       font-size: 12px;
     }
-    @media(min-width:768px) and (max-width:1023px){
+
+    @media(min-width:768px) and (max-width:1023px) {
       margin-left: 0em;
       margin-top: 1em;
-      .category{
+
+      .category {
         font-size: 16px;
       }
-      .collection{
+
+      .collection {
         font-size: 16px;
       }
-      .color-body{
+
+      .color-body {
         font-size: 16px;
       }
-      .title-collection{
+
+      .title-collection {
         margin-left: -10em;
       }
     }
-    @media (min-width:1024px) and (max-width:1279px){
+
+    @media (min-width:1024px) and (max-width:1279px) {
       margin-left: 0em;
       margin-top: 1em;
-      .category{
+
+      .category {
         font-size: 16px;
       }
-      .collection{
+
+      .collection {
+        font-size: 16px;
+        margin-left: -5em;
+      }
+
+      .color-body {
         font-size: 16px;
       }
-      .color-body{
-        font-size: 16px;
-      }
-      .title-collection{
+
+      .title-collection {
         margin-left: -10em;
       }
     }
-    @media (min-width:1280px) and (max-width:1440px){
+
+    @media (min-width:1280px) and (max-width:1440px) {
       margin-left: 0em;
       margin-top: 1em;
-      .category{
+
+      .category {
         font-size: 16px;
       }
-      .collection{
+
+      .collection {
+        font-size: 16px;
+        margin-left: 1em;
+      }
+
+      .color-body {
         font-size: 16px;
       }
-      .color-body{
-        font-size: 16px;
-      }
-      .title-collection{
+
+      .title-collection {
         margin-left: -10em;
       }
     }
-    @media (min-width:1441px){
+
+    @media (min-width:1441px) {
       margin-left: 0em;
       margin-top: 1em;
-      .category{
+
+      .category {
         font-size: 16px;
       }
-      .collection{
+
+      .collection {
+        font-size: 16px;
+        margin-left: 1em;
+      }
+
+      .color-body {
         font-size: 16px;
       }
-      .color-body{
-        font-size: 16px;
-      }
-      .title-collection{
+
+      .title-collection {
         margin-left: -10em;
       }
     }
@@ -95,16 +120,19 @@
   .top-seller {
     display: flex;
     margin-top: -2em;
+
     .top-seller__title {
       font-size: 14px;
       text-align: center;
-      .select-option{
+
+      .select-option {
         border: none;
         margin-left: 10px;
         background-color: transparent;
         font-size: 14px;
         outline: none;
         color: $blue-color;
+
         .option {
           &:hover {
             border: none;
@@ -117,33 +145,41 @@
         }
       }
     }
+
     .top-seller__content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
 
-    @media(min-width:768px) and (max-width:1023px){
+    @media(min-width:768px) and (max-width:1023px) {
       margin-right: 6em;
-      .title-collection{
+
+      .title-collection {
         margin-left: 2em;
       }
     }
-    @media (min-width:1024px) and (max-width:1279px){
+
+    @media (min-width:1024px) and (max-width:1279px) {
       margin-right: 2em;
-      .title-collection{
+
+      .title-collection {
         margin-left: 1em;
       }
     }
-    @media (min-width:1280px) and (max-width:1440px){
+
+    @media (min-width:1280px) and (max-width:1440px) {
       margin-right: 1em;
-      .title-collection{
+
+      .title-collection {
         margin-left: 1em;
       }
     }
-    @media (min-width:1441px){
+
+    @media (min-width:1441px) {
       margin-right: 1em;
-      .title-collection{
+
+      .title-collection {
         margin-left: 1em;
       }
     }
