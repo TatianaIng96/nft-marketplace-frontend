@@ -1,4 +1,3 @@
-
 .product-secction {
   $silver-color: #ACACAC;
   $blue-color: #00A3FF;
@@ -6,52 +5,59 @@
   $dark-color-blue: #242435;
   $silver-color: #ACACAC;
   --bs-gutter-x: 1.5rem;
- --bs-gutter-y: 0;
+  --bs-gutter-y: 0;
 
   background: #13131d;
   overflow-x: hidden;
   padding-bottom: 2em;
 
-  *{
+  * {
     box-sizing: border-box;
     margin-bottom: 0;
+
   }
 
   //ProductDetails
-  .product-details{
+  .product-details {
     padding-top: 80px;
-    .container{
+
+    .container {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
-      .row{
+
+      .row {
         --bs-gutter-y: 3rem;
         --bs-gutter-x: 3rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 32px;
         flex-wrap: wrap;
         margin-top: calc(var(--bs-gutter-y) * -1);
         margin-right: calc(var(--bs-gutter-x) * 2.5);
         margin-left: calc(var(--bs-gutter-x) * 0);
+
         @media(min-width:768px) and (max-width:1023px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
           gap: 32px;
         }
+
         @media (min-width:1024px) and (max-width:1279px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
           gap: 32px;
         }
-        @media (min-width:1280px) and (max-width:1440px){
+
+        @media (min-width:1280px) and (max-width:1440px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
           gap: 32px;
         }
-        @media (min-width:1441px){
+
+        @media (min-width:1441px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
           gap: 32px;
         }
       }
@@ -64,85 +70,102 @@
       }
     }
 
-    .column{
+    .column {
       display: flex;
-      margin-left:-2em;
+      margin-left: -2em;
+
       @media (min-width:1024px) and (max-width:1279px) {
-          margin-left: 0em;
-      }
-      @media (min-width:1280px) and (max-width:1360px){
         margin-left: 0em;
       }
-      @media (min-width:1361px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1360px) {
+        margin-left: 0em;
+      }
+
+      @media (min-width:1361px) and (max-width:1440px) {
         margin-left: 7em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         margin-left: 7em;
       }
     }
 
-    .content-area{
-      display: flex;;
+    .content-area {
+      display: flex;
+      ;
     }
 
-    .title-area{
+    .title-area {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       width: 2em;
       margin-bottom: -6em;
+
       @media(min-width:768px) and (max-width:1023px) {
         width: 68em;
       }
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media (min-width:1024px) and (max-width:1279px) {
         width: 68em;
         padding-top: 2em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1440px) {
         width: 68em;
         padding-top: 2em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         width: 68em;
         padding-top: 2em;
       }
     }
 
-    .title{
+    .title {
       display: flex;
       margin-left: 2em;
       margin-top: -3em;
       font-size: 20px;
+
       @media(min-width:768px) and (max-width:1023px) {
         font-size: 32px;
         margin-top: -1.2em;
       }
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media (min-width:1024px) and (max-width:1279px) {
         font-size: 32px;
         margin-top: -1.2em;
         margin-bottom: 0.5em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1440px) {
         font-size: 32px;
         margin-top: -1.2em;
         margin-bottom: 0.5em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         font-size: 32px;
         margin-top: -1.2em;
         margin-bottom: 0.5em;
       }
     }
-    .rew{
+
+    .rew {
       display: flex;
       margin-top: -2em;
       margin-left: -0.5em;
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media (min-width:1024px) and (max-width:1279px) {
         margin-left: -15.5em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1440px) {
         margin-left: -10.5em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         margin-left: -10.5em;
       }
     }
@@ -152,52 +175,62 @@
       display: flex;
       margin-left: 3em;
       margin-bottom: -7em;
-      .price{
+
+      .price {
         color: $blue-color;
         margin-left: 1em;
       }
-      @media(min-width:768px) and (max-width:1023px){
+
+      @media(min-width:768px) and (max-width:1023px) {
         font-size: 16px;
         margin-left: 4em;
       }
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media (min-width:1024px) and (max-width:1279px) {
         font-size: 16px;
         margin-left: 4em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1440px) {
         font-size: 16px;
         margin-left: 4em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         font-size: 16px;
         margin-left: 4em;
       }
     }
-    .title-name{
+
+    .title-name {
       display: flex;
       margin-top: -3em;
       margin-left: 2.5em;
       font-size: 15px;
       margin-bottom: -5em;
-      @media(min-width:768px) and (max-width:1023px){
+
+      @media(min-width:768px) and (max-width:1023px) {
         font-size: 18px;
         margin-left: 3.2em;
       }
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media (min-width:1024px) and (max-width:1279px) {
         font-size: 18px;
         margin-left: 3.5em;
       }
-      @media (min-width:1280px) and (max-width:1440px){
+
+      @media (min-width:1280px) and (max-width:1440px) {
         font-size: 18px;
         margin-left: 3.5em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         font-size: 18px;
         margin-left: 3.5em;
       }
     }
 
-    .a-btn{
+    .a-btn {
       display: flex;
       font-weight: 500;
       text-align: center;
@@ -220,42 +253,46 @@
       margin-bottom: 12em;
       position: unset;
       color: #fff;
+
       &:hover {
         background: $blue-color;
         color: #fff;
       }
-      @media(min-width:768px) and (max-width:1023px){
-        font-size: 16px;
-        margin-left: 5em;
-        margin-bottom: 10em;
-      }
-      @media (min-width:1024px) and (max-width:1279px){
+
+      @media(min-width:768px) and (max-width:1023px) {
         font-size: 16px;
         margin-left: 5em;
         margin-bottom: 10em;
       }
 
-      @media (min-width:1280px) and (max-width:1440px){
+      @media (min-width:1024px) and (max-width:1279px) {
+        font-size: 16px;
+        margin-left: 5em;
+        margin-bottom: 10em;
+      }
+
+      @media (min-width:1280px) and (max-width:1440px) {
         margin-left: 7em;
         margin-bottom: 10em;
         margin-bottom: 12em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         margin-left: 7em;
         margin-bottom: 10em;
         margin-bottom: 12em;
       }
     }
 
-    .button-option{
+    .button-option {
       display: block;
       border-radius: 5px;
       margin-top: -12em;
 
-      .nav-button{
+      .nav-button {
         border-bottom: none;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
         transition: 0.4s;
         background: #24243557;
         border: 1px solid #ffffff14;
@@ -265,25 +302,29 @@
         @media(min-width:520px) and (max-width:767px) {
           width: 25em;
         }
+
         @media(min-width:768px) and (max-width:1023px) {
           display: flex;
           flex-wrap: wrap;
           width: 38em;
           margin-left: 2em;
         }
-        @media(min-width:1024px) and (max-width:1279px){
+
+        @media(min-width:1024px) and (max-width:1279px) {
           display: flex;
           flex-wrap: wrap;
           width: 25em;
 
         }
-        @media (min-width:1280px) and (max-width:1440px){
+
+        @media (min-width:1280px) and (max-width:1440px) {
           display: flex;
           flex-wrap: wrap;
           width: 29em;
 
         }
-        @media (min-width:1441px){
+
+        @media (min-width:1441px) {
           display: flex;
           flex-wrap: wrap;
           width: 29em;
@@ -292,7 +333,7 @@
 
       }
 
-      button{
+      button {
         width: 20em;
         height: 3em;
         border: none;
@@ -305,9 +346,10 @@
         background: 0;
         cursor: pointer;
         position: inherit;
-        &:hover{
+
+        &:hover {
           background: #212e48;
-          color:#fff;
+          color: #fff;
           border-radius: 5px;
           border: transparent;
         }
@@ -315,12 +357,15 @@
         @media(min-width:768px) and (max-width:1023px) {
           width: 12em;
         }
+
         @media (min-width:1024px) and (max-width:1279px) {
           width: 12em;
         }
+
         @media (min-width:1280px) and (max-width:1440px) {
           width: 10em;
         }
+
         @media (min-width:1441px) {
           width: 10em;
         }
@@ -329,13 +374,16 @@
       button.active {
         background-color: #212e48;
       }
+
       @media (min-width:1024px) and (max-width:1279px) {
         margin-left: 2em;
       }
+
       @media (min-width:1280px) and (max-width:1440px) {
         margin-left: 2em;
       }
-      @media (min-width:1441px){
+
+      @media (min-width:1441px) {
         margin-left: 2em;
       }
     }
