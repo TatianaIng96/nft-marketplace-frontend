@@ -1,18 +1,45 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './LogInForm.scss';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const LogInForm = () => {
-  const { users, setUsers } = useContext(UsersAndNFTsContext);
+  const { setLoggedUser } = useContext(UsersAndNFTsContext);
 
   const { object, handleChange } = useForm({});
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setUsers([...users, object]);
+
+    const fetchConfig = {
+      method: 'POST',
+      body: JSON.stringify(object),
+      headers: { 'Content-Type': 'application/json' },
+    };
+
+    const response = await fetch('http://localhost:8080/auth/local/login', fetchConfig);
+    const { profile, token } = await response.json();
+
+    const {
+      firstName, lastName, email, role,
+    } = profile;
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('firstName', firstName);
+    localStorage.setItem('lastName', lastName);
+    localStorage.setItem('email', email);
+    localStorage.setItem('role', role);
+
+    setLoggedUser({
+      firstName, lastName, email, role, token,
+    });
+
+    navigate('/profile');
   };
 
   return (
