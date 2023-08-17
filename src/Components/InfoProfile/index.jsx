@@ -1,26 +1,29 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FaTwitter, FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
+  FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const InfoProfile = () => {
-  const { isAdmin } = useContext(UsersAndNFTsContext);
-
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
+
+  const { loggedUser, isAdmin } = useContext(UsersAndNFTsContext);
+
+  const {
+    firstName, lastName, email,
+  } = loggedUser;
+
+  const fullName = `${firstName} ${lastName}`;
+
   return (
     <div>
-      <h4 className="title"> MRS SUNAYRA AHSAN</h4>
+      <h4 className="title">{fullName}</h4>
       <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social">
-        <i className="i-twitter">
-          {' '}
-          <FaTwitter />
-        </i>
-        <span className="user-name">it0bsession</span>
+        <span className="user-name">{email}</span>
       </a>
       <div className="follow-area">
         <div className="follow-followers">
