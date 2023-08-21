@@ -1,11 +1,10 @@
 import './Profile.scss';
-import { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Card from '../../Components/Card';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+
 // import { cardData } from '../../assets/data';
 
 const Profile = () => {
@@ -16,8 +15,6 @@ const Profile = () => {
   const [dataLiked, setDataLiked] = useState([]);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
   const data = [dataSale, dataOwed, dataCreated, dataLiked];
-  const { setNftId } = useContext(UsersAndNFTsContext);
-
   useEffect(() => {
     async function fetchData() {
       const fetchConfig = {
@@ -107,10 +104,9 @@ const Profile = () => {
                     return (
                       isActive === index && (dato.map((nft) => {
                         return (
-                          <Link to="/product-details">
-                            {setNftId(nft.id)}
+                          <React.Fragment key={nft.id}>
                             <Card
-                              key={nft.id}
+                              id={nft.id}
                               totalLikes={nft.likeCoun}
                               nftName={nft.name}
                               price={nft.price}
@@ -120,7 +116,8 @@ const Profile = () => {
                               profileImage3={nft.image[2]}
                               placeBit={nft.auctionCount}
                             />
-                          </Link>
+
+                          </React.Fragment>
                         );
                       }))
                     );
