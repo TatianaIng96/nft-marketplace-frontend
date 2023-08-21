@@ -81,9 +81,7 @@ const router = createBrowserRouter([
         path: '/ranking',
         element:
           // eslint-disable-next-line react/jsx-indent
-          <PrivateRoute>
-            <Ranking />
-          </PrivateRoute>,
+          <Ranking />,
       },
       {
         path: '/admin-create-user',

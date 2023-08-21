@@ -1,19 +1,50 @@
+/* eslint-disable quote-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
 import { FiUpload } from 'react-icons/fi';
-import { useContext } from 'react';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import { useState } from 'react';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
-  const { fakeData, setFakeData } = useContext(UsersAndNFTsContext);
+  const [files, setFiles] = useState({});
 
   const { object, handleChange } = useForm({});
 
-  const handleSubmit = (event) => {
+  const handleFiles = (event) => {
+    setFiles(event.target.files);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFakeData([...fakeData, object]);
+
+    const fetchConfigForm = {
+      method: 'POST',
+      body: JSON.stringify(object),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch('http://localhost:8080/api/nft/', fetchConfigForm);
+
+    const data = new FormData();
+
+    for (let i = 0; i < 3; i += 1) {
+      data.append(`image_${i + 1}`, files[i], files[i].name);
+    }
+
+    const fetchConfigImages = {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch('http://localhost:8080/api/nft-images/', fetchConfigImages); // no funciona, falta crear endpoints
   };
 
   return (
@@ -32,6 +63,14 @@ const CreateNFTForm = () => {
               <p>PNG, GIF, WEBBP, MP4 or MP3.</p>
               <p>Max 1GB.</p>
             </section>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              multiple
+              accept="image/*"
+              onChange={handleFiles}
+            />
             <section className="noteSectionDesktop">
               <p>Note:</p>
               <p>Service fee: <strong>2.5%</strong></p>
@@ -42,7 +81,7 @@ const CreateNFTForm = () => {
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
-                <input type="text" name="product-name" onChange={handleChange} id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
+                <input type="text" name="name" onChange={handleChange} id="name" placeholder="e.g. 'Digital Awesome Game'" />
               </label>
               <label htmlFor="description">
                 Description
@@ -67,7 +106,7 @@ const CreateNFTForm = () => {
                 </label>
                 <label htmlFor="category">
                   Category
-                  <select name="category" id="category">
+                  <select name="category" onChange={handleChange} id="category">
                     <option value="all-categories">All Categories</option>
                     <option value="art">Art</option>
                     <option value="music">Music</option>
@@ -77,7 +116,7 @@ const CreateNFTForm = () => {
                 </label>
                 <label htmlFor="collection">
                   Collection
-                  <select name="collection" id="collection">
+                  <select name="collection" onChange={handleChange} id="collection">
                     <option value="all-collections">All Collections</option>
                     <option value="art-decco">Art Decco</option>
                     <option value="bored-ape-yacht-club">BoredApeYachtClub</option>
