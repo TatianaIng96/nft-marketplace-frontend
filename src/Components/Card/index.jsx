@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -9,6 +9,7 @@ import { ModalShare, ModalReport } from '../ModalShare';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
+  id,
   totalLikes,
   nftName,
   price,
@@ -19,12 +20,15 @@ const Card = ({
   placeBit,
 }) => {
   const { isAdmin } = useContext(UsersAndNFTsContext);
-
+  const { setNftId } = useContext(UsersAndNFTsContext);
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
 
+  useEffect(() => {
+    setNftId(id);
+  }, []);
   const handleLikes = () => {
     if (likes === totalLikes) {
       setLikes(likes + 1);
@@ -66,7 +70,9 @@ const Card = ({
   return (
     <div className="card">
       <section className="image-section">
-        <img src={nftImage} alt="img test" />
+        <Link to="/product-details">
+          <img src={nftImage} alt="img test" />
+        </Link>
       </section>
 
       <div className="nft-info">

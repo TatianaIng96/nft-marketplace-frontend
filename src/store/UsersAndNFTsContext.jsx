@@ -9,6 +9,7 @@ export const UsersAndNFTsContext = createContext();
 export const UsersAndNFTsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [fakeData, setFakeData] = useState([]);
+  const [nftId, setNftId] = useState('');
 
   const [loggedUser, setLoggedUser] = useState({
     token: '',
@@ -38,6 +39,8 @@ export const UsersAndNFTsProvider = ({ children }) => {
         setUsers,
         setFakeData,
         setLoggedUser,
+        nftId,
+        setNftId,
       }}
     >
       {children}
