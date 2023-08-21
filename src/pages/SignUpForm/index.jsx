@@ -1,18 +1,28 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './SignUpForm.scss';
-import { useContext } from 'react';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
-  const { users, setUsers } = useContext(UsersAndNFTsContext);
-
+  const navigate = useNavigate();
   const { object, handleChange } = useForm({});
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setUsers([...users, object]);
+    // setUsers([...users, object]);
+
+    const fetchConfig = {
+      method: 'POST',
+      body: JSON.stringify(object),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    await fetch('http://localhost:8080/api/users/', fetchConfig);
+
+    navigate('/login');
   };
 
   return (
@@ -25,11 +35,11 @@ const SignUpForm = () => {
               <h1>Sign Up</h1>
               <label htmlFor="first-name">
                 First name
-                <input type="text" onChange={handleChange} name="first-name" id="first-name" />
+                <input type="text" onChange={handleChange} name="firstName" id="first-name" />
               </label>
               <label htmlFor="last-name">
                 Last name
-                <input type="text" onChange={handleChange} name="last-name" id="last-name" />
+                <input type="text" onChange={handleChange} name="lastName" id="last-name" />
               </label>
               <label htmlFor="email">
                 Email address
