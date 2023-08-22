@@ -44,7 +44,7 @@ const CreateNFTForm = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/nft-images/', fetchConfigImages); // no funciona, falta crear endpoints
+    await fetch('http://localhost:8080/api/nft-image/', fetchConfigImages);
   };
 
   return (
