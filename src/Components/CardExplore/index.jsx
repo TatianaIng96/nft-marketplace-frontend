@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../Card';
 import './CardExplore.scss';
 import { cardData } from '../../assets/data';
@@ -18,17 +19,19 @@ const CardExplore = () => {
               {
                 dataNft.map((nft) => {
                   return (
-                    <Card
-                      key={nft.id}
-                      totalLikes={nft.totalLikes}
-                      nftName={nft.nftName}
-                      price={nft.price}
-                      nftImage={nft.nftImage}
-                      profileImage1={nft.profileImage1}
-                      profileImage2={nft.profileImage2}
-                      profileImage3={nft.profileImage3}
-                      placeBit={nft.placeBit}
-                    />
+                    <Link to="/product-details">
+                      <Card
+                        key={nft.id}
+                        totalLikes={nft.totalLikes}
+                        nftName={nft.nftName}
+                        price={nft.price}
+                        nftImage={nft.nftImage}
+                        profileImage1={nft.profileImage1}
+                        profileImage2={nft.profileImage2}
+                        profileImage3={nft.profileImage3}
+                        placeBit={nft.placeBit}
+                      />
+                    </Link>
                   );
                 })
               }

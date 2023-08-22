@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Inner from '../../Components/Inner';
 import './ProductDetails.scss';
 import ProductTab from '../../Components/ProductTab';
@@ -9,10 +9,27 @@ import Bids from '../../Components/Bids';
 import HistoryBids from '../../Components/HistoryBits';
 import RecentCard from '../../Components/RecentCard';
 import Details from '../../Components/Details';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const ProductDetails = () => {
   const [isActive, setIsActive] = useState(0);
   const buton = ['Bids', 'Details', 'History'];
+  const { nftId } = useContext(UsersAndNFTsContext);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+
+      const response = await fetch(`http://localhost:8080/api/nft/${nftId}`, fetchConfig);
+      const dataCard = await response.json();
+      setData(dataCard);
+    }
+    fetchData();
+  }, []);
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);
@@ -32,7 +49,7 @@ const ProductDetails = () => {
           <div className="container">
             <div className="row">
               <div className="wrapper">
-                <ProductTab />
+                <ProductTab images={data?.image} />
               </div>
               <div className="column">
                 <div className="row">
