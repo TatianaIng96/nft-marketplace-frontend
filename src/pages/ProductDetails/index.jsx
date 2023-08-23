@@ -49,7 +49,7 @@ const ProductDetails = () => {
           <div className="container">
             <div className="row">
               <div className="wrapper">
-                <ProductTab images={data?.image} />
+                <ProductTab images={data?.imageForNft} />
               </div>
               <div className="column">
                 <div className="row">

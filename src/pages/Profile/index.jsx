@@ -110,10 +110,10 @@ const Profile = () => {
                               totalLikes={nft.likeCoun}
                               nftName={nft.name}
                               price={nft.price}
-                              nftImage={nft.image[0]}
-                              profileImage1={nft.image[0]}
-                              profileImage2={nft.image[1]}
-                              profileImage3={nft.image[2]}
+                              nftImage={nft.imageForNft[0]}
+                              profileImage1={nft.imageForNft[0]}
+                              profileImage2={nft.imageForNft[1]}
+                              profileImage3={nft.imageForNft[2]}
                               placeBit={nft.auctionCount}
                             />
 

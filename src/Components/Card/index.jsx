@@ -19,8 +19,7 @@ const Card = ({
   profileImage3,
   placeBit,
 }) => {
-  const { isAdmin } = useContext(UsersAndNFTsContext);
-  const { setNftId } = useContext(UsersAndNFTsContext);
+  const { isAdmin, setNftId } = useContext(UsersAndNFTsContext);
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +28,7 @@ const Card = ({
   useEffect(() => {
     setNftId(id);
   }, []);
+
   const handleLikes = () => {
     if (likes === totalLikes) {
       setLikes(likes + 1);
