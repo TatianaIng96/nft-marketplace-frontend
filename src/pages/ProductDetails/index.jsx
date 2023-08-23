@@ -1,4 +1,5 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import './ProductDetails.scss';
 import ProductTab from '../../Components/ProductTab';
@@ -9,13 +10,12 @@ import Bids from '../../Components/Bids';
 import HistoryBids from '../../Components/HistoryBits';
 import RecentCard from '../../Components/RecentCard';
 import Details from '../../Components/Details';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const ProductDetails = () => {
   const [isActive, setIsActive] = useState(0);
   const buton = ['Bids', 'Details', 'History'];
-  const { nftId } = useContext(UsersAndNFTsContext);
   const [data, setData] = useState();
+  const { id } = useParams();
 
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +24,7 @@ const ProductDetails = () => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch(`http://localhost:8080/api/nft/${nftId}`, fetchConfig);
+      const response = await fetch(`http://localhost:8080/api/nft/${id}`, fetchConfig);
       const dataCard = await response.json();
       setData(dataCard);
     }
