@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -19,15 +19,11 @@ const Card = ({
   profileImage3,
   placeBit,
 }) => {
-  const { isAdmin, setNftId } = useContext(UsersAndNFTsContext);
+  const { isAdmin } = useContext(UsersAndNFTsContext);
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
-
-  useEffect(() => {
-    setNftId(id);
-  }, []);
 
   const handleLikes = () => {
     if (likes === totalLikes) {
@@ -70,7 +66,7 @@ const Card = ({
   return (
     <div className="card">
       <section className="image-section">
-        <Link to="/product-details">
+        <Link to={`/product-details/${id}`}>
           <img src={nftImage} alt="img test" />
         </Link>
       </section>

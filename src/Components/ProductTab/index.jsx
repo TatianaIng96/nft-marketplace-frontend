@@ -8,7 +8,7 @@ const ProductTab = ({ images }) => {
   const [panel, setPanel] = useState('');
   useEffect(() => {
     setDataNft(cardData[0]);
-    setPanel(images?.[0] || dataNft.nftImage);
+    setPanel(images?.[0]);
   }, []);
 
   const handleClick = (image) => {
@@ -61,7 +61,7 @@ const ProductTab = ({ images }) => {
               <div className="tum">
                 <img
                   alt="Product"
-                  src={panel || dataNft.nftImage}
+                  src={panel || images?.[0]}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"

@@ -3,7 +3,7 @@ import { sellerData } from '../../assets/data';
 import TopSeller from '../TopSeller';
 import './CategoryCollection.scss';
 
-const CategoryCollection = () => {
+const CategoryCollection = ({ royalty }) => {
   const [sellers, setSellers] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,9 @@ const CategoryCollection = () => {
           <span>
             Category
             <span className="color-body">
-              10% royalties
+              {royalty}
+              {' '}
+              % royalties
             </span>
           </span>
           <div className="top-seller">
