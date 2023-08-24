@@ -20,9 +20,20 @@ const SignUpForm = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/users/', fetchConfig);
+    const response = await fetch('http://localhost:8080/api/users/', fetchConfig);
+    const { profile, token } = await response.json();
 
-    navigate('/login');
+    const {
+      firstName, lastName, email, role,
+    } = profile;
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('firstName', firstName);
+    localStorage.setItem('lastName', lastName);
+    localStorage.setItem('email', email);
+    localStorage.setItem('role', role);
+
+    navigate('/my-profile');
   };
 
   return (
