@@ -24,6 +24,23 @@ const CreateNFTForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const data = new FormData();
+
+    for (let i = 0; i < 3; i += 1) {
+      data.append(`url_${i + 1}`, files[i], files[i].name);
+    }
+
+    const fetchConfigImages = {
+      method: 'POST',
+      body: data,
+      headers: {
+        // 'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch('http://localhost:8080/api/nft-image/', fetchConfigImages);
+
     const fetchConfigForm = {
       method: 'POST',
       body: JSON.stringify(object),
@@ -34,23 +51,6 @@ const CreateNFTForm = () => {
     };
 
     await fetch('http://localhost:8080/api/nft/', fetchConfigForm);
-
-    const data = new FormData();
-
-    for (let i = 0; i < 3; i += 1) {
-      data.append(`image_${i + 1}`, files[i], files[i].name);
-    }
-
-    const fetchConfigImages = {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      },
-    };
-
-    await fetch('http://localhost:8080/api/nft-image/', fetchConfigImages);
   };
 
   return (
