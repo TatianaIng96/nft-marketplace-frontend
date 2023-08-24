@@ -1,19 +1,28 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const InfoProfile = (props) => {
-  const { firstName, lastName, email } = props;
+  const {
+    firstName, lastName, email, userId,
+  } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
 
-  const { isAdmin } = useContext(UsersAndNFTsContext);
+  // const { isAdmin } = useContext(UsersAndNFTsContext);
+
+  const role = localStorage.getItem('role');
+
+  let isAdmin = false;
+  if (role === 'ADMIN') {
+    isAdmin = true;
+  }
 
   const fullName = `${firstName} ${lastName}`;
 
@@ -81,8 +90,9 @@ const InfoProfile = (props) => {
           </div>
         </div>
         {
-          !isAdmin ? (
-            <Link to="/edit-profile-image">
+          isAdmin
+          && (
+            <Link to={`/admin-edit-user/${userId}`}>
               <button type="button" className="btn at-fell f-button">
                 <i>
                   {' '}
@@ -91,16 +101,6 @@ const InfoProfile = (props) => {
               </button>
             </Link>
           )
-            : (
-              <Link to="/admin-edit-user">
-                <button type="button" className="btn at-fell f-button">
-                  <i>
-                    {' '}
-                    <FaEdit />
-                  </i>
-                </button>
-              </Link>
-            )
         }
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}

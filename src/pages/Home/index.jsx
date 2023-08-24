@@ -106,6 +106,7 @@ const Home = () => {
               return (
                 <Card
                   id={nft.id}
+                  userId={nft.userId}
                   totalLikes={nft.totalLikes}
                   nftName={nft.name}
                   price={nft.price}

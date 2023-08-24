@@ -86,6 +86,7 @@ const Profile = () => {
                     firstName={user.firstName}
                     lastName={user.lastName}
                     email={user.email}
+                    userId={user.id}
                   />
                 </div>
               </div>

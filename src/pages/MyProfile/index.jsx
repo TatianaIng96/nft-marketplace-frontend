@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../../Components/Card';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
-import InfoProfile from '../../Components/InfoProfile';
+import MyInfoProfile from '../../Components/MyInfoProfile';
 
 // import { cardData } from '../../assets/data';
 
@@ -82,7 +82,7 @@ const Profile = () => {
                   <AuthorInner />
                 </div>
                 <div className="info-profile">
-                  <InfoProfile
+                  <MyInfoProfile
                     firstName={user.firstName}
                     lastName={user.lastName}
                     email={user.email}
