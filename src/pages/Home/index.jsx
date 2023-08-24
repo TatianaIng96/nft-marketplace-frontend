@@ -7,7 +7,6 @@ import Button from '../../Components/Button';
 import Card from '../../Components/Card';
 import ListOfStepCards from '../../Components/CardStep';
 import ListOfNftCards from '../../Components/ListOfNftCards';
-import { cardData } from '../../assets/data';
 import ListOfTopSellers from '../../Components/ListOfTopSellers';
 import Filter from '../../Components/Filter';
 import ListOfCardCollection from '../../Components/ListOfCardCollection';
@@ -17,7 +16,14 @@ const Home = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1199);
 
   useEffect(() => {
-    setDataNft(cardData);
+    const fetchAllNFTs = async () => {
+      const response = await fetch('http://localhost:8080/api/nft/');
+      const nfts = await response.json();
+      setDataNft(nfts);
+    };
+    fetchAllNFTs();
+
+    // setDataNft(cardData);
 
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1199);
@@ -79,22 +85,41 @@ const Home = () => {
                     return (
                       <Carousel.Slide key={nft.id}>
                         <Card
-                          totalLikes={nft.totalLikes}
-                          nftName={nft.nftName}
+                          id={nft.id}
+                          userId={nft.userId}
+                          totalLikes={nft.like.length}
+                          nftName={nft.name}
                           price={nft.price}
-                          nftImage={nft.nftImage}
-                          profileImage1={nft.profileImage1}
-                          profileImage2={nft.profileImage2}
-                          profileImage3={nft.profileImage3}
+                          nftImage={nft.imageForNft[0]}
+                          profileImage1={nft.imageForNft[0]}
+                          profileImage2={nft.imageForNft[1]}
+                          profileImage3={nft.imageForNft[2]}
                           placeBit={nft.placeBit}
                         />
                       </Carousel.Slide>
                     );
-                  })
+                  }).slice(0, 5)
                 }
               </Carousel>
             )
-            : <ListOfNftCards />}
+            : dataNft.map((nft) => {
+              return (
+                <Card
+                  id={nft.id}
+                  totalLikes={nft.totalLikes}
+                  nftName={nft.name}
+                  price={nft.price}
+                  nftImage={nft.imageForNft[0]}
+                  profileImage1={nft.imageForNft[0]}
+                  profileImage2={nft.imageForNft[1]}
+                  profileImage3={nft.imageForNft[2]}
+                  placeBit={nft.placeBit}
+                />
+              );
+            }).slice(0, 5)
+            // <ListOfNftCards />
+            // eslint-disable-next-line react/jsx-curly-newline
+          }
         </div>
       </div>
 

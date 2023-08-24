@@ -10,6 +10,7 @@ import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
   id,
+  userId,
   totalLikes,
   nftName,
   price,
@@ -20,6 +21,7 @@ const Card = ({
   placeBit,
 }) => {
   const { isAdmin } = useContext(UsersAndNFTsContext);
+
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -117,7 +119,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to="/profile">{nftName}</Link>
+          <Link to={`/profile/${userId}`}>{nftName}</Link>
           <h4>Highest bid 1/20</h4>
         </article>
 
