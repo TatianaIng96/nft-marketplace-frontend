@@ -54,21 +54,21 @@ const ProductDetails = () => {
               <div className="column">
                 <div className="row">
                   <div className="title-area">
-                    <h4 className="title">Delta25</h4>
+                    <h4 className="title">{data?.name}</h4>
                     <div className="rew">
-                      <Heart />
+                      <Heart id={id} />
                       <MoreOption />
                     </div>
                   </div>
                   <span className="span-bid">
                     Height-bid
                     <span className="price">
-                      0.334
+                      {data?.price}
                       wETH
                     </span>
                   </span>
                   <h6 className="title-name">#22 Portal , Info bellow</h6>
-                  <CategoryCollection />
+                  <CategoryCollection royalty={data?.royalty} />
                   <a
                     className="a-btn"
                     onClick={() => { return handleModal('modal', false); }}
