@@ -39,7 +39,7 @@ const LogInForm = () => {
       firstName, lastName, email, role, token,
     });
 
-    navigate('/profile');
+    navigate('/my-profile');
   };
 
   return (

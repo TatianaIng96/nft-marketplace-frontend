@@ -6,16 +6,14 @@ import {
 import { ModalShare, ModalReport } from '../ModalShare';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
-const InfoProfile = () => {
+const InfoProfile = (props) => {
+  const { firstName, lastName, email } = props;
+
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
 
-  const { loggedUser, isAdmin } = useContext(UsersAndNFTsContext);
-
-  const {
-    firstName, lastName, email,
-  } = loggedUser;
+  const { isAdmin } = useContext(UsersAndNFTsContext);
 
   const fullName = `${firstName} ${lastName}`;
 

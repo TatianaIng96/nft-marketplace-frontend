@@ -7,7 +7,6 @@ import Button from '../../Components/Button';
 import Card from '../../Components/Card';
 import ListOfStepCards from '../../Components/CardStep';
 import ListOfNftCards from '../../Components/ListOfNftCards';
-import { cardData } from '../../assets/data';
 import ListOfTopSellers from '../../Components/ListOfTopSellers';
 import Filter from '../../Components/Filter';
 import ListOfCardCollection from '../../Components/ListOfCardCollection';
@@ -87,6 +86,7 @@ const Home = () => {
                       <Carousel.Slide key={nft.id}>
                         <Card
                           id={nft.id}
+                          userId={nft.userId}
                           totalLikes={nft.like.length}
                           nftName={nft.name}
                           price={nft.price}

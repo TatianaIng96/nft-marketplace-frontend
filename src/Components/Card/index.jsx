@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -10,6 +10,7 @@ import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
   id,
+  userId,
   totalLikes,
   nftName,
   price,
@@ -21,21 +22,10 @@ const Card = ({
 }) => {
   const { isAdmin } = useContext(UsersAndNFTsContext);
 
-  const [nft, setNft] = useState({});
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
-
-  /* useEffect(() => {
-    const fetchNFTByName = async () => {
-      const response = await fetch(`http://localhost:8080/api/nft/${id}`);
-      const singleNft = await response.json();
-      setNft(singleNft);
-      console.log(nft);
-    }
-    fetchNFTByName();
-  }), []; */
 
   const handleLikes = () => {
     if (likes === totalLikes) {
@@ -129,7 +119,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to="/profile">{nftName}</Link>
+          <Link to={`/profile/${userId}`}>{nftName}</Link>
           <h4>Highest bid 1/20</h4>
         </article>
 

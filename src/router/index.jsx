@@ -18,6 +18,7 @@ import Ranking from '../pages/Ranking';
 import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
 import NotFound from '../pages/NotFound';
+import MyProfile from '../pages/MyProfile';
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
         element: <CreateNFTForm />,
       },
       {
-        path: '/profile',
+        path: '/profile/:id',
         element: <Profile />,
+      },
+      {
+        path: '/my-profile/',
+        element: <MyProfile />,
       },
       {
         path: '/explore',
