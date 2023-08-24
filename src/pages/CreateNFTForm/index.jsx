@@ -2,11 +2,17 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
 import { FiUpload } from 'react-icons/fi';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
+  const inputRef = useRef(null);
+
+  const handleUpload = () => {
+    inputRef.current?.click();
+  };
+
   const [files, setFiles] = useState({});
 
   const { object, handleChange } = useForm({});
@@ -57,7 +63,17 @@ const CreateNFTForm = () => {
               <p>Upload File</p>
               <p>Drag or choose your file to upload</p>
             </section>
-            <section className="imageSection">
+            <section
+              className="imageSection"
+              onClick={handleUpload}
+              role="button"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  handleUpload();
+                }
+              }}
+              tabIndex={0}
+            >
               <p><FiUpload /></p>
               <p>Choose a file</p>
               <p>PNG, GIF, WEBBP, MP4 or MP3.</p>
@@ -65,6 +81,7 @@ const CreateNFTForm = () => {
             </section>
             <input
               type="file"
+              ref={inputRef}
               name="file"
               id="file"
               multiple
@@ -92,14 +109,6 @@ const CreateNFTForm = () => {
                   Item Price in $
                   <input type="number" onChange={handleChange} name="price" id="price" placeholder="e.g. '$20'" />
                 </label>
-                <label htmlFor="size">
-                  Size
-                  <input type="number" onChange={handleChange} name="size" id="size" placeholder="e.g. 'Size'" />
-                </label>
-                <label htmlFor="property">
-                  Property
-                  <input type="text" onChange={handleChange} name="property" id="property" placeholder="e.g. 'Property'" />
-                </label>
                 <label htmlFor="royalty">
                   Royalty
                   <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
@@ -125,20 +134,6 @@ const CreateNFTForm = () => {
                   </select>
                 </label>
               </div>
-            </div>
-            <div className="checkboxContainer">
-              <label htmlFor="put-on-sale">
-                <input className="checkbox" type="checkbox" id="put-on-sale" />
-                Put on sale
-              </label>
-              <label htmlFor="instant-sale-price">
-                <input className="checkbox" type="checkbox" id="instant-sale-price" />
-                Instant Sale Price
-              </label>
-              <label htmlFor="unlock-purchased">
-                <input className="checkbox" type="checkbox" id="unlock-purchased" />
-                Unlock Purchased
-              </label>
             </div>
             <div className="buttonsContainer">
               <button type="button" className="previewButton">Preview</button>
