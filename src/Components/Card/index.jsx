@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useJwt } from 'react-jwt';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -11,7 +12,6 @@ import { ModalShare, ModalReport } from '../ModalShare';
 const Card = ({
   id,
   userId,
-  totalLikes,
   nftName,
   price,
   nftImage,
@@ -29,17 +29,64 @@ const Card = ({
     isAdmin = true;
   }
 
-  const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
+  const like = 0;
+  const [data, setData] = useState(false);
+  const [likes, setLikes] = useState(like);
+  const [profileId, setProfileId] = useState(userId);
+  const { decodedToken } = useJwt(localStorage.getItem('token'));
 
-  const handleLikes = () => {
-    if (likes === totalLikes) {
+  useEffect(() => {
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+
+      const response = await fetch(`http://localhost:8080/api/like/${id}`, fetchConfig);
+      const dataCard = await response.json();
+
+      if (decodedToken) {
+        const idUser = decodedToken.id;
+        const userLike = dataCard.some((item) => { return item.userId === idUser; });
+        setData(userLike);
+        setProfileId(idUser);
+      }
+
+      const likeCount = {
+        ...dataCard,
+        likeCount: dataCard.length,
+      };
+      setLikes(likeCount.likeCount);
+    }
+    fetchData();
+  }, [likes]);
+
+  const handleLikes = async () => {
+    if (data === false) {
+      const fetchConfigForm = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
+      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes + 1);
     } else {
+      const fetchConfigForm = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
+      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes - 1);
     }
+    setData(!data);
   };
 
   const handleDelete = () => {
@@ -126,7 +173,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to={`/profile/${userId}`}>{nftName}</Link>
+          <Link to={profileId === userId ? '/my-profile/' : `/profile/${userId}`}>{nftName}</Link>
           <h4>Highest bid 1/20</h4>
         </article>
 
@@ -136,8 +183,8 @@ const Card = ({
             wETH
           </span>
           <button type="button" className="like-button" onClick={handleLikes}>
-            <span className={likes === totalLikes ? 'like-icon-number' : 'like-icon-number-selected'}>
-              {likes === totalLikes ? <BsHeart /> : <BsHeartFill />}
+            <span className={data === false ? 'like-icon-number' : 'like-icon-number-selected'}>
+              {data === false ? <BsHeart /> : <BsHeartFill />}
               {likes}
             </span>
           </button>

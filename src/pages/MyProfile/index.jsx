@@ -131,6 +131,7 @@ const Profile = () => {
                           <React.Fragment key={nft.id}>
                             <Card
                               id={nft.id}
+                              userId={nft.userId}
                               totalLikes={nft.likeCoun}
                               nftName={nft.name}
                               price={nft.price}

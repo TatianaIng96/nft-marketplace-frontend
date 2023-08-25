@@ -1,15 +1,25 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Card from '../Card';
 import './CardExplore.scss';
-import { cardData } from '../../assets/data';
 
 const CardExplore = () => {
   const [dataNft, setDataNft] = useState([]);
 
   useEffect(() => {
-    setDataNft(cardData);
+    const fetchAllNFTs = async () => {
+      const response = await fetch('http://localhost:8080/api/nft/');
+      const nfts = await response.json();
+      const auctionCount = nfts.map((item) => {
+        return {
+          ...item,
+          auctionCount: item.auction.length,
+        };
+      });
+      setDataNft(auctionCount);
+    };
+    fetchAllNFTs();
   }, []);
+
   return (
     <div className="card-secction">
       <div className="container-2">
@@ -19,19 +29,18 @@ const CardExplore = () => {
               {
                 dataNft.map((nft) => {
                   return (
-                    <Link to="/product-details">
-                      <Card
-                        key={nft.id}
-                        totalLikes={nft.totalLikes}
-                        nftName={nft.nftName}
-                        price={nft.price}
-                        nftImage={nft.nftImage}
-                        profileImage1={nft.profileImage1}
-                        profileImage2={nft.profileImage2}
-                        profileImage3={nft.profileImage3}
-                        placeBit={nft.placeBit}
-                      />
-                    </Link>
+                    <Card
+                      key={nft.id}
+                      id={nft.id}
+                      userId={nft.userId}
+                      nftName={nft.name}
+                      price={nft.price}
+                      nftImage={nft.imageForNft[0]}
+                      profileImage1={nft.imageForNft[0]}
+                      profileImage2={nft.imageForNft[1]}
+                      profileImage3={nft.imageForNft[2]}
+                      placeBit={nft.auctionCount}
+                    />
                   );
                 })
               }
