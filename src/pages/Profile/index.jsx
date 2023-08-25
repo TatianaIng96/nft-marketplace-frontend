@@ -133,7 +133,6 @@ const Profile = () => {
                             <Card
                               id={nft.id}
                               userId={nft.userId}
-                              totalLikes={nft.likeCoun}
                               nftName={nft.name}
                               price={nft.price}
                               nftImage={nft.imageForNft[0]}
