@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -30,7 +30,7 @@ const Card = ({
   }
 
   const [likes, setLikes] = useState(totalLikes);
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
 
@@ -41,6 +41,19 @@ const Card = ({
       setLikes(likes - 1);
     }
   };
+
+  useEffect(() => {
+    const closeOptionWhenClickOut = (e) => {
+      if (showOptions && !e.target.closest('.show-more-options')) {
+        setShowOptions(false);
+      }
+    };
+    document.addEventListener('click', closeOptionWhenClickOut);
+
+    return () => {
+      document.removeEventListener('click', closeOptionWhenClickOut);
+    };
+  }, [showOptions]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -116,7 +129,7 @@ const Card = ({
                 <FaTrash />
               </button>
             )}
-            <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
+            <div className={!showOptions ? 'menu-options-hide' : 'menu-options-show'}>
               <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>
               <button type="button" onClick={() => { setOpenModalReport(true); }}>Report</button>
             </div>
