@@ -12,7 +12,7 @@ import RecentCard from '../../Components/RecentCard';
 import Details from '../../Components/Details';
 
 const ProductDetails = () => {
-  const [isActive, setIsActive] = useState(0);
+  const [isActive, setIsActive] = useState(3);
   const buton = ['Bids', 'Details', 'History'];
   const [data, setData] = useState();
   const { id } = useParams();
@@ -32,7 +32,16 @@ const ProductDetails = () => {
   }, []);
 
   const handleClick = (buttonId) => {
-    setIsActive(buttonId);
+    if (data?.auction.length > 0 && buttonId === 0) {
+      setIsActive(buttonId);
+    } else if (data?.auction.length <= 0 && buttonId === 1) {
+      setIsActive(1);
+    } else if (data?.auction.length > 0 && buttonId === 1) {
+      setIsActive(1);
+    } else if (data?.auction.length > 0 && buttonId === 2) {
+      setIsActive(2);
+    }
+    console.log(data?.auction.length);
   };
 
   const handleModal = (spanId, bool) => {
@@ -103,7 +112,7 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div>
-                    {isActive === 0 && <Bids />}
+                    {isActive === 0 ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
                     {isActive === 1 && <Details />}
                     {isActive === 2 && <HistoryBids />}
                   </div>

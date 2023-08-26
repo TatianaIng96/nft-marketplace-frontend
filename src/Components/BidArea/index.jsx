@@ -25,7 +25,6 @@ const BitArea = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-
     // Limpiar el efecto cuando el componente se desmonte
     return () => {
       document.body.style.overflow = 'auto';

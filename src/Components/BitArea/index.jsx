@@ -5,7 +5,7 @@ import CountdownTimer from '../CountdownTimer';
 import BitSeller from '../BitSeller';
 import ModalShop from '../ModalShop';
 
-const BitArea = () => {
+const BitArea = ({ minAmount, finishDate, nftOwnerId}) => {
   const [sellers, setSellers] = useState(sellerData);
   const [dataNft, setDataNft] = useState(cardData[0]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -25,7 +25,6 @@ const BitArea = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-
     // Limpiar el efecto cuando el componente se desmonte
     return () => {
       document.body.style.overflow = 'auto';
@@ -35,6 +34,7 @@ const BitArea = () => {
   useEffect(() => {
     setSellers(sellerData);
     setDataNft(cardData[0]);
+    console.log(nftOwnerId);
   }, []);
   return (
     <div className="bit-area">

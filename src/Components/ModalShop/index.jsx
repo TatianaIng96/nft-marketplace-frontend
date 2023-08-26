@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import './ModalShop.scss';
+import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import useForm from '../../hooks/useForm';
 
 const ModalShop = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -43,7 +45,7 @@ const ModalShop = ({ isOpen, onClose }) => {
                   </div>
                 </div>
                 <div className="bit-button">
-                  <a href="/connect">
+                  <a href="/payments">
                     <span className="place">Place a bid</span>
                   </a>
                   <button className="cancel" type="button" onClick={onClose}>

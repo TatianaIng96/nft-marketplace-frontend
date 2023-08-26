@@ -114,9 +114,6 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div className="winning-bit">
-          <BitArea />
-        </div>
       </div>
     </div>
   );

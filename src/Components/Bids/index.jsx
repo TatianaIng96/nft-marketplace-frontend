@@ -1,16 +1,27 @@
+/* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
 import BitArea from '../BitArea';
 import './Bids.scss';
-import { cardData, sellerData } from '../../assets/data';
+import { sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
-const Bids = () => {
+const Bids = ({ auctionId }) => {
   const [sellers, setSellers] = useState(sellerData);
-  const [dataNft, setDataNft] = useState(cardData[0]);
 
   useEffect(() => {
-    setSellers(sellerData);
-    setDataNft(cardData[0]);
+    const fetchAllBids = async () => {
+      const fetchConfig = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
+      const response = await fetch(`http://localhost:8080/api/bid/${auctionId}`, fetchConfig);
+      const bids = await response.json();
+      setSellers(bids);
+    };
+    fetchAllBids();
   }, []);
   return (
     <div className="bid-secction">
@@ -18,29 +29,31 @@ const Bids = () => {
         <div className="top-seller__title">
           <div className="top-seller__content">
             {
-              dataNft.bits.slice(0, 7).map((bit) => {
+              sellers.map((seller) => {
                 return (
-                  sellers.map((seller) => {
-                    return (
-                      bit.sellerId === seller.id && (
-                      <BitSeller
-                        key={seller.id}
-                        sellerImage={seller.image}
-                        sellerName={seller.name}
-                        bit={bit.bit}
-                        hours={bit.hours}
-                        place={false}
-                      />
-                      )
-                    );
-                  })
+                  <BitSeller
+                    key={seller.id}
+                    sellerImage={sellerData[0].image}
+                    sellerName={seller.user?.firstName}
+                    bit={seller?.amount || 10}
+                    hours={seller?.createdAt || 12}
+                    place={false}
+                  />
+
                 );
               })
             }
           </div>
         </div>
       </div>
-      <BitArea />
+      {sellers[0].auction
+      && (
+      <BitArea
+        minAmount={sellers[0].auction?.minAmount}
+        finishDate={sellers[0].auction?.finishDate}
+        nftOwnerId={sellers[0].auction?.nftOwnerId}
+      />
+      )}
     </div>
   );
 };
