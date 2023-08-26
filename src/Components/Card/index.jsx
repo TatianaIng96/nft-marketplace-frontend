@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -6,10 +6,11 @@ import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
   id,
+  userId,
   totalLikes,
   nftName,
   price,
@@ -19,7 +20,15 @@ const Card = ({
   profileImage3,
   placeBit,
 }) => {
-  const { isAdmin } = useContext(UsersAndNFTsContext);
+  // const { isAdmin } = useContext(UsersAndNFTsContext);
+
+  const role = localStorage.getItem('role');
+
+  let isAdmin = false;
+  if (role === 'ADMIN') {
+    isAdmin = true;
+  }
+
   const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -117,7 +126,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to="/profile">{nftName}</Link>
+          <Link to={`/profile/${userId}`}>{nftName}</Link>
           <h4>Highest bid 1/20</h4>
         </article>
 

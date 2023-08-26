@@ -1,14 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
-// import { cardData } from '../../assets/data';
+import { useJwt } from 'react-jwt';
 import './Heart.scss';
 
 const Heart = ({ id }) => {
   const like = 0;
   const [data, setData] = useState(false);
   const [likes, setLikes] = useState(like);
-  const { decodedToken } = useContext(UsersAndNFTsContext);
+  const { decodedToken } = useJwt(localStorage.getItem('token'));
 
   useEffect(() => {
     async function fetchData() {
@@ -19,6 +18,7 @@ const Heart = ({ id }) => {
 
       const response = await fetch(`http://localhost:8080/api/like/${id}`, fetchConfig);
       const dataCard = await response.json();
+
       if (decodedToken) {
         const idUser = decodedToken.id;
         const userLike = dataCard.some((item) => { return item.userId === idUser; });
@@ -45,7 +45,6 @@ const Heart = ({ id }) => {
       };
       await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes + 1);
-    // setData({ ...data, totalLikes: data.totalLikes + 1 });
     } else {
       const fetchConfigForm = {
         method: 'DELETE',
@@ -56,7 +55,6 @@ const Heart = ({ id }) => {
       };
       await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes - 1);
-    // setData({ ...data, totalLikes: data.totalLikes - 1 });
     }
     setData(!data);
   };

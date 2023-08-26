@@ -39,7 +39,11 @@ const LogInForm = () => {
       firstName, lastName, email, role, token,
     });
 
-    navigate('/profile');
+    if (role === 'USER') {
+      navigate('/my-profile');
+    } else {
+      navigate('/ranking');
+    }
   };
 
   return (

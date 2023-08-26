@@ -6,23 +6,14 @@ import {
 import { ModalShare, ModalReport } from '../ModalShare';
 // import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
-const InfoProfile = (props) => {
-  const {
-    firstName, lastName, email, userId,
-  } = props;
+const MyInfoProfile = (props) => {
+  const { firstName, lastName, email } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
 
   // const { isAdmin } = useContext(UsersAndNFTsContext);
-
-  const role = localStorage.getItem('role');
-
-  let isAdmin = false;
-  if (role === 'ADMIN') {
-    isAdmin = true;
-  }
 
   const fullName = `${firstName} ${lastName}`;
 
@@ -89,19 +80,14 @@ const InfoProfile = (props) => {
             </div>
           </div>
         </div>
-        {
-          isAdmin
-          && (
-            <Link to={`/admin-edit-user/${userId}`}>
-              <button type="button" className="btn at-fell f-button">
-                <i>
-                  {' '}
-                  <FaEdit />
-                </i>
-              </button>
-            </Link>
-          )
-        }
+        <Link to="/edit-profile-image">
+          <button type="button" className="btn at-fell f-button">
+            <i>
+              {' '}
+              <FaEdit />
+            </i>
+          </button>
+        </Link>
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
@@ -109,4 +95,4 @@ const InfoProfile = (props) => {
   );
 };
 
-export default InfoProfile;
+export default MyInfoProfile;

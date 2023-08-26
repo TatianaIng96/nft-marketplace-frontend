@@ -18,6 +18,7 @@ import Ranking from '../pages/Ranking';
 import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
 import NotFound from '../pages/NotFound';
+import MyProfile from '../pages/MyProfile';
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
         element: <CreateNFTForm />,
       },
       {
-        path: '/profile',
+        path: '/profile/:id',
         element: <Profile />,
+      },
+      {
+        path: '/my-profile/',
+        element: <MyProfile />,
       },
       {
         path: '/explore',
@@ -81,7 +86,9 @@ const router = createBrowserRouter([
         path: '/ranking',
         element:
           // eslint-disable-next-line react/jsx-indent
-          <Ranking />,
+          <PrivateRoute>
+            <Ranking />
+          </PrivateRoute>,
       },
       {
         path: '/admin-create-user',
@@ -92,7 +99,7 @@ const router = createBrowserRouter([
           </PrivateRoute>,
       },
       {
-        path: '/admin-edit-user',
+        path: '/admin-edit-user/:id',
         element:
           // eslint-disable-next-line react/jsx-indent
           <PrivateRoute>
