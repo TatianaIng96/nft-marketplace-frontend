@@ -1,18 +1,11 @@
+/* eslint-disable arrow-body-style */
 import './UserInfoForm.scss';
-/* import { useContext } from 'react';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
-import useForm from '../../hooks/useForm'; */
 
-const UserInfoForm = ({ onChange, onSubmit, objectToEdit }) => {
-  /* const { users, setUsers } = useContext(UsersAndNFTsContext);
-
-  const { object, handleChange } = useForm({});
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setUsers([...users, object]);
-  }; */
-
+const UserInfoForm = ({
+  onSubmit,
+  onChange,
+  user,
+}) => {
   return (
     <div className="userInfoForm">
       <section className="formSection">
@@ -20,29 +13,64 @@ const UserInfoForm = ({ onChange, onSubmit, objectToEdit }) => {
           <div className="nameSection">
             <label htmlFor="first-name">
               First name
-              <input type="text" onChange={onChange} name="firstName" value={objectToEdit.firstName} id="first-name" /* value={firstNameValue} */ />
+              <input
+                type="text"
+                name="firstName"
+                id="first-name"
+                value={user.firstName}
+                onChange={onChange}
+              />
             </label>
             <label htmlFor="last-name">
               Last name
-              <input type="text" onChange={onChange} name="lastName" value={objectToEdit.lastName} id="last-name" /* value={lastNameValue} */ />
+              <input
+                type="text"
+                name="lastName"
+                id="last-name"
+                value={user.lastName}
+                onChange={onChange}
+              />
             </label>
           </div>
           <label htmlFor="email">
             Edit email
-            <input type="email" onChange={onChange} name="email" value={objectToEdit.email} id="email" /* value={emailValue} */ />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={user.email}
+              onChange={onChange}
+            />
           </label>
           <label htmlFor="bio">
             Edit Bio
-            <textarea type="textarea" onChange={onChange} name="bio" value={objectToEdit.bio} id="bio" /* value={bioValue} */ />
+            <textarea
+              type="textarea"
+              name="bio"
+              id="bio"
+              value={user.bio}
+              onChange={onChange}
+            />
           </label>
           <div className="movingLabels">
             <label htmlFor="role">
               Role
-              <input type="text" onChange={onChange} name="role" value={objectToEdit.role} id="role" /* value={roleValue} */ />
+              <input
+                type="text"
+                name="role"
+                id="role"
+                value={user.role}
+                onChange={onChange}
+              />
             </label>
             <label htmlFor="gender">
               Gender
-              <select onChange={onChange} name="gender" value={objectToEdit.gender} id="gender"/* value={genderValue} */>
+              <select
+                name="gender"
+                id="gender"
+                value={user.gender}
+                onChange={onChange}
+              >
                 <option value="none"> </option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -51,7 +79,12 @@ const UserInfoForm = ({ onChange, onSubmit, objectToEdit }) => {
             </label>
             <label htmlFor="currency">
               Currency
-              <select onChange={onChange} name="currency" value={objectToEdit.currency} id="currency"/* value={currencyValue} */>
+              <select
+                name="currency"
+                id="currency"
+                value={user.currency}
+                onChange={onChange}
+              >
                 <option value="none"> </option>
                 <option value="dollars">Dollars</option>
                 <option value="pesos">Pesos</option>
@@ -60,11 +93,22 @@ const UserInfoForm = ({ onChange, onSubmit, objectToEdit }) => {
             </label>
             <label htmlFor="phone-number">
               Phone number
-              <input type="number" onChange={onChange} name="phone" value={objectToEdit.phone} id="phone-number" /* value={phoneNumberValue} */ />
+              <input
+                type="number"
+                name="phone"
+                id="phone-number"
+                value={user.phone}
+                onChange={onChange}
+              />
             </label>
             <label htmlFor="location">
               Location
-              <select onChange={onChange} name="location" value={objectToEdit.location} id="location"/* value={locationValue} */>
+              <select
+                name="location"
+                id="location"
+                value={user.location}
+                onChange={onChange}
+              >
                 <option value="none"> </option>
                 <option value="usa">USA</option>
                 <option value="colombia">Colombia</option>
@@ -73,7 +117,13 @@ const UserInfoForm = ({ onChange, onSubmit, objectToEdit }) => {
             </label>
             <label htmlFor="address">
               Address
-              <input type="text" onChange={onChange} name="address" value={objectToEdit.address} id="address" /* value={addressValue} */ />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                value={user.address}
+                onChange={onChange}
+              />
             </label>
           </div>
           <div className="buttonSection">

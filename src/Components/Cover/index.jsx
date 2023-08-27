@@ -1,4 +1,4 @@
-function Cover() {
+const Cover = () => {
   return (
     <img
       alt="Slider BG"
@@ -17,6 +17,6 @@ function Cover() {
       className="cover"
     />
   );
-}
+};
 
 export default Cover;

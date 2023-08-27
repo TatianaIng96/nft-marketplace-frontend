@@ -7,10 +7,15 @@ import { FiBell, FiSun } from 'react-icons/fi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
+import { useJwt } from 'react-jwt';
 import logo from '../../assets/logo-neuron.png';
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const { isExpired } = useJwt(localStorage.getItem('token'));
+
+  const userRole = localStorage.getItem('role');
 
   const handleSignOut = () => {
     localStorage.removeItem('token');
@@ -160,11 +165,11 @@ const Header = () => {
         </div>
         <span className="menuOption">Contact</span>
         {
-          localStorage.getItem('token')
+          !isExpired
             ? (
               <div className="menuOption changeableButtons">
                 <div>
-                  <button type="button" onClick={() => navigate('/my-profile')}>Profile</button>
+                  <button type="button" onClick={userRole === 'USER' ? () => navigate('/my-profile') : () => navigate('/ranking')}>{userRole === 'USER' ? 'Profile' : 'Dashboard'}</button>
                 </div>
                 <div>
                   <button type="button" onClick={handleSignOut}>Sign out</button>
@@ -385,11 +390,23 @@ const Header = () => {
                   )}
                 <li>Contact</li>
                 {
-                  localStorage.getItem('token')
+                  !isExpired
                     ? (
                       <div>
                         <div>
-                          <button type="button" onClick={() => navigate('/my-profile')}>Profile</button>
+                          <button
+                            type="button"
+                            onClick={userRole === 'USER' ? () => {
+                              setShowSideMenu(false);
+                              navigate('/my-profile');
+                            } : () => {
+                              setShowSideMenu(false);
+                              navigate('/ranking');
+                            }}
+                          >
+                            {userRole === 'USER' ? 'Profile' : 'Dashboard'}
+
+                          </button>
                         </div>
                         <div>
                           <button type="button" onClick={handleSignOut}>Sign out</button>
@@ -399,10 +416,28 @@ const Header = () => {
                     : (
                       <div>
                         <div>
-                          <button type="button" onClick={() => navigate('/sign-up')}>Register</button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowSideMenu(false);
+                              navigate('/sign-up');
+                            }}
+                          >
+                            Register
+
+                          </button>
                         </div>
                         <div>
-                          <button type="button" onClick={() => navigate('/login')}>Log in</button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowSideMenu(false);
+                              navigate('/login');
+                            }}
+                          >
+                            Log in
+
+                          </button>
                         </div>
                       </div>
                     )

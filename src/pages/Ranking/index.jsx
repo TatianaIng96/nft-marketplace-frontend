@@ -1,12 +1,14 @@
+/* eslint-disable arrow-body-style */
 import { useState, useEffect } from 'react';
 import './Ranking.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiBriefcase } from 'react-icons/fi';
 import { rankingData } from '../../assets/data';
 import Inner from '../../Components/Inner';
 import Pagination from '../../Components/Pagination';
 
 const Ranking = () => {
+  const navigate = useNavigate();
   const [dataOfRannking, setDataOfRanking] = useState([]);
 
   useEffect(() => {
@@ -16,6 +18,9 @@ const Ranking = () => {
   return (
     <div className="ranking-container">
       <Inner page="Ranking" />
+      <div className="createUserButton">
+        <button type="button" onClick={() => navigate('/admin-create-user')}>Create user</button>
+      </div>
       <div className="ranking-padding-container">
         <div className="ranking-title">
           <h4>
