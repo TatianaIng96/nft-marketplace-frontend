@@ -8,7 +8,7 @@ import MyInfoProfile from '../../Components/MyInfoProfile';
 
 // import { cardData } from '../../assets/data';
 
-const Profile = () => {
+const MyProfile = () => {
   const [user, setUser] = useState({});
 
   const [isActive, setIsActive] = useState(0);
@@ -71,7 +71,9 @@ const Profile = () => {
   return (
     <div className="profile-secction">
       <div className="cover-secction">
-        <Cover />
+        <Cover
+          image={user.coverImage}
+        />
       </div>
       <div className="author">
         <div className="container">
@@ -131,6 +133,7 @@ const Profile = () => {
                           <React.Fragment key={nft.id}>
                             <Card
                               id={nft.id}
+                              userId={nft.userId}
                               totalLikes={nft.likeCoun}
                               nftName={nft.name}
                               price={nft.price}
@@ -156,4 +159,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfile;
