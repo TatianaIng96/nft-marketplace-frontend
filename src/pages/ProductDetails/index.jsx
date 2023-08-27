@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Inner from '../../Components/Inner';
@@ -10,10 +11,11 @@ import Bids from '../../Components/Bids';
 import HistoryBids from '../../Components/HistoryBits';
 import RecentCard from '../../Components/RecentCard';
 import Details from '../../Components/Details';
+import Winner from '../../Components/Winner';
 
 const ProductDetails = () => {
-  const [isActive, setIsActive] = useState(0);
-  const buton = ['Bids', 'Details', 'History'];
+  const [isActive, setIsActive] = useState(4);
+  const buton = ['Bids', 'Details', 'History', 'Winner'];
   const [data, setData] = useState();
   const { id } = useParams();
 
@@ -29,10 +31,23 @@ const ProductDetails = () => {
       setData(dataCard);
     }
     fetchData();
-  }, []);
+  }, [data]);
+
+  const finishDate = new Date(data?.auction[0].finishDate);
+  const currentDate = new Date();
 
   const handleClick = (buttonId) => {
-    setIsActive(buttonId);
+    if (data?.auction.length > 0 && buttonId === 0) {
+      setIsActive(buttonId);
+    } else if (data?.auction.length <= 0 && buttonId === 1) {
+      setIsActive(1);
+    } else if (data?.auction.length > 0 && buttonId === 1) {
+      setIsActive(1);
+    } else if (data?.auction.length > 0 && buttonId === 2) {
+      setIsActive(2);
+    } else if (data?.auction.length > 0 && buttonId === 3) {
+      setIsActive(3);
+    }
   };
 
   const handleModal = (spanId, bool) => {
@@ -103,9 +118,17 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div>
-                    {isActive === 0 && <Bids />}
+                    {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
                     {isActive === 1 && <Details />}
-                    {isActive === 2 && <HistoryBids />}
+                    {isActive === 2 && <HistoryBids auctionId={data?.auction[0].id || 1} />}
+                    {isActive === 3
+                      ? (
+                        <Winner
+                          auctionId={data?.auction[0].id || 1}
+                          finishDate={finishDate}
+                          currentDate={currentDate}
+                        />
+                      ) : ''}
                   </div>
                 </div>
               </div>

@@ -19,6 +19,7 @@ import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
 import NotFound from '../pages/NotFound';
 import MyProfile from '../pages/MyProfile';
+import Payments from '../pages/Payments';
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: '/change-password',
         element: <ChangePassword />,
+      },
+      {
+        path: '/payments/:id',
+        element: <Payments />,
       },
       {
         path: '/edit-profile-image',

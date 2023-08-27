@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@mantine/carousel": "^6.0.17",
+    "@stripe/react-stripe-js": "^2.1.2",
+    "@stripe/stripe-js": "^2.1.0",
     "@sweetalert2/theme-dark": "^5.0.15",
     "better-react-carousel": "^1.1.1",
     "date-fns": "^2.30.0",

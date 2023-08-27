@@ -19,7 +19,13 @@ const Home = () => {
     const fetchAllNFTs = async () => {
       const response = await fetch('http://localhost:8080/api/nft/');
       const nfts = await response.json();
-      setDataNft(nfts);
+      const auctionCount = nfts.map((item) => {
+        return {
+          ...item,
+          auctionCount: item.auction.length,
+        };
+      });
+      setDataNft(auctionCount);
     };
     fetchAllNFTs();
 
@@ -85,16 +91,16 @@ const Home = () => {
                     return (
                       <Carousel.Slide key={nft.id}>
                         <Card
+                          key={nft.id}
                           id={nft.id}
                           userId={nft.userId}
-                          totalLikes={nft.like.length}
                           nftName={nft.name}
                           price={nft.price}
                           nftImage={nft.imageForNft[0]}
                           profileImage1={nft.imageForNft[0]}
                           profileImage2={nft.imageForNft[1]}
                           profileImage3={nft.imageForNft[2]}
-                          placeBit={nft.placeBit}
+                          placeBit={nft.auctionCount}
                         />
                       </Carousel.Slide>
                     );
@@ -105,16 +111,17 @@ const Home = () => {
             : dataNft.map((nft) => {
               return (
                 <Card
+                  key={nft.id}
                   id={nft.id}
                   userId={nft.userId}
-                  totalLikes={nft.totalLikes}
+                  totalLikes={nft.likeCoun}
                   nftName={nft.name}
                   price={nft.price}
                   nftImage={nft.imageForNft[0]}
                   profileImage1={nft.imageForNft[0]}
                   profileImage2={nft.imageForNft[1]}
                   profileImage3={nft.imageForNft[2]}
-                  placeBit={nft.placeBit}
+                  placeBit={nft.auctionCount}
                 />
               );
             }).slice(0, 5)

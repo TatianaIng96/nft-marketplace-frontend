@@ -2,7 +2,6 @@ $silver-color: #ACACAC;
 $blue-color: #00A3FF;
 $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
-
 .swal2-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px !important;
@@ -47,6 +46,7 @@ $dark-color-blue: #242435;
 }
 
 .card {
+  position: relative;
   background-color: $dark-color-blue;
   max-width: 350px;
   width: 18rem;
@@ -54,6 +54,7 @@ $dark-color-blue: #242435;
   margin-bottom: 30px;
   border-radius: 10px;
   transition-duration: 0.5s;
+
 
   button {
     cursor: pointer;
