@@ -31,30 +31,6 @@ const ProductDetails = () => {
       setData(dataCard);
     }
     fetchData();
-
-    // const fetchAllBids = async () => {
-    //   try {
-    //     const fetchConfig = {
-    //       method: 'GET',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //       },
-    //     };
-    //     const response = await fetch(`http://localhost:8080/api/auctions/nft/${id}`, fetchConfig);
-    //     if (!response.ok) {
-    //       throw new Error('Network response was not ok');
-    //     }
-    //     const bids = await response.json();
-    //     console.log(bids);
-    //     //setSellers(bids);
-    //     //setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // };
-
-    // fetchAllBids();
   }, [data]);
 
   const finishDate = new Date(data?.auction[0].finishDate);
@@ -144,7 +120,7 @@ const ProductDetails = () => {
                   <div>
                     {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
                     {isActive === 1 && <Details />}
-                    {isActive === 2 && <HistoryBids />}
+                    {isActive === 2 && <HistoryBids auctionId={data?.auction[0].id || 1} />}
                     {isActive === 3
                       ? (
                         <Winner

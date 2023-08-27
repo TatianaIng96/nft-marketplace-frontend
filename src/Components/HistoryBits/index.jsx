@@ -1,42 +1,61 @@
+/* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
-import BitArea from '../BitArea';
 import '../Bids/Bids.scss';
-import { cardData, sellerData } from '../../assets/data';
+import { sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
-const HistoryBids = () => {
-  const [sellers, setSellers] = useState(sellerData);
-  const [dataNft, setDataNft] = useState(cardData[0]);
+const HistoryBids = ({ auctionId }) => {
+  const [sellers, setSellers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setSellers(sellerData);
-    setDataNft(cardData[0]);
-  }, []);
+    const fetchAllBids = async () => {
+      try {
+        const fetchConfig = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        };
+        const response = await fetch(`http://localhost:8080/api/auctions/${auctionId}`, fetchConfig);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const bids = await response.json();
+        setSellers(bids);
+        setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchAllBids();
+  }, [sellers]);
+
+  // Renderizar un mensaje de carga mientras se obtienen los datos
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
   return (
     <div className="bid-secction">
       <div className="top-seller">
         <div className="top-seller__title">
           <div className="top-seller__content">
-            {
-              dataNft.bits.slice(0, 5).map((bit) => {
+            { sellers.bid.lenght !== 0 ? (
+              sellers.bid?.map((seller) => {
                 return (
-                  sellers.map((seller) => {
-                    return (
-                      bit.sellerId === seller.id && (
-                      <BitSeller
-                        key={seller.id}
-                        sellerImage={seller.image}
-                        sellerName={seller.name}
-                        bit={bit.bit}
-                        hours={bit.hours}
-                        place={false}
-                      />
-                      )
-                    );
-                  })
+                  <BitSeller
+                    key={seller.id}
+                    sellerImage={sellerData[0].image}
+                    sellerName={seller.user?.firstName}
+                    bit={seller?.amount || 10}
+                    hours={seller?.createdAt || 12}
+                    place={false}
+                  />
+
                 );
-              })
-            }
+              })) : <div> not bid...</div>}
           </div>
         </div>
       </div>

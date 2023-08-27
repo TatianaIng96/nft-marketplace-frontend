@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Checkout.scss';
 import {
   useElements,
@@ -10,13 +10,16 @@ import {
   CardCvcElement,
 } from '@stripe/react-stripe-js';
 
-const Checkout = () => {
+const Checkout = ({
+  amount, nftId, nftOwnerId, buyerId,
+}) => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
-  const transactionErrors = {
-    'Your card has insufficient funds.': () => { return alert('No tienes fondos suficientes'); },
-  };
+  // const transactionErrors = {
+  //   'Your card has insufficient funds.': () => { return alert('No tienes fondos suficientes'); },
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,21 +37,29 @@ const Checkout = () => {
         console.log(error);
         return;
       }
-
-      const response = await fetch.post(
-        'http://localhost:8080/api/checkout',
-        {
+      const fetchConfig = {
+        method: 'POST',
+        body: JSON.stringify({
           paymentMethod,
-          amount: Math.floor(10 * 100),
+          amount: Math.floor(amount * 100),
+          nftId,
+          nftOwnerId,
+          buyerId,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+      };
 
-      alert('Gracias por tu compra');
-      // navigate(/payment-success)
+      const response = await fetch('http://localhost:8080/api/transactions', fetchConfig);
+      if (response.ok) {
+        alert('Payment success');
+      }
     } catch ({ response }) {
-      transactionErrors[response.data.message]();
-      // if(response.data.message === 'Your card has insufficient funds.') {
-      //   alert('No tienes fondos suficientes')
+      // transactionErrors[response.data.message]();
+      console.log(response);
+      // if (response.data.message === 'Your card has insufficient funds.') {
+      //   alert('No tienes fondos suficientes');
       // }
     } finally {
       elements.getElement(
@@ -57,6 +68,8 @@ const Checkout = () => {
         CardCvcElement,
       ).clear();
     }
+
+    navigate('/my-profile/');
   };
   return (
     <div className="checkout">
@@ -82,7 +95,7 @@ const Checkout = () => {
           Amount:
           {' '}
           <span className="amount">
-            2000
+            {amount}
             <span className="currency">
               wETH
             </span>

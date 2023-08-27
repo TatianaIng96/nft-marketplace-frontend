@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useJwt } from 'react-jwt';
 import './Winner.scss';
+import { Link } from 'react-router-dom';
 import { sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
@@ -10,6 +11,7 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
   const [loading, setLoading] = useState(true);
   const [pay, setPay] = useState(false);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
+  const [data, setData] = useState();
 
   useEffect(() => {
     const fetchAllBids = async () => {
@@ -34,9 +36,26 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
     };
 
     fetchAllBids();
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+      if (loading === false) {
+        const response = await fetch(`http://localhost:8080/api/nft/${sellers.nft.id}`, fetchConfig);
+        const dataNft = await response.json();
+        setData(dataNft);
+      }
+    }
+    fetchData();
     if (finishDate <= currentDate && decodedToken) {
       if (decodedToken.id === sellers.bid[0].user.id) {
         setPay(true);
+        if (data) {
+          if (data.nftOwner[0]?.user.id === decodedToken.id) {
+            setPay(false);
+          }
+        }
       } else {
         setPay(false);
       }
@@ -69,7 +88,12 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
           </div>
         </div>
       </div>
-      {pay && <button className="pay" type="button">Pay</button>}
+      {pay
+      && (
+      <Link to={`/payments/${auctionId}`}>
+        <button className="pay" type="button">Pay</button>
+      </Link>
+      )}
     </div>
   );
 };
