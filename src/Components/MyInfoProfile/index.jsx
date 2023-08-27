@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
@@ -11,9 +11,21 @@ const MyInfoProfile = (props) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
+  const navigate = useNavigate();
 
-  // const { isAdmin } = useContext(UsersAndNFTsContext);
+  useEffect(() => {
+    const closeOptionWhenClickOut = (e) => {
+      if (showOptions && !e.target.closest('.show-more-options')) {
+        setShowOptions(false);
+      }
+    };
+    document.addEventListener('click', closeOptionWhenClickOut);
+
+    return () => {
+      document.removeEventListener('click', closeOptionWhenClickOut);
+    };
+  }, [showOptions]);
 
   const fullName = `${firstName} ${lastName}`;
 
@@ -34,7 +46,6 @@ const MyInfoProfile = (props) => {
               className="color-body"
             >
               followers
-
             </a>
           </span>
         </div>
@@ -48,7 +59,6 @@ const MyInfoProfile = (props) => {
               className="color-body"
             >
               following
-
             </a>
           </span>
         </div>
@@ -74,9 +84,9 @@ const MyInfoProfile = (props) => {
                 <FaEllipsisH />
               </i>
             </button>
-            <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
-              <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
+            <div className={!showOptions ? 'menu-options-hide' : 'menu-options-show'}>
+              <button type="button" onClick={() => { return navigate('/create-nft'); }}>Create NFT</button>
+              <button type="button" onClick={() => { return navigate('/create-auction'); }}>Create Auction</button>
             </div>
           </div>
         </div>

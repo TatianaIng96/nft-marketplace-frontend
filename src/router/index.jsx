@@ -20,6 +20,7 @@ import AdminEditUser from '../pages/AdminEditUser';
 import NotFound from '../pages/NotFound';
 import MyProfile from '../pages/MyProfile';
 import Payments from '../pages/Payments';
+import CreateAuction from '../pages/CreateAuction';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/create-nft',
         element: <CreateNFTForm />,
+      },
+      {
+        path: '/create-auction',
+        element: <CreateAuction />,
       },
       {
         path: '/profile/:id',
