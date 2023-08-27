@@ -14,8 +14,6 @@ const MyInfoProfile = (props) => {
   const [showOptions, setShowOptions] = useState(false);
   const navigate = useNavigate();
 
-  // const { isAdmin } = useContext(UsersAndNFTsContext);
-
   useEffect(() => {
     const closeOptionWhenClickOut = (e) => {
       if (showOptions && !e.target.closest('.show-more-options')) {
@@ -48,7 +46,6 @@ const MyInfoProfile = (props) => {
               className="color-body"
             >
               followers
-
             </a>
           </span>
         </div>
@@ -62,7 +59,6 @@ const MyInfoProfile = (props) => {
               className="color-body"
             >
               following
-
             </a>
           </span>
         </div>
