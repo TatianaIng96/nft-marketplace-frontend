@@ -8,7 +8,7 @@ import MyInfoProfile from '../../Components/MyInfoProfile';
 
 // import { cardData } from '../../assets/data';
 
-const Profile = () => {
+const MyProfile = () => {
   const [user, setUser] = useState({});
 
   const [isActive, setIsActive] = useState(0);
@@ -156,4 +156,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfile;

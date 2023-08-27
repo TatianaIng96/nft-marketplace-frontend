@@ -173,7 +173,11 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to={profileId === userId ? '/my-profile/' : `/profile/${userId}`}>{nftName}</Link>
+          <Link to={profileId === userId ? '/my-profile/' : `/profile/${userId}`}>
+            {' '}
+            {nftName}
+            {' '}
+          </Link>
           <h4>Highest bid 1/20</h4>
         </article>
 
