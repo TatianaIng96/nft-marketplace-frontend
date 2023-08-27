@@ -1,13 +1,15 @@
 /* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
-import BitArea from '../BitArea';
-import './Bids.scss';
+import { useJwt } from 'react-jwt';
+import './Winner.scss';
 import { sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
-const Bids = ({ auctionId }) => {
+const Winner = ({ auctionId, finishDate, currentDate }) => {
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pay, setPay] = useState(false);
+  const { decodedToken } = useJwt(localStorage.getItem('token'));
 
   useEffect(() => {
     const fetchAllBids = async () => {
@@ -32,6 +34,13 @@ const Bids = ({ auctionId }) => {
     };
 
     fetchAllBids();
+    if (finishDate <= currentDate && decodedToken) {
+      if (decodedToken.id === sellers.bid[0].user.id) {
+        setPay(true);
+      } else {
+        setPay(false);
+      }
+    }
   }, [sellers]);
 
   // Renderizar un mensaje de carga mientras se obtienen los datos
@@ -39,7 +48,7 @@ const Bids = ({ auctionId }) => {
     return <div>Cargando...</div>;
   }
   return (
-    <div className="bid-secction">
+    <div className="winer-secction">
       <div className="top-seller">
         <div className="top-seller__title">
           <div className="top-seller__content">
@@ -56,19 +65,13 @@ const Bids = ({ auctionId }) => {
                   />
 
                 );
-              })) : <div> not bid...</div>}
+              }).slice(0, 1)) : <div> not bid...</div>}
           </div>
         </div>
       </div>
-      <BitArea
-        minAmount={sellers.minAmount}
-        finishDate={sellers.finishDate}
-        nftOwnerId={sellers.nftOwnerId}
-        createdAt={sellers.createdAt}
-        auctionId={auctionId}
-      />
+      {pay && <button className="pay" type="button">Pay</button>}
     </div>
   );
 };
 
-export default Bids;
+export default Winner;

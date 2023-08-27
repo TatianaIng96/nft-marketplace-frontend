@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Inner from '../../Components/Inner';
@@ -10,10 +11,11 @@ import Bids from '../../Components/Bids';
 import HistoryBids from '../../Components/HistoryBits';
 import RecentCard from '../../Components/RecentCard';
 import Details from '../../Components/Details';
+import Winner from '../../Components/Winner';
 
 const ProductDetails = () => {
-  const [isActive, setIsActive] = useState(3);
-  const buton = ['Bids', 'Details', 'History'];
+  const [isActive, setIsActive] = useState(4);
+  const buton = ['Bids', 'Details', 'History', 'Winner'];
   const [data, setData] = useState();
   const { id } = useParams();
 
@@ -29,7 +31,34 @@ const ProductDetails = () => {
       setData(dataCard);
     }
     fetchData();
-  }, []);
+
+    // const fetchAllBids = async () => {
+    //   try {
+    //     const fetchConfig = {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //       },
+    //     };
+    //     const response = await fetch(`http://localhost:8080/api/auctions/nft/${id}`, fetchConfig);
+    //     if (!response.ok) {
+    //       throw new Error('Network response was not ok');
+    //     }
+    //     const bids = await response.json();
+    //     console.log(bids);
+    //     //setSellers(bids);
+    //     //setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
+    //   } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //   }
+    // };
+
+    // fetchAllBids();
+  }, [data]);
+
+  const finishDate = new Date(data?.auction[0].finishDate);
+  const currentDate = new Date();
 
   const handleClick = (buttonId) => {
     if (data?.auction.length > 0 && buttonId === 0) {
@@ -40,8 +69,9 @@ const ProductDetails = () => {
       setIsActive(1);
     } else if (data?.auction.length > 0 && buttonId === 2) {
       setIsActive(2);
+    } else if (data?.auction.length > 0 && buttonId === 3) {
+      setIsActive(3);
     }
-    console.log(data?.auction.length);
   };
 
   const handleModal = (spanId, bool) => {
@@ -112,9 +142,17 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div>
-                    {isActive === 0 ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
+                    {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
                     {isActive === 1 && <Details />}
                     {isActive === 2 && <HistoryBids />}
+                    {isActive === 3
+                      ? (
+                        <Winner
+                          auctionId={data?.auction[0].id || 1}
+                          finishDate={finishDate}
+                          currentDate={currentDate}
+                        />
+                      ) : ''}
                   </div>
                 </div>
               </div>

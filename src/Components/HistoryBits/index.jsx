@@ -40,7 +40,6 @@ const HistoryBids = () => {
           </div>
         </div>
       </div>
-      <BitArea />
     </div>
   );
 };
