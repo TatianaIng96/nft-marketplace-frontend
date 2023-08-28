@@ -71,7 +71,9 @@ const MyProfile = () => {
   return (
     <div className="profile-secction">
       <div className="cover-secction">
-        <Cover />
+        <Cover
+          image={user.coverImage}
+        />
       </div>
       <div className="author">
         <div className="container">

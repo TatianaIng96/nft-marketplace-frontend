@@ -10,7 +10,6 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setUsers([...users, object]);
 
     const fetchConfig = {
       method: 'POST',
@@ -70,7 +69,6 @@ const SignUpForm = () => {
               </label>
               <div className="buttonsSection">
                 <button type="submit" className="signUpButton">Sign Up</button>
-                <button type="button" className="logInButton">Login</button>
               </div>
             </form>
           </section>

@@ -1,82 +1,79 @@
 /* eslint-disable arrow-body-style */
 import './Header.scss';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FiBell, FiSun } from 'react-icons/fi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
+import { useJwt } from 'react-jwt';
 import logo from '../../assets/logo-neuron.png';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const { isExpired } = useJwt(localStorage.getItem('token'));
+
+  const userRole = localStorage.getItem('role');
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('lastName');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
+
+    navigate('/');
+    window.location.reload();
+  };
+
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
 
   const [showSideHome, setShowSideHome] = useState(false);
   const [showSideExplore, setShowSideExplore] = useState(false);
   const [showSidePages, setShowSidePages] = useState(false);
-  const [showSideBlog, setShowSideBlog] = useState(false);
 
   const [showHome, setShowHome] = useState(false);
   const [showExplore, setShowExplore] = useState(false);
   const [showPages, setShowPages] = useState(false);
-  const [showBlog, setShowBlog] = useState(false);
 
   const toggleHomeList = () => {
     setShowSideHome(!showSideHome);
     setShowSideExplore(false);
     setShowSidePages(false);
-    setShowSideBlog(false);
   };
   const toggleExploreList = () => {
     setShowSideHome(false);
     setShowSideExplore(!showSideExplore);
     setShowSidePages(false);
-    setShowSideBlog(false);
   };
   const togglePagesList = () => {
     setShowSideHome(false);
     setShowSideExplore(false);
     setShowSidePages(!showSidePages);
-    setShowSideBlog(false);
-  };
-  const toggleBlogList = () => {
-    setShowSideHome(false);
-    setShowSideExplore(false);
-    setShowSidePages(false);
-    setShowSideBlog(!showSideBlog);
   };
 
   const handleHomeHover = () => {
     setShowHome(true);
     setShowExplore(false);
     setShowPages(false);
-    setShowBlog(false);
   };
   const handleExploreHover = () => {
     setShowHome(false);
     setShowExplore(true);
     setShowPages(false);
-    setShowBlog(false);
   };
   const handlePagesHover = () => {
     setShowHome(false);
     setShowExplore(false);
     setShowPages(true);
-    setShowBlog(false);
-  };
-  const handleBlogHover = () => {
-    setShowHome(false);
-    setShowExplore(false);
-    setShowPages(false);
-    setShowBlog(true);
   };
   const handleHideAllLists = () => {
     setShowHome(false);
     setShowExplore(false);
     setShowPages(false);
-    setShowBlog(false);
   };
 
   return (
@@ -166,27 +163,30 @@ const Header = () => {
               </ul>
             )}
         </div>
-        <div className="menuOption blog" onMouseEnter={handleBlogHover}>
-          <p>
-            Blog
-            <BiChevronDown />
-          </p>
-          {showBlog
-            && (
-              <ul
-                className="blog__list"
-                onMouseEnter={handleBlogHover}
-                onMouseLeave={() => setShowBlog(false)}
-              >
-                <li>Blog Single Column</li>
-                <li>Blog Two Column</li>
-                <li>Blog Three Column</li>
-                <li>Blog Four Column</li>
-                <li>Blog Details</li>
-              </ul>
-            )}
-        </div>
         <span className="menuOption">Contact</span>
+        {
+          !isExpired
+            ? (
+              <div className="menuOption changeableButtons">
+                <div>
+                  <button type="button" onClick={userRole === 'USER' ? () => navigate('/my-profile') : () => navigate('/ranking')}>{userRole === 'USER' ? 'Profile' : 'Dashboard'}</button>
+                </div>
+                <div>
+                  <button type="button" onClick={handleSignOut}>Sign out</button>
+                </div>
+              </div>
+            )
+            : (
+              <div className="menuOption changeableButtons">
+                <div>
+                  <button type="button" onClick={() => navigate('/sign-up')}>Register</button>
+                </div>
+                <div>
+                  <button type="button" onClick={() => navigate('/login')}>Login</button>
+                </div>
+              </div>
+            )
+        }
         <section className="buttonsContainer">
           <div
             className="iconContainer"
@@ -367,44 +367,7 @@ const Header = () => {
                         </li>
                       </NavLink>
                       <li>Product</li>
-                      <NavLink to="/login">
-                        <li
-                          onClick={() => {
-                            setShowSideMenu(false);
-                            setShowSidePages(false);
-                          }}
-                          role="menuitem"
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              setShowSideMenu(false);
-                            }
-                          }}
-                          tabIndex={0}
-                        >
-                          Login
-                          {' '}
-                        </li>
-                      </NavLink>
                       <li>About Us</li>
-                      <li>Upload Type</li>
-                      <NavLink to="/sign-up">
-                        <li
-                          onClick={() => {
-                            setShowSideMenu(false);
-                            setShowSidePages(false);
-                          }}
-                          role="menuitem"
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              setShowSideMenu(false);
-                            }
-                          }}
-                          tabIndex={0}
-                        >
-                          Registration
-                          {' '}
-                        </li>
-                      </NavLink>
                       <NavLink to="/product-details">
                         <li
                           onClick={() => {
@@ -423,34 +386,104 @@ const Header = () => {
                           {' '}
                         </li>
                       </NavLink>
-                      <li>Contact</li>
-                    </ul>
-                  )}
-                <li
-                  onClick={toggleBlogList}
-                  role="menuitem"
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      setShowSideMenu(false);
-                    }
-                  }}
-                  tabIndex={0}
-                >
-                  Blog
-                  {' '}
-                  <BiChevronDown />
-                </li>
-                {showSideBlog
-                  && (
-                    <ul className="sideMenuItems">
-                      <li>Blog Single Column</li>
-                      <li>Blog Two Column</li>
-                      <li>Blog Three Column</li>
-                      <li>Blog Four Column</li>
-                      <li>Blog Details</li>
                     </ul>
                   )}
                 <li>Contact</li>
+                {
+                  !isExpired
+                    ? (
+                      <div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={userRole === 'USER' ? () => {
+                              setShowSideMenu(false);
+                              navigate('/my-profile');
+                            } : () => {
+                              setShowSideMenu(false);
+                              navigate('/ranking');
+                            }}
+                          >
+                            {userRole === 'USER' ? 'Profile' : 'Dashboard'}
+
+                          </button>
+                        </div>
+                        <div>
+                          <button type="button" onClick={handleSignOut}>Sign out</button>
+                        </div>
+                      </div>
+                    )
+                    : (
+                      <div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowSideMenu(false);
+                              navigate('/sign-up');
+                            }}
+                          >
+                            Register
+
+                          </button>
+                        </div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowSideMenu(false);
+                              navigate('/login');
+                            }}
+                          >
+                            Log in
+
+                          </button>
+                        </div>
+                      </div>
+                    )
+                }
+                {/* <NavLink to={localStorage.getItem('token') ? '/my-profile' : '/login'}>
+                  <li
+                    onClick={() => {
+                      setShowSideMenu(false);
+                      setShowSidePages(false);
+                    }}
+                    role="menuitem"
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        setShowSideMenu(false);
+                      }
+                    }}
+                    tabIndex={0}
+                  >
+                    {localStorage.getItem('token') ? 'Profile' : 'Login'}
+                    {' '}
+                  </li>
+                </NavLink>
+                {
+                  localStorage.getItem('token')
+                    ? <button type="button">Sign out</button>
+                    : (
+                      <NavLink to="/sign-up">
+                        <li
+                          onClick={() => {
+                            setShowSideMenu(false);
+                            setShowSidePages(false);
+                          }}
+                          role="menuitem"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              setShowSideMenu(false);
+                            }
+                          }}
+                          tabIndex={0}
+                        >
+                          Register
+                          {' '}
+                        </li>
+                        </NavLink>
+                    )
+                } */}
               </ul>
             </section>
           )}
