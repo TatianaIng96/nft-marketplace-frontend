@@ -32,8 +32,7 @@ const ModalShop = ({ isOpen, onClose, auctionId }) => {
         },
       };
 
-      const response = await fetch('http://localhost:8080/api/bid', fetchConfig);
-      console.log(response);
+      await fetch('http://localhost:8080/api/bid', fetchConfig);
       onClose();
     }
   };

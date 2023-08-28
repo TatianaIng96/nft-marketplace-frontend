@@ -74,7 +74,9 @@ const CreateAuction = () => {
 
     await fetch('http://localhost:8080/api/auctions', fetchConfig);
 
-    navigate('/product-details/:id');
+    const convertedNft = JSON.parse(selectedNft);
+
+    navigate(`/product-details/${convertedNft.id}`);
   };
 
   const filterNfts = nfts.filter((nft) => { return nft.userId === user.id; });
