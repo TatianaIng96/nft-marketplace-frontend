@@ -1,21 +1,20 @@
 .shop-secction {
   /* Modal.css */
   $main-background: #13131d;
-
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.2);
     height: 100vh;
     width: 100vw;
-    top: 15em;
-    left: 10em;
+    top: -10em;
+    left: 13em;
     transform: translate(-50%, -50%);
-    position: absolute;
+    position: relative;
     transition: opacity .15s linear;
-    z-index: 0;
+    z-index: 999999;
   }
 
   .modal {
-    position: fixed;
+    position: relative;
     top: 18em;
     left: 11.7em;
     transform: translate(-50%, -50%);
@@ -24,13 +23,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     width: 20em;
     height: 27em;
-    z-index: 10;
+    z-index: 999999;
     pointer-events: auto;
     border: 1px solid #acacac;
   }
 
   .modal-content-background {
     width: 17rem;
+    z-index: 999999;
   }
 
   .modal-close {
@@ -123,13 +123,13 @@
 
   @media(min-width:768px) and (max-width:1023px) {
     .modal-overlay {
-      margin-left: 11em;
-      margin-top: -9em;
+      margin-left: -12em;
+      margin-top: 23em;
     }
 
     .modal {
-      margin-top: 14em;
-      margin-left: 12em;
+      margin-top: -1em;
+      margin-left: 14em;
     }
 
     .modal-close {
@@ -139,14 +139,14 @@
   }
 
   @media (min-width:1024px) and (max-width:1279px) {
-    .modal-overlay {
-      margin-left: -14em;
-      margin-top: -6em;
+   .modal-overlay {
+      margin-left: -21em;
+      margin-top: 39em;
     }
 
     .modal {
-      margin-top: 3em;
-      margin-left: 20em;
+      margin-top: -4em;
+      margin-left: 21em;
     }
 
     .modal-close {
@@ -157,12 +157,12 @@
 
   @media (min-width:1280px) and (max-width:1360px) {
     .modal-overlay {
-      margin-left: -12em;
-      margin-top: 0em;
+      margin-left: -25em;
+      margin-top: 13em;
     }
 
     .modal {
-      margin-top: 9em;
+      margin-top: 4em;
       margin-left: 30em;
       width: 32em;
       height: 33em;
@@ -230,12 +230,12 @@
 
   @media (min-width:1361px) and (max-width:1440px) {
     .modal-overlay {
-      margin-left: -20em;
-      margin-top: 6em;
+      margin-left: -32em;
+      margin-top: 20em;
     }
 
     .modal {
-      margin-top: 9em;
+      margin-top: 6em;
       margin-left: 34em;
       width: 32em;
       height: 33em;
@@ -303,8 +303,8 @@
 
   @media (min-width:1441px) {
     .modal-overlay {
-      margin-left: -16em;
-      margin-top: -1em;
+      margin-left: -32em;
+      margin-top: 20em;
     }
 
     .modal {
@@ -328,6 +328,8 @@
       .place {
         font-size: 20px;
         margin-left: 8em;
+        background-color: #00a3ff;
+        border: none;
       }
     }
 

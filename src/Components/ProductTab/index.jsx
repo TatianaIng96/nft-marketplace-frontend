@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { cardData } from '../../assets/data';
 import './ProductTab.scss';
 
-const ProductTab = () => {
+const ProductTab = ({ images }) => {
   const [dataNft, setDataNft] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [panel, setPanel] = useState('');
   useEffect(() => {
     setDataNft(cardData[0]);
+    setPanel(images?.[0]);
   }, []);
-  const [panel, setPanel] = useState(dataNft.nftImage);
 
   const handleClick = (image) => {
     setPanel(image);
@@ -17,11 +19,11 @@ const ProductTab = () => {
       <div className="product-tab">
         <div className="tab-inner">
           <div className="nav">
-            <button type="button" role="tab" className="link" onClick={() => { return handleClick(dataNft.nftImage); }}>
+            <button type="button" role="tab" className="link" onClick={() => { return handleClick(images?.[0] || dataNft.nftImage); }}>
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src={dataNft.nftImage}
+                  src={images?.[0] || dataNft.nftImage}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -29,11 +31,11 @@ const ProductTab = () => {
                 />
               </div>
             </button>
-            <button type="button" role="tab" className="link" onClick={() => { return handleClick(dataNft.profileImage1); }}>
+            <button type="button" role="tab" className="link" onClick={() => { return handleClick(images?.[1] || dataNft.profileImage1); }}>
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src={dataNft.profileImage1}
+                  src={images?.[1] || dataNft.profileImage1}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -41,11 +43,11 @@ const ProductTab = () => {
                 />
               </div>
             </button>
-            <button type="button" role="tab" className="link" onClick={() => { return handleClick(dataNft.profileImage2); }}>
+            <button type="button" role="tab" className="link" onClick={() => { return handleClick(images?.[2] || dataNft.profileImage2); }}>
               <div className="span tumb">
                 <img
                   alt="Product"
-                  src={dataNft.profileImage2}
+                  src={images?.[2] || dataNft.profileImage2}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"
@@ -59,7 +61,7 @@ const ProductTab = () => {
               <div className="tum">
                 <img
                   alt="Product"
-                  src={panel || dataNft.nftImage}
+                  src={panel || images?.[0]}
                   decoding="async"
                   data-nimg="1"
                   loading="lazy"

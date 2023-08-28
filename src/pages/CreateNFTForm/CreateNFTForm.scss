@@ -14,6 +14,10 @@
   cursor: pointer;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 .createNFTFormSection {
   .pageContainer {
     box-sizing: border-box;
@@ -210,7 +214,7 @@
 
           label {
             padding: 5px;
-            width: 45%;
+            width: 48%;
           }
         }
 

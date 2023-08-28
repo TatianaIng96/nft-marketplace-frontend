@@ -18,6 +18,9 @@ import Ranking from '../pages/Ranking';
 import AdminCreateUser from '../pages/AdminCreateUser';
 import AdminEditUser from '../pages/AdminEditUser';
 import NotFound from '../pages/NotFound';
+import MyProfile from '../pages/MyProfile';
+import Payments from '../pages/Payments';
+import CreateAuction from '../pages/CreateAuction';
 
 const router = createBrowserRouter([
   {
@@ -42,15 +45,23 @@ const router = createBrowserRouter([
         element: <CreateNFTForm />,
       },
       {
-        path: '/profile',
+        path: '/create-auction',
+        element: <CreateAuction />,
+      },
+      {
+        path: '/profile/:id',
         element: <Profile />,
+      },
+      {
+        path: '/my-profile/',
+        element: <MyProfile />,
       },
       {
         path: '/explore',
         element: <Explore />,
       },
       {
-        path: '/product-details',
+        path: '/product-details/:id',
         element: <ProductDetails />,
       },
       {
@@ -64,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: '/change-password',
         element: <ChangePassword />,
+      },
+      {
+        path: '/payments/:id',
+        element: <Payments />,
       },
       {
         path: '/edit-profile-image',
@@ -94,7 +109,7 @@ const router = createBrowserRouter([
           </PrivateRoute>,
       },
       {
-        path: '/admin-edit-user',
+        path: '/admin-edit-user/:id',
         element:
           // eslint-disable-next-line react/jsx-indent
           <PrivateRoute>

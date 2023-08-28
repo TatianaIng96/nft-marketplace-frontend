@@ -1,14 +1,14 @@
 /* eslint-disable quote-props */
-import './Profile.scss';
+import './MyProfile.scss';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import Card from '../../Components/Card';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
-import InfoProfile from '../../Components/InfoProfile';
+import MyInfoProfile from '../../Components/MyInfoProfile';
 
-const Profile = () => {
-  const { id } = useParams();
+// import { cardData } from '../../assets/data';
+
+const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -49,21 +49,6 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    // async function fetchUser() {
-    //   const fetchConfig = {
-    //     method: 'GET',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //     },
-    //   };
-
-    //   const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
-    //   const fetchedUser = await response.json();
-    //   setUser(fetchedUser);
-    // }
-    // fetchUser();
-    // console.log(user);
     async function fetchUser() {
       try {
         const fetchConfig = {
@@ -74,7 +59,7 @@ const Profile = () => {
           },
         };
 
-        const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
+        const response = await fetch('http://localhost:8080/api/users/single', fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
         setLoading(false);
@@ -109,11 +94,10 @@ const Profile = () => {
                   <AuthorInner />
                 </div>
                 <div className="info-profile">
-                  <InfoProfile
+                  <MyInfoProfile
                     firstName={user.firstName}
                     lastName={user.lastName}
                     email={user.email}
-                    userId={user.id}
                   />
                 </div>
               </div>
@@ -171,7 +155,7 @@ const Profile = () => {
 
                           </React.Fragment>
                         );
-                      })).slice(0, 6)
+                      }).slice(0, 6))
                     );
                   })
                 }
@@ -184,4 +168,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfile;

@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { differenceInSeconds } from 'date-fns';
 import './timer.scss';
 
-const CountdownTimer = () => {
-  const specificDate = new Date('2023-08-23T12:00:00');
+const CountdownTimer = ({ finishDate }) => {
+  const specificDate = new Date(finishDate);
   // Fecha y hora específica (formato ISO 8601)
   const calculateTime = (totalSeconds) => {
     const days = Math.floor(totalSeconds / (3600 * 24));

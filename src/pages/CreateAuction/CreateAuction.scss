@@ -1,0 +1,104 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
+.auction-section {
+  background-color: $main-background;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .form {
+    width: 18rem;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .date-input {
+      display: none;
+    }
+
+    button {
+      color: $silver-color;
+      background-color: $medium-color-blue;
+    }
+
+    select {
+      max-width: 400px;
+      margin: 0 auto;
+      min-height: 2.25rem;
+      height: auto;
+      line-height: 1.55;
+      appearance: none;
+      resize: none;
+      box-sizing: border-box;
+      font-size: 0.875rem;
+      width: 100%;
+      color: $silver-color;
+      display: block;
+      text-align: left;
+      border: 0.0625rem solid #ced4da;
+      background-color: $medium-color-blue;
+      padding-left: calc(2.25rem / 3);
+      padding-right: calc(2.25rem / 3);
+      border-radius: 0.25rem;
+      cursor: pointer;
+      line-height: unset;
+    }
+
+    input {
+      max-width: 400px;
+      margin: 0 auto;
+      min-height: 2.25rem;
+      height: auto;
+      line-height: 1.55;
+      appearance: none;
+      resize: none;
+      box-sizing: border-box;
+      font-size: 0.875rem;
+      width: 100%;
+      color: $silver-color;
+      display: block;
+      text-align: left;
+      border: 0.0625rem solid #ced4da;
+      background-color: $medium-color-blue;
+      padding-left: calc(2.25rem / 3);
+      padding-right: calc(2.25rem / 3);
+      border-radius: 0.25rem;
+      cursor: pointer;
+      line-height: unset;
+    }
+
+    .send-button-auction {
+      background-color: $blue-color;
+      border-radius: 10px;
+      border: none;
+      margin: 7px;
+      padding: 15px 34px;
+      color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $dark-color-blue;
+      }
+    }
+  }
+
+  .nfts-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 576px) {
+    .form {
+      width: 25rem;
+    }
+  }
+}

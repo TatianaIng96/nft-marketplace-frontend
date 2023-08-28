@@ -7,6 +7,24 @@ $main-background: #13131d;
 .ranking-container {
   background-color: $main-background;
 
+  .createUserButton {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5vh 2vw 0 0;
+
+    button {
+      all: unset;
+      border-radius: 10px;
+      margin-right: 10px;
+      padding: 10px 20px 10px 20px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      background-color: #00A3FF;
+      cursor: pointer;
+    }
+  }
+
   .padding-btn-pagination {
     padding-bottom: 50px;
   }

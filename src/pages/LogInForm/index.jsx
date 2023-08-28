@@ -39,7 +39,11 @@ const LogInForm = () => {
       firstName, lastName, email, role, token,
     });
 
-    navigate('/profile');
+    if (role === 'USER') {
+      navigate('/my-profile');
+    } else {
+      navigate('/ranking');
+    }
   };
 
   return (
@@ -64,7 +68,6 @@ const LogInForm = () => {
               </label>
               <div className="buttonsSection">
                 <button type="submit" className="loginButton">Login</button>
-                <button type="button" className="signUpButton">Sign Up</button>
               </div>
             </form>
           </section>
