@@ -5,7 +5,7 @@ import BitSeller from '../BitSeller';
 import ModalShop from '../ModalShop';
 
 const BitArea = ({
-  minAmount, finishDate, nftOwnerId, createdAt, auctionId
+  minAmount, finishDate, nftOwnerId, createdAt, auctionId,
 }) => {
   const [seller, setSeller] = useState();
   const [modalOpen, setModalOpen] = useState(false);
@@ -87,7 +87,7 @@ const BitArea = ({
             sellerName={seller.user.firstName}
             bit={minAmount}
             hours={createdAt}
-          // eslint-disable-next-line react/jsx-boolean-value
+            // eslint-disable-next-line react/jsx-boolean-value
             place={true}
           />
         </div>

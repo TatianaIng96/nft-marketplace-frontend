@@ -1,6 +1,7 @@
 .shop-secction {
   /* Modal.css */
   $main-background: #13131d;
+
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.2);
     height: 100vh;
@@ -58,6 +59,7 @@
     width: 22em;
     border-radius: 5px;
     border: 2px solid transparent;
+    color: white;
   }
 
   .span-bit {
@@ -101,6 +103,8 @@
       color: white;
       font-weight: 500;
       margin-left: 6em;
+      background-color: #00a3ff;
+      border: none;
     }
   }
 
@@ -139,7 +143,7 @@
   }
 
   @media (min-width:1024px) and (max-width:1279px) {
-   .modal-overlay {
+    .modal-overlay {
       margin-left: -21em;
       margin-top: 39em;
     }
