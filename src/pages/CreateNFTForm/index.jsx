@@ -3,10 +3,13 @@
 import './CreateNFTForm.scss';
 import { FiUpload } from 'react-icons/fi';
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
+  const navigate = useNavigate();
+
   const inputRef = useRef(null);
 
   const handleUpload = () => {
@@ -51,6 +54,8 @@ const CreateNFTForm = () => {
     };
 
     await fetch('http://localhost:8080/api/nft/', fetchConfigForm);
+
+    navigate('/my-profile');
   };
 
   return (
