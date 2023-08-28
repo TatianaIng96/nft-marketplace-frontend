@@ -1,4 +1,4 @@
-.bit-area{
+.bit-area {
   $blue-color: #00A3FF;
   background: #24243557;
   padding: 30px;
@@ -8,7 +8,8 @@
   border: 1px solid #ffffff14;
   margin-left: 0.5em;
   margin-top: 5em;
-  .bet-create{
+
+  .bet-create {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -18,45 +19,54 @@
     text-align: center;
     margin-top: -3em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap:32px;
-    margin-left:1em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-left: 1em;
   }
-  .winning{
+
+  .winning {
     padding: 15px;
   }
-  .title2{
+
+  .title2 {
     font-weight: 400;
     font-size: 18px;
     margin-left: 5em;
   }
-  .title1{
+
+  .title1 {
     font-weight: 400;
     font-size: 18px;
     margin-left: 4em;
   }
-  .bid-list{
+
+  .bid-list {
     margin-top: -3em;
     width: 20em;
     margin-left: -1em;
-    @media(min-width:768px) and (max-width:1023px){
+
+    @media(min-width:768px) and (max-width:1023px) {
       margin-top: 1em;
       margin-left: 1.5em;
     }
-    @media (min-width:1024px) and (max-width:1279px){
+
+    @media (min-width:1024px) and (max-width:1279px) {
       margin-top: 1em;
       margin-left: -6.5em;
     }
-    @media (min-width:1280px) and (max-width:1440px){
+
+    @media (min-width:1280px) and (max-width:1440px) {
       margin-top: 1em;
       margin-left: -3.5em;
     }
-    @media (min-width:1441px){
+
+    @media (min-width:1441px) {
       margin-top: 1em;
       margin-left: -3.5em;
     }
   }
-  .place-bit{
+
+  .place-bit {
     min-width: max-content;
     background: #212e48;
     color: #fff;
@@ -66,75 +76,93 @@
     margin-top: 1.5em;
     height: 3em;
     border-radius: 10px;
+    cursor: pointer;
+
     &:hover {
       background: $blue-color;
       color: #fff;
     }
-    @media(min-width:768px) and (max-width:1023px){
+
+    @media(min-width:768px) and (max-width:1023px) {
       width: 35em;
       margin-left: -15em;
       font-size: 16px;
     }
-    @media (min-width:1024px) and (max-width:1279px){
+
+    @media (min-width:1024px) and (max-width:1279px) {
       width: 20em;
       margin-left: -7em;
       font-size: 16px;
       margin-top: 5em;
     }
-    @media (min-width:1280px) and (max-width:1440px){
+
+    @media (min-width:1280px) and (max-width:1440px) {
       width: 27em;
       margin-left: -9em;
       font-size: 16px;
       margin-top: 2em;
     }
-    @media (min-width:1441px){
+
+    @media (min-width:1441px) {
       width: 27em;
       margin-left: -9em;
       font-size: 16px;
       margin-top: 3em;
     }
   }
-  @media(min-width:768px) and (max-width:1023px){
+
+  @media(min-width:768px) and (max-width:1023px) {
     width: 40em;
     margin-left: 3em;
-    .bet-create{
-      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+    .bet-create {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       margin-left: 3em;
     }
-    .winning{
+
+    .winning {
       margin-left: 2em;
     }
   }
-  @media (min-width:1024px) and (max-width:1279px){
+
+  @media (min-width:1024px) and (max-width:1279px) {
     width: 25em;
     margin-left: 3em;
-    .bet-create{
-      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+    .bet-create {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       margin-left: 3em;
     }
-    .winning{
+
+    .winning {
       margin-left: -2em;
     }
   }
-  @media (min-width:1280px) and (max-width:1440px){
+
+  @media (min-width:1280px) and (max-width:1440px) {
     width: 31em;
     margin-left: 2em;
-    .bet-create{
-      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+    .bet-create {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       margin-left: 3em;
     }
-    .winning{
+
+    .winning {
       margin-left: -2em;
     }
   }
-  @media (min-width:1441px){
+
+  @media (min-width:1441px) {
     width: 31em;
     margin-left: 2em;
-    .bet-create{
-      grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+    .bet-create {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       margin-left: 3em;
     }
-    .winning{
+
+    .winning {
       margin-left: -2em;
     }
   }
