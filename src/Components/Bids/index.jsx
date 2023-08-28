@@ -27,7 +27,7 @@ const Bids = ({ auctionId }) => {
         setSellers(bids);
         setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
       } catch (error) {
-        console.error('Error fetching data:', error);
+        alert('Error fetching data:', error);
       }
     };
 
@@ -36,14 +36,14 @@ const Bids = ({ auctionId }) => {
 
   // Renderizar un mensaje de carga mientras se obtienen los datos
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
   return (
     <div className="bid-secction">
       <div className="top-seller">
         <div className="top-seller__title">
           <div className="top-seller__content">
-            { sellers.bid.lenght !== 0 ? (
+            {sellers.bid.lenght !== 0 ? (
               sellers.bid?.map((seller) => {
                 return (
                   <BitSeller
