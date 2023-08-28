@@ -10,6 +10,7 @@ import InfoProfile from '../../Components/InfoProfile';
 const Profile = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const [isActive, setIsActive] = useState(0);
   const [dataSale, setDataSale] = useState([]);
@@ -48,18 +49,38 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    async function fetchUser() {
-      const fetchConfig = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      };
+    // async function fetchUser() {
+    //   const fetchConfig = {
+    //     method: 'GET',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //     },
+    //   };
 
-      const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
-      const fetchedUser = await response.json();
-      setUser(fetchedUser);
+    //   const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
+    //   const fetchedUser = await response.json();
+    //   setUser(fetchedUser);
+    // }
+    // fetchUser();
+    // console.log(user);
+    async function fetchUser() {
+      try {
+        const fetchConfig = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        };
+
+        const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
+        const fetchedUser = await response.json();
+        setUser(fetchedUser);
+        setLoading(false);
+      } catch (error) {
+        alert({ message: error.message });
+      }
     }
     fetchUser();
   }, []);
@@ -68,10 +89,16 @@ const Profile = () => {
     setIsActive(buttonId);
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="profile-secction">
       <div className="cover-secction">
-        <Cover />
+        <Cover
+          image={user.coverImage.length === 0 ? '../../public/nft-background.webp' : user.coverImage[0].url}
+        />
       </div>
       <div className="author">
         <div className="container">
@@ -144,7 +171,7 @@ const Profile = () => {
 
                           </React.Fragment>
                         );
-                      }))
+                      })).slice(0, 6)
                     );
                   })
                 }
