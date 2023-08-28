@@ -97,7 +97,7 @@ const Profile = () => {
     <div className="profile-secction">
       <div className="cover-secction">
         <Cover
-          image={user.coverImage.length === 0 ? '../../public/nft-background.webp' : user.coverImage[0].url}
+          image={user.coverImage.length === 0 ? 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fbg%2Fbg-image-9.jpg&w=1920&q=100' : user.coverImage[0].url}
         />
       </div>
       <div className="author">
