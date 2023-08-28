@@ -155,7 +155,7 @@ const MyProfile = () => {
 
                           </React.Fragment>
                         );
-                      }).slice(0, 6))
+                      }))
                     );
                   })
                 }

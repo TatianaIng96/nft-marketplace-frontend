@@ -171,7 +171,7 @@ const Profile = () => {
 
                           </React.Fragment>
                         );
-                      })).slice(0, 6)
+                      }))
                     );
                   })
                 }
