@@ -6,11 +6,14 @@
 import './EditProfileImage.scss';
 import { useRef, useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 
 const EditProfileImage = () => {
   const inputRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const handleUpload = () => {
     inputRef.current?.click();
@@ -38,6 +41,8 @@ const EditProfileImage = () => {
     };
 
     await fetch('http://localhost:8080/api/cover-image/', fetchConfigForm);
+
+    navigate('/my-profile');
   };
 
   return (
