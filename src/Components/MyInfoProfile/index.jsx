@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
 // import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
-const InfoProfile = (props) => {
-  const {
-    firstName, lastName, email, userId,
-  } = props;
+const MyInfoProfile = (props) => {
+  const { firstName, lastName, email } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
-
-  // const { isAdmin } = useContext(UsersAndNFTsContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const closeOptionWhenClickOut = (e) => {
@@ -29,13 +26,6 @@ const InfoProfile = (props) => {
       document.removeEventListener('click', closeOptionWhenClickOut);
     };
   }, [showOptions]);
-
-  const role = localStorage.getItem('role');
-
-  let isAdmin = false;
-  if (role === 'ADMIN') {
-    isAdmin = true;
-  }
 
   const fullName = `${firstName} ${lastName}`;
 
@@ -56,7 +46,6 @@ const InfoProfile = (props) => {
               className="color-body"
             >
               followers
-
             </a>
           </span>
         </div>
@@ -70,7 +59,6 @@ const InfoProfile = (props) => {
               className="color-body"
             >
               following
-
             </a>
           </span>
         </div>
@@ -97,24 +85,19 @@ const InfoProfile = (props) => {
               </i>
             </button>
             <div className={!showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => { return setIsOpen(true); }}>Share</button>
-              <button type="button" onClick={() => { return setOpenModalReport(true); }}>Report</button>
+              <button type="button" onClick={() => { return navigate('/create-nft'); }}>Create NFT</button>
+              <button type="button" onClick={() => { return navigate('/create-auction'); }}>Create Auction</button>
             </div>
           </div>
         </div>
-        {
-          isAdmin
-          && (
-            <Link to={`/admin-edit-user/${userId}`}>
-              <button type="button" className="btn at-fell f-button">
-                <i>
-                  {' '}
-                  <FaEdit />
-                </i>
-              </button>
-            </Link>
-          )
-        }
+        <Link to="/edit-profile-image">
+          <button type="button" className="btn at-fell f-button">
+            <i>
+              {' '}
+              <FaEdit />
+            </i>
+          </button>
+        </Link>
       </div>
       {isOpen && <ModalShare setIsOpen={setIsOpen} />}
       {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
@@ -122,4 +105,4 @@ const InfoProfile = (props) => {
   );
 };
 
-export default InfoProfile;
+export default MyInfoProfile;

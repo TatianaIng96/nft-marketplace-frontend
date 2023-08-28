@@ -1,4 +1,5 @@
 import './Inner.scss';
+import { Link } from 'react-router-dom';
 
 const Inner = ({ page }) => {
   return (
@@ -11,7 +12,9 @@ const Inner = ({ page }) => {
             </div>
             <div className="column">
               <ul className="list">
-                <li>Home</li>
+                <l>
+                  <Link to="/">Home</Link>
+                </l>
                 <li className="separator">
                   {' > '}
                 </li>

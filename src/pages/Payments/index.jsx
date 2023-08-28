@@ -1,10 +1,16 @@
 /* eslint-disable quote-props */
+/* eslint-disable import/no-extraneous-dependencies */
+import './Payments.scss';
+import { Elements } from '@stripe/react-stripe-js';
 import { useState, useEffect } from 'react';
-import '../Bids/Bids.scss';
-import { sellerData } from '../../assets/data';
-import BitSeller from '../BitSeller';
+import { useParams } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import Inner from '../../Components/Inner';
+import Checkout from '../../Components/Checkout';
 
-const HistoryBids = ({ auctionId }) => {
+const stripePromise = loadStripe('pk_test_51Nj6XbJqY41QVKYBys55bLk1dZ1DR0ECkmHv9iHoZWalRYNT5D93S2aexV345d8rj4q7iNK4GyqL1TCC0EAKOCVV00kvnKGtvq');
+const Payments = () => {
+  const { id } = useParams();
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +24,7 @@ const HistoryBids = ({ auctionId }) => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
           },
         };
-        const response = await fetch(`http://localhost:8080/api/auctions/${auctionId}`, fetchConfig);
+        const response = await fetch(`http://localhost:8080/api/auctions/${id}`, fetchConfig);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -37,30 +43,20 @@ const HistoryBids = ({ auctionId }) => {
   if (loading) {
     return <div>Cargando...</div>;
   }
-  return (
-    <div className="bid-secction">
-      <div className="top-seller">
-        <div className="top-seller__title">
-          <div className="top-seller__content">
-            { sellers.bid.lenght !== 0 ? (
-              sellers.bid?.map((seller) => {
-                return (
-                  <BitSeller
-                    key={seller.id}
-                    sellerImage={sellerData[0].image}
-                    sellerName={seller.user?.firstName}
-                    bit={seller?.amount || 10}
-                    hours={seller?.createdAt || 12}
-                    place={false}
-                  />
 
-                );
-              })) : <div> not bid...</div>}
-          </div>
-        </div>
-      </div>
+  return (
+    <div className="payments-secction">
+      <Inner page="Conect Wallet" />
+      <Elements stripe={stripePromise}>
+        <Checkout
+          amount={sellers.bid[0].amount}
+          nftId={sellers.nft.id}
+          nftOwnerId={sellers.nftOwner.id}
+          buyerId={sellers.bid[0].user.id}
+        />
+      </Elements>
     </div>
   );
 };
 
-export default HistoryBids;
+export default Payments;

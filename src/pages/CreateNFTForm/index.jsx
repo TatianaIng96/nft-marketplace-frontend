@@ -1,19 +1,56 @@
+/* eslint-disable quote-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './CreateNFTForm.scss';
 import { FiUpload } from 'react-icons/fi';
-import { useContext } from 'react';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+import { useState, useRef } from 'react';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const CreateNFTForm = () => {
-  const { fakeData, setFakeData } = useContext(UsersAndNFTsContext);
+  const inputRef = useRef(null);
+
+  const handleUpload = () => {
+    inputRef.current?.click();
+  };
+
+  const [files, setFiles] = useState({});
 
   const { object, handleChange } = useForm({});
 
-  const handleSubmit = (event) => {
+  const handleFiles = (event) => {
+    setFiles(event.target.files);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFakeData([...fakeData, object]);
+
+    const data = new FormData();
+
+    for (let i = 0; i < 3; i += 1) {
+      data.append(`url_${i + 1}`, files[i], files[i].name);
+    }
+
+    const fetchConfigImages = {
+      method: 'POST',
+      body: data,
+      headers: {
+        // 'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch('http://localhost:8080/api/nft-image/', fetchConfigImages);
+
+    const fetchConfigForm = {
+      method: 'POST',
+      body: JSON.stringify(object),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch('http://localhost:8080/api/nft/', fetchConfigForm);
   };
 
   return (
@@ -26,12 +63,31 @@ const CreateNFTForm = () => {
               <p>Upload File</p>
               <p>Drag or choose your file to upload</p>
             </section>
-            <section className="imageSection">
+            <section
+              className="imageSection"
+              onClick={handleUpload}
+              role="button"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  handleUpload();
+                }
+              }}
+              tabIndex={0}
+            >
               <p><FiUpload /></p>
               <p>Choose a file</p>
               <p>PNG, GIF, WEBBP, MP4 or MP3.</p>
               <p>Max 1GB.</p>
             </section>
+            <input
+              type="file"
+              ref={inputRef}
+              name="file"
+              id="file"
+              multiple
+              accept="image/*"
+              onChange={handleFiles}
+            />
             <section className="noteSectionDesktop">
               <p>Note:</p>
               <p>Service fee: <strong>2.5%</strong></p>
@@ -42,7 +98,7 @@ const CreateNFTForm = () => {
             <div className="digitableInputsContainer">
               <label htmlFor="product-name">
                 Product Name
-                <input type="text" name="product-name" onChange={handleChange} id="product-name" placeholder="e.g. 'Digital Awesome Game'" />
+                <input type="text" name="name" onChange={handleChange} id="name" placeholder="e.g. 'Digital Awesome Game'" />
               </label>
               <label htmlFor="description">
                 Description
@@ -53,21 +109,13 @@ const CreateNFTForm = () => {
                   Item Price in $
                   <input type="number" onChange={handleChange} name="price" id="price" placeholder="e.g. '$20'" />
                 </label>
-                <label htmlFor="size">
-                  Size
-                  <input type="number" onChange={handleChange} name="size" id="size" placeholder="e.g. 'Size'" />
-                </label>
-                <label htmlFor="property">
-                  Property
-                  <input type="text" onChange={handleChange} name="property" id="property" placeholder="e.g. 'Property'" />
-                </label>
                 <label htmlFor="royalty">
                   Royalty
                   <input type="number" onChange={handleChange} name="royalty" id="royalty" placeholder="e.g. '20%'" />
                 </label>
                 <label htmlFor="category">
                   Category
-                  <select name="category" id="category">
+                  <select name="category" onChange={handleChange} id="category">
                     <option value="all-categories">All Categories</option>
                     <option value="art">Art</option>
                     <option value="music">Music</option>
@@ -77,7 +125,7 @@ const CreateNFTForm = () => {
                 </label>
                 <label htmlFor="collection">
                   Collection
-                  <select name="collection" id="collection">
+                  <select name="collection" onChange={handleChange} id="collection">
                     <option value="all-collections">All Collections</option>
                     <option value="art-decco">Art Decco</option>
                     <option value="bored-ape-yacht-club">BoredApeYachtClub</option>
@@ -86,20 +134,6 @@ const CreateNFTForm = () => {
                   </select>
                 </label>
               </div>
-            </div>
-            <div className="checkboxContainer">
-              <label htmlFor="put-on-sale">
-                <input className="checkbox" type="checkbox" id="put-on-sale" />
-                Put on sale
-              </label>
-              <label htmlFor="instant-sale-price">
-                <input className="checkbox" type="checkbox" id="instant-sale-price" />
-                Instant Sale Price
-              </label>
-              <label htmlFor="unlock-purchased">
-                <input className="checkbox" type="checkbox" id="unlock-purchased" />
-                Unlock Purchased
-              </label>
             </div>
             <div className="buttonsContainer">
               <button type="button" className="previewButton">Preview</button>

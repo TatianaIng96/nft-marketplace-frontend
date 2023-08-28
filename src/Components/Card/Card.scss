@@ -2,19 +2,18 @@ $silver-color: #ACACAC;
 $blue-color: #00A3FF;
 $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
-
 .swal2-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px !important;
   color: #fff !important;
 }
 
-.swal2-html-container{
+.swal2-html-container {
   font-size: 20px !important;
   color: #fff !important;
 }
 
-.swal2-modal{
+.swal2-modal {
   background-color: $dark-color-blue;
 }
 
@@ -23,6 +22,7 @@ $dark-color-blue: #242435;
   border: none !important;
   border-color: $blue-color !important;
 }
+
 .swal2-styled {
   transition: none !important;
   box-shadow: none !important;
@@ -47,6 +47,7 @@ $dark-color-blue: #242435;
 }
 
 .card {
+  position: relative;
   background-color: $dark-color-blue;
   max-width: 350px;
   width: 18rem;
@@ -55,9 +56,11 @@ $dark-color-blue: #242435;
   border-radius: 10px;
   transition-duration: 0.5s;
 
+
   button {
     cursor: pointer;
   }
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 8px 8px 5px 5px $blue-color;
@@ -65,6 +68,7 @@ $dark-color-blue: #242435;
 
   .image-section {
     padding: 5px 5px 0;
+
     img {
       width: 100%;
       border-radius: 10px;
@@ -73,18 +77,23 @@ $dark-color-blue: #242435;
 
   .nft-info {
     padding: 15px 20px;
+
     .profiles-info {
       @include flex-style;
+
       .profile-share {
         display: flex;
         justify-content: space-around;
         align-items: center;
         width: 65%;
+
         .profiles {
           display: flex;
           align-items: center;
+
           a {
             margin-left: -12px;
+
             img {
               @include flex-style;
               max-width: 30px;
@@ -93,20 +102,25 @@ $dark-color-blue: #242435;
             }
           }
         }
+
         a {
           color: $silver-color;
         }
       }
+
       .show-more-options {
         position: relative;
+
         .show-more {
           color: white;
+          cursor: pointer;
           border: none;
           padding: 0 10px;
           display: flex;
           align-items: center;
           background-color: transparent;
           outline: none;
+
           &:hover {
             border: none;
             background-color: $blue-color;
@@ -114,11 +128,13 @@ $dark-color-blue: #242435;
             border-radius: 5px;
           }
         }
+
         .menu-options-show {
           display: block;
           position: absolute;
           top: 20px;
           right: 0;
+
           button {
             background-color: $medium-color-blue;
             outline: none;
@@ -131,11 +147,13 @@ $dark-color-blue: #242435;
             padding: 9px 10px;
             letter-spacing: .5px;
             transition-duration: 1.7s;
+
             &:hover {
               opacity: 0.8;
             }
           }
         }
+
         .menu-options-hide {
           display: none;
         }
@@ -148,10 +166,12 @@ $dark-color-blue: #242435;
         margin: 0;
         margin-top: 10px;
         font-size: 22px;
+
         &:hover {
           color: $blue-color;
         }
       }
+
       h4 {
         margin: 0;
         color: $silver-color;
@@ -165,22 +185,27 @@ $dark-color-blue: #242435;
       .price {
         color: $blue-color;
       }
+
       .like-button {
         border: none;
         background-color: transparent;
         color: $silver-color;
         outline: none;
+
         .like-icon-number {
           @include like-button-style;
+
           &:hover {
             @include hover-like-button;
             background-color: $blue-color;
             color: #fff;
           }
         }
+
         .like-icon-number-selected {
           @include like-button-style;
           color: $blue-color;
+
           &:hover {
             @include hover-like-button;
             background-color: #fff;
@@ -216,10 +241,12 @@ $dark-color-blue: #242435;
           font-size: 20px;
         }
       }
+
       .profiles-info {
         .profile-share {
           width: 80%;
         }
+
         .show-more-options {
           .menu-options-show {
             button {
@@ -240,6 +267,7 @@ $dark-color-blue: #242435;
           font-size: 18px;
         }
       }
+
       .profiles-info {
         .profile-share {
           .profiles {
@@ -249,10 +277,12 @@ $dark-color-blue: #242435;
               }
             }
           }
+
           a {
             color: $silver-color;
           }
         }
+
         .show-more-options {
           .menu-options-show {
             button {

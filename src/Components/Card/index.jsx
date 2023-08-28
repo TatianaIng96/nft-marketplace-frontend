@@ -1,4 +1,5 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useJwt } from 'react-jwt';
 import { Link } from 'react-router-dom';
 import './Card.scss';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -6,10 +7,11 @@ import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
-import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
+// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
-  totalLikes,
+  id,
+  userId,
   nftName,
   price,
   nftImage,
@@ -18,20 +20,88 @@ const Card = ({
   profileImage3,
   placeBit,
 }) => {
-  const { isAdmin } = useContext(UsersAndNFTsContext);
+  // const { isAdmin } = useContext(UsersAndNFTsContext);
 
-  const [likes, setLikes] = useState(totalLikes);
-  const [showOptions, setShowOptions] = useState(true);
+  const role = localStorage.getItem('role');
+
+  let isAdmin = false;
+  if (role === 'ADMIN') {
+    isAdmin = true;
+  }
+
+  // const [likes, setLikes] = useState(totalLikes);
+  const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
+  const like = 0;
+  const [data, setData] = useState(false);
+  const [likes, setLikes] = useState(like);
+  const [profileId, setProfileId] = useState(userId);
+  const { decodedToken } = useJwt(localStorage.getItem('token'));
 
-  const handleLikes = () => {
-    if (likes === totalLikes) {
+  useEffect(() => {
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+
+      const response = await fetch(`http://localhost:8080/api/like/${id}`, fetchConfig);
+      const dataCard = await response.json();
+
+      if (decodedToken) {
+        const idUser = decodedToken.id;
+        const userLike = dataCard.some((item) => { return item.userId === idUser; });
+        setData(userLike);
+        setProfileId(idUser);
+      }
+
+      const likeCount = {
+        ...dataCard,
+        likeCount: dataCard.length,
+      };
+      setLikes(likeCount.likeCount);
+    }
+    fetchData();
+  }, [likes]);
+
+  const handleLikes = async () => {
+    if (data === false) {
+      const fetchConfigForm = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
+      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes + 1);
     } else {
+      const fetchConfigForm = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
+      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
       setLikes(likes - 1);
     }
+    setData(!data);
   };
+
+  useEffect(() => {
+    const closeOptionWhenClickOut = (e) => {
+      if (showOptions && !e.target.closest('.show-more-options')) {
+        setShowOptions(false);
+      }
+    };
+    document.addEventListener('click', closeOptionWhenClickOut);
+
+    return () => {
+      document.removeEventListener('click', closeOptionWhenClickOut);
+    };
+  }, [showOptions]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -66,7 +136,9 @@ const Card = ({
   return (
     <div className="card">
       <section className="image-section">
-        <img src={nftImage} alt="img test" />
+        <Link to={`/product-details/${id}`}>
+          <img src={nftImage} alt="img test" />
+        </Link>
       </section>
 
       <div className="nft-info">
@@ -105,7 +177,7 @@ const Card = ({
                 <FaTrash />
               </button>
             )}
-            <div className={showOptions ? 'menu-options-hide' : 'menu-options-show'}>
+            <div className={!showOptions ? 'menu-options-hide' : 'menu-options-show'}>
               <button type="button" onClick={() => { setIsOpen(true); }}>Share</button>
               <button type="button" onClick={() => { setOpenModalReport(true); }}>Report</button>
             </div>
@@ -115,7 +187,11 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to="/profile">{nftName}</Link>
+          <Link to={profileId === userId ? '/my-profile/' : `/profile/${userId}`}>
+            {' '}
+            {nftName}
+            {' '}
+          </Link>
           <h4>Highest bid 1/20</h4>
         </article>
 
@@ -125,8 +201,8 @@ const Card = ({
             wETH
           </span>
           <button type="button" className="like-button" onClick={handleLikes}>
-            <span className={likes === totalLikes ? 'like-icon-number' : 'like-icon-number-selected'}>
-              {likes === totalLikes ? <BsHeart /> : <BsHeartFill />}
+            <span className={data === false ? 'like-icon-number' : 'like-icon-number-selected'}>
+              {data === false ? <BsHeart /> : <BsHeartFill />}
               {likes}
             </span>
           </button>
