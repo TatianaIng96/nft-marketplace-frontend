@@ -31,7 +31,7 @@ const BitArea = ({
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         };
-        const response = await fetch(`http://localhost:8080/api/nft-owners/${nftOwnerId}`, fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft-owners/${nftOwnerId}`, fetchConfig);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

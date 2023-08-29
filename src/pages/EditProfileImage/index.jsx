@@ -48,7 +48,7 @@ const EditProfileImage = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/profile-image/', fetchConfigForm);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`, fetchConfigForm);
 
     navigate('/my-profile');
   };
@@ -68,7 +68,7 @@ const EditProfileImage = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/cover-image/', fetchConfigForm);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/cover-image/`, fetchConfigForm);
 
     navigate('/my-profile');
   };

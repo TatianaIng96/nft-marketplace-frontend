@@ -32,7 +32,7 @@ const ModalShop = ({ isOpen, onClose, auctionId }) => {
         },
       };
 
-      await fetch('http://localhost:8080/api/bid', fetchConfig);
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/bid`, fetchConfig);
       onClose();
     }
   };

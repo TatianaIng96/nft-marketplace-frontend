@@ -26,7 +26,7 @@ const MyProfile = () => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch('http://localhost:8080/api/nft', fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft`, fetchConfig);
       const dataCard = await response.json();
       const likeCount = dataCard.map((item) => {
         return {
@@ -59,7 +59,7 @@ const MyProfile = () => {
           },
         };
 
-        const response = await fetch('http://localhost:8080/api/users/single', fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
         setLoading(false);

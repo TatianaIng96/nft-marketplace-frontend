@@ -42,7 +42,7 @@ const CreateNFTForm = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/nft-image/', fetchConfigImages);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft-image/`, fetchConfigImages);
 
     const fetchConfigForm = {
       method: 'POST',
@@ -53,7 +53,7 @@ const CreateNFTForm = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/nft/', fetchConfigForm);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/`, fetchConfigForm);
 
     navigate('/my-profile');
   };

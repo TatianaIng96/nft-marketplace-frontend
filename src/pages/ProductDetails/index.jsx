@@ -26,7 +26,7 @@ const ProductDetails = () => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch(`http://localhost:8080/api/nft/${id}`, fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/${id}`, fetchConfig);
       const dataCard = await response.json();
       setData(dataCard);
     }

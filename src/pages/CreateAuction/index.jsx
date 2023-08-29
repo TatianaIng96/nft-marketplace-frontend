@@ -28,8 +28,8 @@ const CreateAuction = () => {
         },
       };
       const [nftsResponse, userResponse] = await Promise.all([
-        fetch('http://localhost:8080/api/nft', configFetch),
-        fetch('http://localhost:8080/api/users/single', configFetch),
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft`, configFetch),
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, configFetch),
       ]);
 
       const datanfts = await nftsResponse.json();
@@ -72,7 +72,7 @@ const CreateAuction = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/auctions', fetchConfig);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auctions`, fetchConfig);
 
     const convertedNft = JSON.parse(selectedNft);
 
