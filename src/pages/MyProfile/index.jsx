@@ -91,7 +91,9 @@ const MyProfile = () => {
             <div className="wrapper">
               <div className="author-inner">
                 <div className="user">
-                  <AuthorInner />
+                  <AuthorInner
+                    image={user.profileImage.length === 0 ? 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fslider%2Fbanner-06.png&w=384&q=75' : user.profileImage[0].url}
+                  />
                 </div>
                 <div className="info-profile">
                   <MyInfoProfile

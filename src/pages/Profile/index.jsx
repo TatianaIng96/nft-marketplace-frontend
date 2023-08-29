@@ -106,7 +106,9 @@ const Profile = () => {
             <div className="wrapper">
               <div className="author-inner">
                 <div className="user">
-                  <AuthorInner />
+                  <AuthorInner
+                    image={user.profileImage.length === 0 ? '../../profile-image.png' : user.profileImage[0].url}
+                  />
                 </div>
                 <div className="info-profile">
                   <InfoProfile

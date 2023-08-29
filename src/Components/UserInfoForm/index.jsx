@@ -18,7 +18,7 @@ const UserInfoForm = ({
                 name="firstName"
                 id="first-name"
                 value={user.firstName}
-                onChange={onChange}
+                onChange={() => onChange('firstName')}
               />
             </label>
             <label htmlFor="last-name">
@@ -28,7 +28,7 @@ const UserInfoForm = ({
                 name="lastName"
                 id="last-name"
                 value={user.lastName}
-                onChange={onChange}
+                onChange={() => onChange('lastName')}
               />
             </label>
           </div>
@@ -39,7 +39,7 @@ const UserInfoForm = ({
               name="email"
               id="email"
               value={user.email}
-              onChange={onChange}
+              onChange={() => onChange('email')}
             />
           </label>
           <label htmlFor="bio">
@@ -49,7 +49,7 @@ const UserInfoForm = ({
               name="bio"
               id="bio"
               value={user.bio}
-              onChange={onChange}
+              onChange={() => onChange('bio')}
             />
           </label>
           <div className="movingLabels">
@@ -60,7 +60,7 @@ const UserInfoForm = ({
                 name="role"
                 id="role"
                 value={user.role}
-                onChange={onChange}
+                onChange={() => onChange('role')}
               />
             </label>
             <label htmlFor="gender">
@@ -69,7 +69,7 @@ const UserInfoForm = ({
                 name="gender"
                 id="gender"
                 value={user.gender}
-                onChange={onChange}
+                onChange={() => onChange('gender')}
               >
                 <option value="none"> </option>
                 <option value="male">Male</option>
@@ -83,7 +83,7 @@ const UserInfoForm = ({
                 name="currency"
                 id="currency"
                 value={user.currency}
-                onChange={onChange}
+                onChange={() => onChange('currency')}
               >
                 <option value="none"> </option>
                 <option value="dollars">Dollars</option>
@@ -98,7 +98,7 @@ const UserInfoForm = ({
                 name="phone"
                 id="phone-number"
                 value={user.phone}
-                onChange={onChange}
+                onChange={() => onChange('phone')}
               />
             </label>
             <label htmlFor="location">
@@ -107,7 +107,7 @@ const UserInfoForm = ({
                 name="location"
                 id="location"
                 value={user.location}
-                onChange={onChange}
+                onChange={() => onChange('location')}
               >
                 <option value="none"> </option>
                 <option value="usa">USA</option>
@@ -122,7 +122,7 @@ const UserInfoForm = ({
                 name="address"
                 id="address"
                 value={user.address}
-                onChange={onChange}
+                onChange={() => onChange('address')}
               />
             </label>
           </div>

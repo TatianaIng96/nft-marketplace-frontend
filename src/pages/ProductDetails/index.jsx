@@ -33,7 +33,7 @@ const ProductDetails = () => {
     fetchData();
   }, [data]);
 
-  const finishDate = new Date(data?.auction[0].finishDate);
+  const finishDate = new Date(data?.auction[0]?.finishDate);
   const currentDate = new Date();
 
   const handleClick = (buttonId) => {
