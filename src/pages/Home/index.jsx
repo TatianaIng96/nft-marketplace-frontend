@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchAllNFTs = async () => {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/'`);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/`);
       const nfts = await response.json();
       const auctionCount = nfts.map((item) => {
         return {
