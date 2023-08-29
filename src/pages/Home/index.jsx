@@ -125,7 +125,6 @@ const Home = () => {
                 />
               );
             }).slice(0, 5)
-            // <ListOfNftCards />
             // eslint-disable-next-line react/jsx-curly-newline
           }
         </div>
