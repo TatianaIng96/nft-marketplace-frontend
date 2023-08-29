@@ -19,7 +19,7 @@ const Bids = ({ auctionId }) => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
           },
         };
-        const response = await fetch(`http://localhost:8080/api/auctions/${auctionId}`, fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auctions/${auctionId}`, fetchConfig);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

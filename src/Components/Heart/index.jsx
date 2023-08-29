@@ -16,7 +16,7 @@ const Heart = ({ id }) => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch(`http://localhost:8080/api/like/${id}`, fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfig);
       const dataCard = await response.json();
 
       if (decodedToken) {
@@ -43,7 +43,7 @@ const Heart = ({ id }) => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfigForm);
       setLikes(likes + 1);
     } else {
       const fetchConfigForm = {
@@ -53,7 +53,7 @@ const Heart = ({ id }) => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      await fetch(`http://localhost:8080/api/like/${id}`, fetchConfigForm);
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfigForm);
       setLikes(likes - 1);
     }
     setData(!data);

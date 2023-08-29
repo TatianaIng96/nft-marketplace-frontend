@@ -23,7 +23,7 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
           },
         };
-        const response = await fetch(`http://localhost:8080/api/auctions/${auctionId}`, fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auctions/${auctionId}`, fetchConfig);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -42,7 +42,7 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
         headers: { 'Content-Type': 'application/json' },
       };
       if (loading === false) {
-        const response = await fetch(`http://localhost:8080/api/nft/${sellers.nft.id}`, fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/${sellers.nft.id}`, fetchConfig);
         const dataNft = await response.json();
         setData(dataNft);
       }
@@ -71,7 +71,7 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
       <div className="top-seller">
         <div className="top-seller__title">
           <div className="top-seller__content">
-            { sellers.bid.lenght !== 0 ? (
+            {sellers.bid.lenght !== 0 ? (
               sellers.bid?.map((seller) => {
                 return (
                   <BitSeller
@@ -89,11 +89,11 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
         </div>
       </div>
       {pay
-      && (
-      <Link to={`/payments/${auctionId}`}>
-        <button className="pay" type="button">Pay</button>
-      </Link>
-      )}
+        && (
+          <Link to={`/payments/${auctionId}`}>
+            <button className="pay" type="button">Pay</button>
+          </Link>
+        )}
     </div>
   );
 };

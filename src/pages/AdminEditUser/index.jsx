@@ -40,7 +40,7 @@ const AdminEditUser = () => {
         },
       };
 
-      const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/${id}`, fetchConfig);
       const fetchedUser = await response.json();
       setUser(fetchedUser);
     }
@@ -76,7 +76,7 @@ const AdminEditUser = () => {
       },
     };
 
-    await fetch(`http://localhost:8080/api/users/${user.id}`, fetchConfig);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/${user.id}`, fetchConfig);
 
     navigate(`/profile/${user.id}`);
   };

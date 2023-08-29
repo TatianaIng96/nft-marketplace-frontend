@@ -11,26 +11,34 @@ import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 
 const EditProfileImage = () => {
-  const inputRef = useRef(null);
-
   const navigate = useNavigate();
 
-  const handleUpload = () => {
-    inputRef.current?.click();
+  const profileImageInputRef = useRef(null);
+  const coverImageInputRef = useRef(null);
+
+  const handleProfileImageUpload = () => {
+    profileImageInputRef.current?.click();
+  };
+  const handleCoverImageUpload = () => {
+    coverImageInputRef.current?.click();
   };
 
-  const [file, setFile] = useState({});
+  const [profileImageFile, setProfileImageFile] = useState({});
+  const [coverImageFile, setCoverImageFile] = useState({});
 
-  const handleFiles = (event) => {
-    setFile(event.target.files);
+  const handleProfileImageFile = (event) => {
+    setProfileImageFile(event.target.files);
+  };
+  const handleCoverImageFile = (event) => {
+    setCoverImageFile(event.target.files);
   };
 
-  const handleSubmit = async (event) => {
+  const handleProfileImageSubmit = async (event) => {
     event.preventDefault();
 
     const data = new FormData();
 
-    data.append('url', file[0], file[0].name);
+    data.append('url', profileImageFile[0], profileImageFile[0].name);
 
     const fetchConfigForm = {
       method: 'POST',
@@ -40,7 +48,27 @@ const EditProfileImage = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/cover-image/', fetchConfigForm);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`, fetchConfigForm);
+
+    navigate('/my-profile');
+  };
+
+  const handleCoverImageSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = new FormData();
+
+    data.append('url', coverImageFile[0], coverImageFile[0].name);
+
+    const fetchConfigForm = {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/cover-image/`, fetchConfigForm);
 
     navigate('/my-profile');
   };
@@ -60,20 +88,28 @@ const EditProfileImage = () => {
           <section className="optionsSection">
             <div className="profilePicture">
               <span>Change your profile picture</span>
-              <img src="../../profile-image.png" alt="Profile Picture" />
-              <button type="button" className="uploadButton">Upload</button>
+              <img src="../../profile-image.png" alt="Profile Picture" onClick={handleProfileImageUpload} />
+              <button type="button" onClick={handleProfileImageSubmit} className="uploadButton">Upload</button>
+              <input
+                type="file"
+                ref={profileImageInputRef}
+                name="name"
+                id="profile-image-input"
+                accept="image/*"
+                onChange={handleProfileImageFile}
+              />
             </div>
             <div className="coverPhoto">
               <span>Change your cover photo</span>
-              <img src="../../nft-background.webp" alt="Cover Photo" onClick={handleUpload} />
-              <button type="button" onClick={handleSubmit} className="uploadButton">Upload</button>
+              <img src="../../nft-background.webp" alt="Cover Photo" onClick={handleCoverImageUpload} />
+              <button type="button" onClick={handleCoverImageSubmit} className="uploadButton">Upload</button>
               <input
                 type="file"
-                ref={inputRef}
+                ref={coverImageInputRef}
                 name="file"
-                id="file"
+                id="cover-image-input"
                 accept="image/*"
-                onChange={handleFiles}
+                onChange={handleCoverImageFile}
               />
             </div>
           </section>

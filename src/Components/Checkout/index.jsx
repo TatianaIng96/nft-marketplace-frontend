@@ -51,7 +51,7 @@ const Checkout = ({
         },
       };
 
-      const response = await fetch('http://localhost:8080/api/transactions', fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/transactions`, fetchConfig);
       if (response.ok) {
         alert('Payment success');
       }

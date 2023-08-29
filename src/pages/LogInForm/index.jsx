@@ -22,7 +22,7 @@ const LogInForm = () => {
       headers: { 'Content-Type': 'application/json' },
     };
 
-    const response = await fetch('http://localhost:8080/auth/local/login', fetchConfig);
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/local/login`, fetchConfig);
     const { profile, token } = await response.json();
 
     const {

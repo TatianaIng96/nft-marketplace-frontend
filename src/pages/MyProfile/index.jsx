@@ -26,7 +26,7 @@ const MyProfile = () => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch('http://localhost:8080/api/nft', fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft`, fetchConfig);
       const dataCard = await response.json();
       const likeCount = dataCard.map((item) => {
         return {
@@ -59,7 +59,7 @@ const MyProfile = () => {
           },
         };
 
-        const response = await fetch('http://localhost:8080/api/users/single', fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
         setLoading(false);
@@ -91,7 +91,9 @@ const MyProfile = () => {
             <div className="wrapper">
               <div className="author-inner">
                 <div className="user">
-                  <AuthorInner />
+                  <AuthorInner
+                    image={user.profileImage.length === 0 ? 'https://nuron-nextjs.vercel.app/_next/image?url=%2Fimages%2Fslider%2Fbanner-06.png&w=384&q=75' : user.profileImage[0].url}
+                  />
                 </div>
                 <div className="info-profile">
                   <MyInfoProfile

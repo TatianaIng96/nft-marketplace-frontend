@@ -33,7 +33,7 @@ const EditPersonalInformation = () => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      const response = await fetch('http://localhost:8080/api/users/single', fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
       const loggedUser = await response.json();
       setUser(loggedUser);
     };
@@ -43,6 +43,12 @@ const EditPersonalInformation = () => {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
+  // const handleChange = (name) => {
+  //   return (e) => {
+  //     setUser({ ...user, [name]: e.target.value });
+  //   };
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,7 +75,7 @@ const EditPersonalInformation = () => {
       },
     };
 
-    await fetch('http://localhost:8080/api/users/single', fetchConfig);
+    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
 
     navigate('/my-profile');
   };

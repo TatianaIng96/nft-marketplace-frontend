@@ -32,7 +32,7 @@ const AdminCreateUser = () => {
       },
     };
 
-    const response = await fetch('http://localhost:8080/api/users/create', fetchConfig);
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/create`, fetchConfig);
     const createdUser = await response.json();
 
     navigate(`/profile/${createdUser.id}`);

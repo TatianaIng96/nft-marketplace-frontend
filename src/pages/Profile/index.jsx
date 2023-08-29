@@ -26,7 +26,7 @@ const Profile = () => {
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const response = await fetch('http://localhost:8080/api/nft', fetchConfig);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft`, fetchConfig);
       const dataCard = await response.json();
       const likeCount = dataCard.map((item) => {
         return {
@@ -49,21 +49,6 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    // async function fetchUser() {
-    //   const fetchConfig = {
-    //     method: 'GET',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //     },
-    //   };
-
-    //   const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
-    //   const fetchedUser = await response.json();
-    //   setUser(fetchedUser);
-    // }
-    // fetchUser();
-    // console.log(user);
     async function fetchUser() {
       try {
         const fetchConfig = {
@@ -74,7 +59,7 @@ const Profile = () => {
           },
         };
 
-        const response = await fetch(`http://localhost:8080/api/users/${id}`, fetchConfig);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/${id}`, fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
         setLoading(false);
@@ -106,7 +91,9 @@ const Profile = () => {
             <div className="wrapper">
               <div className="author-inner">
                 <div className="user">
-                  <AuthorInner />
+                  <AuthorInner
+                    image={user.profileImage.length === 0 ? '../../profile-image.png' : user.profileImage[0].url}
+                  />
                 </div>
                 <div className="info-profile">
                   <InfoProfile
