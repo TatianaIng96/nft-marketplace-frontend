@@ -54,8 +54,8 @@ const EditProfileImage = () => {
       data,
       {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       },
     );
