@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -118,17 +119,26 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div>
-                    {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id || 1} />) : ''}
+                    {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id} />) : ''}
                     {isActive === 1 && <Details />}
-                    {isActive === 2 && <HistoryBids auctionId={data?.auction[0].id || 1} />}
-                    {isActive === 3
-                      ? (
-                        <Winner
-                          auctionId={data?.auction[0].id || 1}
-                          finishDate={finishDate}
-                          currentDate={currentDate}
-                        />
-                      ) : ''}
+                    {isActive === 2 && data?.auction.length >= 2
+                      ? (<HistoryBids auctionId={data?.auction[1].id} />)
+                      : (isActive === 2 && data?.auction.length >= 1
+                        ? (<HistoryBids auctionId={data?.auction[0].id} />)
+                        : '')}
+                    {isActive === 3 && data?.auction.length > 1 ? (
+                      <Winner
+                        auctionId={data?.auction[1].id || 1}
+                        finishDate={finishDate}
+                        currentDate={currentDate}
+                      />
+                    ) : (isActive === 3 && data?.auction.length > 0 ? (
+                      <Winner
+                        auctionId={data?.auction[0].id || 1}
+                        finishDate={finishDate}
+                        currentDate={currentDate}
+                      />
+                    ) : '')}
                   </div>
                 </div>
               </div>
