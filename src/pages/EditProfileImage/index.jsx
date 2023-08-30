@@ -43,7 +43,6 @@ const EditProfileImage = () => {
     const fetchConfigForm = {
       method: 'POST',
       body: data,
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       },
