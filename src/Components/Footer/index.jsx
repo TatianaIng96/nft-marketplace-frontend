@@ -182,6 +182,7 @@ const FooterComponent = () => {
           </div>
         </div>
       </footer>
+
       <TopArrow />
     </div>
   );

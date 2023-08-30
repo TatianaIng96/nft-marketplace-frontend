@@ -79,7 +79,7 @@ const CreateAuction = () => {
     navigate(`/product-details/${convertedNft.id}`);
   };
 
-  const filterNfts = nfts.filter((nft) => { return nft.userId === user.id; });
+  const filterNfts = nfts.filter((nft) => { return nft.nftOwner[0]?.user.id === user.id; });
 
   return (
     <div className="auction-section">

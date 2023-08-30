@@ -12,9 +12,9 @@ const Inner = ({ page }) => {
             </div>
             <div className="column">
               <ul className="list">
-                <l>
+                <li>
                   <Link to="/">Home</Link>
-                </l>
+                </li>
                 <li className="separator">
                   {' > '}
                 </li>
