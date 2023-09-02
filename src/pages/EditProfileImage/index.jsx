@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable quote-props */
@@ -7,9 +8,9 @@ import './EditProfileImage.scss';
 import { useRef, useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
-import axios from 'axios';
 
 const EditProfileImage = () => {
   const navigate = useNavigate();
@@ -50,7 +51,8 @@ const EditProfileImage = () => {
     //   },
     // };
 
-    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
+    await axios.post(
+      `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
       data,
       {
         headers: {
