@@ -22,6 +22,7 @@ import MyProfile from '../pages/MyProfile';
 import Payments from '../pages/Payments';
 import CreateAuction from '../pages/CreateAuction';
 import ActivateAccount from '../pages/ActivateAccount';
+import VerifyAccount from '../pages/VerifyAccount';
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: '/activate-account/:token',
         element: <ActivateAccount />,
+      },
+      {
+        path: '/verify-account/',
+        element: <VerifyAccount />,
       },
       {
         path: '/list-nft-admin',

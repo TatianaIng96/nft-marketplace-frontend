@@ -24,9 +24,11 @@ const ActivateAccount = () => {
   }, []);
 
   return (
-    <div>
-      <h3>Your account has been activated!</h3>
-      <p>You are also already logged in. Feel free to start using Nuron!</p>
+    <div className="activate-account-container">
+      <div className="message-container">
+        <h3>Your account has been activated!</h3>
+        <p>You are also already logged in. Feel free to start using Nuron!</p>
+      </div>
     </div>
   );
 };
