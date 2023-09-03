@@ -6,8 +6,6 @@ import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import MyInfoProfile from '../../Components/MyInfoProfile';
 
-// import { cardData } from '../../assets/data';
-
 const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);

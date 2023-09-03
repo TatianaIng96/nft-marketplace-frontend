@@ -19,9 +19,21 @@ const EditProfileImage = () => {
   const coverImageInputRef = useRef(null);
 
   const [user, setUser] = useState({});
-  // const [profileImageToRender, setProfileImageToRender] = useState('../../profile-image.png');
+  const [profileImageToRender, setProfileImageToRender] = useState('../../profile-image.png');
+  const [coverImageToRender, setCoverImageToRender] = useState('../../nft-background.webp');
   const [profileImageFile, setProfileImageFile] = useState({});
   const [coverImageFile, setCoverImageFile] = useState({});
+
+  const readProfileImageFile = (file) => {
+    const reader = new FileReader();
+    reader.onload = (e) => { return setProfileImageToRender(e.target.result); };
+    reader.readAsDataURL(file);
+  };
+  const readCoverImageFile = (file) => {
+    const reader = new FileReader();
+    reader.onload = (e) => { return setCoverImageToRender(e.target.result); };
+    reader.readAsDataURL(file);
+  };
 
   useEffect(() => {
     async function fetchUser() {
@@ -37,9 +49,6 @@ const EditProfileImage = () => {
         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
-        // if (user.profileImage[0].url) {
-        //   setProfileImageToRender(user.profileImage[0].url);
-        // }
       } catch (error) {
         alert({ message: error.message });
       }
@@ -55,10 +64,11 @@ const EditProfileImage = () => {
   };
 
   const handleProfileImageFile = (event) => {
+    readProfileImageFile(event.target.files[0]);
     setProfileImageFile(event.target.files);
-    // setProfileImageToRender(event.target.files);
   };
   const handleCoverImageFile = (event) => {
+    readCoverImageFile(event.target.files[0]);
     setCoverImageFile(event.target.files);
   };
 
@@ -176,7 +186,7 @@ const EditProfileImage = () => {
             <div className="profilePicture">
               <span>Change your profile picture</span>
               <img
-                src="../../profile-image.png"
+                src={profileImageToRender}
                 alt="Profile Picture"
                 onClick={handleProfileImageUpload}
               />
@@ -194,7 +204,7 @@ const EditProfileImage = () => {
             <div className="coverPhoto">
               <span>Change your cover photo</span>
               <img
-                src="../../nft-background.webp"
+                src={coverImageToRender}
                 alt="Cover Photo"
                 onClick={handleCoverImageUpload}
               />
