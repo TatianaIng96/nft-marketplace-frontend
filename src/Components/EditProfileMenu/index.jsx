@@ -10,11 +10,15 @@ const EditProfileMenu = () => {
   return (
     <div className="wholeContainer">
       <div className="menuContainer">
-        <Link to="/edit-profile-image">
-          <div className="optionContainer">
-            <LuEdit /> Edit Profile Image
-          </div>
-        </Link>
+        {
+          localStorage.getItem('role') === 'USER' && (
+            <Link to="/edit-profile-image">
+              <div className="optionContainer">
+                <LuEdit /> Edit Profile Image
+              </div>
+            </Link>
+          )
+        }
         <Link to="/edit-personal-info">
           <div className="optionContainer">
             <BsFillPersonFill /> Personal Information
