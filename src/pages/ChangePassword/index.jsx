@@ -1,38 +1,17 @@
 /* eslint-disable quote-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './ChangePassword.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineEye } from 'react-icons/ai';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
-import useForm from '../../hooks/useForm';
 
 const ChangePassword = () => {
-  const [user, setUser] = useState({});
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
-
-  const { object, handleChange } = useForm({});
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const fetchConfig = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      };
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
-      const userToUpdatePassword = await response.json();
-      setUser(userToUpdatePassword);
-    };
-
-    fetchUser();
-  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -91,7 +70,7 @@ const ChangePassword = () => {
               </div>
               <label htmlFor="email">
                 Enter email
-                <input type="email" onChange={handleChange} required name="email" id="email" />
+                <input type="email" required name="email" id="email" />
               </label>
               <div className="changingInputs">
                 <label htmlFor="old-password">
