@@ -73,7 +73,7 @@ const BitArea = ({
   }, [modalOpen]);
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
 
   return (

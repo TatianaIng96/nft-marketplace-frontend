@@ -96,10 +96,10 @@ const Home = () => {
                           userId={nft.userId}
                           nftName={nft.name}
                           price={nft.price}
-                          nftImage={nft.imageForNft[0]}
-                          profileImage1={nft.imageForNft[0]}
-                          profileImage2={nft.imageForNft[1]}
-                          profileImage3={nft.imageForNft[2]}
+                          nftImage={nft.imageForNft[0].nftImage.url}
+                          profileImage1={nft.imageForNft[0].nftImage.url}
+                          profileImage2={nft.imageForNft[1].nftImage.url}
+                          profileImage3={nft.imageForNft[2].nftImage.url}
                           placeBit={nft.auctionCount}
                         />
                       </Carousel.Slide>
@@ -117,10 +117,10 @@ const Home = () => {
                   totalLikes={nft.likeCoun}
                   nftName={nft.name}
                   price={nft.price}
-                  nftImage={nft.imageForNft[0]}
-                  profileImage1={nft.imageForNft[0]}
-                  profileImage2={nft.imageForNft[1]}
-                  profileImage3={nft.imageForNft[2]}
+                  nftImage={nft.imageForNft[0].nftImage.url}
+                  profileImage1={nft.imageForNft[0].nftImage.url}
+                  profileImage2={nft.imageForNft[1].nftImage.url}
+                  profileImage3={nft.imageForNft[2].nftImage.url}
                   placeBit={nft.auctionCount}
                 />
               );

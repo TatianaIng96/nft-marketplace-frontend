@@ -7,7 +7,7 @@ import { sellerData } from '../../assets/data';
 import BitSeller from '../BitSeller';
 
 const Winner = ({ auctionId, finishDate, currentDate }) => {
-  const [sellers, setSellers] = useState([]);
+  const [sellers, setSellers] = useState();
   const [loading, setLoading] = useState(true);
   const [pay, setPay] = useState(false);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
@@ -48,16 +48,20 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
       }
     }
     fetchData();
-    if (finishDate <= currentDate && decodedToken) {
-      if (decodedToken.id === sellers.bid[0].user.id) {
-        setPay(true);
-        if (data) {
-          if (data.nftOwner[0]?.user.id === decodedToken.id) {
+    if (sellers) {
+      if (sellers.bid.length > 0) {
+        if (finishDate <= currentDate && decodedToken) {
+          if (decodedToken.id === sellers.bid[0].user.id) {
+            setPay(true);
+            if (data) {
+              if (data.nftOwner[0]?.user.id === decodedToken.id) {
+                setPay(false);
+              }
+            }
+          } else {
             setPay(false);
           }
         }
-      } else {
-        setPay(false);
       }
     }
   }, [sellers]);
