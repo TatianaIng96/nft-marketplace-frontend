@@ -1,4 +1,4 @@
-@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -21,6 +21,7 @@
   box-sizing: border-box;
   background-color: #13131d;
   @include flex-base;
+
   .topSection {
     margin: auto;
     box-sizing: border-box;
@@ -29,8 +30,9 @@
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    @include flex-base($direction:row,$justify:space-between,$align:center);
+    @include flex-base($direction: row, $justify: space-between, $align: center);
   }
+
   .previewButton {
     @include button-base-style;
     font-size: 16px;
@@ -39,7 +41,8 @@
 }
 
 .menuAndOptionsContainer {
-  @include flex-base($align:center);
+  @include flex-base($align: center);
+
   .editMenuContainer {
     width: 100%;
   }
@@ -49,15 +52,17 @@
   width: 95%;
   margin: 20px auto;
   @include flex-base;
-  background-color: rgb(28,28,42);
+  background-color: rgb(28, 28, 42);
   border: solid 1px #858585;
   border-radius: 10px;
   color: white;
   font-size: 18px;
   font-weight: bold;
+
   .profilePicture {
     padding: 20px;
-    @include flex-base($align:center);
+    @include flex-base($align: center);
+
     img {
       margin: 10px 0;
       box-sizing: border-box;
@@ -68,9 +73,11 @@
       cursor: pointer;
     }
   }
+
   .coverPhoto {
     padding: 20px;
-    @include flex-base($align:center);
+    @include flex-base($align: center);
+
     img {
       margin: 10px 0;
       box-sizing: border-box;
@@ -81,9 +88,15 @@
       cursor: pointer;
     }
   }
+
   .uploadButton {
     @include button-base-style;
     background-color: #00A3FF;
+  }
+
+  .deleteButton {
+    @include button-base-style;
+    background-color: red;
   }
 }
 
@@ -93,10 +106,12 @@
       max-width: 500px;
     }
   }
+
   .menuAndOptionsContainer {
     .editMenuContainer {
       max-width: 500px;
     }
+
     .optionsSection {
       .coverPhoto {
         img {
@@ -125,21 +140,26 @@
       max-width: 1000px;
     }
   }
+
   .menuAndOptionsContainer {
     padding: 1vw 5vw;
     margin-bottom: 20px;
-    @include flex-base($direction:row,$align:start);
+    @include flex-base($direction: row, $align: start);
+
     .editMenuContainer {
       margin: 0;
       max-width: 350px;
     }
+
     .optionsSection {
       margin: 0 auto;
-      @include flex-base($direction:row);
+      @include flex-base($direction: row);
+
       .profilePicture {
         align-items: start;
         flex: 1;
       }
+
       .coverPhoto {
         align-items: start;
         flex: 1.78;
