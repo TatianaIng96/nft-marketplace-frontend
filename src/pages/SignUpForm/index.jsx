@@ -1,19 +1,30 @@
 /* eslint-disable react/jsx-one-expression-per-line */
+import { useState } from 'react';
 import './SignUpForm.scss';
 import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
+  const [comparePassword, setComparePassword] = useState('');
   const navigate = useNavigate();
   const { object, handleChange } = useForm({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (object.password !== object['password-check']) {
+      setComparePassword('*Password do not match');
+      return;
+    }
+    setComparePassword('');
+
+    const data = { ...object };
+    delete data['password-check'];
+
     const fetchConfig = {
       method: 'POST',
-      body: JSON.stringify(object),
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -45,26 +56,27 @@ const SignUpForm = () => {
               <h1>Sign Up</h1>
               <label htmlFor="first-name">
                 First name
-                <input type="text" onChange={handleChange} name="firstName" id="first-name" />
+                <input type="text" onChange={handleChange} required name="firstName" id="first-name" />
               </label>
               <label htmlFor="last-name">
                 Last name
-                <input type="text" onChange={handleChange} name="lastName" id="last-name" />
+                <input type="text" onChange={handleChange} required name="lastName" id="last-name" />
               </label>
               <label htmlFor="email">
                 Email address
-                <input type="email" onChange={handleChange} name="email" id="email" />
+                <input type="email" onChange={handleChange} required name="email" id="email" />
               </label>
               <label htmlFor="password">
                 Create Password
-                <input type="password" onChange={handleChange} name="password" id="password" />
+                <input type="password" onChange={handleChange} required name="password" id="password" autoComplete="new-password" />
               </label>
               <label htmlFor="re-password">
                 Re Password
-                <input type="password" onChange={handleChange} name="password-check" id="re-password" />
+                <input type="password" onChange={handleChange} required name="password-check" id="re-password" autoComplete="new-password" />
               </label>
-              <label htmlFor="checkbox">
-                <input type="checkbox" id="checkbox" />
+              {comparePassword && <p className="alert-password">{comparePassword}</p>}
+              <label htmlFor="checkbox" className="check-terms">
+                <input type="checkbox" id="checkbox" required />
                 Agree to all terms and conditions
               </label>
               <div className="buttonsSection">

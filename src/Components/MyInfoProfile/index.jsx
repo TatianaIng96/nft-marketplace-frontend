@@ -85,8 +85,8 @@ const MyInfoProfile = (props) => {
               </i>
             </button>
             <div className={!showOptions ? 'menu-options-hide' : 'menu-options-show'}>
-              <button type="button" onClick={() => { return navigate('/create-nft'); }}>Create NFT</button>
-              <button type="button" onClick={() => { return navigate('/create-auction'); }}>Create Auction</button>
+              <button className="pointer-style" type="button" onClick={() => { return navigate('/create-nft'); }}>Create NFT</button>
+              <button className="pointer-style" type="button" onClick={() => { return navigate('/create-auction'); }}>Create Auction</button>
             </div>
           </div>
         </div>

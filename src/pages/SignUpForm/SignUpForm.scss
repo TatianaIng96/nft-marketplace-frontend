@@ -1,4 +1,4 @@
-@mixin flex-base($direction:column,$justify:flex-start,$align:stretch) {
+@mixin flex-base($direction: column, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -20,50 +20,72 @@
   .pageContainer {
     box-sizing: border-box;
     background-color: #13131d;
-    @include flex-base($align:center);
+    @include flex-base($align: center);
+
     .allSignUpsContainer {
       width: 100%;
-      @include flex-base($align:center);
+      @include flex-base($align: center);
     }
   }
 
   .formSection {
     width: 95%;
     max-width: 360px;
+
     form {
       @include flex-base;
       box-sizing: border-box;
-      background-color: rgb(28,28,42);
+      background-color: rgb(28, 28, 42);
       margin: 2vh 1vh 2vh 1vh;
       padding: 45px 35px;
       border: solid 1px #858585;
       border-radius: 10px;
       color: #858585;
+
       h1 {
         color: white;
       }
+
       label {
         @include flex-base;
-        input[type="text"],input[type="email"],input[type="password"] {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
           box-sizing: border-box;
           width: 100%;
           margin-top: 5px;
           margin-bottom: 10px;
           padding: 5px 10px;
-          background-color: rgb(36,36,54);
-          border: solid 2px rgb(56,57,72);
+          background-color: rgb(36, 36, 54);
+          border: solid 2px rgb(56, 57, 72);
           border-radius: 5px;
           color: white;
           cursor: auto;
         }
+
         input[type="checkbox"] {
-          accent-color: rgb(93,93,126);
+          accent-color: rgb(93, 93, 126);
           margin-right: 10px;
           cursor: pointer;
         }
       }
+
+      .alert-email {
+        color: rgb(253, 58, 58);
+      }
+
+      .alert-password {
+        color: rgb(253, 58, 58);
+      }
+
+      .check-terms {
+        display: flex !important;
+        flex-direction: row !important;
+      }
+
       :nth-child(7) {
-        @include flex-base($direction:row);
+        @include flex-base();
         margin-bottom: 10px;
       }
     }
@@ -74,39 +96,44 @@
       @include button-base-style;
       background-color: #00A3FF;
     }
+
     .logInButton {
       @include button-base-style;
-      background-color: rgb(33,46,73);
+      background-color: rgb(33, 46, 73);
     }
   }
 
   .otherSignUpSection {
     width: 95%;
     max-width: 360px;
+
     .otherSignUpContainer {
       @include flex-base;
       box-sizing: border-box;
-      background-color: rgb(28,28,42);
+      background-color: rgb(28, 28, 42);
       margin: 2vh 1vh 2vh 1vh;
       padding: 45px 35px;
       border: solid 1px #858585;
       border-radius: 10px;
       color: #858585;
+
       h1 {
         color: white;
       }
+
       .otherLogin {
-        @include flex-base($direction:row,$align:center);
+        @include flex-base($direction: row, $align: center);
         box-sizing: border-box;
         line-height: normal;
         margin: 10px 0 10px 0;
         padding: 0 10px 0 10px;
         width: 100%;
-        background-color: rgb(36,36,54);
-        border: solid 2px rgb(56,57,72);
+        background-color: rgb(36, 36, 54);
+        border: solid 2px rgb(56, 57, 72);
         border-radius: 5px;
         color: white;
         cursor: pointer;
+
         img {
           width: 20px;
           margin-right: 10px;
@@ -118,12 +145,17 @@
   @media(min-width: 768px) {
     .formSection {
       max-width: 450px;
+
       form {
-        input[type="text"],input[type="email"],input[type="password"] {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
           height: 55px;
         }
       }
     }
+
     .otherSignUpSection {
       max-width: 450px;
     }
@@ -132,20 +164,23 @@
   @media (min-width: 1200px) {
     .pageContainer {
       .allSignUpsContainer {
-        @include flex-base($direction: row,$justify:center);
+        @include flex-base($direction: row, $justify: center);
       }
     }
+
     .formSection {
       form {
-        @include flex-base($justify:space-evenly);
+        @include flex-base($justify: space-evenly);
         height: 95.5%;
       }
     }
+
     .otherSignUpSection {
       height: 739px;
+
       .otherSignUpContainer {
         height: 95.5%;
-        @include flex-base($justify:space-evenly);
+        @include flex-base($justify: space-evenly);
       }
     }
   }
