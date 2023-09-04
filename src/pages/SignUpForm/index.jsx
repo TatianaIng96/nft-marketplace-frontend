@@ -32,7 +32,7 @@ const SignUpForm = () => {
     localStorage.setItem('email', email);
     localStorage.setItem('role', role);
 
-    navigate('/my-profile');
+    navigate('/verify-account');
   };
 
   return (

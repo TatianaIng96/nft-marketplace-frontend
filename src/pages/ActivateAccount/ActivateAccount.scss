@@ -1,0 +1,21 @@
+.activate-account-container {
+  .message-container {
+    box-sizing: border-box;
+    padding: 160px 20px 50px;
+    background-color: #13131d;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      text-align: center;
+      max-width: 550px;
+    }
+
+    p {
+      text-align: center;
+      max-width: 550px;
+    }
+  }
+}
