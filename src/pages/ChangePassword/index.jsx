@@ -38,17 +38,14 @@ const ChangePassword = () => {
     event.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      console.log('New password and confirm do not match');
+      alert('New password and confirm do not match');
       return;
     }
 
     const updatePassword = {
-      ...object,
       oldPassword,
-      password: newPassword,
+      newPassword,
     };
-
-    delete updatePassword.oldPassword;
 
     const fetchConfig = {
       method: 'PUT',
@@ -59,7 +56,7 @@ const ChangePassword = () => {
       },
     };
 
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/change-password`, fetchConfig);
 
     if (response.ok) {
       alert('Password succesfuly changed');
@@ -99,11 +96,11 @@ const ChangePassword = () => {
               <div className="changingInputs">
                 <label htmlFor="old-password">
                   Enter old password
-                  <input type="password" onChange={(e) => { return setOldPassword(e.target.value); }} required name="old-password" id="old-password" autoComplete="old-password" />
+                  <input type="password" onChange={(e) => { return setOldPassword(e.target.value); }} required name="oldPassword" id="old-password" autoComplete="old-password" />
                 </label>
                 <label htmlFor="new-password">
                   Create new password
-                  <input type="password" onChange={(e) => { return setNewPassword(e.target.value); }} required name="new-password" id="new-password" autoComplete="new-password" />
+                  <input type="password" onChange={(e) => { return setNewPassword(e.target.value); }} required name="newPassword" id="new-password" autoComplete="new-password" />
                 </label>
               </div>
               <label htmlFor="confirm-password">
