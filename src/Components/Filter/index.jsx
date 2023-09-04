@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import './Filter.scss';
 
-const Filter = ({ handleFilter }) => {
+const Filter = ({ handleFilter, handleSubmit }) => {
   const [filter, setFilter] = useState(false);
   return (
     <div className="filter-secction">
@@ -30,7 +30,7 @@ const Filter = ({ handleFilter }) => {
           </div>
           <div className={filter === true ? 'closed' : 'wrapper'}>
             <div className="inner">
-              <div className="filter-select">
+              <form className="filter-select" onSubmit={handleSubmit}>
                 <div className="select">
                   <h6>LIKES</h6>
                   <select
@@ -115,10 +115,10 @@ const Filter = ({ handleFilter }) => {
                   </div>
                   <span className="span">
                     Price: $0- $100
-                    <span className="spanB">FILTER</span>
+                    <button type="submit" className="spanB">FILTER</button>
                   </span>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

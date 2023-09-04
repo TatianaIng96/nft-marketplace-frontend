@@ -9,6 +9,7 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
+import axios from 'axios';
 
 const EditProfileImage = () => {
   const navigate = useNavigate();
@@ -40,15 +41,24 @@ const EditProfileImage = () => {
 
     data.append('url', profileImageFile[0], profileImageFile[0].name);
 
-    const fetchConfigForm = {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      },
-    };
+    // const fetchConfigForm = {
+    //   method: 'POST',
+    //   body: data,
+    //   headers: {
+    //     'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    // };
 
-    await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`, fetchConfigForm);
+    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
+      data,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      },
+    );
 
     navigate('/my-profile');
   };
