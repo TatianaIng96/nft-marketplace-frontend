@@ -17,6 +17,10 @@
 }
 
 .signUpAll {
+  .error-message {
+    color: red;
+  }
+
   .pageContainer {
     box-sizing: border-box;
     background-color: #13131d;
@@ -97,9 +101,10 @@
       background-color: #00A3FF;
     }
 
-    .logInButton {
+    .signUpButton__disabled {
       @include button-base-style;
-      background-color: rgb(33, 46, 73);
+      cursor: not-allowed;
+      background-color: grey;
     }
   }
 
