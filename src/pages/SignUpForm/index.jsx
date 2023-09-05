@@ -1,15 +1,13 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/jsx-one-expression-per-line */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validators } from '../../assets/validators';
 import './SignUpForm.scss';
 import Inner from '../../Components/Inner';
-// import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
-  // const { object, handleChange } = useForm({});
   const [disableButton, setDisableButton] = useState(true);
   const [comparePassword, setComparePassword] = useState('');
   const [userToRegister, setUserToRegister] = useState({
@@ -52,16 +50,20 @@ const SignUpForm = () => {
     });
 
     validateField(name, value);
-
-    const arrayOfMessages = Object.values(errors);
-    const setOfMessages = new Set();
-    arrayOfMessages.map((message) => { return setOfMessages.add(message); });
-    if (setOfMessages.size > 1) {
-      setDisableButton(true);
-    } else {
-      setDisableButton(false);
-    }
   };
+
+  useEffect(() => {
+    const handleDisableButton = () => {
+      const arrayOfMessages = Object.values(errors);
+      const errorExists = arrayOfMessages.some((message) => { return message !== ''; });
+      if (errorExists) {
+        setDisableButton(true);
+      } else {
+        setDisableButton(false);
+      }
+    };
+    handleDisableButton();
+  }, [handleChange]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
