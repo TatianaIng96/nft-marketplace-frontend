@@ -2,6 +2,7 @@ $silver-color: #ACACAC;
 $blue-color: #00A3FF;
 $medium-color-blue: #212E48;
 $dark-color-blue: #242435;
+
 .swal2-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px !important;
@@ -147,6 +148,7 @@ $dark-color-blue: #242435;
             padding: 9px 10px;
             letter-spacing: .5px;
             transition-duration: 1.7s;
+            cursor: pointer;
 
             &:hover {
               opacity: 0.8;

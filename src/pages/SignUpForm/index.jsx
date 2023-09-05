@@ -1,19 +1,85 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable react/jsx-one-expression-per-line */
-import './SignUpForm.scss';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { validators } from '../../assets/validators';
+import './SignUpForm.scss';
 import Inner from '../../Components/Inner';
-import useForm from '../../hooks/useForm';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
-  const { object, handleChange } = useForm({});
+  const [disableButton, setDisableButton] = useState(true);
+  const [comparePassword, setComparePassword] = useState('');
+  const [userToRegister, setUserToRegister] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+
+  const validateField = (fieldName, value) => {
+    let errorMessage = '';
+
+    const errorActions = {
+      firstName: () => { return (validators.name.test(value) ? '' : 'Your first name can only contain letters'); },
+      lastName: () => { return (validators.name.test(value) ? '' : 'Your lastname can only contain letters'); },
+      email: () => { return (validators.email.test(value) ? '' : 'Not a valid email'); },
+      password: () => { return (validators.password.test(value) ? '' : 'Password must contain at least 8 characters, a letter and a number'); },
+    };
+
+    errorMessage = errorActions[fieldName]();
+
+    setErrors({
+      ...errors,
+      [fieldName]: errorMessage,
+    });
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setUserToRegister({
+      ...userToRegister,
+      [name]: value,
+    });
+
+    validateField(name, value);
+  };
+
+  useEffect(() => {
+    const handleDisableButton = () => {
+      const arrayOfMessages = Object.values(errors);
+      const errorExists = arrayOfMessages.some((message) => { return message !== ''; });
+      if (errorExists) {
+        setDisableButton(true);
+      } else {
+        setDisableButton(false);
+      }
+    };
+    handleDisableButton();
+  }, [handleChange]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (userToRegister.password !== userToRegister['password-check']) {
+      setComparePassword('*Passwords do not match');
+      return;
+    }
+    setComparePassword('');
+
+    const data = { ...userToRegister };
+    delete data['password-check'];
+
     const fetchConfig = {
       method: 'POST',
-      body: JSON.stringify(object),
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -32,7 +98,7 @@ const SignUpForm = () => {
     localStorage.setItem('email', email);
     localStorage.setItem('role', role);
 
-    navigate('/my-profile');
+    navigate('/verify-account');
   };
 
   return (
@@ -45,31 +111,83 @@ const SignUpForm = () => {
               <h1>Sign Up</h1>
               <label htmlFor="first-name">
                 First name
-                <input type="text" onChange={handleChange} name="firstName" id="first-name" />
+                <input
+                  type="text"
+                  onChange={handleChange}
+                  required
+                  name="firstName"
+                  id="first-name"
+                />
               </label>
               <label htmlFor="last-name">
                 Last name
-                <input type="text" onChange={handleChange} name="lastName" id="last-name" />
+                <input
+                  type="text"
+                  onChange={handleChange}
+                  required
+                  name="lastName"
+                  id="last-name"
+                />
               </label>
               <label htmlFor="email">
                 Email address
-                <input type="email" onChange={handleChange} name="email" id="email" />
+                <input
+                  type="email"
+                  onChange={handleChange}
+                  required
+                  name="email"
+                  id="email"
+                />
               </label>
               <label htmlFor="password">
                 Create Password
-                <input type="password" onChange={handleChange} name="password" id="password" />
+                <input
+                  type="password"
+                  onChange={handleChange}
+                  required
+                  name="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
               </label>
               <label htmlFor="re-password">
                 Re Password
-                <input type="password" onChange={handleChange} name="password-check" id="re-password" />
+                <input
+                  type="password"
+                  onChange={handleChange}
+                  required
+                  name="password-check"
+                  id="re-password"
+                  autoComplete="new-password"
+                />
               </label>
-              <label htmlFor="checkbox">
-                <input type="checkbox" id="checkbox" />
+              {comparePassword && <p className="alert-password">{comparePassword}</p>}
+              <label htmlFor="checkbox" className="check-terms">
+                <input type="checkbox" id="checkbox" required />
                 Agree to all terms and conditions
               </label>
-              <div className="buttonsSection">
-                <button type="submit" className="signUpButton">Sign Up</button>
-              </div>
+              {
+                Object.keys(errors).map((error) => {
+                  return (
+                    <div className="error-message">
+                      {errors[error]}
+                    </div>
+                  );
+                })
+              }
+              {
+                disableButton
+                  ? (
+                    <div className="buttonsSection">
+                      <button type="submit" className="signUpButton__disabled" disabled>Sign Up</button>
+                    </div>
+                  )
+                  : (
+                    <div className="buttonsSection">
+                      <button type="submit" className="signUpButton">Sign Up</button>
+                    </div>
+                  )
+              }
             </form>
           </section>
           <section className="otherSignUpSection">

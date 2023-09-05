@@ -151,7 +151,7 @@
         .mn {
           .show-more-options {
             position: relative;
-            z-index: 9999;
+            z-index: 1000;
 
             .show-more {
               color: white;
@@ -178,6 +178,7 @@
 
               button {
                 background-color: #212e48;
+                cursor: pointer;
                 outline: none;
                 width: 7rem;
                 color: #fff;
