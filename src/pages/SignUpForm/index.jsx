@@ -10,6 +10,7 @@ import Inner from '../../Components/Inner';
 const SignUpForm = () => {
   const navigate = useNavigate();
   // const { object, handleChange } = useForm({});
+  const [disableButton, setDisableButton] = useState(true);
   const [comparePassword, setComparePassword] = useState('');
   const [userToRegister, setUserToRegister] = useState({
     firstName: '',
@@ -51,6 +52,15 @@ const SignUpForm = () => {
     });
 
     validateField(name, value);
+
+    const arrayOfMessages = Object.values(errors);
+    const setOfMessages = new Set();
+    arrayOfMessages.map((message) => { return setOfMessages.add(message); });
+    if (setOfMessages.size > 1) {
+      setDisableButton(true);
+    } else {
+      setDisableButton(false);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -163,9 +173,19 @@ const SignUpForm = () => {
                   );
                 })
               }
-              <div className="buttonsSection">
-                <button type="submit" className="signUpButton">Sign Up</button>
-              </div>
+              {
+                disableButton
+                  ? (
+                    <div className="buttonsSection">
+                      <button type="submit" className="signUpButton__disabled" disabled>Sign Up</button>
+                    </div>
+                  )
+                  : (
+                    <div className="buttonsSection">
+                      <button type="submit" className="signUpButton">Sign Up</button>
+                    </div>
+                  )
+              }
             </form>
           </section>
           <section className="otherSignUpSection">
