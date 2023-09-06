@@ -1,50 +1,18 @@
 /* eslint-disable quote-props */
 import './MyProfile.scss';
-import React, { useState, useEffect } from 'react';
-import Card from '../../Components/Card';
+import { useState, useEffect } from 'react';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import MyInfoProfile from '../../Components/MyInfoProfile';
+import NftOwners from '../../Components/nftOwner';
 
 const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [nftIds, setNftIds] = useState([]);
 
   const [isActive, setIsActive] = useState(0);
-  const [dataSale, setDataSale] = useState([]);
-  const [dataOwed, setDataOwed] = useState([]);
-  const [dataCreated, setDataCreated] = useState([]);
-  const [dataLiked, setDataLiked] = useState([]);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
-  const data = [dataSale, dataOwed, dataCreated, dataLiked];
-  useEffect(() => {
-    async function fetchData() {
-      const fetchConfig = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      };
-
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft`, fetchConfig);
-      const dataCard = await response.json();
-      const likeCount = dataCard.map((item) => {
-        return {
-          ...item,
-          likeCoun: item.like.length,
-        };
-      });
-      const auctionCount = likeCount.map((item) => {
-        return {
-          ...item,
-          auctionCount: item.auction.length,
-        };
-      });
-      setDataSale(auctionCount);
-      setDataOwed(auctionCount);
-      setDataCreated(auctionCount);
-      setDataLiked(auctionCount);
-    }
-    fetchData();
-  }, []);
 
   useEffect(() => {
     async function fetchUser() {
@@ -56,7 +24,6 @@ const MyProfile = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
           },
         };
-
         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/single`, fetchConfig);
         const fetchedUser = await response.json();
         setUser(fetchedUser);
@@ -66,10 +33,15 @@ const MyProfile = () => {
       }
     }
     fetchUser();
-  }, []);
+    if (Object.keys(user).length !== 0) {
+      const nftIdOwner = user.nftOwner.map((nft) => { return nft.nftId; });
+      setNftIds(nftIdOwner);
+    }
+  }, [user]);
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);
+    // console.log(nftIds);
   };
 
   if (loading) {
@@ -135,30 +107,8 @@ const MyProfile = () => {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                {
-                  data.map((dato, index) => {
-                    return (
-                      isActive === index && (dato.map((nft) => {
-                        return (
-                          <React.Fragment key={nft.id}>
-                            <Card
-                              id={nft.id}
-                              userId={nft.userId}
-                              nftName={nft.name}
-                              price={nft.price}
-                              nftImage={nft.imageForNft[0].nftImage.url}
-                              profileImage1={nft.imageForNft[0].nftImage.url}
-                              profileImage2={nft.imageForNft[1].nftImage.url}
-                              profileImage3={nft.imageForNft[2].nftImage.url}
-                              placeBit={nft.auctionCount}
-                            />
-
-                          </React.Fragment>
-                        );
-                      }))
-                    );
-                  })
-                }
+                {isActive === 0 && <h2>hola mundo</h2>}
+                {isActive === 1 && <NftOwners nftIds={nftIds} />}
               </div>
             </div>
           </div>
