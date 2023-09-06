@@ -7,7 +7,6 @@ import BitSeller from '../BitSeller';
 const HistoryBids = ({ auctionId }) => {
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchAllBids = async () => {
       try {
