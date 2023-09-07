@@ -83,7 +83,6 @@ const EditProfileImage = () => {
       body: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Access-Control-Allow-Origin': '*',
       },
     };
 
