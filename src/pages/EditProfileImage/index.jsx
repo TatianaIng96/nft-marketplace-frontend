@@ -80,10 +80,10 @@ const EditProfileImage = () => {
 
     const fetchConfigPost = {
       method: 'POST',
+      mode: 'cors',
       body: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Access-Control-Allow-Origin': '*',
       },
     };
 
