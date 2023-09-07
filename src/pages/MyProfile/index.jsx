@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import MyInfoProfile from '../../Components/MyInfoProfile';
-import NftOwners from '../../Components/nftOwner';
+import NftOwners from '../../Components/NftOwner';
+import NftCreated from '../../Components/NftCreated';
+import NftLikes from '../../Components/NftLikes';
 
 const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [likeNftIds, setLikeNftIds] = useState([]);
   const [nftIds, setNftIds] = useState([]);
 
   const [isActive, setIsActive] = useState(0);
@@ -35,13 +38,14 @@ const MyProfile = () => {
     fetchUser();
     if (Object.keys(user).length !== 0) {
       const nftIdOwner = user.nftOwner.map((nft) => { return nft.nftId; });
+      const nftLike = user.like.map((like) => { return like.nft.id; });
       setNftIds(nftIdOwner);
+      setLikeNftIds(nftLike);
     }
   }, [user]);
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);
-    // console.log(nftIds);
   };
 
   if (loading) {
@@ -109,6 +113,8 @@ const MyProfile = () => {
               <div className="cards">
                 {isActive === 0 && <h2>hola mundo</h2>}
                 {isActive === 1 && <NftOwners nftIds={nftIds} />}
+                {isActive === 2 && <NftCreated userId={user.id} />}
+                {isActive === 3 && <NftLikes likeNftIds={likeNftIds} />}
               </div>
             </div>
           </div>
