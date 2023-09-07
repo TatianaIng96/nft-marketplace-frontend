@@ -10,7 +10,6 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
-// comment to trigger deploy
 
 const EditProfileImage = () => {
   const navigate = useNavigate();
