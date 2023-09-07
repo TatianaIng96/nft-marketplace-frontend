@@ -63,16 +63,16 @@ const FooterComponent = () => {
               </div>
               <div className="form-subscription">
                 <div className="widget-botton">
-                  <h6 className="title">Get The Latest Nuron Updates</h6>
+                  <h6 className="title color-theme">Get The Latest Nuron Updates</h6>
                 </div>
                 <div className="">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control color-theme"
                     placeholder="Your username"
                     aria-label="Recipient's username"
                   />
-                  <button className="btn-subscribe" type="button">
+                  <button className="btn-subscribe color-theme" type="button">
                     Subscribe
                   </button>
                 </div>
@@ -87,7 +87,7 @@ const FooterComponent = () => {
               <List list={information} title="Information" />
             </div>
             <div className="col recent-sold-out">
-              <h6 className="widget-title-2">Recent Sold Out</h6>
+              <h6 className="widget-title-2 color-theme">Recent Sold Out</h6>
               <ul className="footer-recent">
                 {recent.map((item, index) => {
                   return (
