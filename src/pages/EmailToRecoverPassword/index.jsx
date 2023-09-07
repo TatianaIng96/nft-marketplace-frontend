@@ -21,8 +21,6 @@ const EmailToRecoverPassword = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // const objectToSend = { email: emailToSend };
-
     const fetchConfig = {
       method: 'POST',
       body: JSON.stringify(emailToSend),

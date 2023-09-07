@@ -8,8 +8,9 @@ const RecoverPassword = () => {
 
   const [password, setPassword] = useState({
     password: '',
+    confirmPassword: '',
   });
-  const [confirmPassword, setConfirmPassword] = useState('');
+  // const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -23,11 +24,10 @@ const RecoverPassword = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // if (password !== confirmPassword) {
-    //   return;
-    // }
-
-    // const objectToSend = { password };
+    if (password.password !== password.confirmPassword) {
+      return;
+    }
+    delete password.confirmPassword;
 
     const fetchConfig = {
       method: 'PUT',
@@ -59,9 +59,9 @@ const RecoverPassword = () => {
           Confirm New Password
           <input
             type="password"
-            name="confirm-password"
+            name="confirmPassword"
             id="confirm-password"
-            onChange={setConfirmPassword}
+            onChange={handleChange}
           />
         </label>
         <div className="buttonsContainer">
