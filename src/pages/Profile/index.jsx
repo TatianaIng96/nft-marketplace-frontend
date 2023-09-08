@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
-import NftOwners from '../../Components/NftOwner';
 import NftCreated from '../../Components/NftCreated';
 import NftOnSale from '../../Components/NftOnSale';
+import NftOwners from '../../Components/NftOwner';
 
 const Profile = () => {
   const { id } = useParams();
