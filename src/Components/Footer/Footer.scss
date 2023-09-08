@@ -1,8 +1,34 @@
-.footer-secction{
-  background: #13131d;
+$silver-color: #ACACAC;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+$ligth-background: #f5f8fa;
+
+.footer-secction {
   overflow-x: hidden;
+
+  .dark-mode {
+    background-color: $main-background;
+  }
+
+  .ligth-mode {
+    background-color: $ligth-background !important;
+    color: $main-background !important;
+  }
+
+  .dark-mode {
+    .color-theme {
+      background-color: $medium-color-blue !important;
+      color: $silver-color !important;
+    }
+
+    .color-menu-mobile {
+      background-color: $main-background;
+      color: $silver-color;
+    }
+  }
+
   .footer {
-    background:rgba(36, 36, 53, 0.3411764706);
     width: auto;
     clear: both;
     margin-top: 80px 0px;
@@ -15,13 +41,15 @@
     padding-top: 6em;
 
 
-    ul li{
-      list-style:none;
+    ul li {
+      list-style: none;
       color: #acacac;
       line-height: 1.5;
     }
+
     .footer-menu {
       margin: 0 5%;
+
       .container {
         display: flex;
         flex-direction: column;
@@ -32,44 +60,43 @@
         max-width: 720px;
         height: 100%;
         margin-top: 3em;
+
         .col {
           width: 250px;
           padding: 0 1em;
           margin: 0 auto;
 
-          .email-subscription{
+          .email-subscription {
             margin: 0;
           }
 
-          .widget-botton{
+          .widget-botton {
             border-top: 1px solid #13131d;
             padding-right: 2em;
           }
 
-          .title{
+          .title {
             font-weight: 500;
             font-size: 16px;
             line-height: 1.25;
             word-break: break-word;
-            color: #fff;
             display: flex;
             margin-top: 10%;
           }
-          .form-control{
+
+          .form-control {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            color: #acacac;
             position: relative;
             z-index: 1;
             font-size: 16px;
             border-radius: 5px 0 0 5px;
-            background: #13131d;
             box-shadow: none;
             font-weight: 400;
             height: 40px;
             padding: 0 15px;
-            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-            border:  #ffffff14;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            border: #ffffff14;
             position: relative;
             display: flex;
             width: 45%;
@@ -77,16 +104,14 @@
             margin-top: -5%;
           }
 
-          .form-control-append{
+          .form-control-append {
             display: flex;
             margin-left: 59%;
             margin-top: -13%;
           }
 
-          .btn-subscribe{
+          .btn-subscribe {
             border-radius: 0 5px 5px 0;
-            background: #212e48;
-            color: #fff;
             cursor: pointer;
             display: inline-block;
             font-weight: 500;
@@ -104,14 +129,16 @@
             margin-left: 8.8em;
           }
 
-          .footer-describe{
+          .footer-describe {
             max-width: 17em;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             padding: 1rem;
           }
 
-          .recent-sold-out{
+          .recent-sold-out {
             padding: 1rem;
           }
         }
@@ -124,7 +151,7 @@
       margin-left: -2.5em;
     }
 
-    .recent{
+    .recent {
       padding-top: 0;
       display: flex;
       align-items: center;
@@ -132,24 +159,25 @@
       margin: 0;
     }
 
-    .image-thumb{
+    .image-thumb {
       margin-right: 12px;
     }
-    .img-radius{
+
+    .img-radius {
       border-radius: 50%;
     }
 
-    .widget-title-2{
+    .widget-title-2 {
       word-break: break-word;
-      color: #fff;
       display: flex;
       margin-bottom: -1em;
       font-size: 1.4em;
     }
-    .content{
+
+    .content {
       margin-bottom: -1em;
 
-      .title-2{
+      .title-2 {
         font-size: 1em;
         line-height: 1.25;
         word-break: break-word;
@@ -158,18 +186,20 @@
         margin-top: 10%;
         margin-bottom: -4px;
       }
-      .p{
+
+      .p {
         display: flex;
         margin-top: 5%;
       }
 
-      .price{
-        color:#00a3ff;
+      .price {
+        color: #00a3ff;
         font-weight: 700;
         display: flex;
         margin-top: -10%;
       }
     }
+
     .copy-right {
       border-top: 1px solid #ACACAC;
       padding: 0 30%;
@@ -179,95 +209,103 @@
       width: auto;
     }
 
-    .align-items-center{
+    .align-items-center {
       margin-left: -15rem;
       align-items: center;
       margin-top: -2em;
     }
-    .privacy{
+
+    .privacy {
       display: flex;
       flex-direction: column;
       margin-top: 3em;
       margin-left: 9em;
     }
-    .social{
+
+    .social {
       display: flex;
       flex-direction: row;
       padding-left: 2.5em;
 
-      .left{
+      .left {
         display: flex;
         margin-left: 1em;
       }
     }
 
-    .aling{
+    .aling {
       display: flex;
       margin-left: 4em;
       width: 20em;
       align-items: center;
     }
 
-    .aling-term{
+    .aling-term {
       display: flex;
       margin-left: 7em;
     }
 
-    .aling-policy{
+    .aling-policy {
       display: flex;
       margin-left: 1em;
       margin-right: -3em;
     }
 
-    .rn-posgres-parent{
+    .rn-posgres-parent {
       width: 9em;
     }
 
   }
 
-  @media (min-width: 440px) and (max-width: 767px){ //lg
+  @media (min-width: 440px) and (max-width: 767px) {
+
+    //lg
     .footer {
       height: 48em;
       font-size: 17px;
-      .footer-menu{
-        .container{
+
+      .footer-menu {
+        .container {
           display: grid;
           grid-template-columns:
-          repeat(
-            auto-fit,
-            minmax(150px,1fr)
-          );
+            repeat(auto-fit,
+              minmax(150px, 1fr));
           gap: 10em;
-          .col{
-            .form-control{
+
+          .col {
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 9em;
             }
           }
-          .general-info{
+
+          .general-info {
             margin-top: -14em;
             margin-left: 1em;
           }
 
-          .nuron-info{
+          .nuron-info {
             margin-top: -4em;
             margin-left: -1em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -13em;
             margin-left: -3em;
             width: 210px;
           }
         }
       }
-      .copy-right{
-        .privacy{
+
+      .copy-right {
+        .privacy {
           margin-left: 10em;
         }
 
-        .social{
+        .social {
           margin-left: 3em;
         }
       }
@@ -275,93 +313,109 @@
   }
 
 
-  @media (min-width: 768px) and (max-width: 1023px){ //lg
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+    //lg
     .footer {
       height: 51em;
 
       font-size: 17px;
-      .footer-menu{
-        .container{
+
+      .footer-menu {
+        .container {
           display: grid;
           grid-template-columns:
-          repeat(
-            auto-fit,
-            minmax(150px,1fr)
-          );
+            repeat(auto-fit,
+              minmax(150px, 1fr));
           gap: 10em;
           margin-left: 2em;
 
-          .col{
-            .form-control{
+          .col {
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 9em;
             }
           }
-          .general-info{
+
+          .general-info {
             margin-top: -14em;
             margin-left: 1em;
           }
 
-          .nuron-info{
+          .nuron-info {
             margin-top: -4em;
             margin-left: -1em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -13em;
             margin-left: -3em;
             width: 210px;
           }
         }
       }
-      .copy-right{
-        .privacy{
+
+      .copy-right {
+        .privacy {
           margin-left: 10em;
         }
 
-        .social{
+        .social {
           margin-left: 3em;
         }
       }
     }
   }
 
-  @media (min-width: 1024px) and (max-width:1279px){ //xl
+  @media (min-width: 1024px) and (max-width:1279px) {
+
+    //xl
     .footer {
       height: 30em;
       font-size: 18px;
-      .footer-menu{
+
+      .footer-menu {
         margin: 56px -1%;
         margin-left: 10em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 90em;
           margin-left: -4em;
           margin-top: 7em;
-          .col{
-            .form-control{
+
+          .col {
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 9em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -5em;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 1em;
             margin-right: -3em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: -1em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
         }
@@ -369,21 +423,23 @@
 
     }
 
-    .copy-right{
-      .privacy{
+    .copy-right {
+      .privacy {
         flex-direction: row;
         margin-top: 3em;
         margin-left: -3em;
-        .aling-term{
+
+        .aling-term {
           margin-left: 4em;
         }
       }
 
-      .social{
+      .social {
         margin-left: 28em;
         margin-top: -2.5em;
       }
-      .align-items-center{
+
+      .align-items-center {
         margin-left: -19rem;
         align-items: center;
         margin-top: -1em;
@@ -391,42 +447,52 @@
     }
   }
 
-  @media (min-width: 1280px) and (max-width:1360px){ //xl
+  @media (min-width: 1280px) and (max-width:1360px) {
+
+    //xl
     .footer {
       height: 30em;
       font-size: 18px;
-      .footer-menu{
+
+      .footer-menu {
         margin: 56px -1%;
         margin-left: 10em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 100em;
           margin-left: -1em;
           margin-top: 7em;
 
-          .col{
-            .form-control{
+          .col {
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 9em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -5em;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 3em;
             margin-right: -3em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: -1em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
         }
@@ -434,21 +500,23 @@
 
     }
 
-    .copy-right{
-      .privacy{
+    .copy-right {
+      .privacy {
         flex-direction: row;
         margin-top: 3em;
         margin-left: -3em;
-        .aling-term{
+
+        .aling-term {
           margin-left: 4em;
         }
       }
 
-      .social{
+      .social {
         margin-left: 33em;
         margin-top: -2.5em;
       }
-      .align-items-center{
+
+      .align-items-center {
         margin-left: -19rem;
         align-items: center;
         margin-top: -1em;
@@ -456,42 +524,54 @@
     }
   }
 
-  @media (min-width: 1361px) and (max-width:1440px){ //xl
+  @media (min-width: 1361px) and (max-width:1440px) {
+
+    //xl
     .footer {
       height: 30em;
       font-size: 18px;
-      .footer-menu{
+
+      .footer-menu {
         margin: 56px -1%;
         margin-left: 10em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 90em;
           margin-left: -1em;
           margin-top: 7em;
-          .col{
+
+          .col {
             width: 301px;
-            .form-control{
+
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 10em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -3em;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 1em;
             margin-right: -3em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: -1em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
         }
@@ -499,21 +579,23 @@
 
     }
 
-    .copy-right{
-      .privacy{
+    .copy-right {
+      .privacy {
         flex-direction: row;
         margin-top: 3em;
         margin-left: -3em;
-        .aling-term{
+
+        .aling-term {
           margin-left: 4em;
         }
       }
 
-      .social{
+      .social {
         margin-left: 28em;
         margin-top: -2.5em;
       }
-      .align-items-center{
+
+      .align-items-center {
         margin-left: -19rem;
         align-items: center;
         margin-top: -1em;
@@ -521,42 +603,54 @@
     }
   }
 
-  @media (min-width: 1441px) and (max-width:1700px){ //xl
+  @media (min-width: 1441px) and (max-width:1700px) {
+
+    //xl
     .footer {
       height: 30em;
       font-size: 18px;
-      .footer-menu{
+
+      .footer-menu {
         margin: 56px -1%;
         margin-left: 10em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 90em;
           margin-left: 2em;
           margin-top: 7em;
-          .col{
+
+          .col {
             width: 301px;
-            .form-control{
+
+            .form-control {
               width: 47%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 9em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -3em;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 1em;
             margin-right: -3em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: -1em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
         }
@@ -564,56 +658,67 @@
 
     }
 
-      .copy-right{
-        .privacy{
-          flex-direction: row;
-          margin-top: 3em;
-          margin-left: -2em;
-          .aling-term{
-            margin-left: 4em;
-          }
-        }
+    .copy-right {
+      .privacy {
+        flex-direction: row;
+        margin-top: 3em;
+        margin-left: -2em;
 
-        .social{
-          margin-left: 33em;
-          margin-top: -2.5em;
-        }
-        .align-items-center{
-          margin-left: -19rem;
-          align-items: center;
-          margin-top: -1em;
+        .aling-term {
+          margin-left: 4em;
         }
       }
+
+      .social {
+        margin-left: 33em;
+        margin-top: -2.5em;
+      }
+
+      .align-items-center {
+        margin-left: -19rem;
+        align-items: center;
+        margin-top: -1em;
+      }
+    }
   }
 
-  @media (min-width: 1701px) and (max-width:1900px) { //xl
+  @media (min-width: 1701px) and (max-width:1900px) {
+
+    //xl
     .footer {
       font-size: 20px;
       height: 24em;
-      .footer-menu{
+
+      .footer-menu {
         margin: 50px 7%;
         margin-left: 26em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 66em;
 
-          .col{
-            .form-control{
+          .col {
+            .form-control {
               width: 60%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 11em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -15em;
           }
-          .header-subscription{
+
+          .header-subscription {
             width: 500px;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 6em;
             margin-right: -10em;
@@ -624,29 +729,32 @@
             margin-left: 10em;
             margin-right: -6em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: 5em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
 
         }
       }
 
-      .copy-right{
-        .privacy{
+      .copy-right {
+        .privacy {
           flex-direction: row;
           margin-top: 3em;
           margin-left: -1em;
         }
 
-        .social{
+        .social {
           margin-left: 40em;
           margin-top: -2.5em;
         }
-        .align-items-center{
+
+        .align-items-center {
           margin-left: -13.5rem;
           align-items: center;
           margin-top: -1em;
@@ -656,34 +764,43 @@
     }
   }
 
-  @media (min-width: 1901px){ //xl
+  @media (min-width: 1901px) {
+
+    //xl
     .footer {
       font-size: 20px;
       height: 24em;
-      .footer-menu{
+
+      .footer-menu {
         margin: 50px 7%;
         margin-left: 26em;
-        .container{
+
+        .container {
           flex-direction: row;
           max-width: 66em;
 
-          .col{
-            .form-control{
+          .col {
+            .form-control {
               width: 60%;
             }
-            .btn-subscribe{
+
+            .btn-subscribe {
               margin-left: 11em;
             }
           }
-          .email-subscription{
+
+          .email-subscription {
             margin: 0;
             margin-top: -5em;
             margin-left: -7em;
           }
-          .header-subscription{
+
+          .header-subscription {
             width: 500px;
           }
-          .nuron-info, .general-info {
+
+          .nuron-info,
+          .general-info {
             margin-top: -9em;
             margin-left: 6em;
             margin-right: -10em;
@@ -694,29 +811,32 @@
             margin-left: 10em;
             margin-right: -6em;
           }
-          .recent-sold-out{
+
+          .recent-sold-out {
             margin-top: -8em;
             margin-left: 5em;
           }
-          .footer-recent{
+
+          .footer-recent {
             margin-top: 1em;
           }
 
         }
       }
 
-      .copy-right{
-        .privacy{
+      .copy-right {
+        .privacy {
           flex-direction: row;
           margin-top: 3em;
           margin-left: -1em;
         }
 
-        .social{
+        .social {
           margin-left: 40em;
           margin-top: -2.5em;
         }
-        .align-items-center{
+
+        .align-items-center {
           margin-left: -13.5rem;
           align-items: center;
           margin-top: -1em;

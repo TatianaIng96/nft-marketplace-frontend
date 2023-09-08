@@ -4,26 +4,23 @@ import { useState, createContext } from 'react';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [theme, settheme] = useState('dark');
+  const [theme, setTheme] = useState('dark');
 
-  const toggleTheme = () => {
-    settheme(theme === 'dark' ? 'ligth' : 'dark');
+  const toggletheme = () => {
+    setTheme(theme === 'dark' ? 'ligth' : 'dark');
   };
 
-  const color = theme === 'dark' ? '' : '#13131d';
-  const backgroundColor = theme === 'dark' ? '#13131d' : '#f5f8fa';
-
-  document.body.style.color = color;
+  const backgroundColor = theme === 'dark' ? '#13131d' : '#ACACAC';
   document.body.style.backgroundColor = backgroundColor;
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggletheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
 export {
-  ThemeContext,
   ThemeProvider,
+  ThemeContext,
 };

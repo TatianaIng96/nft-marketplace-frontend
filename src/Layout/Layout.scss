@@ -1,3 +1,9 @@
+$silver-color: #ACACAC;
+$blue-color: #00A3FF;
+$medium-color-blue: #212E48;
+$dark-color-blue: #242435;
+$main-background: #13131d;
+
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -7,18 +13,10 @@
   overflow-x: hidden;
 }
 
-.main {
-  z-index: 1;
-  min-height: 44vh;
-  position: relative;
-  padding-top: 140px;
-  padding-bottom: 12em;
-  background-color: #13131d;
+.dark-mode {
+  transition: 0.5s;
 }
 
-@media (min-width: 500px) {
-  .main {
-    top: 77px;
-    padding-top: 80px;
-  }
+.ligth-mode {
+  transition: 0.5s;
 }
