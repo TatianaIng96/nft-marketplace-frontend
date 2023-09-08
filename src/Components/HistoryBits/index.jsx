@@ -7,7 +7,6 @@ import BitSeller from '../BitSeller';
 const HistoryBids = ({ auctionId }) => {
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchAllBids = async () => {
       try {
@@ -47,7 +46,7 @@ const HistoryBids = ({ auctionId }) => {
                 return (
                   <BitSeller
                     key={seller.id}
-                    sellerImage={sellerData[0].image}
+                    sellerImage={seller.user.profileImage[0].url || sellerData[0].image}
                     sellerName={seller.user?.firstName}
                     bit={seller?.amount || 10}
                     hours={seller?.createdAt || 12}

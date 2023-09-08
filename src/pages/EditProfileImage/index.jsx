@@ -72,16 +72,6 @@ const EditProfileImage = () => {
   };
 
   const handleProfileImageSubmit = async (event) => {
-    // await axios.post(
-    //   `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
-    //   data,
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //       Authorization: `Bearer ${localStorage.getItem('token')}`,
-    //     },
-    //   },
-    // );
     event.preventDefault();
 
     const data = new FormData();
@@ -90,6 +80,7 @@ const EditProfileImage = () => {
 
     const fetchConfigPost = {
       method: 'POST',
+      mode: 'cors',
       body: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,

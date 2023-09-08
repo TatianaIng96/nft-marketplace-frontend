@@ -121,24 +121,26 @@ const ProductDetails = () => {
                   <div>
                     {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id} />) : ''}
                     {isActive === 1 && <Details />}
-                    {isActive === 2 && data?.auction.length >= 2
+                    {isActive === 2
+                    && (data?.auction.length >= 2 && data?.auction[0].bid.length < 1)
                       ? (<HistoryBids auctionId={data?.auction[1].id} />)
                       : (isActive === 2 && data?.auction.length >= 1
                         ? (<HistoryBids auctionId={data?.auction[0].id} />)
                         : '')}
-                    {isActive === 3 && data?.auction.length > 1 ? (
+                    {isActive === 3
+                    && (data?.auction.length > 1 && data?.auction[0].bid.length < 1) ? (
                       <Winner
                         auctionId={data?.auction[1].id || 1}
                         finishDate={finishDate}
                         currentDate={currentDate}
                       />
-                    ) : (isActive === 3 && data?.auction.length > 0 ? (
-                      <Winner
-                        auctionId={data?.auction[0].id || 1}
-                        finishDate={finishDate}
-                        currentDate={currentDate}
-                      />
-                    ) : '')}
+                      ) : (isActive === 3 && data?.auction.length > 0 ? (
+                        <Winner
+                          auctionId={data?.auction[0].id || 1}
+                          finishDate={finishDate}
+                          currentDate={currentDate}
+                        />
+                      ) : '')}
                   </div>
                 </div>
               </div>
