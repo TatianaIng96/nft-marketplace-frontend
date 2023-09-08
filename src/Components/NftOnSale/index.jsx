@@ -4,7 +4,7 @@ import Card from '../Card';
 import '../../style/NoData.scss';
 
 const NftOnSale = ({ nftIds }) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sale, setSale] = useState([]);
 
@@ -29,14 +29,10 @@ const NftOnSale = ({ nftIds }) => {
           nft.key = nftId;
           return nft;
         });
-
-        const results = await Promise.all(promises);
-        // const nftData = {};
-        // results.forEach((data, index) => {
-        //   const nftId = nftIds[index];
-        //   nftData[nftId] = data;
-        // });
-        setData(results);
+        if (promises.length > 0) {
+          const results = await Promise.all(promises);
+          setData(results);
+        }
       } catch (error) {
         console.error('Error al obtener datos de NFT:', error);
       }
@@ -61,7 +57,7 @@ const NftOnSale = ({ nftIds }) => {
   }
   return (
     <>
-      { sale.length > 0 ? (sale.map((nft) => {
+      {sale.length > 0 ? (sale.map((nft) => {
         return (
           <React.Fragment key={nft.id}>
             <Card
