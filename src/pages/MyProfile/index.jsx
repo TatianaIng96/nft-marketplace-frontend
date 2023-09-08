@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
 import './MyProfile.scss';
 import { useState, useEffect } from 'react';
-import NftOwners from '../../Components/NftOwner';
+import NftOwners from '../../Components/NftOwners';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import MyInfoProfile from '../../Components/MyInfoProfile';

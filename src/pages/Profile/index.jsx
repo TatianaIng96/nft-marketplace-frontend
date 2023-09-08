@@ -7,7 +7,7 @@ import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
 import NftCreated from '../../Components/NftCreated';
 import NftOnSale from '../../Components/NftOnSale';
-import NftOwners from '../../Components/NftOwner';
+import NftOwners from '../../Components/NftOwners';
 
 const Profile = () => {
   const { id } = useParams();
