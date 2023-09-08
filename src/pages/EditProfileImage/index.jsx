@@ -114,7 +114,6 @@ const EditProfileImage = () => {
       body: data,
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Access-Control-Allow-Origin': 'https://nft-marketplace-frontend-9z7xtntur-tatianaing96.vercel.app/edit-profile-image',
       },
     };
 
