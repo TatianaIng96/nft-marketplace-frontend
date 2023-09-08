@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
+import '../../style/NoData.scss';
 import Card from '../Card';
 
 const NftCreated = ({ userId }) => {
@@ -24,11 +26,11 @@ const NftCreated = ({ userId }) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="no-data">Loading...</div>;
   }
   return (
     <>
-      {(data.map((nft) => {
+      { data.length > 0 ? (data.map((nft) => {
         return (
           <React.Fragment key={nft.id}>
             <Card
@@ -45,7 +47,7 @@ const NftCreated = ({ userId }) => {
 
           </React.Fragment>
         );
-      }))}
+      })) : <div className="no-nft"> you have no nfts to show </div>}
     </>
   );
 };

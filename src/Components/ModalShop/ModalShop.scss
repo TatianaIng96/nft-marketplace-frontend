@@ -1,9 +1,15 @@
 .shop-secction {
   /* Modal.css */
   $main-background: #13131d;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+
+  body .ReactModal__Overlay {
+    background-color: tu-color-aquí !important;
+  }
+
 
   .modal-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2) !important;
     height: 100vh;
     width: 100vw;
     top: -10em;

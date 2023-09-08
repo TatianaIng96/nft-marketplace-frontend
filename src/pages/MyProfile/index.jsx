@@ -1,12 +1,13 @@
 /* eslint-disable quote-props */
 import './MyProfile.scss';
 import { useState, useEffect } from 'react';
+import NftOwners from '../../Components/NftOwner';
 import Cover from '../../Components/Cover';
 import AuthorInner from '../../Components/AuthorInner';
 import MyInfoProfile from '../../Components/MyInfoProfile';
-import NftOwners from '../../Components/NftOwner';
 import NftCreated from '../../Components/NftCreated';
 import NftLikes from '../../Components/NftLikes';
+import NftOnSale from '../../Components/NftOnSale';
 
 const MyProfile = () => {
   const [user, setUser] = useState({});
@@ -14,7 +15,7 @@ const MyProfile = () => {
   const [likeNftIds, setLikeNftIds] = useState([]);
   const [nftIds, setNftIds] = useState([]);
 
-  const [isActive, setIsActive] = useState(0);
+  const [isActive, setIsActive] = useState(2);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
 
   useEffect(() => {
@@ -111,7 +112,7 @@ const MyProfile = () => {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                {isActive === 0 && <h2>hola mundo</h2>}
+                {isActive === 0 && <NftOnSale nftIds={nftIds} />}
                 {isActive === 1 && <NftOwners nftIds={nftIds} />}
                 {isActive === 2 && <NftCreated userId={user.id} />}
                 {isActive === 3 && <NftLikes likeNftIds={likeNftIds} />}

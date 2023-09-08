@@ -7,16 +7,15 @@ import AuthorInner from '../../Components/AuthorInner';
 import InfoProfile from '../../Components/InfoProfile';
 import NftOwners from '../../Components/NftOwner';
 import NftCreated from '../../Components/NftCreated';
-import NftLikes from '../../Components/NftLikes';
+import NftOnSale from '../../Components/NftOnSale';
 
 const Profile = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [nftIds, setNftIds] = useState([]);
-  const [likeNftIds, setLikeNftIds] = useState([]);
-  const [isActive, setIsActive] = useState(0);
-  const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
+  const [isActive, setIsActive] = useState(2);
+  const buton = ['On Sale', 'Owned', 'Created'];
 
   useEffect(() => {
     async function fetchUser() {
@@ -40,9 +39,7 @@ const Profile = () => {
     fetchUser();
     if (Object.keys(user).length !== 0) {
       const nftIdOwner = user.nftOwner.map((nft) => { return nft.nftId; });
-      const nftLike = user.like.map((like) => { return like.nft.id; });
       setNftIds(nftIdOwner);
-      setLikeNftIds(nftLike);
     }
   }, [user]);
 
@@ -114,10 +111,9 @@ const Profile = () => {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                {isActive === 0 && <h2>hola mundo</h2>}
+                {isActive === 0 && <NftOnSale nftIds={nftIds} />}
                 {isActive === 1 && <NftOwners nftIds={nftIds} />}
                 {isActive === 2 && <NftCreated userId={user.id} />}
-                {isActive === 3 && <NftLikes likeNftIds={likeNftIds} />}
               </div>
             </div>
           </div>

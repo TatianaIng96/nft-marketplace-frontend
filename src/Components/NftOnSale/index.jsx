@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
-import '../../style/NoData.scss';
 import Card from '../Card';
+import '../../style/NoData.scss';
 
-const NftLikes = ({ likeNftIds }) => {
+const NftOnSale = ({ nftIds }) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  const [sale, setSale] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -14,7 +15,7 @@ const NftLikes = ({ likeNftIds }) => {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         };
-        const promises = likeNftIds.map(async (nftId) => {
+        const promises = nftIds.map(async (nftId) => {
           const response = await fetch(
             `${import.meta.env.VITE_API_BASE_URL}/api/nft/${nftId}`,
             fetchConfig,
@@ -36,20 +37,31 @@ const NftLikes = ({ likeNftIds }) => {
         //   nftData[nftId] = data;
         // });
         setData(results);
-        setLoading(false);
       } catch (error) {
         console.error('Error al obtener datos de NFT:', error);
       }
     }
     fetchData();
-  }, []);
+
+    if (data) {
+      const onSale = (finishDate) => {
+        const currentDate = new Date();
+        return new Date(finishDate) > currentDate;
+      };
+      const auction = data.filter((nft) => {
+        return nft.auction.length > 0 && onSale(nft.auction[0].finishDate);
+      });
+      setSale(auction);
+      setLoading(false);
+    }
+  }, [data]);
 
   if (loading) {
     return <div className="no-data">Loading...</div>;
   }
   return (
     <>
-      {data.length > 0 ? (data.map((nft) => {
+      { sale.length > 0 ? (sale.map((nft) => {
         return (
           <React.Fragment key={nft.id}>
             <Card
@@ -63,12 +75,11 @@ const NftLikes = ({ likeNftIds }) => {
               profileImage3={nft.imageForNft[2]}
               placeBit={nft.auctionCount}
             />
-
           </React.Fragment>
         );
-      })) : <div className="no-nft"> you have no nfts to show </div>}
+      })) : <div className="no-nft"> No nfts up for auction </div>}
     </>
   );
 };
 
-export default NftLikes;
+export default NftOnSale;
