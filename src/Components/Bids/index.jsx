@@ -48,7 +48,7 @@ const Bids = ({ auctionId }) => {
                 return (
                   <BitSeller
                     key={seller.id}
-                    sellerImage={seller.user.profileImage[0].url || sellerData[0].image}
+                    sellerImage={seller?.user?.profileImage[0]?.url || sellerData[0].image}
                     sellerName={seller.user?.firstName}
                     bit={seller?.amount || 10}
                     hours={seller?.createdAt || 12}

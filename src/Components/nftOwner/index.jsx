@@ -28,13 +28,7 @@ const NftOwners = ({ nftIds }) => {
           nft.key = nftId;
           return nft;
         });
-
         const results = await Promise.all(promises);
-        // const nftData = {};
-        // results.forEach((data, index) => {
-        //   const nftId = nftIds[index];
-        //   nftData[nftId] = data;
-        // });
         setData(results);
         setLoading(false);
       } catch (error) {
