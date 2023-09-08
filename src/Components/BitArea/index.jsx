@@ -83,7 +83,7 @@ const BitArea = ({
           <h6 className="title1">Winning bit</h6>
           <BitSeller
             key={seller.user.id}
-            sellerImage={seller.user.profileImage}
+            sellerImage={seller.user.profileImage[0].url}
             sellerName={seller.user.firstName}
             bit={minAmount}
             hours={createdAt}
