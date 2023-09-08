@@ -7,7 +7,6 @@ import { FaEllipsisH, FaTrash } from 'react-icons/fa';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { ModalShare, ModalReport } from '../ModalShare';
-// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const Card = ({
   id,
@@ -20,8 +19,6 @@ const Card = ({
   profileImage3,
   placeBit,
 }) => {
-  // const { isAdmin } = useContext(UsersAndNFTsContext);
-
   const role = localStorage.getItem('role');
 
   let isAdmin = false;
@@ -29,7 +26,6 @@ const Card = ({
     isAdmin = true;
   }
 
-  // const [likes, setLikes] = useState(totalLikes);
   const [showOptions, setShowOptions] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
