@@ -1,16 +1,17 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable arrow-body-style */
 import './Header.scss';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { FiBell, FiSun } from 'react-icons/fi';
+import { FiBell, FiSun, FiMoon } from 'react-icons/fi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
 import { useJwt } from 'react-jwt';
 import logo from '../../assets/logo-neuron.png';
 
-const Header = () => {
+const Header = ({ chooseTheme, selectedTheme }) => {
   const navigate = useNavigate();
 
   const { isExpired } = useJwt(localStorage.getItem('token'));
@@ -78,7 +79,7 @@ const Header = () => {
 
   return (
     <div className="header-secction">
-      <header onMouseLeave={handleHideAllLists}>
+      <header onMouseLeave={handleHideAllLists} className={selectedTheme === 'dark' ? 'dark-mode' : 'ligth-mode'}>
         <NavLink to="/">
           <img src={logo} alt="Nuron logo" />
         </NavLink>
@@ -91,7 +92,7 @@ const Header = () => {
             {showHome
               && (
                 <ul
-                  className="home__list"
+                  className="home__list color-theme"
                   onMouseEnter={handleHomeHover}
                   onMouseLeave={() => setShowHome(false)}
                 >
@@ -115,7 +116,7 @@ const Header = () => {
           {showExplore
             && (
               <ul
-                className="explore__list"
+                className="explore__list color-theme"
                 onMouseEnter={handleExploreHover}
                 onMouseLeave={() => setShowExplore(false)}
               >
@@ -140,7 +141,7 @@ const Header = () => {
           {showPages
             && (
               <ul
-                className="pages__list"
+                className="pages__list color-theme"
                 onMouseEnter={handlePagesHover}
                 onMouseLeave={() => setShowPages(false)}
               >
@@ -169,27 +170,27 @@ const Header = () => {
             ? (
               <div className="menuOption changeableButtons">
                 <div>
-                  <button type="button" onClick={userRole === 'USER' ? () => navigate('/my-profile') : () => navigate('/ranking')}>{userRole === 'USER' ? 'Profile' : 'Dashboard'}</button>
+                  <button className="color-theme" type="button" onClick={userRole === 'USER' ? () => navigate('/my-profile') : () => navigate('/ranking')}>{userRole === 'USER' ? 'Profile' : 'Dashboard'}</button>
                 </div>
                 <div>
-                  <button type="button" onClick={handleSignOut}>Sign out</button>
+                  <button className="color-theme" type="button" onClick={handleSignOut}>Sign out</button>
                 </div>
               </div>
             )
             : (
               <div className="menuOption changeableButtons">
                 <div>
-                  <button type="button" onClick={() => navigate('/sign-up')}>Register</button>
+                  <button className="color-theme" type="button" onClick={() => navigate('/sign-up')}>Register</button>
                 </div>
                 <div>
-                  <button type="button" onClick={() => navigate('/login')}>Login</button>
+                  <button className="color-theme" type="button" onClick={() => navigate('/login')}>Login</button>
                 </div>
               </div>
             )
         }
         <section className="buttonsContainer">
           <div
-            className="iconContainer"
+            className="iconContainer color-theme"
             id="searchShower"
             onClick={() => setShowSearchBar(!showSearchBar)}
             role="button"
@@ -203,14 +204,14 @@ const Header = () => {
             <AiOutlineSearch />
           </div>
           <div className="searchInHeaderContainer">
-            <input type="text" placeholder="Search..." className="searchInHeader" />
+            <input type="text" placeholder="Search..." className="color-theme searchInHeader" />
             {/* eslint-disable-next-line */}
-            <button type="button" className="searchButtonInHeader"><AiOutlineSearch /></button>
+            <button type="button" className="searchButtonInHeader color-theme"><AiOutlineSearch /></button>
           </div>
-          <div><button type="button">Wallet connect</button></div>
-          <div className="iconContainer"><FiBell /></div>
+          <div><button className="color-theme" type="button">Wallet connect</button></div>
+          <div className="iconContainer color-theme"><FiBell /></div>
           <div
-            className="iconContainer"
+            className="iconContainer color-theme"
             id="hamburgerIcon"
             onClick={() => setShowSideMenu(!showSideMenu)}
             role="button"
@@ -223,7 +224,13 @@ const Header = () => {
           >
             <RxHamburgerMenu />
           </div>
-          <div className="iconContainer"><FiSun /></div>
+          <button
+            type="submit"
+            onClick={chooseTheme}
+            className="iconContainer color-theme"
+          >
+            {selectedTheme === 'dark' ? <FiSun /> : <FiMoon />}
+          </button>
         </section>
 
         {showSearchBar
@@ -237,14 +244,14 @@ const Header = () => {
 
         {showSideMenu
           && (
-            <section className="sideMenu">
+            <section className="sideMenu color-menu-mobile">
               <div>
                 <img src="src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
                 <button type="button" className="xButton" onClick={() => setShowSideMenu(false)}>
                   <HiOutlineX />
                 </button>
               </div>
-              <ul className="menuInMobile">
+              <ul className="menuInMobile color-theme">
                 <li
                   onClick={toggleHomeList}
                   role="menuitem"
@@ -418,6 +425,7 @@ const Header = () => {
                         <div>
                           <button
                             type="button"
+                            className="color-theme"
                             onClick={() => {
                               setShowSideMenu(false);
                               navigate('/sign-up');
@@ -430,6 +438,7 @@ const Header = () => {
                         <div>
                           <button
                             type="button"
+                            className="color-theme"
                             onClick={() => {
                               setShowSideMenu(false);
                               navigate('/login');

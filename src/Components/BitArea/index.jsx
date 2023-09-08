@@ -36,7 +36,7 @@ const BitArea = ({
           throw new Error('Network response was not ok');
         }
         const ownerData = await response.json();
-        if (isMounted.current) {
+        if (!isMounted.current) {
           // Verificar si el componente todavía está montado antes de actualizar el estado
           setSeller(ownerData);
           setLoading(false);
@@ -83,7 +83,7 @@ const BitArea = ({
           <h6 className="title1">Winning bit</h6>
           <BitSeller
             key={seller.user.id}
-            sellerImage={seller.user.profileImage}
+            sellerImage={seller.user.profileImage[0].url}
             sellerName={seller.user.firstName}
             bit={minAmount}
             hours={createdAt}

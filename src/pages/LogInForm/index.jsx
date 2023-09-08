@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './LogInForm.scss';
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
@@ -62,6 +63,7 @@ const LogInForm = () => {
                 Password
                 <input type="password" onChange={handleChange} name="password" id="password" />
               </label>
+              <Link to="/email-form"><p>Forgot your password?</p></Link>
               <label htmlFor="checkbox">
                 <input type="checkbox" id="checkbox" />
                 Remember me later
