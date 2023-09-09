@@ -6,6 +6,7 @@ import '../../style/NoData.scss';
 const NftOnSale = ({ nftIds }) => {
   const [data, setData] = useState([]);
   const [sale, setSale] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,10 +48,16 @@ const NftOnSale = ({ nftIds }) => {
       }
     }
     fetchData();
+    if (sale?.length > 0) {
+      setLoading(false);
+    }
   }, [data]);
 
-  if (sale.length === 0) {
+  if (loading) {
     return <div className="no-data">Loading...</div>;
+  }
+  if (data.length === 0) {
+    return <div className="no-data">No nfts up for auction</div>;
   }
   return (
     <>
