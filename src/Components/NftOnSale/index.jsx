@@ -5,7 +5,6 @@ import '../../style/NoData.scss';
 
 const NftOnSale = ({ nftIds }) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [sale, setSale] = useState([]);
 
   useEffect(() => {
@@ -33,31 +32,29 @@ const NftOnSale = ({ nftIds }) => {
           const results = await Promise.all(promises);
           setData(results);
         }
+        if (data) {
+          const onSale = (finishDate) => {
+            const currentDate = new Date();
+            return new Date(finishDate) > currentDate;
+          };
+          const auction = data.filter((nft) => {
+            return nft.auction.length > 0 && onSale(nft.auction[0].finishDate);
+          });
+          setSale(auction);
+        }
       } catch (error) {
         console.error('Error al obtener datos de NFT:', error);
       }
     }
     fetchData();
-
-    if (data) {
-      const onSale = (finishDate) => {
-        const currentDate = new Date();
-        return new Date(finishDate) > currentDate;
-      };
-      const auction = data.filter((nft) => {
-        return nft.auction.length > 0 && onSale(nft.auction[0].finishDate);
-      });
-      setSale(auction);
-      setLoading(false);
-    }
   }, [data]);
 
-  if (loading) {
+  if (sale.length === 0) {
     return <div className="no-data">Loading...</div>;
   }
   return (
     <>
-      {sale.length > 0 ? (sale.map((nft) => {
+      {sale.length !== 0 ? (sale.map((nft) => {
         return (
           <React.Fragment key={nft.id}>
             <Card
