@@ -180,17 +180,17 @@ const Header = ({ chooseTheme, selectedTheme }) => {
             : (
               <div className="menuOption changeableButtons">
                 <div>
-                  <button className="color-theme" type="button" onClick={() => navigate('/sign-up')}>Register</button>
+                  <button className="color-theme color-bg" type="button" onClick={() => navigate('/sign-up')}>Register</button>
                 </div>
                 <div>
-                  <button className="color-theme" type="button" onClick={() => navigate('/login')}>Login</button>
+                  <button className="color-theme color-bg" type="button" onClick={() => navigate('/login')}>Login</button>
                 </div>
               </div>
             )
         }
         <section className="buttonsContainer">
           <div
-            className="iconContainer color-theme"
+            className="iconContainer color-theme color-bg"
             id="searchShower"
             onClick={() => setShowSearchBar(!showSearchBar)}
             role="button"
@@ -204,14 +204,14 @@ const Header = ({ chooseTheme, selectedTheme }) => {
             <AiOutlineSearch />
           </div>
           <div className="searchInHeaderContainer">
-            <input type="text" placeholder="Search..." className="color-theme searchInHeader" />
+            <input type="text" placeholder="Search..." className="color-theme color-bg searchInHeader" />
             {/* eslint-disable-next-line */}
-            <button type="button" className="searchButtonInHeader color-theme"><AiOutlineSearch /></button>
+            <button type="button" className="searchButtonInHeader color-theme color-bg"><AiOutlineSearch /></button>
           </div>
-          <div><button className="color-theme" type="button">Wallet connect</button></div>
-          <div className="iconContainer color-theme"><FiBell /></div>
+          <div><button className="color-theme color-bg" type="button">Wallet connect</button></div>
+          <div className="iconContainer color-theme color-bg"><FiBell /></div>
           <div
-            className="iconContainer color-theme"
+            className="iconContainer color-theme color-bg"
             id="hamburgerIcon"
             onClick={() => setShowSideMenu(!showSideMenu)}
             role="button"
@@ -227,7 +227,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
           <button
             type="submit"
             onClick={chooseTheme}
-            className="iconContainer color-theme"
+            className="iconContainer color-theme color-bg"
           >
             {selectedTheme === 'dark' ? <FiSun /> : <FiMoon />}
           </button>
@@ -402,6 +402,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
                       <div>
                         <div>
                           <button
+                            className="color-theme color-button-light"
                             type="button"
                             onClick={userRole === 'USER' ? () => {
                               setShowSideMenu(false);
@@ -416,7 +417,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
                           </button>
                         </div>
                         <div>
-                          <button type="button" onClick={handleSignOut}>Sign out</button>
+                          <button type="button" className="color-theme color-button-light" onClick={handleSignOut}>Sign out</button>
                         </div>
                       </div>
                     )
@@ -425,7 +426,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
                         <div>
                           <button
                             type="button"
-                            className="color-theme"
+                            className="color-theme color-button-light"
                             onClick={() => {
                               setShowSideMenu(false);
                               navigate('/sign-up');
@@ -438,7 +439,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
                         <div>
                           <button
                             type="button"
-                            className="color-theme"
+                            className="color-theme color-button-light"
                             onClick={() => {
                               setShowSideMenu(false);
                               navigate('/login');

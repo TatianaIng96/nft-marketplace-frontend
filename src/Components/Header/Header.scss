@@ -37,7 +37,7 @@ $ligth-background: #f5f8fa;
 
   @mixin header-menus {
     list-style-type: none;
-    background-color: #13131D;
+    // background-color: #13131D;
     padding: 10px;
   }
 
@@ -57,11 +57,22 @@ $ligth-background: #f5f8fa;
     cursor: pointer;
   }
 
-  li:hover {
-    color: #00A3FF;
-    background-color: black;
-    border-radius: 5px;
+  .ligth-mode {
+    li:hover {
+      color: $dark-color-blue;
+      background-color: $silver-color;
+      border-radius: 5px;
+    }
   }
+
+  .dark-mode {
+    li:hover {
+      color: #00A3FF;
+      background-color: black;
+      border-radius: 5px;
+    }
+  }
+
 
   .sideMenuItems {
     margin: auto;
@@ -174,8 +185,12 @@ $ligth-background: #f5f8fa;
 
   .dark-mode {
     .color-theme {
-      background-color: $medium-color-blue !important;
+      background-color: $main-background !important;
       color: $silver-color !important;
+    }
+
+    .color-bg {
+      background-color: $medium-color-blue !important;
     }
 
     .color-menu-mobile {
@@ -189,6 +204,16 @@ $ligth-background: #f5f8fa;
       background-color: #d6d5d5 !important;
       color: $medium-color-blue !important;
       border: none;
+    }
+
+    .color-button-light {
+      background-color: $silver-color !important;
+    }
+
+    .sideMenuItems {
+      &:hover {
+        background-color: $silver-color !important;
+      }
     }
 
     .color-menu-mobile {

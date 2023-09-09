@@ -11,9 +11,9 @@ const ThemeProvider = ({ children }) => {
   };
 
   const backgroundColor = theme === 'dark' ? '#13131d' : '#ACACAC';
-  // const color = theme === 'dark' ? '' : '#13131d';
+  const color = theme === 'dark' ? '' : '#13131d';
   document.body.style.backgroundColor = backgroundColor;
-  // document.body.style.color = color;
+  document.body.style.color = color;
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
