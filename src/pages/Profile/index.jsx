@@ -13,7 +13,6 @@ const Profile = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const [nftIds, setNftIds] = useState([]);
   const [isActive, setIsActive] = useState(2);
   const buton = ['On Sale', 'Owned', 'Created'];
 
@@ -37,10 +36,6 @@ const Profile = () => {
       }
     }
     fetchUser();
-    if (Object.keys(user).length !== 0) {
-      const nftIdOwner = user.nftOwner.map((nft) => { return nft.nftId; });
-      setNftIds(nftIdOwner);
-    }
   }, [user]);
 
   const handleClick = (buttonId) => {
@@ -111,8 +106,8 @@ const Profile = () => {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                {isActive === 0 && <NftOnSale nftIds={nftIds} />}
-                {isActive === 1 && <NftOwners nftIds={nftIds} />}
+                {isActive === 0 && <NftOnSale userId={user.id} />}
+                {isActive === 1 && <NftOwners userId={user.id} />}
                 {isActive === 2 && <NftCreated userId={user.id} />}
               </div>
             </div>

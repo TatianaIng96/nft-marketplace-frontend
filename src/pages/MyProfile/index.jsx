@@ -13,7 +13,6 @@ const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [likeNftIds, setLikeNftIds] = useState([]);
-  const [nftIds, setNftIds] = useState([]);
 
   const [isActive, setIsActive] = useState(2);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
@@ -38,9 +37,7 @@ const MyProfile = () => {
     }
     fetchUser();
     if (Object.keys(user).length !== 0) {
-      const nftIdOwner = user.nftOwner.map((nft) => { return nft.nftId; });
       const nftLike = user.like.map((like) => { return like.nft.id; });
-      setNftIds(nftIdOwner);
       setLikeNftIds(nftLike);
     }
   }, [user]);
@@ -112,8 +109,8 @@ const MyProfile = () => {
           <div className="row">
             <div className="wrapper-option">
               <div className="cards">
-                {isActive === 0 && <NftOnSale nftIds={nftIds} />}
-                {isActive === 1 && <NftOwners nftIds={nftIds} />}
+                {isActive === 0 && <NftOnSale userId={user.id} />}
+                {isActive === 1 && <NftOwners userId={user.id} />}
                 {isActive === 2 && <NftCreated userId={user.id} />}
                 {isActive === 3 && <NftLikes likeNftIds={likeNftIds} />}
               </div>

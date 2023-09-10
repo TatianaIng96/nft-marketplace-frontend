@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Card';
 import '../../style/NoData.scss';
 
-const NftOnSale = ({ nftIds }) => {
+const NftOnSale = ({ userId }) => {
   const [data, setData] = useState([]);
-  const [sale, setSale] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,44 +14,16 @@ const NftOnSale = ({ nftIds }) => {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         };
-        const promises = nftIds.map(async (nftId) => {
-          const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/api/nft/${nftId}`,
-            fetchConfig,
-          );
-
-          if (!response.ok) {
-            throw new Error(`Error al obtener datos de NFT para ID: ${nftId}`);
-          }
-          const nft = await response.json();
-
-          nft.key = nftId;
-          return nft;
-        });
-        if (promises.length > 0) {
-          const results = await Promise.all(promises);
-          setData(results);
-        }
-        if (data) {
-          const onSale = (finishDate) => {
-            const currentDate = new Date();
-            return new Date(finishDate) > currentDate;
-          };
-          const auction = data.filter((nft) => {
-            return nft.auction.length > 0 && onSale(nft.auction[0].finishDate);
-          });
-          setSale(auction);
-        }
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/user/auction/${userId}`, fetchConfig);
+        const nft = await response.json();
+        setData(nft);
+        setLoading(false);
       } catch (error) {
         console.error('Error al obtener datos de NFT:', error);
       }
     }
     fetchData();
-    if (sale?.length > 0) {
-      setLoading(false);
-    }
-  }, [data]);
-
+  }, []);
   if (loading) {
     return <div className="no-data">Loading...</div>;
   }
@@ -61,7 +32,7 @@ const NftOnSale = ({ nftIds }) => {
   }
   return (
     <>
-      {sale.length !== 0 ? (sale.map((nft) => {
+      {data.length !== 0 ? (data.map((nft) => {
         return (
           <React.Fragment key={nft.id}>
             <Card
@@ -69,10 +40,10 @@ const NftOnSale = ({ nftIds }) => {
               userId={nft.userId}
               nftName={nft.name}
               price={nft.price}
-              nftImage={nft.imageForNft[0]}
-              profileImage1={nft.imageForNft[0]}
-              profileImage2={nft.imageForNft[1]}
-              profileImage3={nft.imageForNft[2]}
+              nftImage={nft.imageForNft[0].nftImage.url}
+              profileImage1={nft.imageForNft[0].nftImage.url}
+              profileImage2={nft.imageForNft[1].nftImage.url}
+              profileImage3={nft.imageForNft[2].nftImage.url}
               placeBit={nft.auctionCount}
             />
           </React.Fragment>
