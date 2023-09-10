@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './LogInForm.scss';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
@@ -14,6 +14,8 @@ const LogInForm = () => {
 
   const navigate = useNavigate();
 
+  const [message, setMessage] = useState('');
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -24,28 +26,42 @@ const LogInForm = () => {
     };
 
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/local/login`, fetchConfig);
-    const { profile, token } = await response.json();
+    const data = await response.json();
 
-    const {
-      firstName, lastName, email, role,
-    } = profile;
+    if (data.message) {
+      setMessage(data.message);
+    }
 
-    localStorage.setItem('token', token);
-    localStorage.setItem('firstName', firstName);
-    localStorage.setItem('lastName', lastName);
-    localStorage.setItem('email', email);
-    localStorage.setItem('role', role);
+    if (!data.message) {
+      const { profile, token } = data;
 
-    setLoggedUser({
-      firstName, lastName, email, role, token,
-    });
+      const {
+        firstName, lastName, email, role,
+      } = profile;
 
-    if (role === 'USER') {
-      navigate('/my-profile');
-    } else {
-      navigate('/ranking');
+      localStorage.setItem('token', token);
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('email', email);
+      localStorage.setItem('role', role);
+
+      setLoggedUser({
+        firstName, lastName, email, role, token,
+      });
+
+      setMessage(data.message);
+
+      if (role === 'USER') {
+        navigate('/my-profile');
+      } else {
+        navigate('/ranking');
+      }
     }
   };
+
+  if (message !== '') {
+    return <div className="message">{message}</div>;
+  }
 
   return (
     <div className="logInFormContainer">
