@@ -32,7 +32,6 @@ const Card = ({
   const like = 0;
   const [data, setData] = useState(false);
   const [likes, setLikes] = useState(like);
-  const [profileId, setProfileId] = useState(userId);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const Card = ({
         const idUser = decodedToken.id;
         const userLike = dataCard.some((item) => { return item.userId === idUser; });
         setData(userLike);
-        setProfileId(idUser);
       }
 
       const likeCount = {
@@ -183,7 +181,7 @@ const Card = ({
         {openModalReport && <ModalReport setOpenModalReport={setOpenModalReport} />}
 
         <article className="nft-name">
-          <Link to={profileId === userId ? '/my-profile/' : `/profile/${userId}`}>
+          <Link to={decodedToken?.id === userId ? '/my-profile/' : `/profile/${userId}`}>
             {' '}
             {nftName}
             {' '}
