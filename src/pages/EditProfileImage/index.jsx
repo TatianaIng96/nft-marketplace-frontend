@@ -8,7 +8,7 @@ import './EditProfileImage.scss';
 import { useRef, useState, useEffect } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 
@@ -79,37 +79,37 @@ const EditProfileImage = () => {
 
     data.append('url', profileImageFile[0], profileImageFile[0].name);
 
-    axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
-      data,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-      },
-    );
-
-    // const fetchConfigPost = {
-    //   method: 'POST',
-    //   body: data,
-    //   headers: {
-    //     'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //   },
-    // };
-
-    // const fetchConfigPut = {
-    //   method: 'PUT',
-    //   body: data,
-    //   headers: {
-    //     'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //   },
-    // };
-
-    // await fetch(
+    // axios.post(
     //   `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
-    //   user.profileImage[0] ? fetchConfigPut : fetchConfigPost,
+    //   data,
+    //   {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //       'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //     },
+    //   },
     // );
+
+    const fetchConfigPost = {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    const fetchConfigPut = {
+      method: 'PUT',
+      body: data,
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
+    await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
+      user.profileImage[0] ? fetchConfigPut : fetchConfigPost,
+    );
 
     navigate('/my-profile');
   };
