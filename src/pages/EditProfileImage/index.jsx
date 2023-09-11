@@ -8,7 +8,6 @@ import './EditProfileImage.scss';
 import { useRef, useState, useEffect } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-// import axios from 'axios';
 import Inner from '../../Components/Inner';
 import EditProfileMenu from '../../Components/EditProfileMenu';
 
@@ -78,17 +77,6 @@ const EditProfileImage = () => {
     const data = new FormData();
 
     data.append('url', profileImageFile[0], profileImageFile[0].name);
-
-    // axios.post(
-    //   `${import.meta.env.VITE_API_BASE_URL}/api/profile-image/`,
-    //   data,
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //       'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    //     },
-    //   },
-    // );
 
     const fetchConfigPost = {
       method: 'POST',

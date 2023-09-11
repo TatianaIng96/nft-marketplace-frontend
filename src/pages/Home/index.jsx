@@ -29,8 +29,6 @@ const Home = () => {
     };
     fetchAllNFTs();
 
-    // setDataNft(cardData);
-
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1199);
     };
