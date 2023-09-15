@@ -22,6 +22,7 @@ const LogInForm = () => {
   const navigate = useNavigate();
 
   const [message, setMessage] = useState('');
+  const [messageExists, setMessageExists] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -36,6 +37,7 @@ const LogInForm = () => {
     const data = await response.json();
 
     if (data.message) {
+      setMessageExists(true);
       setMessage(data.message);
     }
 
@@ -55,8 +57,6 @@ const LogInForm = () => {
       setLoggedUser({
         firstName, lastName, email, role, token,
       });
-
-      setMessage(data.message);
 
       if (role === 'USER') {
         navigate('/my-profile');
@@ -105,12 +105,18 @@ const LogInForm = () => {
         navigate('/my-profile');
       }
     } catch (error) {
-      console.log(error);
+      setMessageExists(true);
+      setMessage(error.message);
     }
   };
 
-  if (message !== '') {
-    return <div className="message">{message}</div>;
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
   }
 
   return (
