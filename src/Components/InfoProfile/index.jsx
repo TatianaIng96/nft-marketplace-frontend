@@ -4,7 +4,6 @@ import {
   FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
-// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const InfoProfile = (props) => {
   const {
@@ -14,8 +13,6 @@ const InfoProfile = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openModalReport, setOpenModalReport] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
-
-  // const { isAdmin } = useContext(UsersAndNFTsContext);
 
   useEffect(() => {
     const closeOptionWhenClickOut = (e) => {

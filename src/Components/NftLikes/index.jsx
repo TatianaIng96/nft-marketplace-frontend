@@ -6,6 +6,8 @@ import Card from '../Card';
 const NftLikes = ({ likeNftIds }) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -30,15 +32,11 @@ const NftLikes = ({ likeNftIds }) => {
         });
 
         const results = await Promise.all(promises);
-        // const nftData = {};
-        // results.forEach((data, index) => {
-        //   const nftId = nftIds[index];
-        //   nftData[nftId] = data;
-        // });
         setData(results);
         setLoading(false);
       } catch (error) {
-        console.error('Error al obtener datos de NFT:', error);
+        setMessageExists(true);
+        setMessage(`Error obtaining NFT data: ${error.message}`);
       }
     }
     fetchData();
@@ -47,6 +45,16 @@ const NftLikes = ({ likeNftIds }) => {
   if (loading) {
     return <div className="no-data">Loading...</div>;
   }
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
+  }
+
   return (
     <>
       {data.length > 0 ? (data.map((nft) => {

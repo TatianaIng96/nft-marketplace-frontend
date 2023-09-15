@@ -30,13 +30,16 @@ $dark-color-blue: #242435;
       @include transition-style;
       font-weight: 400;
       color: #fff;
+
       &:hover {
         color: $blue-color;
       }
     }
+
     .row {
       @include transition-style;
       font-size: 22px;
+
       &:hover {
         color: $blue-color;
       }
@@ -47,6 +50,7 @@ $dark-color-blue: #242435;
     position: absolute;
     top: -20px;
     right: 0;
+
     a {
       img {
         width: 5rem;
@@ -78,8 +82,6 @@ $dark-color-blue: #242435;
     width: 15.5rem;
   }
 }
-
-// List of cards
 
 .step-flex {
   display: flex;

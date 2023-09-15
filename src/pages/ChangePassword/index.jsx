@@ -11,13 +11,16 @@ const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      alert('New password and confirm do not match');
+      setMessageExists(true);
+      setMessage('New password and confirm do not match');
       return;
     }
 
@@ -38,11 +41,13 @@ const ChangePassword = () => {
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/change-password`, fetchConfig);
 
     if (response.ok) {
-      alert('Password succesfuly changed');
+      setMessageExists(true);
+      setMessage('Password succesfuly changed');
       navigate('/my-profile');
     } else {
       const data = response.json();
-      alert(`Error to change password: ${data.error}`);
+      setMessageExists(true);
+      setMessage(`Error to change password: ${data.error}`);
     }
   };
 
@@ -93,6 +98,12 @@ const ChangePassword = () => {
           </section>
         </div>
       </div>
+      {messageExists && (
+        <div className="message">
+          {message}
+          <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+        </div>
+      )}
     </div>
   );
 };

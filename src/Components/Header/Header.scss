@@ -31,13 +31,11 @@ $ligth-background: #f5f8fa;
     all: unset;
     font-size: 0.8rem;
     font-weight: 500;
-    // background-color: #212E48;
     padding: 7px 12px;
   }
 
   @mixin header-menus {
     list-style-type: none;
-    // background-color: #13131D;
     padding: 10px;
   }
 
@@ -159,7 +157,6 @@ $ligth-background: #f5f8fa;
 
     .menuInMobile {
       list-style-type: none;
-      // color: $grey-icons;
 
       li {
         @include flex-base-conditions($space: space-between);

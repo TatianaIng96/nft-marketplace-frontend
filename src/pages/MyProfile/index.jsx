@@ -13,6 +13,8 @@ const MyProfile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [likeNftIds, setLikeNftIds] = useState([]);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
 
   const [isActive, setIsActive] = useState(2);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
@@ -32,7 +34,8 @@ const MyProfile = () => {
         setUser(fetchedUser);
         setLoading(false);
       } catch (error) {
-        alert({ message: error.message });
+        setMessageExists(true);
+        setMessage(`Error finding user: ${error.message}`);
       }
     }
     fetchUser();
@@ -48,6 +51,15 @@ const MyProfile = () => {
 
   if (loading) {
     return <div className="message">Loading...</div>;
+  }
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
   }
 
   return (

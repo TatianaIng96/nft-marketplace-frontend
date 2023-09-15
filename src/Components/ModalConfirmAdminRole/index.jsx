@@ -17,7 +17,6 @@ const ModalConfirmAdminRole = ({ onCancel }) => {
       ...password,
       [name]: value,
     });
-    console.log(password);
   };
 
   const handleDelete = async (event) => {

@@ -10,7 +10,6 @@ const RecoverPassword = () => {
     password: '',
     confirmPassword: '',
   });
-  // const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;

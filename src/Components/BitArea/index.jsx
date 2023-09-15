@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import './BitArea.scss';
 import { useState, useEffect, useRef } from 'react';
 import CountdownTimer from '../CountdownTimer';
@@ -12,11 +13,12 @@ const BitArea = ({
 
   const [loading, setLoading] = useState(true);
   const isMounted = useRef(true);
-  // Utilizar una referencia para rastrear si el componente está montado
+
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     return () => {
-      // Cuando el componente se desmonte, actualizar la referencia
       isMounted.current = false;
     };
   }, []);
@@ -37,19 +39,17 @@ const BitArea = ({
         }
         const ownerData = await response.json();
         if (!isMounted.current) {
-          // Verificar si el componente todavía está montado antes de actualizar el estado
           setSeller(ownerData);
           setLoading(false);
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setMessageExists(true);
+        setMessage('Error fetching data:', error);
       }
     };
 
     fetchAllOwner();
   }, [nftOwnerId]);
-
-  // Renderizar un mensaje de carga mientras se obtienen los datos
 
   const handleModalOpen = () => {
     setModalOpen(true);
@@ -60,13 +60,11 @@ const BitArea = ({
   };
 
   useEffect(() => {
-    // Deshabilitar el scroll en el cuerpo de la página cuando el modal esté abierto
     if (modalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-    // Limpiar el efecto cuando el componente se desmonte
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -76,6 +74,15 @@ const BitArea = ({
     return <div>Loading...</div>;
   }
 
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
+  }
+
   return (
     <div className="bit-area">
       <div className="bet-create">
@@ -83,11 +90,10 @@ const BitArea = ({
           <h6 className="title1">Winning bit</h6>
           <BitSeller
             key={seller.user.id}
-            sellerImage={seller.user.profileImage[0].url}
+            sellerImage={seller.user?.profileImage.length === 0 ? '../../../public/profile-image.png' : seller.user.profileImage[0].url}
             sellerName={seller.user.firstName}
             bit={minAmount}
             hours={createdAt}
-            // eslint-disable-next-line react/jsx-boolean-value
             place={true}
           />
         </div>

@@ -75,9 +75,6 @@ const ModalShop = ({ isOpen, onClose, auctionId }) => {
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
           },
-          content: {
-            // Estilos del contenido del modal aquí
-          },
         }}
       >
         <div className="modal-content-background" onClick={onClose}>
@@ -122,7 +119,7 @@ const ModalShop = ({ isOpen, onClose, auctionId }) => {
                         </span>
                         <span className="left">1 wETH</span>
                         <span className="left-t">
-                          {parseInt(`${balance}`) + 1 || 1 }
+                          {parseInt(`${balance}`) + 1 || 1}
                           {' '}
                           wETH
                         </span>

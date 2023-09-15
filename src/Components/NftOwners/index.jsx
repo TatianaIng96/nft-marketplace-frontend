@@ -6,6 +6,8 @@ import Card from '../Card';
 const NftOwners = ({ userId }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -19,14 +21,26 @@ const NftOwners = ({ userId }) => {
         setData(nft);
         setLoading(false);
       } catch (error) {
-        console.error('Error al obtener datos de NFT:', error);
+        setMessageExists(true);
+        setMessage(`Error obtaining NFT data: ${error.message}`);
       }
     }
     fetchData();
   }, []);
+
   if (loading) {
     return <div className="no-data">Loading...</div>;
   }
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
+  }
+
   return (
     <>
       {data.length !== 0 ? (data.map((nft) => {

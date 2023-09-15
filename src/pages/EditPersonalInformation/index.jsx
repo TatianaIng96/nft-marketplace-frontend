@@ -44,12 +44,6 @@ const EditPersonalInformation = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // const handleChange = (name) => {
-  //   return (e) => {
-  //     setUser({ ...user, [name]: e.target.value });
-  //   };
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 

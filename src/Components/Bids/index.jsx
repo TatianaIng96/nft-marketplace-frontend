@@ -8,6 +8,8 @@ import BitSeller from '../BitSeller';
 const Bids = ({ auctionId }) => {
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchAllBids = async () => {
@@ -25,19 +27,20 @@ const Bids = ({ auctionId }) => {
         }
         const bids = await response.json();
         setSellers(bids);
-        setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
+        setLoading(false);
       } catch (error) {
-        alert('Error fetching data:', error);
+        setMessageExists(true);
+        setMessage(`Error fetching data: ${error.message}`);
       }
     };
 
     fetchAllBids();
   }, [sellers]);
 
-  // Renderizar un mensaje de carga mientras se obtienen los datos
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="bid-secction">
       <div className="top-seller">
@@ -67,6 +70,12 @@ const Bids = ({ auctionId }) => {
         createdAt={sellers.createdAt}
         auctionId={auctionId}
       />
+      {messageExists && (
+        <div className="message">
+          {message}
+          <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+        </div>
+      )}
     </div>
   );
 };

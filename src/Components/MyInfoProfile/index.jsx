@@ -4,7 +4,6 @@ import {
   FaUserPlus, FaShareAlt, FaEllipsisH, FaEdit,
 } from 'react-icons/fa';
 import { ModalShare, ModalReport } from '../ModalShare';
-// import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 
 const MyInfoProfile = (props) => {
   const { firstName, lastName, email } = props;

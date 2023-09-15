@@ -26,8 +26,6 @@ export const UsersAndNFTsProvider = ({ children }) => {
 
   const { decodedToken } = useJwt(token);
 
-  // console.log(decodeToken());
-
   return (
     <UsersAndNFTsContext.Provider
       value={{
