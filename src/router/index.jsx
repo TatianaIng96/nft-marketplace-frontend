@@ -27,6 +27,7 @@ import RecoverPassword from '../pages/RecoverPassword';
 import EmailToRecoverPassword from '../pages/EmailToRecoverPassword';
 import GoToEmail from '../pages/GoToEmail';
 import PasswordUpdated from '../pages/PasswordUpdated';
+import SearchResults from '../pages/SearchResults';
 
 const router = createBrowserRouter([
   {
@@ -95,7 +96,7 @@ const router = createBrowserRouter([
         element: <ActivateAccount />,
       },
       {
-        path: '/verify-account/',
+        path: '/verify-account',
         element: <VerifyAccount />,
       },
       {
@@ -103,16 +104,20 @@ const router = createBrowserRouter([
         element: <RecoverPassword />,
       },
       {
-        path: '/email-form/',
+        path: '/email-form',
         element: <EmailToRecoverPassword />,
       },
       {
-        path: '/email-sent/',
+        path: '/email-sent',
         element: <GoToEmail />,
       },
       {
-        path: '/password-updated/',
+        path: '/password-updated',
         element: <PasswordUpdated />,
+      },
+      {
+        path: '/search-results',
+        element: <SearchResults />,
       },
       {
         path: '/list-nft-admin',

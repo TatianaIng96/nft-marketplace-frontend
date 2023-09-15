@@ -29,6 +29,8 @@ const Header = ({ chooseTheme, selectedTheme }) => {
     window.location.reload();
   };
 
+  const [searchString, setSearchString] = useState('');
+
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
 
@@ -75,6 +77,11 @@ const Header = ({ chooseTheme, selectedTheme }) => {
     setShowHome(false);
     setShowExplore(false);
     setShowPages(false);
+  };
+
+  const handleSearch = () => {
+    navigate(`/search-results?search=${searchString}`);
+    setSearchString('');
   };
 
   return (
@@ -204,9 +211,21 @@ const Header = ({ chooseTheme, selectedTheme }) => {
             <AiOutlineSearch />
           </div>
           <div className="searchInHeaderContainer">
-            <input type="text" placeholder="Search..." className="color-theme color-bg searchInHeader" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="color-theme color-bg searchInHeader"
+              value={searchString}
+              onChange={(e) => setSearchString(e.target.value)}
+            />
             {/* eslint-disable-next-line */}
-            <button type="button" className="searchButtonInHeader color-theme color-bg"><AiOutlineSearch /></button>
+            <button
+              type="button"
+              className="searchButtonInHeader color-theme color-bg"
+              onClick={handleSearch}
+            >
+              <AiOutlineSearch />
+            </button>
           </div>
           <div><button className="color-theme color-bg" type="button">Wallet connect</button></div>
           <div className="iconContainer color-theme color-bg"><FiBell /></div>
@@ -236,9 +255,21 @@ const Header = ({ chooseTheme, selectedTheme }) => {
         {showSearchBar
           && (
             <div className="searchBarContainer">
-              <input type="text" placeholder="Search..." className="searchInput" />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="searchInput"
+                value={searchString}
+                onChange={(e) => setSearchString(e.target.value)}
+              />
               {/* eslint-disable-next-line */}
-              <button type="button" className="searchButton"><AiOutlineSearch /></button>
+              <button
+                type="button"
+                className="searchButton"
+                onClick={handleSearch}
+              >
+                <AiOutlineSearch />
+              </button>
             </div>
           )}
 

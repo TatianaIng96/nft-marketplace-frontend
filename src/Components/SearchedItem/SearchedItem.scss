@@ -1,0 +1,21 @@
+.searched-item {
+  height: 150px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  border: solid 1px #373737;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: #242435;
+
+  img {
+    height: 100%;
+    width: 150px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  h3 {
+    margin-left: 20px;
+  }
+}

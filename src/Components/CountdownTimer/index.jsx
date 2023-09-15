@@ -5,7 +5,6 @@ import './timer.scss';
 
 const CountdownTimer = ({ finishDate }) => {
   const specificDate = new Date(finishDate);
-  // Fecha y hora específica (formato ISO 8601)
   const calculateTime = (totalSeconds) => {
     const days = Math.floor(totalSeconds / (3600 * 24));
     const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
@@ -19,9 +18,8 @@ const CountdownTimer = ({ finishDate }) => {
   const calculateRemainingSeconds = () => {
     const now = new Date();
     const diffInSeconds = differenceInSeconds(startDate, now);
-    return Math.max(0, diffInSeconds); // Asegurarse de que el tiempo restante no sea negativo
+    return Math.max(0, diffInSeconds);
   };
-  // Utilizar la fecha y hora específica como fecha de inicio
   const [remainingSeconds, setRemainingSeconds] = useState(calculateRemainingSeconds());
 
   useEffect(() => {
@@ -29,7 +27,6 @@ const CountdownTimer = ({ finishDate }) => {
       setRemainingSeconds(calculateRemainingSeconds());
     }, 1000);
 
-    // Limpia el intervalo cuando el componente se desmonta
     return () => {
       clearInterval(intervalId);
     };

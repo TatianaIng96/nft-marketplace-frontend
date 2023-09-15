@@ -9,6 +9,8 @@ import BitSeller from '../BitSeller';
 const Winner = ({ auctionId, finishDate, currentDate }) => {
   const [sellers, setSellers] = useState();
   const [loading, setLoading] = useState(true);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
   const [pay, setPay] = useState(false);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
   const [data, setData] = useState();
@@ -29,9 +31,10 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
         }
         const bids = await response.json();
         setSellers(bids);
-        setLoading(false); // Cambiar el estado de carga a falso cuando los datos estén disponibles
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setMessageExists(true);
+        setMessage(`Error fetching data: ${error.message}`);
       }
     };
 
@@ -66,10 +69,19 @@ const Winner = ({ auctionId, finishDate, currentDate }) => {
     }
   }, [sellers]);
 
-  // Renderizar un mensaje de carga mientras se obtienen los datos
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Loading...</div>;
   }
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
+  }
+
   return (
     <div className="winer-secction">
       <div className="top-seller">

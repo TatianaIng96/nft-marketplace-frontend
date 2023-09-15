@@ -17,6 +17,9 @@ const EditProfileImage = () => {
   const profileImageInputRef = useRef(null);
   const coverImageInputRef = useRef(null);
 
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
+
   const [user, setUser] = useState({});
   const [profileImageToRender, setProfileImageToRender] = useState('../../profile-image.png');
   const [coverImageToRender, setCoverImageToRender] = useState('../../nft-background.webp');
@@ -49,7 +52,8 @@ const EditProfileImage = () => {
         const fetchedUser = await response.json();
         setUser(fetchedUser);
       } catch (error) {
-        alert({ message: error.message });
+        setMessageExists(true);
+        setMessage(`Error finding user: ${error.message}`);
       }
     }
     fetchUser();
@@ -158,6 +162,15 @@ const EditProfileImage = () => {
 
     navigate('/my-profile');
   };
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
+  }
 
   return (
     <div>

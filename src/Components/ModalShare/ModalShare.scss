@@ -121,8 +121,6 @@ $main-background: #13131d;
 
 }
 
-// Report Modal
-
 .dark-bg-report {
   background-color: rgba(0, 0, 0, 0.2);
   height: 100vh;
@@ -187,6 +185,7 @@ $main-background: #13131d;
           .button-report {
             margin-bottom: 5px;
             background-color: $blue-color;
+
             &:hover {
               background-color: $dark-color-blue;
             }
@@ -195,6 +194,7 @@ $main-background: #13131d;
           .button-close {
             margin-top: 5px;
             background-color: $dark-color-blue;
+
             &:hover {
               background-color: $blue-color;
             }
@@ -242,4 +242,3 @@ $main-background: #13131d;
   }
 
 }
-

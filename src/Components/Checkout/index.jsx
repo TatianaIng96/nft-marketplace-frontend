@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable import/no-extraneous-dependencies */
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.scss';
 import {
@@ -13,13 +14,19 @@ import {
 const Checkout = ({
   amount, nftId, nftOwnerId, buyerId,
 }) => {
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
+
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
 
-  // const transactionErrors = {
-  //   'Your card has insufficient funds.': () => { return alert('No tienes fondos suficientes'); },
-  // };
+  const transactionErrors = {
+    'Your card has insufficient funds.': () => {
+      setMessageExists(true);
+      setMessage('Insufficient funds');
+    },
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +41,8 @@ const Checkout = ({
       });
 
       if (error) {
-        console.log(error);
+        setMessageExists(true);
+        setMessage(`Error: ${error.message}`);
         return;
       }
       const fetchConfig = {
@@ -53,14 +61,15 @@ const Checkout = ({
 
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/transactions`, fetchConfig);
       if (response.ok) {
-        alert('Payment success');
+        setMessageExists(true);
+        setMessage('Payment successful');
       }
     } catch ({ response }) {
-      // transactionErrors[response.data.message]();
-      console.log(response);
-      // if (response.data.message === 'Your card has insufficient funds.') {
-      //   alert('No tienes fondos suficientes');
-      // }
+      transactionErrors[response.data.message]();
+      if (response.data.message === 'Your card has insufficient funds.') {
+        setMessageExists(true);
+        setMessage('Insufficient funds');
+      }
     } finally {
       elements.getElement(
         CardNumberElement,
@@ -104,6 +113,12 @@ const Checkout = ({
 
         <button type="submit" className="payButton"> Pay </button>
       </form>
+      {messageExists && (
+        <div className="message">
+          {message}
+          <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+        </div>
+      )}
     </div>
   );
 };

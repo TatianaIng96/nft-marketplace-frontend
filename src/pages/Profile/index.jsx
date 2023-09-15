@@ -14,6 +14,8 @@ const Profile = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [isActive, setIsActive] = useState(2);
+  const [messageExists, setMessageExists] = useState(false);
+  const [message, setMessage] = useState('');
   const buton = ['On Sale', 'Owned', 'Created'];
 
   useEffect(() => {
@@ -32,7 +34,8 @@ const Profile = () => {
         setUser(fetchedUser);
         setLoading(false);
       } catch (error) {
-        alert({ message: error.message });
+        setMessageExists(true);
+        setMessage(`Error finding user: ${error.message}`);
       }
     }
     fetchUser();
@@ -44,6 +47,15 @@ const Profile = () => {
 
   if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (messageExists) {
+    return (
+      <div className="message">
+        {message}
+        <button type="button" onClick={() => { return setMessageExists(false); }}>Ok</button>
+      </div>
+    );
   }
 
   return (
