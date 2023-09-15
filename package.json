@@ -11,6 +11,7 @@
     "eslint:fix": "eslint src --ext js,jsx --fix"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.1",
     "@mantine/carousel": "^6.0.19",
     "@mantine/dates": "^6.0.19",
     "@stripe/react-stripe-js": "^2.1.2",
