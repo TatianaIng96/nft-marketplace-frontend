@@ -39,7 +39,7 @@ const Profile = () => {
       }
     }
     fetchUser();
-  }, [user]);
+  }, []);
 
   const handleClick = (buttonId) => {
     setIsActive(buttonId);

@@ -9,31 +9,6 @@ const Heart = ({ id }) => {
   const [likes, setLikes] = useState(like);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchConfig = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      };
-
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfig);
-      const dataCard = await response.json();
-
-      if (decodedToken) {
-        const idUser = decodedToken.id;
-        const userLike = dataCard.some((item) => { return item.userId === idUser; });
-        setData(userLike);
-      }
-
-      const likeCount = {
-        ...dataCard,
-        likeCount: dataCard.length,
-      };
-      setLikes(likeCount.likeCount);
-    }
-    fetchData();
-  }, [likes]);
-
   const handleLikes = async () => {
     if (data === false) {
       const fetchConfigForm = {
@@ -59,12 +34,37 @@ const Heart = ({ id }) => {
     setData(!data);
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
+
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfig);
+      const dataCard = await response.json();
+
+      if (decodedToken) {
+        const idUser = decodedToken.id;
+        const userLike = dataCard.some((item) => { return item.userId === idUser; });
+        setData(userLike);
+      }
+
+      const likeCount = {
+        ...dataCard,
+        likeCount: dataCard.length,
+      };
+      setLikes(likeCount.likeCount);
+    }
+    fetchData();
+  }, [handleLikes]);
+
   return (
     <div className="heart-secction">
       <div className="heart">
         <button type="button" className="like-button" onClick={() => { return handleLikes(); }}>
-          <span className={data === false ? 'like-icon-number' : 'like-icon-number-selected'}>
-            {data === false ? <BsHeart /> : <BsHeartFill />}
+          <span className={data ? 'like-icon-number-selected' : 'like-icon-number'}>
+            {data ? <BsHeartFill /> : <BsHeart />}
             {likes}
           </span>
         </button>

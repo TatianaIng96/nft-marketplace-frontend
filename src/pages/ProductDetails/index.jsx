@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable quote-props */
 import { useState, useEffect } from 'react';
@@ -32,7 +34,7 @@ const ProductDetails = () => {
       setData(dataCard);
     }
     fetchData();
-  }, [data]);
+  }, []);
 
   const finishDate = new Date(data?.auction[0]?.finishDate);
   const currentDate = new Date();
@@ -122,25 +124,25 @@ const ProductDetails = () => {
                     {isActive === 0 && finishDate > currentDate ? (<Bids auctionId={data?.auction[0].id} />) : ''}
                     {isActive === 1 && <Details />}
                     {isActive === 2
-                    && (data?.auction.length >= 2 && data?.auction[0].bid.length < 1)
+                      && (data?.auction.length >= 2 && data?.auction[0].bid.length < 1)
                       ? (<HistoryBids auctionId={data?.auction[1].id} />)
                       : (isActive === 2 && data?.auction.length >= 1
                         ? (<HistoryBids auctionId={data?.auction[0].id} />)
                         : '')}
                     {isActive === 3
-                    && (data?.auction.length > 1 && data?.auction[0].bid.length < 1) ? (
+                      && (data?.auction.length > 1 && data?.auction[0].bid.length < 1) ? (
                       <Winner
                         auctionId={data?.auction[1].id || 1}
                         finishDate={finishDate}
                         currentDate={currentDate}
                       />
-                      ) : (isActive === 3 && data?.auction.length > 0 ? (
-                        <Winner
-                          auctionId={data?.auction[0].id || 1}
-                          finishDate={finishDate}
-                          currentDate={currentDate}
-                        />
-                      ) : '')}
+                    ) : (isActive === 3 && data?.auction.length > 0 ? (
+                      <Winner
+                        auctionId={data?.auction[0].id || 1}
+                        finishDate={finishDate}
+                        currentDate={currentDate}
+                      />
+                    ) : '')}
                   </div>
                 </div>
               </div>

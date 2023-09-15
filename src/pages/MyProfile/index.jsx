@@ -19,6 +19,10 @@ const MyProfile = () => {
   const [isActive, setIsActive] = useState(2);
   const buton = ['On Sale', 'Owned', 'Created', 'Liked'];
 
+  const handleClick = (buttonId) => {
+    setIsActive(buttonId);
+  };
+
   useEffect(() => {
     async function fetchUser() {
       try {
@@ -39,15 +43,12 @@ const MyProfile = () => {
       }
     }
     fetchUser();
+
     if (Object.keys(user).length !== 0) {
       const nftLike = user.like.map((like) => { return like.nft.id; });
       setLikeNftIds(nftLike);
     }
-  }, [user]);
-
-  const handleClick = (buttonId) => {
-    setIsActive(buttonId);
-  };
+  }, [isActive]);
 
   if (loading) {
     return <div className="message">Loading...</div>;

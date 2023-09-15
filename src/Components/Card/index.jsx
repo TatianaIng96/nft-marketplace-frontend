@@ -34,31 +34,6 @@ const Card = ({
   const [likes, setLikes] = useState(like);
   const { decodedToken } = useJwt(localStorage.getItem('token'));
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchConfig = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      };
-
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfig);
-      const dataCard = await response.json();
-
-      if (decodedToken) {
-        const idUser = decodedToken.id;
-        const userLike = dataCard.some((item) => { return item.userId === idUser; });
-        setData(userLike);
-      }
-
-      const likeCount = {
-        ...dataCard,
-        likeCount: dataCard.length,
-      };
-      setLikes(likeCount.likeCount);
-    }
-    fetchData();
-  }, [likes]);
-
   const handleLikes = async () => {
     if (data === false) {
       const fetchConfigForm = {
@@ -85,17 +60,42 @@ const Card = ({
   };
 
   useEffect(() => {
-    const closeOptionWhenClickOut = (e) => {
-      if (showOptions && !e.target.closest('.show-more-options')) {
-        setShowOptions(false);
-      }
-    };
-    document.addEventListener('click', closeOptionWhenClickOut);
+    async function fetchData() {
+      const fetchConfig = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      };
 
-    return () => {
-      document.removeEventListener('click', closeOptionWhenClickOut);
-    };
-  }, [showOptions]);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/like/${id}`, fetchConfig);
+      const dataCard = await response.json();
+
+      if (decodedToken) {
+        const idUser = decodedToken.id;
+        const userLike = dataCard.some((item) => { return item.userId === idUser; });
+        setData(userLike);
+      }
+
+      const likeCount = {
+        ...dataCard,
+        likeCount: dataCard.length,
+      };
+      setLikes(likeCount.likeCount);
+    }
+    fetchData();
+  }, [handleLikes]);
+
+  // useEffect(() => {
+  //   const closeOptionWhenClickOut = (e) => {
+  //     if (showOptions && !e.target.closest('.show-more-options')) {
+  //       setShowOptions(false);
+  //     }
+  //   };
+  //   document.addEventListener('click', closeOptionWhenClickOut);
+
+  //   return () => {
+  //     document.removeEventListener('click', closeOptionWhenClickOut);
+  //   };
+  // }, [showOptions]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -195,8 +195,8 @@ const Card = ({
             wETH
           </span>
           <button type="button" className="like-button" onClick={handleLikes}>
-            <span className={data === false ? 'like-icon-number' : 'like-icon-number-selected'}>
-              {data === false ? <BsHeart /> : <BsHeartFill />}
+            <span className={data ? 'like-icon-number-selected' : 'like-icon-number'}>
+              {data ? <BsHeartFill /> : <BsHeart />}
               {likes}
             </span>
           </button>

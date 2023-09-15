@@ -4,7 +4,7 @@ import '../../style/NoData.scss';
 import Card from '../Card';
 
 const NftLikes = ({ likeNftIds }) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [messageExists, setMessageExists] = useState(false);
   const [message, setMessage] = useState('');
@@ -40,7 +40,7 @@ const NftLikes = ({ likeNftIds }) => {
       }
     }
     fetchData();
-  }, []);
+  }, [likeNftIds]);
 
   if (loading) {
     return <div className="no-data">Loading...</div>;
@@ -74,7 +74,7 @@ const NftLikes = ({ likeNftIds }) => {
 
           </React.Fragment>
         );
-      })) : <div className="no-nft"> you have no nfts to show </div>}
+      })) : <div className="no-nft"> You have no nfts to show </div>}
     </>
   );
 };

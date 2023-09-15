@@ -4,13 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchedItem from '../../Components/SearchedItem';
 
-const fetchConfigUsers = {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-  },
-};
-
 const SearchResults = () => {
   // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,6 +13,13 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const fetchConfigUsers = {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    };
+
     const fetchData = async () => {
       const nftsResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/all`);
       const nftsPromise = nftsResponse.json();
