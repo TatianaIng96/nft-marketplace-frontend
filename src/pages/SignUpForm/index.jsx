@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const {
     loginWithPopup,
     isAuthenticated,
+    user,
   } = useAuth0();
 
   const navigate = useNavigate();
@@ -50,14 +51,18 @@ const SignUpForm = () => {
     });
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleRegister = async () => {
     try {
-      await loginWithPopup();
+      const options = {
+        authorizationParams: { connection: 'google-oauth2' },
+      };
+      console.log(user);
+      await loginWithPopup(options);
 
       const data = {
-        firstName: userToRegister.firstName,
-        lastName: userToRegister.lastName,
-        email: userToRegister.email,
+        firstName: user.given_name,
+        lastName: user.family_name,
+        email: user.email,
       };
 
       const fetchConfig = {
@@ -245,7 +250,7 @@ const SignUpForm = () => {
               <button
                 type="button"
                 className="otherLogin"
-                onClick={handleGoogleLogin}
+                onClick={handleGoogleRegister}
               >
                 <img src="../../Google-Logo.svg.webp" alt="Google Logo" />
                 <p>Log in with Google</p>

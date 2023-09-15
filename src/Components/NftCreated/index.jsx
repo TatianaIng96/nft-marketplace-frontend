@@ -60,7 +60,7 @@ const NftCreated = ({ userId }) => {
 
           </React.Fragment>
         );
-      })) : <div className="no-nft"> you have no nfts to show </div>}
+      })) : <div className="no-nft"> You have no nfts to show </div>}
     </>
   );
 };

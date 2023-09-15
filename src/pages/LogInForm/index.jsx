@@ -1,14 +1,21 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 import './LogInForm.scss';
 import { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import { UsersAndNFTsContext } from '../../store/UsersAndNFTsContext';
 import Inner from '../../Components/Inner';
 import useForm from '../../hooks/useForm';
 
 const LogInForm = () => {
   const { setLoggedUser } = useContext(UsersAndNFTsContext);
+  const {
+    loginWithPopup,
+    isAuthenticated,
+    user,
+  } = useAuth0();
 
   const { object, handleChange } = useForm({});
 
@@ -59,6 +66,49 @@ const LogInForm = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const options = {
+        authorizationParams: { connection: 'google-oauth2' },
+      };
+
+      await loginWithPopup(options);
+
+      const data = {
+        firstName: user.given_name,
+        lastName: user.family_name,
+        email: user.email,
+      };
+
+      const fetchConfig = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/google/login`, fetchConfig);
+      const { token, profile } = await response.json();
+
+      const {
+        firstName, lastName, email, role,
+      } = profile;
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('email', email);
+      localStorage.setItem('role', role);
+
+      if (isAuthenticated) {
+        navigate('/my-profile');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (message !== '') {
     return <div className="message">{message}</div>;
   }
@@ -93,22 +143,26 @@ const LogInForm = () => {
             <article className="otherLoginContainer">
               <h1>Another way to log in</h1>
               <p>Use your other accounts to log in</p>
-              <div className="otherLogin">
+              <button
+                type="button"
+                className="otherLogin"
+                onClick={handleGoogleLogin}
+              >
                 <img src="../../Google-Logo.svg.webp" alt="Google Logo" />
                 <p>Log in with Google</p>
-              </div>
-              <div className="otherLogin">
+              </button>
+              <button type="button" className="otherLogin">
                 <img src="../../facebook-logo.png" alt="Facebook Logo" />
                 <p>Log in with Facebook</p>
-              </div>
-              <div className="otherLogin">
+              </button>
+              <button type="button" className="otherLogin">
                 <img src="../../twitter-logo.png" alt="Twitter Logo" />
                 <p>Log in with Twitter</p>
-              </div>
-              <div className="otherLogin">
+              </button>
+              <button type="button" className="otherLogin">
                 <img src="../../LinkedIn_logo.webp" alt="LinkedIn Logo" />
                 <p>Log in with LinkedIn</p>
-              </div>
+              </button>
             </article>
           </section>
         </div>
