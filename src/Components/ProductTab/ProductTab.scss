@@ -31,9 +31,13 @@
         color: transparent;
         width: 12em;
         height: 12em;
-        @media(min-width:768px) {
-          width: 28em;
-          height: 28em;
+        @media(min-width:520px) and (max-width:767px) {
+          width: 16em;
+          height: 16em;
+        }
+        @media(min-width:768px) and (max-width:1023px){
+          width: 20em;
+          height: 20em;
         }
 
         @media (min-width:1024px) and (max-width:1279px) {
@@ -98,9 +102,13 @@
           color: transparent;
           width: 3em;
           height: 3em;
+          @media (min-width:520px) {
+            width: 4em;
+            height: 4em;
+          }
           @media (min-width:768px) {
-            width: 8em;
-            height: 8em;
+            width: 6em;
+            height: 6em;
           }
 
           @media (min-width:1024px) and (max-width:1279px){
@@ -119,6 +127,13 @@
 
         }
       }
+      @media (min-width:520px) and (max-width:767px) {
+        margin-right: -1em;
+        margin-left: -3em;
+        .link{
+          width: 5.5em;
+        }
+      }
       @media (min-width:768px) and (max-width:910px) {
         margin-right: -2em;
         margin-left: -2em;
@@ -128,9 +143,9 @@
       }
       @media (min-width:912px) and (max-width:1023px) {
         margin-right: -2em;
-        margin-left: 2em;
+        margin-left: -4em;
         .link{
-          width: 9.5em;
+          width: 7.5em;
         }
       }
       @media (min-width:1024px) and (max-width:1279px) {
@@ -165,6 +180,11 @@
 
     }
     position: sticky;
+    @media (min-width:520px) {
+      .tab-inner{
+        margin-left: 3em;
+      }
+    }
     @media (min-width:768px) {
       .tab-inner{
         margin-left: 3em;
