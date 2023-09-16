@@ -136,7 +136,7 @@ const LogInForm = () => {
                 <input type="password" onChange={handleChange} name="password" id="password" />
               </label>
               <Link to="/email-form"><p>Forgot your password?</p></Link>
-              <label htmlFor="checkbox">
+              <label htmlFor="checkbox" className="checkbox-label">
                 <input type="checkbox" id="checkbox" />
                 Remember me later
               </label>

@@ -46,6 +46,10 @@
         color: white;
       }
 
+      p {
+        line-height: 0.5;
+      }
+
       label {
         @include flex-base;
 
@@ -68,6 +72,12 @@
           margin-right: 10px;
           cursor: pointer;
         }
+      }
+
+      .checkbox-label {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
       }
 
       :nth-child(4) {
