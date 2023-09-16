@@ -37,6 +37,13 @@
         margin-right: calc(var(--bs-gutter-x) * 2.5);
         margin-left: calc(var(--bs-gutter-x) * 0);
 
+        @media(min-width:520px) and (max-width:767px) {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          gap: 32px;
+          margin-left: calc(var(--bs-gutter-x) * 0.4);
+        }
+
         @media(min-width:768px) and (max-width:1023px) {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -258,6 +265,9 @@
         background: $blue-color;
         color: #fff;
       }
+      @media(min-width:520px) and (max-width:767px) {
+        width: 30em;
+      }
 
       @media(min-width:768px) and (max-width:1023px) {
         font-size: 16px;
@@ -300,7 +310,8 @@
         width: 18em;
 
         @media(min-width:520px) and (max-width:767px) {
-          width: 25em;
+          width: 24em;
+          margin-left: -2em;
         }
 
         @media(min-width:768px) and (max-width:1023px) {
@@ -353,7 +364,9 @@
           border-radius: 5px;
           border: transparent;
         }
-
+        @media(min-width:520px) and (max-width:767px) {
+          width: 28em;
+        }
         @media(min-width:768px) and (max-width:1023px) {
           width: 12em;
         }
