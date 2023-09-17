@@ -18,9 +18,9 @@ const BitSeller = ({
 
     let resultado = '';
     if (horas > 0) {
-      resultado = `${horas} hour ago`;
+      resultado = `${horas} hours ago`;
     } else {
-      resultado = `${minutos} minute ago`;
+      resultado = `${minutos} minutes ago`;
     }
 
     setTiempoPasado(resultado);
@@ -32,43 +32,43 @@ const BitSeller = ({
       </div>
       <div className="sellerb__info">
         {place === false && (
-        <>
-          <a href="#top">
-            <h4 className="sellerb__info-title">
-              <span className="bit">
-                {bit}
-                wETH  by
-                {' '}
-              </span>
-              {sellerName}
-            </h4>
-          </a>
-          <p className="info-number">
-            {' '}
-            {tiempoPasado}
-            {' '}
-          </p>
-        </>
+          <>
+            <a href="#top">
+              <h4 className="sellerb__info-title">
+                <span className="bit">
+                  {bit}
+                  wETH  by
+                  {' '}
+                </span>
+                {sellerName}
+              </h4>
+            </a>
+            <p className="info-number">
+              {' '}
+              {tiempoPasado}
+              {' '}
+            </p>
+          </>
         )}
         {place === true && (
-        <>
-          <a href="#top">
-            <h4 className="info-title">
-              <span className="bit">
-                Heighest bid
-                {' '}
-              </span>
-              {sellerName}
-            </h4>
-          </a>
-          <p className="number">
-            {' '}
-            {bit}
-            {' '}
-            wETH
-            {' '}
-          </p>
-        </>
+          <>
+            <a href="#top">
+              <h4 className="info-title">
+                <span className="bit">
+                  Heighest bid
+                  {' '}
+                </span>
+                {sellerName}
+              </h4>
+            </a>
+            <p className="number">
+              {' '}
+              {bit}
+              {' '}
+              wETH
+              {' '}
+            </p>
+          </>
         )}
       </div>
     </div>
