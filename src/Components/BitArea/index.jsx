@@ -38,7 +38,7 @@ const BitArea = ({
           throw new Error('Network response was not ok');
         }
         const ownerData = await response.json();
-        if (!isMounted.current) {
+        if (isMounted.current) {
           setSeller(ownerData);
           setLoading(false);
         }
