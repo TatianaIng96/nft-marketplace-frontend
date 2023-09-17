@@ -1,4 +1,5 @@
 import './BitSeller.scss';
+import { useEffect, useState } from 'react';
 
 const BitSeller = ({
   sellerImage,
@@ -7,6 +8,23 @@ const BitSeller = ({
   hours,
   place,
 }) => {
+  const [tiempoPasado, setTiempoPasado] = useState('');
+
+  useEffect(() => {
+    const date = new Date(hours);
+    const diferenciaDeTiempo = new Date() - date;
+    const horas = Math.floor(diferenciaDeTiempo / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenciaDeTiempo / (1000 * 60)) % 60);
+
+    let resultado = '';
+    if (horas > 0) {
+      resultado = `${horas} hour ago`;
+    } else {
+      resultado = `${minutos} minute ago`;
+    }
+
+    setTiempoPasado(resultado);
+  }, []);
   return (
     <div className={`bit-seller ${place && 'back'} `}>
       <div className={`sellerb__image  ${place && 'image'}`}>
@@ -27,9 +45,7 @@ const BitSeller = ({
           </a>
           <p className="info-number">
             {' '}
-            {hours}
-            {' '}
-            hours ago
+            {tiempoPasado}
             {' '}
           </p>
         </>
