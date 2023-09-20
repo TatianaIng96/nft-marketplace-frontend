@@ -277,7 +277,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
           && (
             <section className="sideMenu color-menu-mobile">
               <div>
-                <img src="src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
+                <img src="../../src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
                 <button type="button" className="xButton" onClick={() => setShowSideMenu(false)}>
                   <HiOutlineX />
                 </button>
@@ -483,48 +483,6 @@ const Header = ({ chooseTheme, selectedTheme }) => {
                       </div>
                     )
                 }
-                {/* <NavLink to={localStorage.getItem('token') ? '/my-profile' : '/login'}>
-                  <li
-                    onClick={() => {
-                      setShowSideMenu(false);
-                      setShowSidePages(false);
-                    }}
-                    role="menuitem"
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        setShowSideMenu(false);
-                      }
-                    }}
-                    tabIndex={0}
-                  >
-                    {localStorage.getItem('token') ? 'Profile' : 'Login'}
-                    {' '}
-                  </li>
-                </NavLink>
-                {
-                  localStorage.getItem('token')
-                    ? <button type="button">Sign out</button>
-                    : (
-                      <NavLink to="/sign-up">
-                        <li
-                          onClick={() => {
-                            setShowSideMenu(false);
-                            setShowSidePages(false);
-                          }}
-                          role="menuitem"
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter' || event.key === ' ') {
-                              setShowSideMenu(false);
-                            }
-                          }}
-                          tabIndex={0}
-                        >
-                          Register
-                          {' '}
-                        </li>
-                        </NavLink>
-                    )
-                } */}
               </ul>
             </section>
           )}

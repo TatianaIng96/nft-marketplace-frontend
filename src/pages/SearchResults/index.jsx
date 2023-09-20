@@ -13,14 +13,13 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchConfigUsers = {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      },
-    };
-
     const fetchData = async () => {
+      const fetchConfigUsers = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      };
       const nftsResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/nft/all`);
       const nftsPromise = nftsResponse.json();
       const usersResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users`, fetchConfigUsers);
@@ -42,7 +41,7 @@ const SearchResults = () => {
         return {
           ...user,
           name: `${user.firstName} ${user.lastName}`,
-          image: user.profileImage.length === 0 ? '../../../public/profile-image.png' : user.profileImage[0].url,
+          image: user.profileImage.length === 0 ? '../../../profile-image.png' : user.profileImage[0].url,
         };
       });
       usersToAdd.map((user) => { return allData.push(user); });
