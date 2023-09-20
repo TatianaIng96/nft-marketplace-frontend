@@ -2,7 +2,7 @@ import {
   FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn,
 } from 'react-icons/fa';
 import './Footer.scss';
-import logo from '../../assets/logo-neuron.png';
+import logo from '../../../public/logo-neuron.png';
 import List from './List';
 import TopArrow from '../TopArrow';
 

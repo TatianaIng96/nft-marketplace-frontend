@@ -9,7 +9,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { HiOutlineX } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
 import { useJwt } from 'react-jwt';
-import logo from '../../assets/logo-neuron.png';
+import logo from '../../../public/logo-neuron.png';
 
 const Header = ({ chooseTheme, selectedTheme }) => {
   const navigate = useNavigate();
@@ -277,7 +277,7 @@ const Header = ({ chooseTheme, selectedTheme }) => {
           && (
             <section className="sideMenu color-menu-mobile">
               <div>
-                <img src="../../src/assets/logo-white.png" alt="Nuron logo" className="menuImg" />
+                <img src={logo} alt="Nuron logo" className="menuImg" />
                 <button type="button" className="xButton" onClick={() => setShowSideMenu(false)}>
                   <HiOutlineX />
                 </button>
